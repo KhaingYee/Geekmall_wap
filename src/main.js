@@ -24,7 +24,8 @@ Vue.prototype.$qrCode = QRCode;
 
 import VueQRCodeComponent from 'vue-qrcode-component'
 Vue.component('qr-code', VueQRCodeComponent)
-
+const myanmarPhoneNumber = require('myanmar-phonenumber');
+Vue.prototype.myanmarPhoneNumber = myanmarPhoneNumber;
 
 //检验字符串不为空
 import checkWord from "./utils/nullCheck";

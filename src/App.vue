@@ -16,5 +16,20 @@ export default {
       
     }
   },
+    created() {
+        this.registerMethod();
+    },
+    methods: {
+      registerMethod() {
+        this.axios
+            .post(this.$httpConfig.getloginMethod)
+            .then(res => {
+              this.$store.state.loginMethod = 1;
+            })
+            .catch(error => {
+                console.log(error);
+            });
+      },
+    },
 }
 </script>

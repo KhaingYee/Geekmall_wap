@@ -9,9 +9,13 @@
                 <span class="icon"></span>
                 <input type="text" placeholder="请输入用户名" v-model="username">
             </div>
-            <div class="input-main phone-number">
+            <div class="input-main phone-number" v-if="$store.state.loginMethod == 0">
                 <span class="icon"></span>
                 <input type="number" oninput="if(value.length > 11)value=value.slice(0, 11)"  placeholder="请输入验证手机号码" v-model="mobile">
+            </div>
+            <div class="input-main message" v-if="$store.state.loginMethod == 1">
+                <span class="icon"></span>
+                <input type="text" placeholder="请输入邮箱地址" v-model="mailAcc">
             </div>
             <div class="input-main message">
                 <span class="icon"></span>
@@ -26,9 +30,13 @@
                 <span class="icon"></span>
                 <input type="password" placeholder="请再次输入密码...." v-model="re_password">
             </div>
-            <div class="input-main message">
+            <div class="input-main message" v-if="$store.state.loginMethod == 0">
                 <span class="icon"></span>
                 <input type="text" placeholder="请输入邮箱地址" v-model="email">
+            </div>
+            <div class="input-main phone-number" v-if="$store.state.loginMethod == 1">
+                <span class="icon"></span>
+                <input type="number" placeholder="请输入验证手机号码" v-model="phoneNumber">
             </div>
             <div class="input-main rec">
                 <span class="icon"></span>
@@ -58,6 +66,8 @@
                 btnText:'获取验证码',
                 isActive:false,
                 scrollWatch:true,
+                mailAcc:'',
+                phoneNumber:''
                 // sessionId:''
             }
         },
@@ -70,49 +80,99 @@
                     Toast('请输入用户名');
                     return false; 
                 }
-                if(this.mobile.length != 11){ 
-                    Toast('手机号码有误,请重新输入');
-                    return false; 
-                };
-                if(this.isActive == true)return;
-                    var N = 60,
-                    _this = this,
-                    clear = null;
-                    _this.isActive = true;
-                    _this.btnText = '请'+ N +'秒后重试';
-                    _this.isActive = true;
-                    clear = setInterval(function(){
-                        _this.btnText = '请'+ N-- +'秒后重试';
-                        if(N < 0){
+                if (this.$store.state.loginMethod == 0) {
+                    if(this.mobile.length != 11){ 
+                        Toast('手机号码有误,请重新输入');
+                        return false; 
+                    };
+                }
+                if (this.$store.state.loginMethod == 1) {
+                    if(!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.mailAcc)){
+                        Toast("请输入正确的邮箱地址");
+                        return false;
+                    }
+                }
+                if (this.$store.state.loginMethod == 0) {
+                    if(this.isActive == true)return;
+                        var N = 60,
+                        _this = this,
+                        clear = null;
+                        _this.isActive = true;
+                        _this.btnText = '请'+ N +'秒后重试';
+                        _this.isActive = true;
+                        clear = setInterval(function(){
+                            _this.btnText = '请'+ N-- +'秒后重试';
+                            if(N < 0){
+                                clearInterval(clear);
+                                _this.btnText = '再次获取验证码';
+                                _this.isActive = false;
+                            }
+                        },1000);
+                    this.axios.post(this.$httpConfig.verCode,Qs.stringify({
+                        mobile:_this.mobile,
+                        user_name:this.username,
+                        token: sessionStorage.getItem("data_token")
+                    })).then((res) => {
+                        Toast(res.data.message);
+                        if(res.data.status ==1){
+                        }else{
                             clearInterval(clear);
                             _this.btnText = '再次获取验证码';
                             _this.isActive = false;
                         }
-                    },1000);
-                this.axios.post(this.$httpConfig.verCode,Qs.stringify({
-                    mobile:_this.mobile,
-                    user_name:this.username,
-                    token: sessionStorage.getItem("data_token")
-                })).then((res) => {
-                    Toast(res.data.message);
-                    if(res.data.status ==1){
-                    }else{
-                        clearInterval(clear);
-                        _this.btnText = '再次获取验证码';
-                        _this.isActive = false;
-                    }
-                }).catch((err) => {
-                    console.info('FailtrueErr', err);
-                });
+                    }).catch((err) => {
+                        console.info('FailtrueErr', err);
+                    });
+                }
+                if (this.$store.state.loginMethod == 1) {
+                    if(this.isActive == true)return;
+                        var N = 60,
+                        _this = this,
+                        clear = null;
+                        _this.isActive = true;
+                        _this.btnText = '请'+ N +'秒后重试';
+                        _this.isActive = true;
+                        clear = setInterval(function(){
+                            _this.btnText = '请'+ N-- +'秒后重试';
+                            if(N < 0){
+                                clearInterval(clear);
+                                _this.btnText = '再次获取验证码';
+                                _this.isActive = false;
+                            }
+                        },1000);
+                    this.axios.post(this.$httpConfig.getSendMailbox,Qs.stringify({
+                        mobile:_this.mailAcc,
+                        user_name:this.username,
+                        token: sessionStorage.getItem("data_token")
+                    })).then((res) => {
+                        Toast(res.data.message);
+                        if(res.data.status ==1){
+                        }else{
+                            clearInterval(clear);
+                            _this.btnText = '再次获取验证码';
+                            _this.isActive = false;
+                        }
+                    }).catch((err) => {
+                        console.info('FailtrueErr', err);
+                    });
+                }
             },
             register(){
                 if(this.username.length<2){
                     Toast("请输入至少两位的用户名");
                     return false;
                 }
-                 if(this.mobile.length != 11){
-                    Toast("请输入您的手机号码");
-                    return false;
+                if (this.$store.state.loginMethod == 0) {
+                    if(this.mobile.length != 11){
+                        Toast("请输入您的手机号码");
+                        return false;
+                    }
+                }
+                if (this.$store.state.loginMethod == 1) {
+                    if(!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.mailAcc)){
+                        Toast("请输入正确的邮箱地址");
+                        return false;
+                    }
                 }
                 if(isNaN(this.message)){
                     Toast("请输入短信验证码");
@@ -126,33 +186,67 @@
                     Toast("请输入至少6位的确认密码");
                     return false;
                 }
-                if(!/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.email)){
-                    Toast("请输入邮箱地址");
-                    return false;
-                }
-                  this.axios({
-                    method: 'post',
-                    url: this.$httpConfig.register,
-                    data:Qs.stringify({
-                        user_name:this.username,
-                        mobile:this.mobile,
-                        verify:this.message,
-                        email:this.email,
-                        password:this.password,
-                        re_password:this.re_password,
-                        token: sessionStorage.getItem("data_token")
-                    })
-                }).then((res) => {
-                    Toast(res.data.message);
-                    if(res.data.status == 1){
-                        this.$router.push('/LogIn');
+                // if(!/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.email)){
+                //     Toast("请输入邮箱地址");
+                //     return false;
+                // }
+                if (this.$store.state.loginMethod == 0) {
+                    if(!/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.email)){
+                        Toast("请输入邮箱地址");
+                        return false;
                     }
-                }).catch((err) => {
-                    console.log(err)
-                });
+                }
+                if (this.$store.state.loginMethod == 1) {
+                    if(!this.myanmarPhoneNumber.isValidMMPhoneNumber(this.phoneNumber)){
+                        Toast("请填写正确的手机号");
+                        return false;
+                    }
+                }
+                if (this.$store.state.loginMethod == 0) {
+                    this.axios({
+                        method: 'post',
+                        url: this.$httpConfig.register,
+                        data:Qs.stringify({
+                            user_name:this.username,
+                            mobile:this.mobile,
+                            verify:this.message,
+                            email:this.email,
+                            password:this.password,
+                            re_password:this.re_password,
+                            token: sessionStorage.getItem("data_token")
+                        })
+                    }).then((res) => {
+                        Toast(res.data.message);
+                        if(res.data.status == 1){
+                            this.$router.push('/LogIn');
+                        }
+                    }).catch((err) => {
+                        console.log(err)
+                    });
+                }
+                if (this.$store.state.loginMethod == 1) {
+                    this.axios({
+                        method: 'post',
+                        url: this.$httpConfig.register,
+                        data:Qs.stringify({
+                            user_name:this.username,
+                            mobile:this.phoneNumber,
+                            verify:this.message,
+                            email:this.mailAcc,
+                            password:this.password,
+                            re_password:this.re_password,
+                            token: sessionStorage.getItem("data_token")
+                        })
+                    }).then((res) => {
+                        Toast(res.data.message);
+                        if(res.data.status == 1){
+                            this.$router.push('/LogIn');
+                        }
+                    }).catch((err) => {
+                        console.log(err)
+                    });
+                }
             }
-            
-
         },
         mounted() {
             document.body.scrollTop = 0;

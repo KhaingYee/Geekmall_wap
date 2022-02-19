@@ -18,7 +18,9 @@ const config = {
     //登录注册模块
     logOut: request + 'Register/logOut', //退出登录
     verCode: request + "Register/registerSendMsg", // 短信发送
-    register: request + "Register/register", // 用户注册
+    register: request + "Register/accountRegister", // 用户注册
+    getloginMethod: request + "Register/loginMethod",
+    getSendMailbox: request + "Register/sendMailbox",
     login: request + "Register/loginAccount", // 账户登录
     qqThirdParty: request + 'QQThirdPartyLogin/qqLogin',
     sms: request + "Register/smsLoginSend", // 短信登录--发送短信
