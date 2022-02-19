@@ -24,7 +24,7 @@ export default {
         this.axios
             .post(this.$httpConfig.getloginMethod)
             .then(res => {
-              this.$store.state.loginMethod = 1;
+              this.$store.state.loginMethod = res.data.data;
             })
             .catch(error => {
                 console.log(error);
