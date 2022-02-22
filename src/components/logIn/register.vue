@@ -36,7 +36,7 @@
             </div>
             <div class="input-main phone-number" v-if="$store.state.loginMethod == 1">
                 <span class="icon"></span>
-                <input type="number" placeholder="请输入验证手机号码" v-model="phoneNumber">
+                <input type="number" placeholder="请输入电话号码" v-model="phoneNumber">
             </div>
             <div class="input-main rec">
                 <span class="icon"></span>

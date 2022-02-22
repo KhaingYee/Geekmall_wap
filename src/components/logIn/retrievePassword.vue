@@ -5,14 +5,18 @@
            <span @click="remove" class="btn-back">取消</span>{{title}}
         </header>
         <div class="from">
-            <div class="input-main phone-number">
+            <div class="input-main phone-number" v-if="$store.state.loginMethod == 0">
                 <span class="icon"></span>
                 <input type="text" oninput="if(value.length > 11)value=value.slice(0, 11)" placeholder="请输入验证手机号码" v-model="mobile">
             </div>
+            <div class="input-main message" v-if="$store.state.loginMethod == 1">
+                <span class="icon"></span>
+                <input type="text" placeholder="请输入邮箱地址" v-model="mailAcc">
+            </div>
             <div class="input-main message">
                 <span class="icon"></span>
-                <input type="number" oninput="if(value.length > 4)value=value.slice(0, 6)" placeholder="请输入短信验证码" v-model="message">
-                <button class="btn-ver"  :class="{active:isActive}" @click="obtain">{{btnText}}</button>
+                <input type="number" placeholder="请输入短信验证码" v-model="message">
+                <button class="btn-ver" :class="{active:isActive}" @click="obtain">{{btnText}}</button>
             </div>
            <div class="input-main passWord">
             <span class="icon"></span>
@@ -46,7 +50,8 @@
                 msgimg:'',
                 mobile:'',
                 msgcon:'',
-                verifyImg:''
+                verifyImg:'',
+                mailAcc:''
             }
         },
         components:{
@@ -54,79 +59,151 @@
         },
         methods:{
             obtain(){
-                if(!(/^1[34578]\d{9}$/.test(this.mobile))){ 
-                    Toast('手机号码有误,请重新输入');
-                    return false; 
-                };
-                if(this.isActive == true)return;
-                this.isActive = true;
-                var N = 60,
-                    _this = this,
-                    clear = null;
-                     _this.isActive = true;
-                            _this.btnText = '请'+ N +'秒后重试';
-                            _this.isActive = true;
-                            clear = setInterval(function(){
-                                _this.btnText = '请'+ N-- +'秒后重试';
-                                if(N < 0){
-                                    clearInterval(clear);
-                                    _this.btnText = '再次获取验证码';
-                                    _this.isActive = false;
-                                }
-                            },1000);
-                this.axios.post(this.$httpConfig.backPwdSendSms, qs.stringify({
-                    mobile:this.mobile,
-                    token: sessionStorage.getItem("data_token")
-                })).then((res) => {
-                    if(res.data.status == 1){
-                    }else{
-                        clearInterval(clear);
-                        _this.btnText = '再次获取验证码';
-                        _this.isActive = false;
+                if (this.$store.state.loginMethod == 0) {
+                    if(!(/^1[34578]\d{9}$/.test(this.mobile))){ 
+                        Toast('手机号码有误,请重新输入');
+                        return false; 
+                    };
+                }
+                if (this.$store.state.loginMethod == 1) {
+                    if(!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.mailAcc)){
+                        Toast("请输入正确的邮箱地址");
+                        return false;
                     }
-                    Toast(res.data.message);
-                }).catch((err) => {
-                    console.info('FailtrueErr', err);
-                });
+                }
+                if (this.$store.state.loginMethod == 0) {
+                    if(this.isActive == true)return;
+                    this.isActive = true;
+                    var N = 60,
+                        _this = this,
+                        clear = null;
+                        _this.isActive = true;
+                                _this.btnText = '请'+ N +'秒后重试';
+                                _this.isActive = true;
+                                clear = setInterval(function(){
+                                    _this.btnText = '请'+ N-- +'秒后重试';
+                                    if(N < 0){
+                                        clearInterval(clear);
+                                        _this.btnText = '再次获取验证码';
+                                        _this.isActive = false;
+                                    }
+                                },1000);
+                    this.axios.post(this.$httpConfig.backPwdSendSms, qs.stringify({
+                        mobile:this.mobile,
+                        token: sessionStorage.getItem("data_token")
+                    })).then((res) => {
+                        if(res.data.status == 1){
+                        }else{
+                            clearInterval(clear);
+                            _this.btnText = '再次获取验证码';
+                            _this.isActive = false;
+                        }
+                        Toast(res.data.message);
+                    }).catch((err) => {
+                        console.info('FailtrueErr', err);
+                    });
+                }
+                if (this.$store.state.loginMethod == 1) {
+                    if(this.isActive == true)return;
+                    this.isActive = true;
+                    var N = 60,
+                        _this = this,
+                        clear = null;
+                        _this.isActive = true;
+                                _this.btnText = '请'+ N +'秒后重试';
+                                _this.isActive = true;
+                                clear = setInterval(function(){
+                                    _this.btnText = '请'+ N-- +'秒后重试';
+                                    if(N < 0){
+                                        clearInterval(clear);
+                                        _this.btnText = '再次获取验证码';
+                                        _this.isActive = false;
+                                    }
+                                },1000);
+                    this.axios.post(this.$httpConfig.getSendMailbox, qs.stringify({
+                        email:this.mailAcc,
+                        token: sessionStorage.getItem("data_token")
+                    })).then((res) => {
+                        if(res.data.status == 1){
+                        }else{
+                            clearInterval(clear);
+                            _this.btnText = '再次获取验证码';
+                            _this.isActive = false;
+                        }
+                        Toast(res.data.message);
+                    }).catch((err) => {
+                        console.info('FailtrueErr', err);
+                    });
+                }
             },
             remove(){//路由回退一步
                 this.$router.go(-1)
             },
             logoIn(){
-                 if(!(/^1[34578]\d{9}$/.test(this.mobile))){ 
-                    Toast('手机号码有误,请重新输入');
-                    return false; 
-                };
+                if (this.$store.state.loginMethod == 0) {
+                    if(!(/^1[34578]\d{9}$/.test(this.mobile))){ 
+                        Toast('手机号码有误,请重新输入');
+                        return false; 
+                    };
+                }
+                if (this.$store.state.loginMethod == 1) {
+                    if(!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.mailAcc)){
+                        Toast("请输入正确的邮箱地址");
+                        return false;
+                    }
+                }
                  if(isNaN(this.message.length)){ 
                     Toast("请输入您的验证码");
                     return false; 
                 };
-                if(this.password.length<6 || this.password.length>16){
-                    Toast("请输入6-16位的密码");
+                if(this.password.length<6){
+                    Toast("请输入至少6位的密码");
                     return false; 
                 }
                  if(this.re_password != this.password){
                     Toast("两次输入的密码不同");
                     return false; 
                 }
-                this.axios.post(this.$httpConfig.backPwd, qs.stringify({
-                    mobile:this.mobile,
-                    verify:this.message,
-                    // code:this.msgcon,
-                    password:this.password,
-                    re_password:this.re_password,
-                    token: sessionStorage.getItem("data_token")
-                    // type:'Android'
-                })).then((res) => {
-                     Toast(res.data.message);
-                    if(res.data.status == 1){
-                        this.$router.push({
-                            path : '/LogIn'
-                        })
-                    }
-                }).catch((err) => {
-                    console.log(err);
-                });
+                if (this.$store.state.loginMethod == 0) {
+                    this.axios.post(this.$httpConfig.backPwd, qs.stringify({
+                        mobile:this.mobile,
+                        verify:this.message,
+                        // code:this.msgcon,
+                        password:this.password,
+                        re_password:this.re_password,
+                        token: sessionStorage.getItem("data_token")
+                        // type:'Android'
+                    })).then((res) => {
+                        Toast(res.data.message);
+                        if(res.data.status == 1){
+                            this.$router.push({
+                                path : '/LogIn'
+                            })
+                        }
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+                }
+                if (this.$store.state.loginMethod == 1) {
+                    this.axios.post(this.$httpConfig.backPwd, qs.stringify({
+                        email:this.mailAcc,
+                        verify:this.message,
+                        // code:this.msgcon,
+                        password:this.password,
+                        re_password:this.re_password,
+                        token: sessionStorage.getItem("data_token")
+                        // type:'Android'
+                    })).then((res) => {
+                        Toast(res.data.message);
+                        if(res.data.status == 1){
+                            this.$router.push({
+                                path : '/LogIn'
+                            })
+                        }
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+                }
             },
             goNow(){//跳转注册页
                 this.$router.push({

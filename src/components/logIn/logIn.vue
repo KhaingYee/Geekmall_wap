@@ -32,15 +32,19 @@
                 社交账号一键登录
                 <span></span><span></span>
             </dt>
-            <dd  @click="qqLogin"></dd>
-            <!-- <dd></dd> -->
+            <dd @click="qqLogin" v-if="$store.state.loginMethod == 0" class="Ch-qq"></dd>
+            <dd v-if="$store.state.loginMethod == 1" class="mm-facebook"></dd>
+            <dd v-if="$store.state.loginMethod == 1" class="mm-google"></dd>
         </dl>
         <div class="actionsheet" v-show="isActive">
             <div class="box" @click="increment"></div>
             <div class="acti-box" :class="{active:isActive}">
-                <ul>
+                <ul v-if="$store.state.loginMethod == 0">
                     <li @click="toback">忘记密码</li>
                     <li @click="toSms">短信验证登录</li>
+                </ul>
+                <ul v-if="$store.state.loginMethod == 1">
+                    <li @click="toback">忘记密码</li>
                 </ul>
                 <div class="btn" @click="increment">{{cancelText}}</div>
             </div>
@@ -350,7 +354,7 @@
                     right:0;
                 }
             }
-            dd{
+            .Ch-qq{
                 display:inline-block;
                 width:1.21rem;
                 height:1.21rem;
@@ -358,16 +362,32 @@
                 background-size:100% 100%;
                 margin:.3rem 0;
             }
-            dd:nth-child(3){
-                margin-left:1.2rem;
-                margin-right:1.2rem;
-                background:url(../../assets/wx.jpg) no-repeat;
+            .mm-facebook{
+                display:inline-block;
+                width:1.21rem;
+                height:1.21rem;
+                margin:.3rem .5rem .3rem 0;
+                background:url(../../assets/Facebook_Logo.png) no-repeat;
                 background-size:100% 100%;
             }
-            dd:nth-child(4){
-                background:url(../../assets/logoIn-wb.jpg) no-repeat;
+            .mm-google{
+                display:inline-block;
+                width:1.21rem;
+                height:1.21rem;
+                background:url(../../assets/google_logo.png) no-repeat;
                 background-size:100% 100%;
+                margin:.3rem 0 .3rem .5rem;
             }
+            // dd:nth-child(3){
+            //     margin-left:1.2rem;
+            //     margin-right:1.2rem;
+            //     background:url(../../assets/wx.jpg) no-repeat;
+            //     background-size:100% 100%;
+            // }
+            // dd:nth-child(4){
+            //     background:url(../../assets/logoIn-wb.jpg) no-repeat;
+            //     background-size:100% 100%;
+            // }
         }
         .actionsheet{
             .box{
