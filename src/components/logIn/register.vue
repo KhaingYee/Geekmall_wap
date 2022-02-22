@@ -141,7 +141,7 @@
                             }
                         },1000);
                     this.axios.post(this.$httpConfig.getSendMailbox,Qs.stringify({
-                        mobile:_this.mailAcc,
+                        email:_this.mailAcc,
                         user_name:this.username,
                         token: sessionStorage.getItem("data_token")
                     })).then((res) => {

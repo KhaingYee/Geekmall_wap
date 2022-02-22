@@ -8,12 +8,13 @@
             <div class="from">
                 <div class="input-main userName">
                     <span class="icon"></span>
-                    <input type="text" oninput="if(value.length > 11)value=value.slice(0, 11)" placeholder="邮箱/用户名/已验证手机" v-model="userName" >
+                    <input type="text" placeholder="邮箱/用户名/已验证手机" v-model="userName" >
+                    <!-- <input type="text" oninput="if(value.length > 11)value=value.slice(0, 11)" placeholder="邮箱/用户名/已验证手机" v-model="userName" > -->
                 </div>
                 <div class="input-main passWord">
                     <span class="icon"></span>
-                    <input type="text" oninput="if(value.length > 11)value=value.slice(0, 11)" placeholder="请输入密码...." v-model="passWord" v-if="checked">
-                    <input type="password" oninput="if(value.length > 11)value=value.slice(0, 11)" placeholder="请输入密码...." v-model="passWord" v-else>
+                    <input type="text" placeholder="请输入密码...." v-model="passWord" v-if="checked">
+                    <input type="password" placeholder="请输入密码...." v-model="passWord" v-else>
                     <!--@focus="focu" @blur="blu"-->
                     <!--<span class='open'></span>-->
                     <img class='open'  @click="open" v-show="!eye" src="../../assets/openeye.png"/>
@@ -144,8 +145,8 @@
                     });
                     return;
                 }
-                if(this.passWord.length<6 || this.passWord.length > 16){
-                    Toast('请输入6-16位的手机密码');
+                if(this.passWord.length<6){
+                    Toast('请输入密码');
                     return;
                 }
                 this.load = true;
