@@ -71,7 +71,7 @@
         .header_logo{
             position: absolute;    
             left: 0.32rem;
-            top: 0.2rem;
+            top: 0.18rem;
             width: 1.85rem;
             height: 0.6rem;
             display: block;
@@ -153,7 +153,7 @@
              height: 0.5rem;
              display: block;
              margin: auto;
-             margin-top: 0.02rem
+             margin-top: 0.05rem
         }
     }
 </style>
