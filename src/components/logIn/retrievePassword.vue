@@ -120,7 +120,7 @@
                                         _this.isActive = false;
                                     }
                                 },1000);
-                    this.axios.post(this.$httpConfig.getSendMailbox, qs.stringify({
+                    this.axios.post(this.$httpConfig.sendMailboxByPassword, qs.stringify({
                         email:this.mailAcc,
                         token: sessionStorage.getItem("data_token")
                     })).then((res) => {

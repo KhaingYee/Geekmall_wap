@@ -21,6 +21,7 @@ const config = {
     register: request + "Register/register", // 用户注册
     getloginMethod: request + "Register/loginMethod",
     getSendMailbox: request + "Register/sendMailbox",
+    sendMailboxByPassword: request + "Register/sendMailboxByPassword",
     login: request + "Register/loginAccount", // 账户登录
     qqThirdParty: request + 'QQThirdPartyLogin/qqLogin',
     sms: request + "Register/smsLoginSend", // 短信登录--发送短信
