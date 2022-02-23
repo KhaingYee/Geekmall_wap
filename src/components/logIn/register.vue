@@ -19,7 +19,7 @@
             </div>
             <div class="input-main message">
                 <span class="icon"></span>
-                <input type="text"  placeholder="请输入短信验证码" v-model="message">
+                <input type="text"  placeholder="请输入验证码" v-model="message">
                 <button class="btn-ver" :class="{active:isActive}" @click="obtain">{{btnText}}</button>
             </div>
             <div class="input-main passWord">
