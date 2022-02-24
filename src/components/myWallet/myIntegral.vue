@@ -4,23 +4,43 @@
         <div class="header-bj">
             <integ-header class="header-bg" :text="title" :rule="rule" @addShow="addShow"></integ-header>
             <div class="myInte-banner text-center">
-                <p class="title">可用积分</p>
-                <p class="number">{{data.changes_integral}}</p>
-                <p class="link" @click="tolink('/intOrder')">我的兑换</p>
+                <!-- <p class="title">可用积分</p> -->
+                <div class="monthPicker">
+                    <month-picker-input lang="zh" :default-month="currentMonth+1" :default-year="currentYear" @change="showDate"></month-picker-input>
+                    <img src="../../assets/down-arrow.png" class="Dimg"/>
+                </div>
+                <p class="number" v-if="integralChange.integral">{{integralChange.integral}}<span>&nbsp;&nbsp;积分</span></p>
+                <p class="number" v-else>0<span>&nbsp;&nbsp;积分</span></p>
+                <div class="golink" @click="gotolink('/IntegralMall')">兑换商品</div>
+                <!-- <p class="link" @click="tolink('/intOrder')">我的兑换</p> -->
             </div>
         </div>
-        <integ-shares :rule="ruleCon" @addShow="addHide"></integ-shares>
-        <dl class="accDetails">
-            <dt>{{accDetails.title}}</dt>
-            <dd class="clearfix" v-for="item in accDetails.content" :key="item.id">
+        <div class="allintegral" v-if="integralChange">
+            <div class="income" :class="{active: sortHead == 0}" @click="proSort(0)">
+                <div class="plu" v-if="integralChange.income">+{{integralChange.income}}</div>
+                <div class="plu" v-else>+0</div>
+                <div class="txt">积分获取</div>
+            </div>
+            <div class="exepen" :class="{active: sortHead == 1}" @click="proSort(1)">
+                <div class="min" v-if="integralChange.spending">-{{integralChange.spending}}</div>
+                 <div class="min" v-else>-0</div>
+                <div class="text">积分支出</div>
+            </div>
+        </div>
+        <div class="black" v-if="integralPro"></div>
+        <!-- <integ-shares :rule="ruleCon" @addShow="addHide"></integ-shares> -->
+        <dl class="accDetails" v-if="integralPro">
+            <dt></dt>
+            <dd class="clearfix" v-for="item in integralPro" :key="item.id">
                 <div class="fl text">
                     <h2>{{item.remarks}}</h2>
                     <p class="time">{{item.trading_time}}</p>
                 </div>
-                <div class="fr status" :class="{Profit:item.type == '1'}">{{item.integral}}</div>
+                <div class="fr status">{{item.changes_integral}}</div>
             </dd>
         </dl>
-        <integ-btn :text="btnText" :to="'/IntegralMall'"></integ-btn>
+        <div class="noRec" v-if="integralChange.integral == null">暂无记录</div>
+        <!-- <integ-btn :text="btnText" :to="'/IntegralMall'"></integ-btn> -->
         <to-top></to-top>
 
         <div class="load-wrap" v-show="load_wrap" @touchmove.prevent>
@@ -29,6 +49,7 @@
     </div>
 </template>
 <script>
+import { MonthPickerInput } from 'vue-month-picker'
 import integHeader from '@/components/page/children/header.vue';
 import integShares from '@/components/Widget/rule.vue';
 import integBtn from '@/components/Widget/fixedBtn.vue';
@@ -55,17 +76,27 @@ export default {
             no_data: false, //第一次没数据时的样式
             sliding_no_data: false, //下拉没数据时的样式
             page: 1,
+            integralChange:null,
+            currentMonth: "",
+            currentYear: "",
+            sortHead:0,
+            Chtype:1,
+            integralPro:[],
+            Dateinte:'',
         }
     },
     components: {
         integHeader,
         integShares,
         integBtn,
-        toTop
+        toTop,
+        MonthPickerInput
     },
     created() {
-        this.goodsList()
-        this.userIntegral()
+        this.goodsList();
+        // this.userIntegral();
+        this.currentMonth = new Date().getMonth();
+        this.currentYear = new Date().getFullYear();
     },
     mounted() {
         let _this = this;
@@ -83,9 +114,13 @@ export default {
                 }
             }
         })
-
     },
     methods: {
+        showDate(data){
+        this.Dateinte = data.selectedYear + '-' + data.monthIndex;
+        this.integralPro = [];
+        this.goodsList();
+        },
         addShow() {
             this.ruleCon = true;
         },
@@ -95,31 +130,50 @@ export default {
         tolink() {
             this.$router.push('/intOrder')
         },
+        gotolink() {
+            this.$router.push('/IntegralMall')
+        },
         updated() {
             var that = this;
             setTimeout(function () {
                 that.load_wrap = false;
             }, 1000);
         },
+        proSort(index){
+            this.sortHead = index;
+            if(this.sortHead==0){
+                this.Chtype = 1;
+                this.integralPro = [];
+                this.goodsList();
+                
+            }else if(this.sortHead==1){
+                this.Chtype = 0;
+                this.integralPro = [];
+                this.goodsList();
+                
+            }
+        },
         goodsList() {
             this.axios.post(this.$httpConfig.integralLog, qs.stringify({
                 page: this.page,
+                date:this.Dateinte,
+                type:this.Chtype,
                 token: sessionStorage.getItem("data_token")
             })).then((res) => {
+                this.integralChange = res.data.data;
                 this.stateHandling(res.data.status, res.data.data.records);
                 this.load_wrap = false;
             }).catch((err) => {
                 console.log(err);
             });
         },
-        //请求成功后的操作
         returnOperation(data) {
             if (data.length < 10 && this.page == 1) { //第一次请求成功如果数据没达到每页页数就禁止下拉
                 this.load_show = false; //动画隐藏
                 this.roll_switch = false; //禁止下拉加载
             }
             for (let index = 0; index < data.length; index++) {
-                this.accDetails.content.push(data[index]);
+                this.integralPro.push(data[index]);
             }
             this.slide_switch = true;
         },
@@ -140,26 +194,84 @@ export default {
                 this.roll_switch = false; //禁止下拉加载
             }
         },
-        userIntegral() {
-            this.axios.post(
-                this.$httpConfig.userIntegral, qs.stringify({
-                    token: sessionStorage.getItem("data_token")
-                })).then((res) => {
-                    if (res.data.status == 10001) {
-                        this.$router.push('/LogIn');
-                    } else if (res.data.status == 0) {
-                        return;
-                    } else {
-                        this.data = res.data.data;
-                    }
-                }).catch((err) => {
-                    console.log(err);
-                });
-        }
+        // userIntegral() {
+        //     this.axios.post(
+        //         this.$httpConfig.userIntegral, qs.stringify({
+        //             token: sessionStorage.getItem("data_token")
+        //         })).then((res) => {
+        //             if (res.data.status == 10001) {
+        //                 this.$router.push('/LogIn');
+        //             } else if (res.data.status == 0) {
+        //                 return;
+        //             } else {
+        //                 this.data = res.data.data;
+        //             }
+        //         }).catch((err) => {
+        //             console.log(err);
+        //         });
+        // }
 
     },
 }
 </script>
+<style>
+.month-picker__container {
+  position: relative !important;
+  top: .2rem !important;
+  width: 100% !important;
+}
+.month-picker-input-container {
+  position: relative;
+  width: 2.5rem !important;
+  min-width: 0;
+}
+.month-picker-input {
+    padding: .07rem .2rem !important;
+    font-size: .26rem !important;
+    border-radius: .1rem;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-transition: all 350ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 350ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: 2.1rem;
+}
+.month-picker__year button {
+  background-color: #f4f4f4;
+  position: absolute;
+  width: .3rem;
+  height: .6rem;
+  font-size: .4rem;
+  border-radius: 5px;
+  outline: none;
+  top: 0.1rem;
+  border: 1px solid #e8e8e8;
+  z-index: 2;
+  color: #686868;
+  line-height: .2rem;
+}
+.month-picker__year p {
+  width: 100%;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: .5rem;
+  margin: 0;
+}
+.month-picker__month {
+  padding: 0.5rem 0.25rem !important;
+}
+.month-picker {
+    width: 5rem;
+    border-radius: 0;
+    position: relative !important;
+}
+.month-picker__year {
+  padding: 0.2rem;
+  background-color: #fcfcfc;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  width: 4.6rem;
+  position: relative !important;
+}
+</style>
 <style lang="less">
 .header-bj {
   background: url(../../assets/images/integral_bg.png) no-repeat;
@@ -177,6 +289,18 @@ export default {
     width: 100%;
     height: 2.62rem;
     background: url("../../assets/jfbg.png");
+    .monthPicker{
+        padding: .1rem;
+        z-index: 1;
+        position: absolute;
+        display: flex;
+    }
+    .Dimg{
+        width: .2rem;
+        height: .2rem;
+        margin: 0.15rem 0rem 0 -0.53rem;
+        z-index: 10;
+    }
     .title {
       font-size: 0.24rem;
       color: #80060c;
@@ -186,16 +310,85 @@ export default {
       font-size: 0.64rem;
       color: #fff;
       padding: 0.1rem 0;
+      position:relative;
+      top:.7rem;
     }
     .link {
       font-size: 0.3rem;
       color: #ffffa0;
     }
+    .golink {
+    font-size: 0.3rem;
+    color: #fff;
+    background: #df7a31;;
+    border: .01rem solid #df7a31;;
+    width: 1.5rem;
+    text-align: center;
+    padding: 0rem .1rem;
+    left: 2.85rem;
+    right: 2.85rem;
+    position: relative;
+    border-radius: .5rem;
+    line-height: .45rem;
+    height: .5rem;
+    top:.8rem;
+    }
   }
 }
-
+.allintegral{
+    background: #fff;
+    margin-top: 3.6rem;
+    // top: 3.65rem;
+    // position: fixed;
+    // padding: .2rem;
+    .income{
+        background: #fff;
+        float: left;
+        text-align: center;
+        padding: .2rem 0;
+        // width: 3.55rem;
+         width: 3.75rem;
+        .plu{
+            font-size: .28rem;
+        }
+        .txt{
+            font-size: .26rem;
+            height: .4rem;
+            line-height: .4rem;
+        }
+    }
+    .exepen{
+        padding: .2rem 0;
+        background: #fff;
+        float: right;
+        text-align: center;
+        width: 3.75rem;
+        .min{
+            font-size: .28rem;
+        }
+        .text{
+            font-size: .26rem;  
+            height: .4rem;
+            line-height: .4rem; 
+        }
+    }
+    .active {
+        color: #d02629;
+    }
+}
+.black{
+    background: #f1f1f1;
+    padding: .1rem;
+    margin: .2rem;
+}
+.noRec{
+    font-size: .3rem;
+    color: #999;
+    text-align: center;
+    margin-top: 3rem;
+}
 .accDetails {
-    margin-top: 3.62rem;
+    // margin-top: 4rem;
   dt {
     padding: 0 0.2rem;
     height: 0.9rem;

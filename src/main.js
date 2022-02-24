@@ -16,6 +16,12 @@ import MintUI from 'mint-ui'
 import VueClipboard from 'vue-clipboard2';
 Vue.use(VueClipboard);
 
+import { MonthPicker } from 'vue-month-picker'
+import { MonthPickerInput } from 'vue-month-picker'
+
+Vue.use(MonthPicker)
+Vue.use(MonthPickerInput)
+
 import scrollTitle from "./utils/scrollTitle";
 Vue.prototype.showScroll = scrollTitle;
 
