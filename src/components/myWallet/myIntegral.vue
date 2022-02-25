@@ -9,7 +9,7 @@
                     <month-picker-input lang="zh" :default-month="currentMonth+1" :default-year="currentYear" @change="showDate"></month-picker-input>
                     <img src="../../assets/down-arrow.png" class="Dimg"/>
                 </div>
-                <p class="number" v-if="integralChange.integral">{{integralChange.integral}}<span>&nbsp;&nbsp;积分</span></p>
+                <p class="number" v-if="integralChange.income">{{integralChange.income}}<span>&nbsp;&nbsp;积分</span></p>
                 <p class="number" v-else>0<span>&nbsp;&nbsp;积分</span></p>
                 <div class="golink" @click="gotolink('/IntegralMall')">兑换商品</div>
                 <!-- <p class="link" @click="tolink('/intOrder')">我的兑换</p> -->
@@ -17,12 +17,12 @@
         </div>
         <div class="allintegral" v-if="integralChange">
             <div class="income" :class="{active: sortHead == 0}" @click="proSort(0)">
-                <div class="plu" v-if="integralChange.income">+{{integralChange.income}}</div>
+                <div class="plu" v-if="integralChange.incomeMonth">+{{integralChange.incomeMonth}}</div>
                 <div class="plu" v-else>+0</div>
                 <div class="txt">积分获取</div>
             </div>
             <div class="exepen" :class="{active: sortHead == 1}" @click="proSort(1)">
-                <div class="min" v-if="integralChange.spending">-{{integralChange.spending}}</div>
+                <div class="min" v-if="integralChange.spendingMonth">-{{integralChange.spendingMonth}}</div>
                  <div class="min" v-else>-0</div>
                 <div class="text">积分支出</div>
             </div>
@@ -39,7 +39,7 @@
                 <div class="fr status">{{item.changes_integral}}</div>
             </dd>
         </dl>
-        <div class="noRec" v-if="integralChange.integral == null">暂无记录</div>
+        <div class="noRec" v-if="integralChange.count == 0">暂无记录</div>
         <!-- <integ-btn :text="btnText" :to="'/IntegralMall'"></integ-btn> -->
         <to-top></to-top>
 
