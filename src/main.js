@@ -15,7 +15,15 @@ import MintUI from 'mint-ui'
 
 import VueClipboard from 'vue-clipboard2';
 Vue.use(VueClipboard);
-
+import GoogleSignInButton from 'vue-google-signin-button-directive'
+new Vue({
+    GoogleSignInButton,
+    // render: h => h(App),
+}).$mount('#app')
+import FacebookLoginButton from 'vue-facebook-login-button-directive'
+new Vue({
+    FacebookLoginButton,
+}).$mount('#app')
 import { MonthPicker } from 'vue-month-picker'
 import { MonthPickerInput } from 'vue-month-picker'
 

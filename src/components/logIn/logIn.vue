@@ -37,8 +37,8 @@
                 <span></span><span></span>
             </dt>
             <dd @click="qqLogin" v-if="$store.state.loginMethod == 0" class="Ch-qq"></dd>
-            <dd v-if="$store.state.loginMethod == 1" class="mm-facebook"></dd>
-            <dd v-if="$store.state.loginMethod == 1" class="mm-google"></dd>
+            <dd v-if="$store.state.loginMethod == 1" class="mm-facebook" v-facebook-login-button="appId"></dd>
+            <dd v-if="$store.state.loginMethod == 1" class="mm-google" v-google-signin-button="clientId"></dd>
         </dl>
         <div class="actionsheet" v-show="isActive">
             <div class="box" @click="increment"></div>
@@ -75,7 +75,9 @@
                 load:false,
                 eye:false,
                 checked:false,                
-            	screenWidth: document.body.clientWidth
+            	screenWidth: document.body.clientWidth,
+                clientId: '430792460044-vhk3pgftjhvvl3h46kj8d8nl3c44mct7.apps.googleusercontent.com',
+                appId: '966242223397117'
             }
         },
         components:{
@@ -114,6 +116,29 @@
             this.scrollWatch = false;
         },
         methods:{
+            OnGoogleAuthSuccess (idToken) {
+                console.log('google'+idToken);
+                this.axios.post(this.$httpConfig.GoogleLogin,QS.stringify({
+                    access_token:idToken,
+                    token: sessionStorage.getItem("data_token")
+                })).then((res) => {
+
+                }).catch((err) => {
+                    console.log(err)
+                });
+            },
+            OnGoogleAuthFail (error) {
+                console.log('aaa'+error)
+                console.log('lll'+JSON.stringify(error))
+            },
+            OnFacebookAuthSuccess(idToken) {
+                 console.log('fb'+idToken);
+                // Receive the idToken and make your magic with the backend
+            },
+            OnFacebookAuthFail(error) {
+                console.log('face'+error)
+                console.log('book'+JSON.stringify(error))
+            },
         	init(){
         		this.show = document.body.clientHeight<500?false:true
         	},
