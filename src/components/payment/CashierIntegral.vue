@@ -138,9 +138,9 @@
 				this.flag = !this.flag
 			},
 			getPaymentType() {
-				this.axios.post(this.$httpConfig.paymentType, {
+				this.axios.post(this.$httpConfig.paymentType, qs.stringify({
 					token: sessionStorage.getItem("data_token")
-				}).then((res) => {
+				})).then((res) => {
 					if(res.data.status == 10001) {
 						this.$router.push('/LogIn');
 					} else {
