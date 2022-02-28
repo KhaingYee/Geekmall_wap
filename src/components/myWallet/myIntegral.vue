@@ -39,7 +39,8 @@
                 <div class="fr status">{{item.changes_integral}}</div>
             </dd>
         </dl>
-        <div class="noRec" v-if="integralChange.count == 0">暂无记录</div>
+        <div class="noRec" v-if="Chtype == 1 && integralChange.count == 0">本月占时没有积分获取哦~</div>
+        <div class="noRec" v-if="Chtype == 0 && integralChange.count == 0">本月占时没有积分支出哦~</div>
         <!-- <integ-btn :text="btnText" :to="'/IntegralMall'"></integ-btn> -->
         <to-top></to-top>
 
