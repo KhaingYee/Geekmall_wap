@@ -319,20 +319,20 @@ export default {
       color: #ffffa0;
     }
     .golink {
-    font-size: 0.3rem;
-    color: #fff;
-    background: #df7a31;;
-    border: .01rem solid #df7a31;;
-    width: 1.5rem;
-    text-align: center;
-    padding: 0rem .1rem;
-    left: 2.85rem;
-    right: 2.85rem;
-    position: relative;
-    border-radius: .5rem;
-    line-height: .45rem;
-    height: .5rem;
-    top:.8rem;
+        font-size: 0.3rem;
+        color: #fff;
+        background: #df7a31;
+        border: .01rem solid #df7a31;
+        width: 1.5rem;
+        text-align: center;
+        padding: 0rem .06rem;
+        left: 2.93rem;
+        right: 2.85rem;
+        position: relative;
+        border-radius: .5rem;
+        line-height: .47rem;
+        height: .5rem;
+        top: .8rem;
     }
   }
 }
