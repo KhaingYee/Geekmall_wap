@@ -76,8 +76,8 @@
                 eye:false,
                 checked:false,                
             	screenWidth: document.body.clientWidth,
-                clientId: '430792460044-vhk3pgftjhvvl3h46kj8d8nl3c44mct7.apps.googleusercontent.com',
-                appId: '966242223397117'
+                clientId: clientId,
+                appId: appId
             }
         },
         components:{
@@ -120,24 +120,22 @@
                 console.log('google'+idToken);
                 this.axios.post(this.$httpConfig.GoogleLogin,QS.stringify({
                     access_token:idToken,
-                    token: sessionStorage.getItem("data_token")
                 })).then((res) => {
 
                 }).catch((err) => {
-                    console.log(err)
+                    console.log('googleCatch'+err);
                 });
             },
             OnGoogleAuthFail (error) {
-                console.log('aaa'+error)
-                console.log('lll'+JSON.stringify(error))
+                console.log('googleError'+error)
+                console.log('googleErr'+JSON.stringify(error))
             },
             OnFacebookAuthSuccess(idToken) {
-                 console.log('fb'+idToken);
-                // Receive the idToken and make your magic with the backend
+                 console.log('facebook'+idToken);
             },
             OnFacebookAuthFail(error) {
-                console.log('face'+error)
-                console.log('book'+JSON.stringify(error))
+                console.log('facebookError'+error)
+                console.log('facebookErr'+JSON.stringify(error))
             },
         	init(){
         		this.show = document.body.clientHeight<500?false:true
