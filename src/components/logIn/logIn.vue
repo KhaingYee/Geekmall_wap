@@ -49,7 +49,7 @@
                 <GoogleLogin :params="params" :onSuccess="onSuccess" :onFailure="onFailure" class="new-google"></GoogleLogin>
             </dd>
             <facebook-login
-                appId='652125956256641'
+                :appId="facebook_client_id"
                 @login="getUserData"
                 @logout="onLogout"
                 @get-initial-status="getUserData">
