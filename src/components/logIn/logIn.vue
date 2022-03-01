@@ -38,22 +38,19 @@
             </dt>
             <dd @click="qqLogin" v-if="$store.state.loginMethod == 0" class="Ch-qq"></dd>
             <dd v-if="$store.state.loginMethod == 1" class="mm-facebook">
-                <!-- <facebook-login
-                    appId="9a4e564537817159d6fb73107fe98ad1"
+                <facebook-login
+                    :appId="facebook_client_id"
+                    loginLabel="Facebook"
+                    logoutLabel="LogOut"
+                    class="fb_button"
                     @login="getUserData"
                     @logout="onLogout"
                     @get-initial-status="getUserData">
-                </facebook-login> -->
+                </facebook-login>
             </dd>
             <dd v-if="$store.state.loginMethod == 1" class="mm-google">     
                 <GoogleLogin :params="params" :onSuccess="onSuccess" :onFailure="onFailure" class="new-google"></GoogleLogin>
             </dd>
-            <facebook-login
-                :appId="facebook_client_id"
-                @login="getUserData"
-                @logout="onLogout"
-                @get-initial-status="getUserData">
-            </facebook-login>
         </dl>
         <div class="actionsheet" v-show="isActive">
             <div class="box" @click="increment"></div>
@@ -270,6 +267,53 @@
         }
     }
 </script>
+<style lang="less">
+.fb_button {
+    width: 1.21rem !important;
+    border: 0px solid #fff !important;
+    height:1.21rem;
+    .spinner {
+        box-sizing: border-box;
+        width: 30px;
+        height: 90%;
+        border-radius: 50%;
+        border: 5px solid #f3f3f3;
+        border-top-color: rgb(243, 243, 243);
+        border-top-style: solid;
+        border-top-width: 5px;
+        border-top: 5px solid #3498db;
+        -webkit-animation: spin-data-v-0af1f3c3 2s linear infinite;
+        animation: spin-data-v-0af1f3c3 2s linear infinite;
+        position: absolute;
+        left: 5px;
+        display: none !important;
+    }
+    .fb_button .container {
+        border: 0px solid #fff !important;
+        width: 1.21rem !important;
+        overflow: hidden;
+        height: 1.21rem !important;
+        line-height: 1.21rem !important;
+    }
+    button {
+        position: relative;
+        padding: 0 !important;
+        border: none;
+        line-height: 1.21rem !important;
+        font-size: .2rem !important;
+        color: #FFF;
+        min-width: 1.21rem !important;
+        background-image: linear-gradient(#4C69BA, #3B55A0) !important;
+        border-radius: 50% !important;
+        }
+        img {
+            border: 0;
+            vertical-align: middle;
+            display: none !important;
+
+        }
+}
+</style>
 <style lang="less" scoped>
     .logoin-main{
         padding:0 .6rem;
@@ -429,8 +473,8 @@
                 width:1.21rem;
                 height:1.21rem;
                 margin:.3rem .5rem .3rem -1.5rem;
-                background:url(../../assets/Facebook_Logo.png) no-repeat;
-                background-size:100% 100%;
+                // background:url(../../assets/Facebook_Logo.png) no-repeat;
+                // background-size:100% 100%;
             }
             .mm-google{
                 display:inline-block;
