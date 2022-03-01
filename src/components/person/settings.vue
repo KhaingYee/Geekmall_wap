@@ -106,13 +106,10 @@
             }
         },
         mounted(){
-             this.axios({
-                method:'post',
-                url:this.$httpConfig.userinfo,
-                params:{
-                    token: sessionStorage.getItem("data_token")
-                }
-            })
+            this.axios
+            .post(this.$httpConfig.userinfo, qs.stringify({
+                token: sessionStorage.getItem("data_token")
+            }))
             .then((res) => {
             	if(res.data.status==10001){
                 this.$router.push('/LogIn');
