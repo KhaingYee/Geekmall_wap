@@ -20,6 +20,6 @@ let imgRequest = 'http://center.geekmall.plus/uploads/'
 // 例如：http://后端文件服务器域名
 let URL = 'http://center.geekmall.plus'
 
-let clientId = '430792460044-vhk3pgftjhvvl3h46kj8d8nl3c44mct7.apps.googleusercontent.com'
+let google_client_id = '430792460044-vhk3pgftjhvvl3h46kj8d8nl3c44mct7.apps.googleusercontent.com'
 
-let appId = '9a4e564537817159d6fb73107fe98ad1'
+let facebook_client_id = '9a4e564537817159d6fb73107fe98ad1'

@@ -15,6 +15,13 @@ import MintUI from 'mint-ui'
 
 import VueClipboard from 'vue-clipboard2';
 Vue.use(VueClipboard);
+
+import GoogleLogin from 'vue-google-login';
+Vue.use(GoogleLogin)
+
+import facebookLogin from 'facebook-login-vuejs';
+Vue.use(facebookLogin)
+
 import GoogleSignInButton from 'vue-google-signin-button-directive'
 new Vue({
     GoogleSignInButton,

@@ -37,8 +37,23 @@
                 <span></span><span></span>
             </dt>
             <dd @click="qqLogin" v-if="$store.state.loginMethod == 0" class="Ch-qq"></dd>
-            <dd v-if="$store.state.loginMethod == 1" class="mm-facebook" v-facebook-login-button="appId"></dd>
-            <dd v-if="$store.state.loginMethod == 1" class="mm-google" v-google-signin-button="clientId"></dd>
+            <dd v-if="$store.state.loginMethod == 1" class="mm-facebook">
+                <!-- <facebook-login
+                    appId="9a4e564537817159d6fb73107fe98ad1"
+                    @login="getUserData"
+                    @logout="onLogout"
+                    @get-initial-status="getUserData">
+                </facebook-login> -->
+            </dd>
+            <dd v-if="$store.state.loginMethod == 1" class="mm-google">     
+                <GoogleLogin :params="params" :onSuccess="onSuccess" :onFailure="onFailure" class="new-google"></GoogleLogin>
+            </dd>
+            <facebook-login
+                appId="9a4e564537817159d6fb73107fe98ad1"
+                @login="getUserData"
+                @logout="onLogout"
+                @get-initial-status="getUserData">
+            </facebook-login>
         </dl>
         <div class="actionsheet" v-show="isActive">
             <div class="box" @click="increment"></div>
@@ -58,6 +73,8 @@
     </div>
 </template>
 <script>
+    import GoogleLogin from 'vue-google-login';
+    import facebookLogin from 'facebook-login-vuejs';
     import { Toast } from 'mint-ui';
     import QS from 'qs';
     export default {
@@ -76,12 +93,15 @@
                 eye:false,
                 checked:false,                
             	screenWidth: document.body.clientWidth,
-                clientId: clientId,
-                appId: appId
+                appId: facebook_client_id,
+                params: {
+                    client_id: google_client_id
+                },
             }
         },
         components:{
-			
+			GoogleLogin,
+            facebookLogin
         },
         watch:{
         	'$route':'fetchdata'
@@ -116,19 +136,34 @@
             this.scrollWatch = false;
         },
         methods:{
-            OnGoogleAuthSuccess (idToken) {
-                console.log('google'+idToken);
+            getUserData(data){
+                console.log('facebook'+data)
+            },
+            onLogout(data){
+                console.log('facebookout'+data)
+            },
+            onSuccess(googleUser) {
+                console.log('newgoogle'+googleUser.wc.access_token);
                 this.axios.post(this.$httpConfig.GoogleLogin,QS.stringify({
-                    access_token:idToken,
+                    access_token:googleUser.wc.access_token,
                 })).then((res) => {
-
+                    Toast(res.data.message);
+                    if(res.data.status == 1){
+                        sessionStorage.clear(); 
+                        sessionStorage.setItem("data_token", res.data.data.token);
+                        let redirect = this.$route.query.redirect;
+                        if(redirect) {
+                            window.location.href = redirect;
+                        } else {
+                            this.$router.push('/home')
+                        }
+                    }
                 }).catch((err) => {
-                    console.log('googleCatch'+err);
+                    console.log('newgoogleCatch'+err);
                 });
             },
-            OnGoogleAuthFail (error) {
-                console.log('googleError'+error)
-                console.log('googleErr'+JSON.stringify(error))
+            onFailure(err) {
+                console.log('newgoogleErr'+err);
             },
             OnFacebookAuthSuccess(idToken) {
                  console.log('facebook'+idToken);
@@ -393,7 +428,7 @@
                 display:inline-block;
                 width:1.21rem;
                 height:1.21rem;
-                margin:.3rem .5rem .3rem 0;
+                margin:.3rem .5rem .3rem -1.5rem;
                 background:url(../../assets/Facebook_Logo.png) no-repeat;
                 background-size:100% 100%;
             }
@@ -401,9 +436,15 @@
                 display:inline-block;
                 width:1.21rem;
                 height:1.21rem;
+                margin:.3rem 0 .3rem .5rem;  
+                position: absolute;        
+            }
+            .new-google{
+                width:1.21rem;
+                height:1.21rem;
                 background:url(../../assets/google_logo.png) no-repeat;
                 background-size:100% 100%;
-                margin:.3rem 0 .3rem .5rem;
+                border: none;
             }
             // dd:nth-child(3){
             //     margin-left:1.2rem;
