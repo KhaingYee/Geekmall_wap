@@ -40,8 +40,8 @@
             <dd v-if="$store.state.loginMethod == 1" class="mm-facebook">
                 <facebook-login
                     :appId="facebook_client_id"
-                    loginLabel="Facebook"
-                    logoutLabel="LogOut"
+                    loginLabel="f"
+                    logoutLabel="f"
                     class="fb_button"
                     @login="getUserData"
                     @logout="onLogout"
@@ -300,11 +300,12 @@
         padding: 0 !important;
         border: none;
         line-height: 1.21rem !important;
-        font-size: .2rem !important;
+        font-size: .6rem !important;
         color: #FFF;
         min-width: 1.21rem !important;
         background-image: linear-gradient(#4C69BA, #3B55A0) !important;
         border-radius: 50% !important;
+        font-weight: bold;
         }
         img {
             border: 0;
