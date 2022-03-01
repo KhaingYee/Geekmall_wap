@@ -22,4 +22,4 @@ let URL = 'http://center.geekmall.plus'
 
 let google_client_id = '430792460044-vhk3pgftjhvvl3h46kj8d8nl3c44mct7.apps.googleusercontent.com'
 
-let facebook_client_id = '9a4e564537817159d6fb73107fe98ad1'
+let facebook_client_id = '652125956256641'

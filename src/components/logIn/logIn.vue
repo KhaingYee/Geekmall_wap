@@ -49,7 +49,7 @@
                 <GoogleLogin :params="params" :onSuccess="onSuccess" :onFailure="onFailure" class="new-google"></GoogleLogin>
             </dd>
             <facebook-login
-                appId="9a4e564537817159d6fb73107fe98ad1"
+                appId='652125956256641'
                 @login="getUserData"
                 @logout="onLogout"
                 @get-initial-status="getUserData">
@@ -93,7 +93,7 @@
                 eye:false,
                 checked:false,                
             	screenWidth: document.body.clientWidth,
-                appId: facebook_client_id,
+                facebook_client_id: facebook_client_id,
                 params: {
                     client_id: google_client_id
                 },
@@ -137,10 +137,10 @@
         },
         methods:{
             getUserData(data){
-                console.log('facebook'+data)
+                console.log('facebook'+JSON.stringify(data))
             },
             onLogout(data){
-                console.log('facebookout'+data)
+                console.log('facebookout'+JSON.stringify(data))
             },
             onSuccess(googleUser) {
                 console.log('newgoogle'+googleUser.wc.access_token);
