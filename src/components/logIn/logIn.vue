@@ -40,8 +40,8 @@
             <dd v-if="$store.state.loginMethod == 1" class="mm-facebook">
                 <facebook-login
                     :appId="facebook_client_id"
-                    loginLabel="f"
-                    logoutLabel="f"
+                    loginLabel=""
+                    logoutLabel=""
                     class="fb_button"
                     @login="getUserData"
                     @logout="onLogout"
