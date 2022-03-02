@@ -185,7 +185,12 @@
                     user_name:_this.BindUserName,
                     token: _this.BindUserToken
                 })).then((res) => {
-                    Toast(res.data.message);
+                    // Toast(res.data.message);
+                    Toast({
+                        message: res.data.message,
+                        position: 'top',
+                        duration: 2000
+                    }); 
                     if(res.data.status ==1){
                     }else{
                         clearInterval(clear);
