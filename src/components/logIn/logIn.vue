@@ -52,6 +52,25 @@
                 <GoogleLogin :params="params" :onSuccess="onSuccess" :onFailure="onFailure" class="new-google"></GoogleLogin>
             </dd>
         </dl>
+        <mt-popup v-model="popupVisibleBind">         
+            <div class="Bindfrom">
+                <div class="TitlePage">请绑定邮箱</div>
+                <div class="input-main userName">
+                    <span class="icon"></span>
+                    <input type="text" placeholder="用户名" v-model="BindUserName" disabled>
+                </div>
+                <div class="input-main message">
+                    <span class="icon"></span>
+                    <input type="text" placeholder="请输入邮箱地址" v-model="mailAcc">
+                </div>
+                <div class="input-main message">
+                    <span class="icon"></span>
+                    <input type="number" placeholder="请输入验证码" v-model="message">
+                    <button class="btn-ver" :class="{active:BindActive}" @click="obtain">{{btnText}}</button>
+                </div>
+                <button class="btncomfir" @click="BindEmailLogin">确认</button>
+            </div>
+        </mt-popup>
         <div class="actionsheet" v-show="isActive">
             <div class="box" @click="increment"></div>
             <div class="acti-box" :class="{active:isActive}">
@@ -72,7 +91,7 @@
 <script>
     import GoogleLogin from 'vue-google-login';
     import facebookLogin from 'facebook-login-vuejs';
-    import { Toast } from 'mint-ui';
+    import { Toast,Popup } from 'mint-ui';
     import QS from 'qs';
     export default {
         name : 'logIn',
@@ -85,10 +104,18 @@
                 cancelText:'取消',
                 isActive:false,
                 popupVisible:false,
+                popupVisibleBind:false,
                 scrollWatch:true,
                 load:false,
                 eye:false,
-                checked:false,                
+                checked:false, 
+                mailAcc:'',
+                BindActive:false,
+                message:'',
+                BindUserName:'',
+                BindOpenId:'',
+                BindUserToken:'',
+                btnText:'获取验证码',           
             	screenWidth: document.body.clientWidth,
                 facebook_client_id: facebook_client_id,
                 params: {
@@ -133,8 +160,108 @@
             this.scrollWatch = false;
         },
         methods:{
+            obtain(){
+                if(!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.mailAcc)){
+                    Toast("请输入正确的邮箱地址");
+                    return false;
+                }
+                if(this.BindActive == true)return;
+                    var N = 60,
+                    _this = this,
+                    clear = null;
+                    _this.BindActive = true;
+                    _this.btnText = '请'+ N +'秒后重试';
+                    _this.BindActive = true;
+                    clear = setInterval(function(){
+                        _this.btnText = '请'+ N-- +'秒后重试';
+                        if(N < 0){
+                            clearInterval(clear);
+                            _this.btnText = '再次获取验证码';
+                            _this.BindActive = false;
+                        }
+                    },1000);
+                this.axios.post(this.$httpConfig.getSendMailbox,QS.stringify({
+                    email:_this.mailAcc,
+                    user_name:_this.BindUserName,
+                    token: _this.BindUserToken
+                })).then((res) => {
+                    Toast(res.data.message);
+                    if(res.data.status ==1){
+                    }else{
+                        clearInterval(clear);
+                        _this.btnText = '再次获取验证码';
+                        _this.BindActive = false;
+                    }
+                }).catch((err) => {
+                    console.info('FailtrueErr', err);
+                });
+            },
+            BindEmailLogin(){
+                if(!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.mailAcc)){
+                    Toast("请输入正确的邮箱地址");
+                    return false;
+                }
+                if(isNaN(this.message)){
+                    Toast("请输入短信验证码");
+                    return false;
+                }
+                this.axios({
+                    method: 'post',
+                    url: this.$httpConfig.bindingEmail,
+                    data:QS.stringify({
+                        user_name:this.BindUserName,
+                        email:this.mailAcc,
+                        code:this.message,
+                        open_id:this.BindOpenId,
+                        token: this.BindUserToken
+                    })
+                }).then((res) => {
+                    Toast(res.data.message);
+                    if(res.data.status == 1){
+                        sessionStorage.clear(); 
+                        sessionStorage.setItem("data_token", res.data.data.token);
+                        let redirect = this.$route.query.redirect;
+                        if(redirect) {
+                            window.location.href = redirect;
+                        } else {
+                            this.$router.push('/home')
+                        }
+                    }
+                }).catch((err) => {
+                    console.log(err)
+                });
+            },
             getUserData(data){
-                console.log('facebook'+JSON.stringify(data))
+                console.log('facebook'+JSON.stringify(data.response.authResponse.accessToken))
+                this.axios.post(this.$httpConfig.FacebookLogin,QS.stringify({
+                    access_token:data.response.authResponse.accessToken,
+                })).then((res) => {
+                    Toast(res.data.message);
+                    if(res.data.status == 1){
+                        sessionStorage.clear(); 
+                        sessionStorage.setItem("data_token", res.data.data.token);
+                        let redirect = this.$route.query.redirect;
+                        if(redirect) {
+                            window.location.href = redirect;
+                        }
+                        else if(res.data.data.binding == 1){
+                            Toast({
+                                message: '请绑定邮箱',
+                                position: 'middle',
+                                duration: 2000
+                            }); 
+                            this.popupVisibleBind = true;
+                            this.BindUserName = res.data.data.name;
+                            this.BindOpenId = res.data.data.open_id; 
+                            this.BindUserToken = res.data.data.token;   
+                        }
+                        else {
+                            this.$router.push('/home')
+                        }
+                    }
+                }).catch((err) => {
+                    console.log('newfacebookCatch'+err);
+                });
             },
             onLogout(data){
                 console.log('facebookout'+JSON.stringify(data))
@@ -268,6 +395,9 @@
     }
 </script>
 <style lang="less">
+.mint-popup {
+  border-radius: .2rem !important;
+}
 .fb_button {
     width: 1.21rem !important;
     border: 0px solid #fff !important;
@@ -316,6 +446,80 @@
 }
 </style>
 <style lang="less" scoped>
+.Bindfrom{
+    padding: .3rem;
+    width: 6rem;
+    .TitlePage{
+        font-size: .28rem;
+        text-align: center;
+    }
+    .input-main{
+        height:1.1rem;
+        margin-top:.3rem;
+        position:relative;
+        .icon{
+            width:1.1rem;
+            height:100%;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        input{
+            width:100%;
+            height:100%;
+            border:none;
+            background:#f5f5f5;
+            text-indent:1.1rem;
+            border-radius:5px;
+            font-size:.28rem;
+        }
+    }
+    .userName{
+        .icon{
+            background:url(../../assets/images/yhm.png) no-repeat center;
+            background-size:.44rem .55rem;
+        }
+    }
+    .message{
+        .icon{
+            background:url(../../assets/message.png) no-repeat center;
+            background-size:.41rem .33rem;
+        }
+        .btn-ver{
+            width:1.88rem;
+            height:1.04rem;
+            position:absolute;
+            right:.04rem;
+            top:50%;
+            margin-top:-.52rem;
+            border:none;
+            background:#fff;
+            font-size:.26rem;
+            color:#333;
+            border-radius:5px;
+            outline:none;
+        }
+        .btn-ver:active{
+            background:#ccc;
+            color:#333;
+        }
+        .btn-ver.active{
+            background:#f9781e;
+            color:#fff;
+        }
+    }
+    .btncomfir{
+        width:100%;
+        height:1rem;
+        border:none;
+        border-radius:.1rem;
+        outline:none;
+        margin-top:.3rem;
+        background: #d02629;
+        font-size:.36rem;
+        color:#fff;
+    }
+}
     .logoin-main{
         padding:0 .6rem;
         background:#fff;

@@ -54,6 +54,8 @@ const config = {
     getSendMailbox: request + "Register/sendMailbox",
     sendMailboxByPassword: request + "Register/sendMailboxByPassword",
     GoogleLogin: request + "Google/login",
+    FacebookLogin: request + "Facebook/login",
+    bindingEmail: request + "Facebook/bindingEmail",
     login: request + "Register/loginAccount", // 账户登录
     qqThirdParty: request + 'QQThirdPartyLogin/qqLogin',
     sms: request + "Register/smsLoginSend", // 短信登录--发送短信
