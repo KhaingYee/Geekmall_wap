@@ -433,7 +433,11 @@
         font-size: .6rem !important;
         color: #FFF;
         min-width: 1.21rem !important;
-        background-image: linear-gradient(#4C69BA, #3B55A0) !important;
+        // background-image: linear-gradient(#4C69BA, #3B55A0) !important;
+        background-image:url(../../assets/Facebook_Logo.png) !important;
+        background-size:100% 100%;
+        width:1.21rem;
+        height:1.21rem;
         border-radius: 50% !important;
         font-weight: bold;
         }
