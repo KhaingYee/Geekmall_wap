@@ -162,7 +162,12 @@
         methods:{
             obtain(){
                 if(!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.mailAcc)){
-                    Toast("请输入正确的邮箱地址");
+                    // Toast("请输入正确的邮箱地址");
+                    Toast({
+                        message: "请输入正确的邮箱地址",
+                        position: 'bottom',
+                        duration: 3000
+                    }); 
                     return false;
                 }
                 if(this.BindActive == true)return;
@@ -188,8 +193,8 @@
                     // Toast(res.data.message);
                     Toast({
                         message: res.data.message,
-                        position: 'top',
-                        duration: 2000
+                        position: 'bottom',
+                        duration: 3000
                     }); 
                     if(res.data.status ==1){
                     }else{
@@ -203,11 +208,21 @@
             },
             BindEmailLogin(){
                 if(!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.mailAcc)){
-                    Toast("请输入正确的邮箱地址");
+                    // Toast("请输入正确的邮箱地址");
+                    Toast({
+                        message: "请输入正确的邮箱地址",
+                        position: 'bottom',
+                        duration: 3000
+                    }); 
                     return false;
                 }
                 if(isNaN(this.message)){
-                    Toast("请输入短信验证码");
+                    // Toast("请输入短信验证码");
+                    Toast({
+                        message: "请输入短信验证码",
+                        position: 'bottom',
+                        duration: 3000
+                    });
                     return false;
                 }
                 this.axios({
@@ -221,7 +236,12 @@
                         token: this.BindUserToken
                     })
                 }).then((res) => {
-                    Toast(res.data.message);
+                    // Toast(res.data.message);
+                    Toast({
+                        message: res.data.message,
+                        position: 'bottom',
+                        duration: 3000
+                    }); 
                     if(res.data.status == 1){
                         sessionStorage.clear(); 
                         sessionStorage.setItem("data_token", res.data.data.token);
