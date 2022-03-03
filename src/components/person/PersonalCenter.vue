@@ -612,9 +612,8 @@
                     token: sessionStorage.getItem("data_token")
                 }))
                 .then(res => {
-                    if (res.data.status == 10001) {
-                        this.$router.push("/LogIn");
-                    } else {
+
+                    if (res.data.status == 1) {
 
                         this.data = res.data.data;
                         this.userImage = res.data.data.user_header;
@@ -654,9 +653,15 @@
                             this.$store.state.user_Imag = res.data.data.user_header;
                         }
                     }
+                    else {
+                        this.$router.push("/LogIn");
+                    } 
                 })
                 .catch(err => {
-                    console.log(err);
+                    if(err){
+                       this.$router.push("/LogIn"); 
+                    }
+                    console.log('kkk'+err);
                 });
         },
         wacth: {}
