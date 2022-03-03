@@ -45,7 +45,7 @@
                     class="fb_button"
                     @login="getUserData"
                     @logout="onLogout"
-                    @get-initial-status="getUserData">
+                    >
                 </facebook-login>
             </dd>
             <dd v-if="$store.state.loginMethod == 1" class="mm-google">     
@@ -257,7 +257,15 @@
                 });
             },
             getUserData(data){
-                console.log('facebook'+JSON.stringify(data.response.authResponse.accessToken))
+                if(data.response.authResponse == null){
+                    Toast({
+                        message: "登陆失败",
+                        position: 'middle',
+                        duration: 3000
+                    });
+                    return false;
+                }
+                // console.log('facebook'+JSON.stringify(data.response.authResponse.accessToken))
                 this.axios.post(this.$httpConfig.FacebookLogin,QS.stringify({
                     access_token:data.response.authResponse.accessToken,
                 })).then((res) => {
