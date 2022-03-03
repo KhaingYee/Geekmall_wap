@@ -28,8 +28,8 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
-            '/api': {
-                target: 'http://mapi.shopsn.cn',
+            '/wap': {
+                target: 'https://api.geekmall.plus',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/api': ''
