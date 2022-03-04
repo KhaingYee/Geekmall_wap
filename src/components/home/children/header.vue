@@ -2,6 +2,7 @@
     <div class="header">
         <router-link to="/home">
           <img :src="URL + wapLogo" class="header_logo"/>
+          <!-- <img src="http://api.geekmall.plus/wap/public/index.php/IntnetInformation/readLogo" class="header_logo"/> -->
         </router-link>
         <div class="header_seek" @click="searchIn">
             <img class="header_seek_img" :src="seekImg" alt="搜素img">

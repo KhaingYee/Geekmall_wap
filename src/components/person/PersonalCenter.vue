@@ -11,11 +11,11 @@
                     <img src="../../assets/my_user_pic.png"/>
                 </div> -->
                 <div v-if="data.user_header" class="icon-wrap">
-                    <img v-if="data.user_header.split(':').length == 1" :src="URL+data.user_header" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
-                    <img v-else-if="data.user_header.split(':').length == 2" :src="data.user_header" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
+                    <img v-if="data.user_header.split(':').length == 1" :src="URL+data.user_header" @click="gotoSetting()" onerror="this.src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=WinkWacky&eyebrowType=Default&mouthType=Default&skinColor=Light'"/>
+                    <img v-else-if="data.user_header.split(':').length == 2" :src="data.user_header" @click="gotoSetting()" onerror="this.src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=WinkWacky&eyebrowType=Default&mouthType=Default&skinColor=Light'"/>
                 </div>
                 <div v-else class="icon-wrap">
-                    <img src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
+                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=WinkWacky&eyebrowType=Default&mouthType=Default&skinColor=Light" @click="gotoSetting()" onerror="this.src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=WinkWacky&eyebrowType=Default&mouthType=Default&skinColor=Light'"/>
                 </div>
                 <div class="iconContent">
                     <div class="approval-div">
@@ -488,6 +488,9 @@
             },
             //我的服务
             myserver1() {
+            },
+            gotoSetting(){
+                this.$router.push("/seetin");
             },
             myserver2(index) {
                 switch (index) {

@@ -9,11 +9,11 @@
 				<img v-else src="../../assets/my_user_pic.png" class="fr" v-show="!hdimg">
 				<img :src="URL+hdimg" class="fr" v-show="hdimg" v-model="user_header"> -->
         <div v-if="data.user_header">
-            <img class="fr" v-if="data.user_header.split(':').length == 1" :src="URL+data.user_header" v-show="!hdimg" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
-            <img class="fr" v-else-if="data.user_header.split(':').length == 2" :src="data.user_header" v-show="!hdimg" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
+            <img class="fr" v-if="data.user_header.split(':').length == 1" :src="URL+data.user_header" v-show="!hdimg" onerror="this.src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=WinkWacky&eyebrowType=Default&mouthType=Default&skinColor=Light'"/>
+            <img class="fr" v-else-if="data.user_header.split(':').length == 2" :src="data.user_header" v-show="!hdimg" onerror="this.src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=WinkWacky&eyebrowType=Default&mouthType=Default&skinColor=Light'"/>
         </div>
         <div v-else>
-            <img class="fr" src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
+            <img class="fr" src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=WinkWacky&eyebrowType=Default&mouthType=Default&skinColor=Light" onerror="this.src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=WinkWacky&eyebrowType=Default&mouthType=Default&skinColor=Light'"/>
         </div>
         <img :src="URL+hdimg" class="fr" v-show="hdimg" v-model="user_header">
 				<div class="icon-btn"></div>

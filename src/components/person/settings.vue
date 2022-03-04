@@ -7,11 +7,11 @@
                 <!-- <img class="fl" v-if="data.user_header" :src="URL+ data.user_header">
                 <img class="fl" v-else src="../../assets/my_user_pic.png"> -->
                 <div v-if="data.user_header">
-                    <img class="fl" v-if="data.user_header.split(':').length == 1" :src="URL+data.user_header" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
-                    <img class="fl" v-else-if="data.user_header.split(':').length == 2" :src="data.user_header" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
+                    <img class="fl" v-if="data.user_header.split(':').length == 1" :src="URL+data.user_header" onerror="this.src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=WinkWacky&eyebrowType=Default&mouthType=Default&skinColor=Light'"/>
+                    <img class="fl" v-else-if="data.user_header.split(':').length == 2" :src="data.user_header" onerror="this.src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=WinkWacky&eyebrowType=Default&mouthType=Default&skinColor=Light'"/>
                 </div>
                 <div v-else>
-                    <img class="fl" src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
+                    <img class="fl" src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=WinkWacky&eyebrowType=Default&mouthType=Default&skinColor=Light" onerror="this.src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=WinkWacky&eyebrowType=Default&mouthType=Default&skinColor=Light'"/>
                 </div>
                 <div class="user fl">
                     <h2 class="userId">{{data.nick_name}}</h2>
