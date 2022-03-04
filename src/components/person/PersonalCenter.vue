@@ -3,12 +3,19 @@
         <div v-title data-title="个人中心">个人中心</div>
         <div class="header-wrap" :style="'background-color:'+ApiColor">
             <div class="header-dd-center">
-                <div v-if="data.user_header" class="icon-wrap">
+                <!-- <div v-if="data.user_header" class="icon-wrap">
                     <img v-if="data.user_header.indexOf('http')==-1" :src="URL+data.user_header"/>
                     <img v-else :src="data.user_header"/>
                 </div>
                 <div v-else class="icon-wrap">
                     <img src="../../assets/my_user_pic.png"/>
+                </div> -->
+                <div v-if="data.user_header" class="icon-wrap">
+                    <img v-if="data.user_header.split(':').length == 1" :src="URL+data.user_header" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
+                    <img v-else-if="data.user_header.split(':').length == 2" :src="data.user_header" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
+                </div>
+                <div v-else class="icon-wrap">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
                 </div>
                 <div class="iconContent">
                     <div class="approval-div">
@@ -612,9 +619,7 @@
                     token: sessionStorage.getItem("data_token")
                 }))
                 .then(res => {
-
                     if (res.data.status == 1) {
-
                         this.data = res.data.data;
                         this.userImage = res.data.data.user_header;
                         this.navCon[0].num = res.data.data.order.pendingPayment;//代付款
@@ -658,10 +663,10 @@
                     } 
                 })
                 .catch(err => {
-                    if(err){
-                       this.$router.push("/LogIn"); 
-                    }
-                    console.log('kkk'+err);
+                    // if(err){
+                    //    this.$router.push("/LogIn"); 
+                    // }
+                    console.log(err);
                 });
         },
         wacth: {}

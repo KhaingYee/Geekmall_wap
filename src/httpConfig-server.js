@@ -88,6 +88,7 @@ const config = {
     // 首页
     home: request + "HomeIndex/home", // 首页信息获取
     aboutEtcetera: request + "IntnetInformation/aboutEtcetera",
+    readLogo: request + "IntnetInformation/readLogo",
     advertise: request + "HomeIndex/getStoreAd",
     indexFloor: request + "GoodsClass/indexFloor", //首页楼层
     getAd: request + "Ad/getAd", //首页楼层中间广告

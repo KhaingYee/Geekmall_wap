@@ -5,9 +5,17 @@
 		<div class="person-wrap">
 			<div class="hd">
 				<div class="status fl">我的头像</div>
-				<img v-if="data.user_header" :src="URL+data.user_header" class="fr" v-show="!hdimg">
+				<!-- <img v-if="data.user_header" :src="URL+data.user_header" class="fr" v-show="!hdimg">
 				<img v-else src="../../assets/my_user_pic.png" class="fr" v-show="!hdimg">
-				<img :src="URL+hdimg" class="fr" v-show="hdimg" v-model="user_header">
+				<img :src="URL+hdimg" class="fr" v-show="hdimg" v-model="user_header"> -->
+        <div v-if="data.user_header">
+            <img class="fr" v-if="data.user_header.split(':').length == 1" :src="URL+data.user_header" v-show="!hdimg" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
+            <img class="fr" v-else-if="data.user_header.split(':').length == 2" :src="data.user_header" v-show="!hdimg" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
+        </div>
+        <div v-else>
+            <img class="fr" src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg" onerror="this.src='https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/e6/e63035e2c6dad3a014ede599c31cc6d6625b09a5.jpg'"/>
+        </div>
+        <img :src="URL+hdimg" class="fr" v-show="hdimg" v-model="user_header">
 				<div class="icon-btn"></div>
 				<div v-if="show">
 					<input type="file" @change="imgChange($event)" ref="int">
@@ -210,8 +218,8 @@ export default {
             this.$router.push("/LogIn");
           } else {
             if (res.data.status === 1) {
-              this.user_header = res.data.data;
-              this.hdimg = res.data.data;
+              this.user_header = res.data.pic;
+              this.hdimg = res.data.pic;
             } else {
               Toast(res.data.message);
             }
