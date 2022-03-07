@@ -4,8 +4,7 @@
     <!-- <home-header :userName="getData"></home-header> -->
     <div class="header" :style="'background-color:' + apicolor">
         <router-link to="/home">
-          <img :src="URL + wapLogo" class="header_logo"/>
-          <!-- <img src="http://api.geekmall.plus/wap/public/index.php/IntnetInformation/readLogo" class="header_logo"/> -->
+          <img src="http://api.geekmall.plus/wap/public/index.php/IntnetInformation/readLogo" class="header_logo"/>
         </router-link>
         <div class="header_seek" @click="searchIn">
             <img class="header_seek_img" :src="seekImg" alt="搜素img">
@@ -300,7 +299,6 @@ export default {
   name: "home",
   data() {
     return {
-       wapLogo:'',
       imgNo:require('@/assets/images/xinxin.png'),
       imgYes:require('@/assets/starrecom.png'),
       continuous: true,
@@ -348,7 +346,6 @@ export default {
     // ...mapGetters(['getEventById', 'catLength'])
   },
   created() {
-    this.getFavLogo();
     this.styColor();
     this.newFloor();
     this.seckillList();
@@ -423,16 +420,6 @@ export default {
               }, 1000)
           }
       },
-      getFavLogo() {
-      this.axios
-          .post(this.$httpConfig.aboutEtcetera)
-          .then(res => {
-            this.wapLogo = res.data.data.logo_name;
-          })
-          .catch(error => {
-              console.log(error);
-          });
-    },
     seckillList() {
       this.axios
           .post(this.$httpConfig.seckillList)

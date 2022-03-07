@@ -1,8 +1,7 @@
 <template>
     <div class="header">
         <router-link to="/home">
-          <img :src="URL + wapLogo" class="header_logo"/>
-          <!-- <img src="http://api.geekmall.plus/wap/public/index.php/IntnetInformation/readLogo" class="header_logo"/> -->
+          <img src="http://api.geekmall.plus/wap/public/index.php/IntnetInformation/readLogo" class="header_logo"/>
         </router-link>
         <div class="header_seek" @click="searchIn">
             <img class="header_seek_img" :src="seekImg" alt="搜素img">
@@ -27,20 +26,9 @@
                 seekImg:require('@/assets/images/seek.png'),
                 RichScan:require('@/assets/images/RichScan.png'),
                 advices:require('@/assets/images/meg.png'),
-                wapLogo:'',
             }
         },
         methods: {
-            getFavLogo() {
-            this.axios
-                .post(this.$httpConfig.aboutEtcetera)
-                .then(res => {
-                    this.wapLogo = res.data.data.logo_name;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-            },
             searchIn() {
                 this.$router.push({
                     path:'/search'
@@ -55,7 +43,7 @@
           
         },
         created(){
-                this.getFavLogo();
+
         },
         mounted(){
 
