@@ -358,6 +358,14 @@
                         <div v-else-if="callFreStatus == 0" class="delivery_busi">{{callFreMess}}</div>
                         <div v-else class="delivery_busi">{{freightCal}} 元</div>
                       </div>
+                      <div>
+                        <div class="delivery_pay">发货时间</div>
+                        <div class="deliverydate">付款后&nbsp;
+                          <span class="spanDate">{{productData.presell_date}}</span>&nbsp;天内发货
+                          <span class="presale" v-if="productData.is_presell == 0">有现货</span>
+                          <span class="presale" v-if="productData.is_presell == 1">预售商品</span>
+                        </div>
+                      </div>
                       <!-- <div v-else>
                         <div class="delivery_title">运费</div>
                         <div class="delivery_busi">{{freightCal}} 元</div>
@@ -3395,6 +3403,30 @@ export default {
           // margin-right: .2rem;
           margin-left: .8rem;
           margin-top: -.82rem;
+        }
+        .delivery_pay{
+          width: 2rem;
+          font-size: .26rem;
+        }
+        .deliverydate {
+            font-size: 0.26rem;
+            color: #333;
+            margin-left: 1.3rem;
+            margin-top: -.82rem;
+              .spanDate {
+                font-size: .26rem;
+                color: #d02629;
+              }
+            .presale{
+              font-size: 0.26rem;
+              color: #d02629;
+              border: .01rem solid #d02629;
+              padding: 0 .1rem;
+              margin: .13rem 0 0 0;
+              float: right;
+              height: .5rem;
+              line-height: .5rem;
+            }
         }
         .delivery_right {
           position: absolute;
