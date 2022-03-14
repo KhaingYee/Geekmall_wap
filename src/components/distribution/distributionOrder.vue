@@ -1,6 +1,6 @@
 <template>
 	<div ref="order_list">
-		<div v-title :data-title="分销订单">分销订单</div>
+		<div v-title :data-title="$store.state.order_title">分销订单</div>
 		<order-header text="推广订单"></order-header>
 		<!--<div class="teacher-main">
 			<header class="header">
