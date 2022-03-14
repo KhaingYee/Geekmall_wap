@@ -382,6 +382,19 @@ const config = {
     // reportTopic: userModuleIndex + 'GoodsReport/reportTopic',
     // commitReport: userModuleIndex + 'GoodsReport/commitReport',
 
+    promoteCommission : request + "PromoterConfig/promotionCommission",
+    promoteAddToBalance : request + "PromoterConfig/balance",//推广金额 提现
+    promoteOrderListAll : request+"PromoterConfig/orderListAll",//全部
+    promoteOrderPendingPayment : request+"PromoterConfig/pendingPayment",//待付款
+    promoteOrderPendingDelivery : request+"PromoterConfig/pendingDelivery",//待发货
+    promoteOrderToBeReceived : request+"PromoterConfig/goodsToBeReceived",//待收货
+    promoteOrderToEvaluated : request+"PromoterConfig/toBeEvaluated",//待评价
+    promoteOrderHaveBeenCancelled : request+"PromoterConfig/haveBeenCancelled",//已取消
+    promoteOrderComplete : request+"PromoterConfig/completed",//已完成
+    promoteConfig : request+"PromoterConfig/extensionList",//推荐列表
+    promoteTeam : request+"PromoterConfig/myTeam",//我的推广团队
+    promteWithdrawalDetails : request+"PromoterConfig/withdrawalDetails",//推广提现明细
+    promoteCode :  request+ "PromoterConfig/code",//获取加密的用户id
     // report
     noticeReport: request + 'GoodsReport/report',//举报
     noticeType: request + 'GoodsReport/reportTopic',//举报类型

@@ -1,7 +1,7 @@
 <template>
 	<div ref="order_list">
 		<div v-title :data-title="分销订单">分销订单</div>
-		<order-header :text="$store.state.order_title"></order-header>
+		<order-header text="推广订单"></order-header>
 		<!--<div class="teacher-main">
 			<header class="header">
 				<span @click="goBack" class="btnGo"></span>
@@ -86,9 +86,23 @@
 				page:1,
 				sw:true,
 				order: [],
-				order_status:['取消订单','未支付','已支付','发货中','已发货','已收货','退货审核中','审核失败','审核成功','退款中','退款成功']
-			}
-		},
+				order_status:['取消订单','未支付','已支付','发货中','已发货','已收货','退货审核中','审核失败','审核成功','退款中','退款成功'],
+                // headParams: {
+                //     title: sessionStorage.getItem('titleKey'),
+                //     description: sessionStorage.getItem('updateDescription'),
+                //     keywords: sessionStorage.getItem('contentKey'),        
+                // }
+            }
+        },
+        // head: {
+        //     meta: function(){
+        //         return [
+        //             { name: 'title', content: this.headParams.title, id: 'desc' },
+        //             { name: 'description', content: this.headParams.description, id: 'desc1' },
+        //             { name: 'keywords', content: this.headParams.keywords, id: 'desc2' },
+        //         ]
+        //     }
+        // },
 		components: {
 			orderHeader,
 			Shopsn,
@@ -96,6 +110,8 @@
 		},
 		mounted() {
 			this.$store.state.order_title = '分销订单';
+			// let title = this.$store.state.order_title + '-' + sessionStorage.getItem('titleKey') + '-' + sessionStorage.getItem('updateDescription');
+      		// this.showScroll.scrollTitle(title);
 			this.addClass(this.$route.params.id,'roll');
 			let _this = this;
 			window.addEventListener('scroll',function(){ 
@@ -119,8 +135,9 @@
 					MessageBox.confirm('确定收货?').then(action => {
 						this.axios.post(this.$httpConfig.confirmGet,qs.stringify({
 							id:item.id,
-							token: sessionStorage.getItem("data_token")
+							token: sessionStorage.getItem('saveToken')
 						})).then((res)=>{
+							console.log(res);
 							Toast(`${res.data.message}`);
 							if(res.data.data==true){
 								this.addClass(3,'click');
@@ -170,7 +187,7 @@
 				MessageBox.confirm('确定删除订单?').then(action => {
 					this.axios.post(this.$httpConfig.orderDel, qs.stringify({
 						id:item.id,
-						token: sessionStorage.getItem("data_token")
+						token: sessionStorage.getItem('saveToken')
 					})).then((res) => {
 						this.order.splice(index,1);
 						Toast('成功删除订单！');
@@ -198,9 +215,8 @@
 				this.isactive = index;
 				if(index == 0) {
 					this.$store.state.order_title = '分销全部订单'; +
-					this.axios.post(this.$httpConfig.orderListAll, qs.stringify({
-						page:this.page,
-						token: sessionStorage.getItem("data_token")
+					this.axios.post(this.$httpConfig.promoteOrderListAll, qs.stringify({
+						page:this.page
 					})).then((res) => {
 						this.stateHandling(res.data.status,res.data.data.list);
 					}).catch((err) => {
@@ -208,9 +224,8 @@
 					});
 				} else if(index == 1) {
 					this.$store.state.order_title = '分销待付款订单';
-					this.axios.post(this.$httpConfig.pendingPayment,qs.stringify({
-						page:this.page,
-						token: sessionStorage.getItem("data_token")
+					this.axios.post(this.$httpConfig.promoteOrderPendingPayment,qs.stringify({
+						page:this.page
 					})).then((res) => {
 						this.stateHandling(res.data.status,res.data.data.list);
 					}).catch((err) => {
@@ -218,9 +233,8 @@
 					});
 				} else if(index == 2) {
 					this.$store.state.order_title = '分销待发货订单';
-					this.axios.post(this.$httpConfig.pendingDelivery,qs.stringify({
-						page:this.page,
-						token: sessionStorage.getItem("data_token")
+					this.axios.post(this.$httpConfig.promoteOrderPendingDelivery,qs.stringify({
+						page:this.page
 					})).then((res) => {
 						this.stateHandling(res.data.status,res.data.data.list);
 					}).catch((err) => {
@@ -228,9 +242,8 @@
 					});
 				} else if(index == 3) {
 					this.$store.state.order_title = '分销待收货订单';
-					this.axios.post(this.$httpConfig.goodsToBeReceived,qs.stringify({
-						page:this.page,
-						token: sessionStorage.getItem("data_token")
+					this.axios.post(this.$httpConfig.promoteOrderToBeReceived,qs.stringify({
+						page:this.page
 					})).then((res) => {
 						this.stateHandling(res.data.status,res.data.data.list);
 					}).catch((err) => {
@@ -238,9 +251,8 @@
 					});
 				} else if(index == 4) {
 					this.$store.state.order_title = '分销已完成订单';
-					this.axios.post(this.$httpConfig.completed,qs.stringify({
-						page:this.page,
-						token: sessionStorage.getItem("data_token")
+					this.axios.post(this.$httpConfig.promoteOrderComplete,qs.stringify({
+						page:this.page
 					})).then((res) => {
 						this.stateHandling(res.data.status,res.data.data.list);
 					}).catch((err) => {
@@ -248,9 +260,8 @@
 					});
 				} else if(index == 5) {
 					this.$store.state.order_title = '分销已取消订单';
-					this.axios.post(this.$httpConfig.haveBeenCancelled,qs.stringify({
-						page:this.page,
-						token: sessionStorage.getItem("data_token")
+					this.axios.post(this.$httpConfig.promoteOrderHaveBeenCancelled,qs.stringify({
+						page:this.page
 					})).then((res) => {
 						this.stateHandling(res.data.status,res.data.data.list);
 					}).catch((err) => {
@@ -258,9 +269,8 @@
 					});
 				} else if(index == 6) {
 					this.$store.state.order_title = '分销待评论订单';
-					this.axios.post(this.$httpConfig.toBeEvaluated,qs.stringify({
-						page:this.page,
-						token: sessionStorage.getItem("data_token")
+					this.axios.post(this.$httpConfig.promoteOrderToEvaluated,qs.stringify({
+						page:this.page
 					})).then((res) => {
 						this.stateHandling(res.data.status,res.data.data.list);
 					}).catch((err) => {

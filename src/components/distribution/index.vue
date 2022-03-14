@@ -1,4 +1,5 @@
 <template>
+  <!-- 已改推广页面 -->
   <div class="box">
       <div v-title data-title="分销中心">分销中心</div>
       <top-header :text = "title"></top-header>
@@ -13,34 +14,34 @@
         </div>
         <div class="cash">
             <div class="cash-price">
-                <p>可提现佣金</p>     
-                <p>0.00元</p>     
+                <p>可提现金额</p>     
+                <p>{{data.withdraw_price}} 元</p>     
             </div>
-            <div class="cash-btn">提现</div>
+            <div class="cash-btn" @click="$router.push('/commission')">提现</div>
         </div>
       </div>
       <div class="commission">
           <div class="settled">
-            <p>已提现佣金</p>
-            <p>0元</p>
+            <p>已提现金额</p>
+            <p>0.00 元</p>
           </div>
           <div class="unsettled">
-            <p>未结算佣金</p>
-            <p>0元</p>
+            <p>推广金额</p>
+            <p>{{data.price_total}} 元</p>
           </div>
       </div>
       <div class="d-option">
-        <div class="option" @click="toCommision">
+        <!-- <div class="option" @click="toCommision">
           <div class="top">
             <img src="../../assets/images/fenxiaoyongjin.png"/>
             分销佣金
           </div>
           <div><span class="price">0.00</span>元</div>
-        </div>
+        </div> -->
         <div class="option" @click="toOrder()">
           <div class="top">
             <img src="../../assets/images/fenxiaodingdan.png"/>
-            分销订单
+            推广订单
           </div>
           <div><span class="price">0</span>元</div>
         </div>
@@ -58,7 +59,7 @@
           </div>
           <div><span class="price">0</span>元</div>
         </div>
-        <div class="option"><div class="top">
+        <div class="option" @click="$router.push('/distribution/qrCode')"><div class="top">
             <img src="../../assets/images/tuiguangerweima.png"/>
             推广二维码
           </div>
@@ -68,24 +69,37 @@
 </template>
 <script>
 import topHeader from '@/components/page/children/header.vue';
-import qs from 'qs';
+import qs from "qs";
 export default {
   data () {
       return {
-          title:'分销中心',
-          data:''
-      }
-  },
+          title:'推广中心',
+          data:'',
+          // headParams: {
+          //     title: sessionStorage.getItem('titleKey'),
+          //     description: sessionStorage.getItem('updateDescription'),
+          //     keywords: sessionStorage.getItem('contentKey'),        
+          // }
+            }
+        },
+        // head: {
+        //     meta: function(){
+        //         return [
+        //             { name: 'title', content: this.headParams.title, id: 'desc' },
+        //             { name: 'description', content: this.headParams.description, id: 'desc1' },
+        //             { name: 'keywords', content: this.headParams.keywords, id: 'desc2' },
+        //         ]
+        //     }
+        // },
   mounted(){
-      this.axios.post(
-          this.$httpConfig.userinfo, qs.stringify({
-              token: sessionStorage.getItem("data_token")
-          })
+      this.axios.get(
+          this.$httpConfig.promoteConfig
       ).then((res) => {
         if(res.data.status==10001){
           this.$router.push('/LogIn');
       } else{
               this.data = res.data.data;
+              console.log(this.data);
               let ua = window.navigator.userAgent.toLowerCase();
               if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                   this.$store.state.user_Imag=res.data.data.weixheader
@@ -97,6 +111,10 @@ export default {
       }).catch((err) => {
           console.log(err)
       });
+  },
+  created() {
+    // let title = "分销中心" + '-' + sessionStorage.getItem('titleKey') + '-' + sessionStorage.getItem('updateDescription');
+    // this.showScroll.scrollTitle(title);
   },
   methods:{
       toMyTeam(){

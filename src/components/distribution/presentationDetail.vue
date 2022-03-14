@@ -14,26 +14,19 @@
 			</ul>
 		</div>
     <div class="detail-list">
-			<div class="detail">
-        <div>
-					<p>支付宝</p>
-					<p>待审核</p>
-				</div>
-				<div>
-					<p>金额:<span>10</span>元</p>
-					<p>2018-10-22</p>
-				</div>
+			<div class="detail" v-for="data in list" :key="data.id">
+        		<template v-if="currentStatus==0||data.status == currentStatus-1">
+					<div>
+						<p>{{data.type}}</p>
+						<p>{{data.status|statusText}}</p>
+					</div>
+					<div>
+						<p>金额:<span>{{data.money}}</span>元</p>
+						<p>{{data.add_time}}</p>
+					</div>
+				</template>
 			</div>
-			<div class="detail">
-        <div>
-					<p>银行卡</p>
-					<p>已完成</p>
-				</div>
-				<div>
-					<p>金额:<span>10</span>元</p>
-					<p>2018-10-22</p>
-				</div>
-			</div>		
+				
     </div>
     <div class="comm-null" v-if="no_data">
 				<div class="con-wrap text-center">
@@ -74,9 +67,26 @@
 				isactive: '',
 				order: [],
 				page:1,
-				order_status:['全部','待审核','待打款','已打款','无效']
-			}
-		},
+				order_status:['全部','待审核','待打款','已打款','无效'],
+                // headParams: {
+                //     title: sessionStorage.getItem('titleKey'),
+                //     description: sessionStorage.getItem('updateDescription'),
+                //     keywords: sessionStorage.getItem('contentKey'),        
+                // },
+				list:[],
+				currentStatus:0
+			
+            }
+        },
+        // head: {
+        //     meta: function(){
+        //         return [
+        //             { name: 'title', content: this.headParams.title, id: 'desc' },
+        //             { name: 'description', content: this.headParams.description, id: 'desc1' },
+        //             { name: 'keywords', content: this.headParams.keywords, id: 'desc2' },
+        //         ]
+        //     }
+        // },
 		components: {
 			orderHeader,
 			Shopsn,
@@ -84,7 +94,17 @@
 		},
 		mounted() {
 			this.$store.state.order_title = '提现明细';
+			// let title = this.$store.state.order_title + '-' + sessionStorage.getItem('titleKey') + '-' + sessionStorage.getItem('updateDescription');
+    		// this.showScroll.scrollTitle(title);
 			let _this = this;
+			this.axios.get(this.$httpConfig.promteWithdrawalDetails).then((res)=>{
+				if(res.data.data){
+					this.list = res.data.data;				
+				}
+			
+			}).catch((e)=>{
+				console.log(e);
+			})
 			window.addEventListener('scroll',function(){ 
 				if(!_this.$refs.package_list) return;
 				if(document.body.scrollTop + window.innerHeight >= document.body.offsetHeight) { 
@@ -126,6 +146,20 @@
 					this.sliding_no_data = true; //无数据时的样式
 					this.load_show = false; //动画隐藏
 					this.roll_switch = false; //禁止下拉加载
+				}
+			},
+			addClass(index,event){
+				this.currentStatus = index;
+				this.isactive = index;
+			}
+		},
+		filters:{
+			statusText(status){
+				switch(status){
+					case 0 : return "待审核";
+					case 1 : return "待打款";
+					case 2 : return "已打款";
+					case 3 : return "无效";
 				}
 			}
 		}

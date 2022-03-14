@@ -19,15 +19,15 @@
               <div class="message">
                   <img src="../../assets/con23.jpg" />
                   <div class="content">
-                      <p>{{item.name}}</p>
-                      <p>注册时间：{{item.time}}</p>
+                      <p>{{item.nick_name}}</p>
+                      <p>注册时间：{{item.create_time}}</p>
                   </div>
               </div>
-              <div class="num">推广{{item.num}}人</div>
+              <div class="num">推广{{item.extension}}人</div>
             </div>
             <div class="bottom">
                 <div>消费{{item.price}}元</div>
-                <div>{{item.ordernum}}个订单</div>
+                <div>{{item.order_count}}个订单</div>
             </div>  
         </div>
     </div>
@@ -60,7 +60,8 @@
 		data() {
 			return {
 				datas: {
-					name: ['一级','二级','三级','四级','五级']
+					name: ['一级','二级','三级'],
+					data:null
 				},
 				slide_switch: false, //避免多次下拉
 				load_show:false, //滚动动画
@@ -72,9 +73,23 @@
 				member_list:[{name:"陈坤累",time:"2019-3-7",num:0,price:0.00,ordernum:0}],
 				page:1,
 				sw:true,
-				order_status:['一级','二级','三级','四级','五级']
-			}
-		},
+				order_status:['一级','二级','三级'],
+                // headParams: {
+                //     title: sessionStorage.getItem('titleKey'),
+                //     description: sessionStorage.getItem('updateDescription'),
+                //     keywords: sessionStorage.getItem('contentKey'),        
+                // }
+            }
+        },
+        // head: {
+        //     meta: function(){
+        //         return [
+        //             { name: 'title', content: this.headParams.title, id: 'desc' },
+        //             { name: 'description', content: this.headParams.description, id: 'desc1' },
+        //             { name: 'keywords', content: this.headParams.keywords, id: 'desc2' },
+        //         ]
+        //     }
+        // },
 		components: {
 			orderHeader,
 			Shopsn,
@@ -82,7 +97,19 @@
 		},
 		mounted() {
 			this.$store.state.order_title = '我的团队';
+			// let title = this.$store.state.order_title + '-' + sessionStorage.getItem('titleKey') + '-' + sessionStorage.getItem('updateDescription');
+    		// this.showScroll.scrollTitle(title);
 			let _this = this;
+			this.axios.get(this.$httpConfig.promoteTeam).then((res)=>{
+				if(res.data.data){
+					this.datas.data = res.data.data;
+					if(res.data.data.one_data){
+						this.member_list = res.data.data.one_data;
+					}
+				}
+			}).catch((e)=>{
+				console.log(e);
+			})
 			window.addEventListener('scroll',function(){ 
 				if(!_this.$refs.package_list) return;
 				if(document.body.scrollTop + window.innerHeight >= document.body.offsetHeight) { 
@@ -129,12 +156,36 @@
 			//切换tab
 			addClass(index,trigger) {
 				if(trigger == 'click'){
+					console.log(this.datas)
 					if(index == 0){
-						this.member_list = [{name:"陈坤累",time:"2019-3-7",num:0,price:0.00,ordernum:0}];
-						this.no_data = false;	
-					}else{
-						this.no_data = true;	
-						this.member_list = [];
+						if(this.datas.data.one_data){
+							this.member_list = this.datas.data.one_data;
+							this.no_data = false;	
+						}else{
+							this.no_data = true;
+							this.member_list = [];
+						}		
+					}
+					if(index == 1){
+						if(this.datas.data.two_data){
+							this.member_list = this.datas.data.two_data;
+							this.no_data = false;	
+						}else{
+							this.no_data = true;
+							this.member_list = [];
+						}				
+						
+					}
+
+					if(index == 2){
+						if(this.datas.data.three_data){
+							this.member_list = this.datas.data.three_data;
+							this.no_data = false;	
+						}else{
+							this.no_data = true;
+							this.member_list = [];
+						}				
+						
 					}
 				//	this.load_show = true
 					this.page = 1;	
