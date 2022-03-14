@@ -18,10 +18,10 @@
         		<template v-if="currentStatus==0||data.status == currentStatus-1">
 					<div>
 						<p>{{data.type}}</p>
-						<p>{{data.status|statusText}}</p>
+						<p>{{data.remarks}}</p>
 					</div>
 					<div>
-						<p>金额:<span>{{data.money}}</span>元</p>
+						<p>金额:<span>{{data.change_price}}</span>元</p>
 						<p>{{data.add_time}}</p>
 					</div>
 				</template>
@@ -99,7 +99,7 @@
 			let _this = this;
 			this.axios.get(this.$httpConfig.promteWithdrawalDetails).then((res)=>{
 				if(res.data.data){
-					this.list = res.data.data;				
+					this.list = res.data.data.data;				
 				}
 			
 			}).catch((e)=>{

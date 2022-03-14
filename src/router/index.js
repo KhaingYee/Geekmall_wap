@@ -208,6 +208,7 @@ const myTeam = r => require(['@/components/distribution/myTeam'],r); //我的团
 const distributionOrder = r => require(['@/components/distribution/distributionOrder'],r); //分销订单
 const commission = r => require(['@/components/distribution/commission'],r); //分销佣金
 const presentationDetail = r => require(['@/components/distribution/presentationDetail'],r); //提现明细
+const disqrcode = r => require(['@/components/distribution/qrcode'],r);
 
 Vue.use(Router)
 const router = new Router({
@@ -961,6 +962,11 @@ const router = new Router({
                 path: '/presentationDetail',
                 name: 'presentationDetail',
                 component: presentationDetail
+            },
+            {
+                path: '/disqrcode',
+                name: 'disqrcode',
+                component: disqrcode
             },
             {
                 path: '/productList/:id/:name',

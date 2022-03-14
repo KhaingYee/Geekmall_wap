@@ -59,7 +59,7 @@
           </div>
           <div><span class="price">0</span>元</div>
         </div>
-        <div class="option" @click="$router.push('/distribution/qrCode')"><div class="top">
+        <div class="option" @click="dqrcode"><div class="top">
             <img src="../../assets/images/tuiguangerweima.png"/>
             推广二维码
           </div>
@@ -131,6 +131,9 @@ export default {
       },
       toPersentationDetail(){
         this.$router.push('/presentationDetail')
+      },
+      dqrcode(){
+        this.$router.push('/disqrcode')
       }
   },
    components:{
