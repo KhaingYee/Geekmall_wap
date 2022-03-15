@@ -146,13 +146,21 @@
 			<div v-else-if="callFreStatus == 0" class="delivery_busi">{{callFreMess}}</div>
 			<div v-else class="delivery_busi">{{freightCal}} 元</div>
 			</div>
-			<div>
-			<div class="delivery_pay">发货时间</div>
-			<div class="deliverydate">付款后&nbsp;
-				<span class="spanDate">{{productData.presell_date}}</span>&nbsp;天内发货
-				<span class="presale" v-if="productData.is_presell == 0">有现货</span>
-				<span class="presale" v-if="productData.is_presell == 1">预售商品</span>
+			<div v-if="detail">
+				<div class="delivery_pay">发货时间</div>
+				<div class="deliverydate">付款后&nbsp;
+					<span class="spanDate">{{$store.state.commodity_data.goods.presell_date}}</span>&nbsp;天内发货
+					<span class="presale" v-if="$store.state.commodity_data.goods.is_presell == 0">有现货</span>
+					<span class="presale" v-if="$store.state.commodity_data.goods.is_presell == 1">预售商品</span>
+				</div>
 			</div>
+			<div v-else>
+				<div class="delivery_pay">发货时间</div>
+				<div class="deliverydate">付款后&nbsp;
+					<span class="spanDate">{{goodsInfo.presell_date}}</span>&nbsp;天内发货
+					<span class="presale" v-if="goodsInfo.is_presell == 0">有现货</span>
+					<span class="presale" v-if="goodsInfo.is_presell == 1">预售商品</span>
+				</div>
 			</div>
 		</div>
 		<div class="fenge"></div>
