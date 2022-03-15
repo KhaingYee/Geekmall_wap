@@ -48,6 +48,15 @@
 						</div>
 
 						<div class="fange" style="clear:both;"></div>
+						<!-- 状态 ：现货 ，预售 -->
+						<div class="name">状态</div>
+						<div class="name-list">
+							<div v-for="(item,index) in preSaleCheck" :key="index" class="brand-name"  @click="getpersale(item,index)"
+							:class="preSaleCheckActive === index? 'activeon' : ''">
+								{{item}}
+							</div>
+						</div>
+						<div class="fange" style="clear:both;"></div>
 
 						<div class="name" v-if="classify !=null">分类</div>
 						<div class="name-list">
@@ -71,7 +80,7 @@
 
 					<div class="footerbtn">
 						<div @click="drawer=false" class="cancel" style="background:#fff">取消</div>
-						<div @click="sort(),drawer=false" class="confirm" style="background: #e4393c;color: #fff;">确认</div>
+						<div @click="sort('dawerSearch'),drawer=false" class="confirm" style="background: #e4393c;color: #fff;">确认</div>
 					</div>
 				</div>
 			</el-drawer>
@@ -157,6 +166,8 @@
 					brand:[],
 				},
 				classify:[],
+				preSaleCheck:['现货','预售'],
+				preSaleCheckActive:'',
 				attributes:[],
 				selected:{
 					brandIndex: null,
@@ -231,6 +242,10 @@
 				// this.classIndex.push(index);
 				// }
 			this.selectedItem();
+			},
+			getpersale(item,index){
+				this.preSaleCheckActive = index;
+				console.log('gu'+this.preSaleCheckActive)
 			},
 			getvalue(val,value){
 				this.attvalue = value;
@@ -319,6 +334,10 @@
 						if (this.sortField == 6) return;
 						this.sortField = 6;
 						break;
+					case 'dawerSearch':
+						this.currentPage = 1;
+						this.search_data = [];
+						break;
 				}
 				if (!this.$store.state.search_value == '' || this.$route.params.status == 'search') {
 					this.api_url = this.$httpConfig.keyWordSearch;
@@ -334,7 +353,8 @@
 							sort: this.sort_id,
 							page: this.currentPage,
 							min_price:this.minprice,
-							max_price:this.maxprice,	
+							max_price:this.maxprice,
+							is_presell:this.preSaleCheckActive,	
 							brand:this.brandid,
 							class_id:this.nameattr,
 							values:this.attvalue,	
@@ -375,6 +395,7 @@
 							sort_field: this.sortField,
 							min_price:this.minprice,
 							max_price:this.maxprice,
+							is_presell:this.preSaleCheckActive,	
 							brand:this.brandid,
 							class_id:this.nameattr,
 							values:this.attvalue,	
@@ -407,6 +428,7 @@
 							sort_field: this.sortField,
 							min_price:this.minprice,
 							max_price:this.maxprice,
+							is_presell:this.preSaleCheckActive,	
 							brand:this.brandid,
 							class_id:this.nameattr,
 							values:this.attvalue,
