@@ -1318,6 +1318,14 @@ if(this.tempequal == false && this.spec.spec_children[0].selectedItem == true) {
       });
     },
     	toCard() {
+        if (this.$store.state.commodity_data.goods.stock == 0 && this.$store.state.commodity_data.goods.is_presell == 0) {
+            Toast({
+                message: "库存不足",
+                duration: 1000,
+                position:'top'
+            });
+            return;
+        }
 				this.$router.push({
 					name: 'confirmOrderIntegral',
 					params: {
@@ -1328,6 +1336,14 @@ if(this.tempequal == false && this.spec.spec_children[0].selectedItem == true) {
 				})
 			},
       joinCard() {
+          if (this.data.goods.stock == 0 && this.data.goods.is_presell == 0) {
+              Toast({
+                  message: "库存不足",
+                  duration: 1000,
+                  position:'top'
+              });
+              return;
+          }
           this.axios
             .post(
               this.$httpConfig.addGoodToCart,

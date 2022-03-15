@@ -87,7 +87,7 @@ export default {
           this.$store.state.type = null;
           this.$store.state.content = null;
           this.$store.state.invoice_id = "";
-          if (this.$store.state.commodity_data.list.stock <= 0) {
+          if (this.$store.state.commodity_data.list.stock <= 0 && this.$store.state.commodity_data.list.is_presell == 0) {
               Toast({
                   message: "库存不足",
                   duration: 1000

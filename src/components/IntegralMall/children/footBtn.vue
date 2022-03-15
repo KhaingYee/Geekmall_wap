@@ -43,6 +43,13 @@
 		},
 		methods: {
 			exchange() {
+            if (this.data.stock == 0 && this.data.is_presell == 0) {
+                Toast({
+                    message: "库存不足",
+                    duration: 1000,
+                });
+                return;
+            }
 				this.$router.push({
 					name: 'confirmOrderIntegral',
 					params: {
