@@ -1365,13 +1365,14 @@ if(this.tempequal == false && this.spec.spec_children[0].selectedItem == true) {
             });
       },
       toOrder() {
-          if(this.activeItem == '') {
-              Toast({
-                  message: '请选择规格',
-                  duration: 800
-              });
-              return;
-          }
+          // if(this.activeItem == '') {
+          //     Toast({
+          //         message: '请选择规格',
+          //         duration: 800,
+          //         position:'top'
+          //     });
+          //     return;
+          // }
 
           sessionStorage.removeItem("invoiceGroup");
           sessionStorage.removeItem("invoiceInit");
@@ -1399,10 +1400,11 @@ if(this.tempequal == false && this.spec.spec_children[0].selectedItem == true) {
           // }
           
           if(this.tempequal == false) {
-              if (this.$store.state.commodity_data.goods.stock == 0) {
+              if (this.$store.state.commodity_data.goods.stock == 0 && this.$store.state.commodity_data.goods.is_presell == 0) {
                   Toast({
                       message: "库存不足",
-                      duration: 1000
+                      duration: 1000,
+                      position:'top'
                   });
                   return;
               }
@@ -1453,14 +1455,16 @@ if(this.tempequal == false && this.spec.spec_children[0].selectedItem == true) {
                   if (this.detailId != this.detailSubId) {
                     Toast({
                       message: "请选择商品规格ss",
-                      duration: 1000
+                      duration: 1000,
+                      position:'top'
                     });
                     return;
                   }
-                  if (this.$store.state.commodity_data.goods.stock == 0) {
+                  if (this.$store.state.commodity_data.goods.stock == 0 && this.$store.state.commodity_data.goods.is_presell == 0) {
                       Toast({
                           message: "库存不足",
-                          duration: 1000
+                          duration: 1000,
+                          position:'top'
                       });
                       return;
                   }
@@ -1495,6 +1499,14 @@ if(this.tempequal == false && this.spec.spec_children[0].selectedItem == true) {
           }
       },
       join() {
+        if (this.$store.state.commodity_data.goods.stock == 0 && this.$store.state.commodity_data.goods.is_presell == 0) {
+              Toast({
+                  message: "库存不足",
+                  duration: 1000,
+                  position:'top'
+              });
+              return;
+          }
           this.axios
             .post(
               this.$httpConfig.addGoodToCart,
