@@ -62,18 +62,26 @@
 				<span class="fl">{{cartDis.memberLevel}}:</span>
 				<span class="fr">&nbsp;&nbsp;{{Number(cartDis.discount)/10}} 折优惠</span>
 			</div>
-			<div class="freight price clearfix" v-if="money == -1">
-				<span class="fl">配送共计</span>
-				<span class="fr">免配送费</span>
+			<div v-if="goods_data.freight_type == 2">
+				<div class="freight price clearfix">
+					<span class="fl">运费</span>
+					<span class="fr">卖家包邮</span>
+				</div>
 			</div>
-			<div class="freight price clearfix" v-else-if="money">
-				<span class="fl">{{transport}}</span>
-				<span class="fr">+&nbsp;&nbsp;￥{{money}}</span>
-			</div>
-			<div class="freight price clearfix" v-else>
-				<span class="fl">运费</span>
-				<span class="fr" v-if="freight == 0">卖家包邮</span>
-				<span class="fr" v-else>+&nbsp;&nbsp;￥{{freight}}</span>
+			<div v-else>
+				<div class="freight price clearfix" v-if="money == -1">
+					<span class="fl">配送共计</span>
+					<span class="fr">免配送费</span>
+				</div>
+				<div class="freight price clearfix" v-else-if="money">
+					<span class="fl">{{transport}}</span>
+					<span class="fr">+&nbsp;&nbsp;￥{{money}}</span>
+				</div>
+				<div class="freight price clearfix" v-else>
+					<span class="fl">运费</span>
+					<span class="fr" v-if="freight == 0">卖家包邮</span>
+					<span class="fr" v-else>+&nbsp;&nbsp;￥{{freight}}</span>
+				</div>
 			</div>
 			<div class="freight price clearfix">
 				<span class="fl">优惠券</span>

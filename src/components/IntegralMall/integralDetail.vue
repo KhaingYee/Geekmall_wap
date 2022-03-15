@@ -132,19 +132,27 @@
 				<span class="transport-name" @click="toShop(shopData.id)">{{shopData.shop_name}}</span>&nbsp;在&nbsp;{{expressDelivery.stock_name}}&nbsp;负责发货,&nbsp;{{expressDelivery.send_time}}小时内发货
 				</span>
 			</div>
-			<div v-if="deliveryCal == -1">
-			<div class="delivery_title">配送</div>
-			<div class="delivery_busi">免配送费</div>
-			</div>
-			<div v-else-if="deliveryCal">
-			<div class="delivery_title">配送</div>
-			<div class="delivery_busi">{{deliveryCal}} 元</div>
+			<div v-if="$store.state.commodity_data.goods.freight_type == 2">
+				<div>
+				<div class="delivery_title">运费</div>
+				<div class="delivery_busi">卖家包邮</div>
+				</div>
 			</div>
 			<div v-else>
-			<div class="delivery_title">运费</div>
-			<div v-if="freightCal == 0" class="delivery_busi">卖家包邮</div>
-			<div v-else-if="callFreStatus == 0" class="delivery_busi">{{callFreMess}}</div>
-			<div v-else class="delivery_busi">{{freightCal}} 元</div>
+				<div v-if="deliveryCal == -1">
+				<div class="delivery_title">配送</div>
+				<div class="delivery_busi">免配送费</div>
+				</div>
+				<div v-else-if="deliveryCal">
+				<div class="delivery_title">配送</div>
+				<div class="delivery_busi">{{deliveryCal}} 元</div>
+				</div>
+				<div v-else>
+				<div class="delivery_title">运费</div>
+				<div v-if="freightCal == 0" class="delivery_busi">卖家包邮</div>
+				<div v-else-if="callFreStatus == 0" class="delivery_busi">{{callFreMess}}</div>
+				<div v-else class="delivery_busi">{{freightCal}} 元</div>
+				</div>
 			</div>
 			<div>
 				<div class="delivery_pay">发货时间</div>
