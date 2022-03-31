@@ -40,6 +40,20 @@
                 	修改密码
                 <div class="icon-btn"></div>
             </dd>
+            <dd>
+                系统语言
+                <div class="languagebtn">
+                    <el-select v-model="$i18n.locale">
+                        <el-option
+                        v-for="(lang, i) in langs"
+                        :key="`lang-${i}`"
+                        :value="lang"
+                        >
+                        {{ lang }}
+                        </el-option>
+                    </el-select>
+                </div>
+            </dd>
         </dl>
         <div class="footer" @click="signOut">退出当前账户</div>
         <mt-popup v-model="popupVisible" position="bottom">
@@ -61,6 +75,7 @@
                 title:'账户设置',
                 data:'',
                 popupVisible:false,
+                langs: ['English', 'Chinese','Myanmar'],
                 type:[{t:'通过旧密码方式',r:'reset'},{t:'通过手机验证方式',r:'phoneVerify'}]
             }
         },
@@ -187,6 +202,11 @@
                 height:.24rem;
                 background:url(../../assets/btn-right.png) no-repeat;
                 background-size:100% 100%;
+            }
+            .languagebtn{
+                position:absolute;
+                right:.2rem; 
+                margin-top: -.82rem;
             }
            
         }

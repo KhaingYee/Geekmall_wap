@@ -30,7 +30,17 @@
       :data="$store.state.home_data.announcement"
       @hit="hit"
     ></news-flash>
-
+    <!-- <div>
+      <select v-model="$i18n.locale">
+        <option
+          v-for="(lang, i) in langs"
+          :key="`lang-${i}`"
+          :value="lang"
+        >
+          {{ lang }}
+        </option>
+      </select>
+    </div> -->
     <!-- <div class="various-lists">
       <div
           class="list"
@@ -61,7 +71,7 @@
     <div v-if="storeProduct" class="store-container">
       <div class="store">
         <div class="tit">
-          <div class="name">线下节点与热推项目</div>
+          <div class="name">{{ $t('message.hot') }}</div>
         </div>
         <div class="products">						
           <div class="product" v-for="item in storeProduct.store_goods.slice(0,3)" :key="item.id" @click="enterDetail(item)">
@@ -77,9 +87,9 @@
     <div>
       <div class="flash-sale slide">
         <div class="title">
-          <div class="name">现时现量 先到先得</div>
+          <div class="name">{{$t('message.current')}}</div>
           <div class="more" v-if="countDownTime == '' || countDownTime == null || countDownTime == []">
-            秒杀还未开始&nbsp;&nbsp;
+            {{$t('message.kill')}}&nbsp;&nbsp;
             <div class="block hour">00</div>
             <div class="aa">:</div>
             <div class="block minute">00</div>
@@ -87,7 +97,7 @@
             <div class="block second">00</div>
           </div>
           <div class="more" v-else>
-            距离本场结束&nbsp;&nbsp;
+            {{$t('message.field')}}&nbsp;&nbsp;
             <div class="block hour">{{showTimeH}}</div>
              <div class="aa">:</div>
             <div class="block minute">{{showTimeM}}</div>
@@ -106,21 +116,21 @@
                   <div class="inner-bar" :style="'width:' + ((good.buy_num/good.activity_num)*100) + '%'"></div>
                 </div>
                 <div class="remain">
-                  <div class="buy">已抢购{{good.buy_num}}件</div>
-                  <div class="stock">仅剩{{good.activity_num - good.buy_num}}件</div>
+                  <div class="buy">{{$t('message.snap')}}{{good.buy_num}}{{$t('message.piece')}}</div>
+                  <div class="stock">{{$t('message.left')}}{{good.activity_num - good.buy_num}}{{$t('message.piece')}}</div>
                 </div>
                 <div class="bottom">
                   <div class="price">
                     ￥{{good.activity_price}}
                   </div>
                   <div class="btn">
-                    活动已结束
+                    {{$t('message.over')}}
                   </div>
                 </div>
               </div>
               <div class="flash-card" style="display: flex;align-items: center;justify-content: center;" @click="Fdetail()">
                 <div class="more" style="border-radius: 1rem;">
-                  查看更多
+                  {{$t('message.seemore')}}
                 </div>	
               </div>		          
           </div>
@@ -136,21 +146,21 @@
                   <div class="inner-bar" :style="'width:' + ((good.buy_num/good.activity_num)*100) + '%'"></div>
                 </div>
                 <div class="remain">
-                  <div class="buy">已抢购{{good.buy_num}}件</div>
-                  <div class="stock">仅剩{{good.activity_num - good.buy_num}}件</div>
+                  <div class="buy">{{$t('message.snap')}}{{good.buy_num}}{{$t('message.piece')}}</div>
+                  <div class="stock">{{$t('message.left')}}{{good.activity_num - good.buy_num}}{{$t('message.piece')}}</div>
                 </div>
                 <div class="bottom">
                   <div class="price">
                     ￥{{good.activity_price}}
                   </div>
                   <div class="btn" @click="enterflashDetail(good)">
-                    抢购
+                    {{$t('message.snapUp')}}
                   </div>
                 </div>
               </div>
               <div class="flash-card" style="display: flex;align-items: center;justify-content: center;" @click="Fdetail()">
                 <div class="more" style="border-radius: 1rem;">
-                  查看更多
+                  {{$t('message.seemore')}}
                 </div>	
               </div>		          
           </div>
@@ -160,8 +170,8 @@
     <div>
       <div class="newgood" v-if="integralGood">
         <div class="title">
-          <div class="name">积分兑换</div>
-          <div class="more" @click="MallDetail()">更多</div>
+          <div class="name">{{$t('message.redme')}}</div>
+          <div class="more" @click="MallDetail()">{{$t('message.more')}}</div>
         </div>
         <div class="cards">
             <div class="card" v-for="good in integralGood.slice(0,6)" :key="good.id" @click="enterIntegral(good)">
@@ -171,7 +181,7 @@
               <div class="title">{{good.title}}</div>
               <div class="price-box">
                 <span class="price">{{good.integral}}</span>
-                <span class="inte">&nbsp;积分</span>
+                <span class="inte">&nbsp;{{$t('message.integral')}}</span>
               </div>
             </div>		
         </div>
@@ -180,8 +190,8 @@
     <div>
       <div class="storenew" v-if="shoplist">
         <div class="title">
-          <div class="name">推荐店铺</div>
-          <div class="more" @click="storelink()">更多</div>
+          <div class="name">{{$t('message.recommentedStore')}}</div>
+          <div class="more" @click="storelink()">{{$t('message.more')}}</div>
         </div>
         <div class="cardstore">
             <div class="cardd" v-for="good in shoplist.slice(0,6)" :key="good.id" @click="shopHome(good.id)">
@@ -202,8 +212,8 @@
     <div>
       <div class="goods_new slide" v-if="guesLike.length>0">
         <div class="title">
-          <div class="name">新品上架</div>
-          <div class="more" @click="newlink()">更多</div>
+          <div class="name">{{$t('message.Newarrivals')}}</div>
+          <div class="more" @click="newlink()">{{$t('message.more')}}</div>
         </div>
         <div class="cards">
             <div class="card" v-for="good in guesLike.slice(0,6)" :key="good.id" @click="enterDetail(good)">
@@ -212,8 +222,8 @@
               </div>
               <div class="title">{{good.title}}</div>
               <div class="price-box">
-                <span class="price">￥{{good.price_member}}</span>
-                <span>已售 {{good.sales_sum}}</span>
+                <div class="price">￥{{good.price_member}}</div>
+                <div>{{$t('message.sold')}} {{good.sales_sum}}</div>
               </div>
             </div>		
         </div>
@@ -222,8 +232,8 @@
     <div>
       <div class="goods_new slide" v-if="guesshot.length>0">
         <div class="title1">
-          <div class="name">热销商品</div>
-          <div class="more" @click="popularlink()">更多</div>
+          <div class="name">{{$t('message.hotSale')}}</div>
+          <div class="more" @click="popularlink()">{{$t('message.more')}}</div>
         </div>
         <div class="cards">
             <div class="card" v-for="good in guesshot.slice(0,6)" :key="good.id" @click="enterDetail(good)">
@@ -232,8 +242,8 @@
               </div>
               <div class="title">{{good.title}}</div>
               <div class="price-box">
-                <span class="price">￥{{good.price_member}}</span>
-                <span>已售 {{good.sales_sum}}</span>
+                <div class="price">￥{{good.price_member}}</div>
+                <div>{{$t('message.sold')}} {{good.sales_sum}}</div>
               </div>
             </div>		
         </div>
@@ -242,7 +252,7 @@
     <ul class="floor">
       <li class="floor-item">
         <div class="top">
-          <div class="title">猜你喜欢</div>
+          <div class="title">{{$t('message.youlike')}}</div>
         </div>
         <div class="goods-box" v-if="floorList.length>0">
           <div
@@ -265,7 +275,7 @@
         </div>
       </li>
     </ul>
-    <span class="isEnd" v-if="isEnd">暂无数据</span>
+    <span class="isEnd" v-if="isEnd">{{$t('message.nodata')}}</span>
     <span
       v-else
       v-loading="floorLoading"
@@ -338,7 +348,8 @@ export default {
       countDownTime:0,
       slide_switch: false,
       roll_switch: true,
-      storeProduct:null
+      storeProduct:null,
+      // langs: ['English', 'Chinese','Myanmar']
     };
   },
   computed: {
@@ -1224,7 +1235,7 @@ export default {
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             height: .7rem;
-            line-height: .4rem;
+            line-height: .39rem;
 					}
 					.price{
 						color:#d02629;
@@ -1331,7 +1342,7 @@ export default {
 			.card{
 				width:3rem;
 				flex: 0 0 auto;
-				height:4.5rem;
+				// height:4.5rem;
 				background:white;
 				margin-right:.2rem;
 				overflow: hidden;
@@ -1364,16 +1375,16 @@ export default {
           margin-top: .1rem;
 				}
 				.price-box{
-					display: flex;
-					justify-content: space-between;
-					padding:.05rem .2rem .2rem .2rem;
+					// display: flex;
+					// justify-content: space-between;
+					padding:.05rem .2rem .15rem .2rem;
 					color:#909399;
 					font-size: .16rem;
 					align-items: center;
 					.price{
 						color:#da3632;
 						font-size:.24rem;
-						
+						padding: .05rem 0;
 					}
 				}
 			}
@@ -1420,7 +1431,7 @@ export default {
 			.flash-card{
 				width:3rem;
 				flex: 0 0 auto;
-				height:5.07rem;
+				// height:5.7rem;
 				background:white;
 				margin-right:.2rem;
 				overflow: hidden;
@@ -1470,9 +1481,9 @@ export default {
           text-align: left;
 				}
 				.remain{
-					display: flex;
-					align-items: center;
-					justify-content: space-between;
+					// display: flex;
+					// align-items: center;
+					// justify-content: space-between;
 					color: #909399;
 					font-size: .2rem;
 					padding-top:.1rem;
@@ -1480,6 +1491,7 @@ export default {
 					padding-right: .06rem;
 					.stock{
 						color:#d02629;
+            padding-top:.1rem;
 					}
 				}
 				.bottom{
@@ -1487,6 +1499,7 @@ export default {
 					align-items: center;
 					justify-content: space-between;
 					padding-top: .1rem;
+          padding-bottom: .1rem;
 					.price{
 						color:#da3632;
 						font-size: .28rem;

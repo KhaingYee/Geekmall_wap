@@ -6,6 +6,7 @@ import App from './App'
 import router from './router'
 import $ from 'jquery'
 import store from './control/index'
+import i18n from './control/languageChange'
 import './config/rem'
 import './config/rotate';
 import './style/base.css'
@@ -177,6 +178,7 @@ new Vue({
     el: '#app',
     router,
     store,
+    i18n,
     template: '<App/>',
     components: { App }
 })
