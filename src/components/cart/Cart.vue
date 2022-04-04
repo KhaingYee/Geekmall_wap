@@ -2,7 +2,7 @@
   <div class="goos" ref="cart">
     <div v-title data-title="我的购物车">我的购物车</div>
     <header class="cart-header">
-      我的购物车
+      {{ $t('message.shoppingCart') }}
       <!-- ({{nav[0].number+nav[1].number}}) -->
       <router-link to="/myNews">
         <span></span>
@@ -26,8 +26,8 @@
      <div class="cart-active text-center" v-if="!$store.state.cart_data">
       <img src="../../assets/cart.png" />
       <p class="text">
-        您的购物车还没有宝贝哦，
-        <a @click="enterList">快选购看看</a>
+        {{ $t('message.NoshoppingCart') }}，
+        <a @click="enterList">{{ $t('message.buyNow') }}</a>
       </p>
     </div>
     <div v-show="nav[1].isSelected">
@@ -43,13 +43,14 @@
         <dt>
           <label class="checkBoxOri" :class="{active:items.checked}" @click="addShop(index1,items)">
             <span></span>
+            {{ $t('message.selectAll') }}
           </label>
           <a @click="enterShop(items)">{{items.shop_name}}</a>
           <span class="clearfix" @click="deit(index1,$event)">
             <i class="fl">{{total.fn}}</i>
             <em class="fl"></em>
           </span>
-          <span class="all" :class="{allColor:items.checked}">全选</span>
+          <!-- <span class="all" :class="{allColor:items.checked}">{{ $t('message.selectAll') }}</span> -->
         </dt>
         <dd
           class="clearfix"
@@ -66,10 +67,10 @@
               </span>
           </div> -->
           <div v-if="item.promotion.reduction" class="promotion1">
-              <span class="staticbg">满减</span>
+              <span class="staticbg">{{$t('message.fullReduction')}}</span>
               <span class="profont">
-                已满 {{ item.promotion.reduction.full }} 元，
-                下单立减 {{ item.promotion.reduction.expense }} 元
+                {{$t('message.full')}} {{ item.promotion.reduction.full }} 元，
+                {{$t('message.orderDiscount')}} {{ item.promotion.reduction.expense }} 元
               </span>
           </div>
 
@@ -118,7 +119,7 @@
           </div> -->
           <div v-if="item.promotion.gift.goods" v-for="(gi, i) in item.promotion.gift.goods" :key="i" class="giftcss">
               <div @click="promotionClick(item.promotion.gift)">
-                <span class="static1">赠品</span>
+                <span class="static1">{{ $t('message.giveaway') }}</span>
                 <span class="profont">
                   {{gi.title}}
                 </span>
@@ -129,7 +130,7 @@
           </div>
           <div class="delete fr" v-show="!total.deit" @click="remove(index,index1,item)">
             <div class="icon"></div>
-            <div class="text">删除</div>
+            <div class="text">{{ $t('message.delete') }}</div>
           </div>
           <div class="input-wrap fr" v-show="!total.deit">
             <button @click="reduce(index,item)">-</button>
@@ -141,7 +142,7 @@
       <div class="interested">
         <div class="title">
           <span></span>
-          <span></span> 您可能感兴趣的产品
+          <span></span> {{ $t('message.interested') }}
         </div>
         <pr-list
             v-if="$store.state.dataLeave && $store.state.dataLeave.length"
@@ -158,17 +159,17 @@
             <span></span>
             {{total.setData}}
           </label>
-          <button class="set-btn fr" v-show="total.deit" @click="toOrder">去结算({{total.seleNumber}})</button>
+          <button class="set-btn fr" v-show="total.deit" @click="toOrder">{{ $t('message.settle') }}({{total.seleNumber}})</button>
           <div class="total fl" v-show="total.deit">
             <div class="total-metre clearfix">
-              <span class="title fl">总计:</span>
+              <span class="title fl">{{ $t('message.total') }}:</span>
               <span class="con fl">
                 ￥
                 <span>{{price.toFixed(2)}}</span>
               </span>
             </div>
           </div>
-          <div class="immig fr" v-show="!total.deit" @click="collection">移入收藏</div>
+          <div class="immig fr" v-show="!total.deit" @click="collection">{{ $t('message.move') }}</div>
         </div>
       </div>
     </div>
@@ -206,8 +207,8 @@ export default {
         dis: 0,
         seat: "",
         deit: true,
-        setData: "全选",
-        fn: "编辑"
+        setData: this.$t('message.selectAll'),
+        fn: this.$t('message.edit')
       },
       scrollWatch: true,
       data: "",
@@ -225,12 +226,12 @@ export default {
       news: [],
       nav: [
         {
-          name: "商品",
+          name: this.$t('message.commodity'),
           isSelected: true,
           number: 0
         },
         {
-          name: "推荐套餐",
+          name: this.$t('message.RecommendedPackage'),
           isSelected: false,
           number: 0
         }
@@ -243,7 +244,7 @@ export default {
       sliding_no_data: false, //下拉没数据时的样式
       page: 1,
       conItem: {
-        title: "猜你喜欢"
+        title: this.$t('message.youlike')
       },
     };
   },
@@ -461,14 +462,14 @@ export default {
       if (this.total.deit) {
         for (var i = 0; i < len; i++) {
           this.total.deit = false;
-          this.total.fn = "完成";
+          this.total.fn = this.$t('message.finish');
           this.isEdit = false;
         }
       } else {
         this.getAllprice();
         for (var i = 0; i < len; i++) {
           this.total.deit = true;
-          this.total.fn = "编辑";
+          this.total.fn = this.$t('message.edit');
           this.isEdit = true;
         }
       }
@@ -919,17 +920,17 @@ export default {
         background: #d02629;
         color: #fff;
         text-align: center;
-        font-size: 0.36rem;
+        font-size: 0.3rem;
       }
       .set-btn {
-        width: 2rem;
+        // width: 2rem;
         color: #fff;
         height: 100%;
         border: none;
         text-align: center;
         line-height: 1rem;
         background: #d02629;
-        font-size: 0.36rem;
+        font-size: 0.28rem;
       }
       .total {
         padding: 0.2rem 0.1rem;
@@ -962,6 +963,7 @@ export default {
         line-height: 1rem;
         font-size: 0.28rem;
         color: #999;
+        font-size: .23rem;
         span {
           position: absolute;
           top: 50%;
@@ -974,6 +976,7 @@ export default {
           text-align: center;
           line-height: 0.4rem;
           color: #f9781e;
+          font-size: .23rem;
         }
       }
     }
@@ -990,7 +993,7 @@ export default {
       span {
         position: absolute;
         top: 50%;
-        width: 2.3rem;
+        width: 1.3rem;
         height: 1px;
         background: #cdcdcd;
       }
@@ -1094,9 +1097,9 @@ export default {
     .all {
       position: absolute;
       top: 50%;
-      right: 82.5%;
+      right: 73.5%;
       display: inline-block;
-      font-size: 0.32rem;
+      font-size: 0.26rem;
       z-index: 0;
     }
     a {
@@ -1278,12 +1281,11 @@ export default {
     position: absolute;
     left: 0.1rem;
     top: 0;
-    width: 0.7rem;
+    // width: 0.7rem;
     height: 100%;
     z-index: 1;
-
-
-
+    padding-left: .55rem;
+    color: #999;
     span {
       position: absolute;
       top: 50%;
@@ -1299,6 +1301,16 @@ export default {
       color: #f9781e;
     }
   }
+  .checkBoxOri.active {
+      color: #d02629;
+      span {
+        border: none;
+        width: 0.44rem;
+        height: 0.44rem;
+        background: url(../../assets/check_bj.png) no-repeat;
+        background-size: 100% 100%;
+      }
+    }
   .checkboxgroup {
     display: flex; 
     align-items: center;

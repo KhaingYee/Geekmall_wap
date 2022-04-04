@@ -9,7 +9,7 @@
         <div class="header_seek" @click="searchIn">
             <img class="header_seek_img" :src="seekImg" alt="搜素img">
             <form action="javascript:void(0);">
-                <input type="search" placeholder="搜索宝贝、店铺..." @keyup.enter.stop="submit(value)">
+                <input type="search" :placeholder="$t('message.searchShop')" @keyup.enter.stop="submit(value)">
             </form>
         </div>
         <div class="header_news">

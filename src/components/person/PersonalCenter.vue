@@ -23,11 +23,11 @@
                         <el-dropdown v-if="data.authentication==2">
                             <img src="../../assets/approve.png" v-if="data.authentication==2" class="approval-img"/>   
                             <el-dropdown-menu slot="dropdown">
-                                <el-dropdown-item>已实名认证</el-dropdown-item>
+                                <el-dropdown-item>{{$t('message.nameAuthentication')}}</el-dropdown-item>
                             </el-dropdown-menu>
                         </el-dropdown>
                     </div>
-                    <p class="signbut" @click="sign">签到福利</p>
+                    <p class="signbut" @click="sign">{{$t('message.benefits')}}</p>
                 </div>
                 <div class="iconright">
                     <div class="right-warp">
@@ -35,8 +35,8 @@
                             <img src="../../assets/images/skqx.png"/>
                         </p>
                         <div class="boxtext" @click="checkmember">
-                            <span class="member">超级会员</span>
-                            <span class="limits">产看权限</span>
+                            <span class="member">{{$t('message.member')}}</span>
+                            <span class="limits">{{$t('message.production')}}</span>
                         </div>
                     </div>
                 </div>
@@ -52,12 +52,12 @@
         </div>
 
         <div class="myOrder clearfix">
-            <div class="title fl" style="width: 80%;">
+            <div class="title fl" style="width: 74%;">
                 <span class="icon"></span>
-                我的订单
+                {{$t('message.MyOrde')}}
             </div>
             <div class="see fr" @click="myOrderList">
-                <span class="icon-right"></span>查看订单
+                <span class="icon-right"></span>{{$t('message.checkOrder')}}
             </div>
         </div>
         <div class="navlinkbox">
@@ -104,7 +104,7 @@
             </ul>
         </div>
         <div class="myOrder clearfixserver">
-            <div class="title fl">我的服务</div>
+            <div class="title fl">{{$t('message.myService')}}</div>
             <!-- <div class="see fr" @click="myserver1">
                 <span class="icon-right"></span>
             </div> -->
@@ -177,27 +177,27 @@
                 ApiColor:'',
                 Imag: "",
                 topattention: [
-                    {text: "0", txt: "收藏宝贝"},
-                    {text: "0", txt: "关注店铺"},
-                    {text: "0", txt: "关注门店"},
-                    {text: "0", txt: "足迹"}
+                    {text: "0", txt: this.$t('message.favorite')},
+                    {text: "0", txt: this.$t('message.shop')},
+                    {text: "0", txt: this.$t('message.store')},
+                    {text: "0", txt: this.$t('message.footprint')}
                 ],
                 //我的服务
                 navserver1: [
                     {
-                        text: "我的发票",
+                        text: this.$t('message.invoice'),
                         imgData: require("@/assets/images/invoice.png")
                     },
                     {
-                        text: "我的积分",
+                        text: this.$t('message.scores'),
                         imgData: require("@/assets/images/youhuiquan.png")
                     },
                     {
-                        text: "积分商城",
+                        text: this.$t('message.mall'),
                         imgData: require("@/assets/images/loadingjifenguize.png")
                     },
                     {
-                        text: "评价管理",
+                        text: this.$t('message.management'),
                         imgData: require("@/assets/images/pjgl.png")
                     }
                 ],
@@ -208,11 +208,11 @@
                     // },
                     // {text: "推客", imgData: require("@/assets/images/tk.png")},
                     {
-                        text: "账户设置",
+                        text: this.$t('message.settings'),
                         imgData: require("@/assets/images/shezhi.png")
                     },
                     {
-                        text: "客服服务",
+                        text: this.$t('message.service'),
                         imgData: require("@/assets/images/kefu.png")
                     },
                     // {
@@ -220,17 +220,17 @@
                     //     imgData: require("@/assets/images/fenxiaozhongxin.png")
                     // }
                     {
-                        text: "举报",
+                        text: this.$t('message.report'),
                         imgData: require("@/assets/images/report1.png")
                     },
                     {
-                        text: "意见反馈",
+                        text: this.$t('message.feedback'),
                         imgData: require("@/assets/images/opinion.png")
                     },
                 ],
                 addIcon: [
                     {
-                        text: "我的收藏",
+                        text: this.$t('message.collection'),
                         imgData: require("@/assets/images/collection.png")
                     },
                     // {   
@@ -242,11 +242,11 @@
                     //     imgData: require("@/assets/images/wallet.png")
                     // },
                     {
-                        text: "我要开店",
+                        text: this.$t('message.openshop'),
                         imgData: require("@/assets/images/shop.png")
                     },
                     {
-                        text: "收货地址",
+                        text: this.$t('message.ShippingAddress'),
                         imgData: require("@/assets/images/myAdvice.png")
                     },
                     // {
@@ -254,7 +254,7 @@
                     //     imgData: require("@/assets/images/service.png")
                     // },
                     {
-                        text: "积分订单",
+                        text: this.$t('message.PointsOrder'),
                         imgData: require("@/assets/images/intmall_order.png")
                     }
                     
@@ -289,23 +289,23 @@
                          imgData: require("@/assets/images/jfw.png")
                      },*/
                     {
-                        text: "拼团订单",
+                        text: this.$t('message.groupOr'),
                         imgData: require("@/assets/images/tg.png")
                     },
                     {
-                        text: "套餐订单",
+                        text: this.$t('message.packageOr'),
                         imgData: require("@/assets/images/dingdan.png")
                     },
                     {
-                        text: "其他订单",
+                        text: this.$t('message.otherOr'),
                         imgData: require("@/assets/images/qtdd.png")
                     }
                 ],
                 navCon3: [
-                    {text: "0", txt: "可用积分"},
-                    {text: "0", txt: "优惠卷"},
+                    {text: "0", txt: this.$t('message.PointsAvailable')},
+                    {text: "0", txt: this.$t('message.voucher')},
                     // {text: "0", txt: "红包"},
-                    {text: "0.00", txt: "余额"},
+                    {text: "0.00", txt: this.$t('message.balance')},
                     // {
                     //     imgData: require("@/assets/images/wdzc.png"),
                     //     txt: "我的资产"
@@ -316,11 +316,11 @@
                 user_header: true,
                 signInDisplay: false,
                 navCon: [
-                    { num: '0', text: "待付款", imgData: require("@/assets/Orders_01.png") },
-                    { num: '0', text: "待发货", imgData: require("@/assets/Orders_02.png") },
-                    { num: '0', text: "待收货", imgData: require("@/assets/Orders_03.png") },
-                    { num: '0', text: "已完成", imgData: require("@/assets/Orders_04.png") },
-                    { num: '0', text: "返修/退货", imgData: require("@/assets/Orders_05.png") }
+                    { num: '0', text: this.$t('message.payment'), imgData: require("@/assets/Orders_01.png") },
+                    { num: '0', text: this.$t('message.delivered'), imgData: require("@/assets/Orders_02.png") },
+                    { num: '0', text: this.$t('message.pendingReceipt'), imgData: require("@/assets/Orders_03.png") },
+                    { num: '0', text: this.$t('message.completed'), imgData: require("@/assets/Orders_04.png") },
+                    { num: '0', text: this.$t('message.repair'), imgData: require("@/assets/Orders_05.png") }
                 ],
             };
         },
@@ -810,7 +810,7 @@ margin: 0;
                 }
                 .signbut {
                     margin-top: 0.2rem;
-                    width: 45%;
+                    width: 66%;
                     height: 0.5rem;
                     text-align: center;
                     border-radius: 0.2rem;
@@ -848,19 +848,19 @@ margin: 0;
                     .boxtext {
                         position: absolute;
                         top: 0.45rem;
-                        right: 0.3rem;
+                        // right: 0.3rem;
                         display: flex;
                         flex-direction: column;
-                        margin-right: .15rem;
-                        /*left:78%;*/
+                        // margin-right: .15rem;
+                        left:79%;
 
                         .member {
-                            font-size: 0.26rem;
+                            font-size: 0.23rem;
                             color: #d6bf93;
                         }
 
                         .limits {
-                            font-size: .23rem;
+                            font-size: .22rem;
                             color: #8e8e8e;
                         }
                     }
@@ -1356,7 +1356,7 @@ margin: 0;
                 width: 20%;
                 height: 1.26rem;
                 text-align: center;
-                padding-top: 0.1rem;
+                padding: 0.1rem 0;
 
                 .icon-wrap {
                     width: 100%;

@@ -3,7 +3,7 @@
         <!-- <div v-title data-title="活动">活动</div> -->
         <div class="active-header">
             <span></span>
-            <span>活动</span>
+            <span>{{ $t('message.activity') }}</span>
             <img class="fr" :src="activityImg" alt />
         </div>
 
@@ -47,10 +47,10 @@
         <div class="assemble-activity">
             <div class="title">
                 <div>
-                    <span>一起来拼团</span>
+                    <span>{{ $t('message.together') }}</span>
                 </div>
                 <div @click="more(3)">
-                    更多
+                    {{ $t('message.more') }}
                     <img :src="moreImg" alt />
                 </div>
             </div>
@@ -76,9 +76,9 @@
                             <div>{{item.percentage}}%</div>
                         </div>
                         <div class="bottom">
-                        <div class="num">{{item.buy_num}}人已拼单</div>
-                        <div class="status" v-if="item.status == 1 ">拼团中</div>
-                        <div class="status" v-if="item.status == 0 ">去开团</div>
+                        <div class="num">{{item.buy_num}}{{ $t('message.peopleOrder') }}</div>
+                        <div class="status" v-if="item.status == 1 ">{{ $t('message.inGroup') }}</div>
+                        <div class="status" v-if="item.status == 0 ">{{ $t('message.startGroup') }}</div>
                         </div>
                     </div>
                 </div>
