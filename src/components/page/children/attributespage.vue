@@ -3,7 +3,7 @@
         <!-- <div v-title data-title="商品属性">商品属性</div> -->
                 <ul class="list-wrap">
                     <li class="clearfix">
-                      	<p class="pTitle">商品名称：</p>
+                      	<p class="pTitle">{{$t('message.product_name')}}：</p>
                       	<span>{{attrData.title}}</span>
                     </li>
                     <li class="clearfix" v-for="item in attrData.attr" :key="item.id">
@@ -12,7 +12,7 @@
                     </li>
                     <li class="clearfix" v-for="(item,index) in fileDownload" :key="index" v-if="item.href">
                       	<p class="pTitle">{{item.href}}：</p>
-                      	<span>请在电脑端进行下载</span>
+                      	<span>{{$t('message.download')}}</span>
                     </li>
                 </ul>
         <Shopsn></Shopsn>

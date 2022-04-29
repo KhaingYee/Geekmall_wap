@@ -25,10 +25,10 @@
       <!-- <div class="select-guige fr" @click="hide">选择规格</div> -->
       <div style="display: flex;">
           <div class="join fr" @click="toOrder">
-              <span>立即购买</span>
+              <span>{{$t('message.buy_now')}}</span>
           </div>
           <div class="imm fr" @click="join">
-              <span>加入购物车</span>
+              <span>{{$t('message.add_to_cart')}}</span>
           </div>
       </div>
     </div>

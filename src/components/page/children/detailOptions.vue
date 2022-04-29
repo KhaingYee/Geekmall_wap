@@ -50,7 +50,7 @@
               <em v-else>{{$store.state.commodity_data.goods.price_member}}</em>
             </span>
             <p style="padding-left: 1.92rem;">
-                <span style="color: grey;">已选 </span>
+                <span style="color: grey;">{{$t('message.selected')}}</span>
                 <span v-if="activeItem">{{activeItem}}, {{$store.state.commodity_val}}个</span>
                 <span v-else>{{nospec}}</span>
             </p>
@@ -93,7 +93,7 @@
             </div>
             <p class="price" v-else>
               <span v-if="assemPro && (assemPro == 'assemPro')"></span> 
-              <span v-else>{{$store.state.commodity_data.goods.money}}积分</span> <!-- integral product mha 积分 paw ya mr -->
+              <span v-else>{{$store.state.commodity_data.goods.money}}{{$t('message.integral')}}</span> <!-- integral product mha 积分 paw ya mr -->
               <span
                 v-if="$store.state.commodity_data.goods.packaging"
               >{{$store.state.commodity_data.goods.packaging}}</span>
@@ -150,7 +150,7 @@
 
             <!-- 选择 长度 -->
             <div class="addSub" v-if="$store.state.commodity_data.goods.customized == 1">
-              <span class="pull-left fl">长度(米)</span>
+              <span class="pull-left fl">{{$t('message.length')}}</span>
               <div class="pull-right fr clearfix">
                 <div class="input-main fl clearfix">
                   <button class @click="reduceRice">-</button>
@@ -162,7 +162,7 @@
 
             <!-- 数量增加减少 -->
             <div class="addSub">
-                <span class="pull-left fl">数量</span>
+                <span class="pull-left fl">{{$t('message.p_quantity')}}</span>
                 <div class="pull-right fr clearfix">
                     <!--<span class="stock fl"-->
                     <!--v-if="$store.state.commodity_data.goods.stock">库存：{{data.goods.stock}}件</span>-->
@@ -184,8 +184,8 @@
             <div class="com">
               <div></div>
               <div>
-                数量：
-                <span>{{$store.state.commodity_data.goods.customized == 1 ? (Number($store.state.commodity_val) * rice).toFixed(2) : Number($store.state.commodity_val)}}</span>&nbsp;&nbsp; 共计
+                {{$t('message.p_quantity')}}：
+                <span>{{$store.state.commodity_data.goods.customized == 1 ? (Number($store.state.commodity_val) * rice).toFixed(2) : Number($store.state.commodity_val)}}</span>&nbsp;&nbsp; {{$t('message.total')}}
                 <span v-if="$store.state.commodity_data.goods.p_id==0">
                   <i>￥</i>
                   {{$store.state.commodity_val * productData.price_member|keepTwoNum}}
@@ -200,24 +200,24 @@
                 </span>
                 <span v-else>
                   {{$store.state.commodity_val * $store.state.commodity_data.goods.money}}
-                  <i>积分</i>
+                  <i>{{$t('message.integral')}}</i>
                 </span>
               </div>
             </div>
           </div>
         </div>
         <div class="btn-join clearfix" v-if="$route.params.status == 1">
-          <button class="fl imm" @click="toOrder">立即购买</button>
-          <button class="join fl" @click="join">加入购物车</button>
+          <button class="fl imm" @click="toOrder">{{$t('message.buy_now')}}</button>
+          <button class="join fl" @click="join">{{$t('message.add_to_cart')}}</button>
         </div>
         <div class="btn-join clearfix" v-if="assemPro && (assemPro == 'assemPro')">
-          <button class="fl imm" @click="buyNow">原价购</button><!-- normal buy -->
-          <button class="join fl" @click="groupBuy">开团购</button><!-- group Buy -->
+          <button class="fl imm" @click="buyNow">{{$t('message.buy_original')}}</button><!-- normal buy -->
+          <button class="join fl" @click="groupBuy">{{$t('message.open_purchase')}}</button><!-- group Buy -->
         </div>
         <div class="btn-join clearfix" v-if="$route.params.status == 2">
           <!-- <button class="fr imm" @click="remove">确定</button> -->
-          <button class="fl imm" @click="toCard">立即购买</button>
-          <button class="join fl" @click="joinCard">加入购物车</button>
+          <button class="fl imm" @click="toCard">{{$t('message.buy_now')}}</button>
+          <button class="join fl" @click="joinCard">{{$t('message.add_to_cart')}}</button>
         </div>
       </div>
     </div>

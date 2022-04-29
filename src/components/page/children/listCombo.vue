@@ -2,8 +2,8 @@
     <div class="guess-like-wrap">
         <div class="hd clearfix">
             <span class="pull-left fl" :class="{active:isClass}">{{conItem.title}}</span>
-            <span class="pull-right fr" v-if="isClass" @click="myLove">换一换</span>
-            <span class="pull-right fr" v-else @click="tolink(1)">更多</span>
+            <span class="pull-right fr" v-if="isClass" @click="myLove">{{$t('message.change')}}</span>
+            <span class="pull-right fr" v-else @click="tolink(1)">{{$t('message.more')}}</span>
         </div>
         <div class="item-list-wrap clearfix">
             <div class="item-list fl" v-for="item in data" :key="item.id" @click="tolink(item.id)">

@@ -16,21 +16,21 @@
         <ul class="cotent" @click="toShop">
             <li>
                 <h4>{{shopData.goodsNumber}}</h4>
-                <p>全部宝贝</p>
+                <p>{{$t('message.all_baby')}}</p>
             </li>
             <li>
                 <h4>{{shopData.store_collect}}</h4>
-                <p>关注人数</p>
+                <p>{{$t('message.followers')}}</p>
             </li>
             <li>
-                <p>描述相符: <span>{{shopData.desccredit}}</span></p>
-                <p>服务态度: <span>{{shopData.servicecredit}}</span></p>
-                <p>发货速度: <span>{{shopData.deliverycredit}}</span></p>
+                <p>{{$t('message.description')}}: <span>{{shopData.desccredit}}</span></p>
+                <p>{{$t('message.service_attitude')}}: <span>{{shopData.servicecredit}}</span></p>
+                <p>{{$t('message.delivery_speed')}}: <span>{{shopData.deliverycredit}}</span></p>
             </li>
         </ul>
         <div class="footer">
-            <div @click="toShopList">查看分类</div>
-            <div @click="toShop">进店逛逛</div>
+            <div @click="toShopList">{{$t('message.view_category')}}</div>
+            <div @click="toShop">{{$t('message.go_shopping')}}</div>
         </div>
     </div>
 </template>
@@ -193,7 +193,7 @@
             border-bottom: 1px solid #f1f1f1;
             div{
                 margin: 0 30/100rem;
-                width: 150/100rem;
+                // width: 150/100rem;
                 height: 50/100rem;
                 border:1/100rem solid #d02629;
                 color: #d02629;
@@ -201,6 +201,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                padding: 0 10/100rem;
             }
         }
     }

@@ -3,7 +3,7 @@
         <div class="hd clearfix">
          
             <span class="pull-left fl" :class="{active:isClass}">{{conItem.title}}</span>
-            <span class="pull-right fr" v-if="isClass" @click="myLove">换一换</span>
+            <span class="pull-right fr" v-if="isClass" @click="myLove">{{$t('message.change')}}</span>
             <span class="pull-right fr" v-else @click="tolink(1)">{{$t('message.more')}}</span>
         </div>
         <div class="item-list-wrap clearfix">
@@ -38,10 +38,10 @@
             SpecGodid:''
         },
         mounted() {
-            if(this.conItem.title == '搭配套餐推荐'){ //优惠套餐
+            if(this.conItem.title == this.$t('message.recommendation')){ //优惠套餐
                 this.isClass = true;
             }
-            if(this.conItem.title == '猜你喜欢'){ //优惠套餐
+            if(this.conItem.title == this.$t('message.youlike')){ //优惠套餐   
                 this.isClass = true;
             }
         },

@@ -2,7 +2,7 @@
     <div class="newProduct1" ref="newProduct1">
         <header class="productList-header">
             <span @click="btnGo" class="btnGo"></span>
-            <div class="header-text">闪购清单</div>
+            <div class="header-text">{{$t('message.flash_list')}}</div>
         </header>
         <div class="time-divv" id="sticky" v-if="dateTime">
             <div class="time" v-for="(item, index)  in dateTime" :key="index">
@@ -12,9 +12,9 @@
         </div>
         <div class="countDown">
             <div class="title">
-            <div class="name">现时现量 先到先得</div>
+            <div class="name">{{$t('message.current')}}</div>
             <div class="more" v-if="countDownTime == '' || countDownTime == null || countDownTime == []">
-                秒杀还未开始&nbsp;&nbsp;
+                {{$t('message.kill')}}&nbsp;&nbsp;
                 <div class="block hour">00</div>
                 <div class="aa">:</div>
                 <div class="block minute">00</div>
@@ -22,7 +22,7 @@
                 <div class="block second">00</div>
             </div>
             <div class="more" v-else>
-                距离本场结束&nbsp;&nbsp;
+                {{$t('message.field')}}&nbsp;&nbsp;
                 <div class="block hour">{{showTimeH}}</div>
                 <div class="aa">:</div>
                 <div class="block minute">{{showTimeM}}</div>
@@ -41,15 +41,15 @@
                             <div class="inner-bar" :style="'width:' + ((item.buy_num/item.activity_num)*100) + '%'"></div>
                         </div>
                         <div class="remain">
-                            <div class="buy">已抢购{{item.buy_num}}件</div>
-                            <div class="stock">仅剩{{item.activity_num - item.buy_num}}件</div>
+                            <div class="buy">{{$t('message.snap')}}{{item.buy_num}}{{$t('message.piece')}}</div>
+                            <div class="stock">{{$t('message.left')}}{{item.activity_num - item.buy_num}}{{$t('message.piece')}}</div>
                         </div>
                         <div class="bottom">
                             <div class="price">
                             ￥{{item.activity_price}}
                             </div>
                             <div class="btn">
-                            活动已结束
+                            {{$t('message.over')}}
                             </div>
                         </div>
 					</div>
@@ -66,15 +66,15 @@
                             <div class="inner-bar" :style="'width:' + ((item.buy_num/item.activity_num)*100) + '%'"></div>
                         </div>
                         <div class="remain">
-                            <div class="buy">已抢购{{item.buy_num}}件</div>
-                            <div class="stock">仅剩{{item.activity_num - item.buy_num}}件</div>
+                            <div class="buy">{{$t('message.snap')}}{{item.buy_num}}{{$t('message.piece')}}</div>
+                            <div class="stock">{{$t('message.left')}}{{item.activity_num - item.buy_num}}{{$t('message.piece')}}</div>
                         </div>
                         <div class="bottom">
                             <div class="price">
                             ￥{{item.activity_price}}
                             </div>
                             <div class="btn" @click="enterDetail(item)">
-                            抢购
+                            {{$t('message.snapUp')}}
                             </div>
                         </div>
 					</div>
@@ -448,12 +448,12 @@
 						color: #333;
 						line-height: .45rem;
 						padding-top: .1rem;
-						height: .9rem;
+						height: .5rem;
 						overflow: hidden;
 						text-overflow: ellipsis;
 						display: -webkit-box;
 						-webkit-box-orient: vertical;
-						-webkit-line-clamp: 2;
+						-webkit-line-clamp: 1;
 					}
                     .sale-bar{
                         width:100%;
@@ -472,15 +472,16 @@
                         }
                     }
                     .remain{
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
+                        // display: flex;
+                        // align-items: center;
+                        // justify-content: space-between;
                         color: #909399;
                         font-size: .2rem;
                         padding-top:.1rem;
                         padding-left:.06rem;
                         padding-right: .06rem;
                         .stock{
+                            padding-top:.1rem;
                             color:#d02629;
                         }
                     }

@@ -18,10 +18,10 @@
                     <span class="fl"></span>
                   </div> -->
             <div :style="tabOpacity" class="tab" id="menu-center">
-                <div class="active"><a  href="#tab1">商品</a></div>
-                <div><a href="#tab2">详情</a></div>
-                <div><a href="#tab3">属性</a></div>
-                <div><a href="#tab4">推荐</a></div>
+                <div class="active"><a  href="#tab1">{{$t('message.commodityy')}}</a></div>
+                <div><a href="#tab2">{{$t('message.details')}}</a></div>
+                <div><a href="#tab3">{{$t('message.attributes')}}</a></div>
+                <div><a href="#tab4">{{$t('message.recommend')}}</a></div>
             </div>
             <img class="headerimg" src="../../assets/arrow1@2x.png" @click="goLastPage">
             <img src="../../assets/cart@3x.png" class="sharebtn-ng" @click="toLink('/Cart')">
@@ -33,13 +33,13 @@
               <div class="bomb-box">
                 <div class="polygon"></div>
                 <div class="btn" @click="toLink('/home')">
-                <span class="icon"><i></i></span>首页
+                <span class="icon"><i></i></span>{{$t('message.frontpage')}}
                 </div>
                 <div class="btn" @click="toLink('/myNews')">
-                <span class="icon"><i></i></span>消息
+                <span class="icon"><i></i></span>{{$t('message.information')}}
                 </div>
                 <div class="btn" @click="popupVisible=true">
-                <span class="icon"><i></i></span>分享
+                <span class="icon"><i></i></span>{{$t('message.share')}}
                 </div>
                 <!-- <div class="btn" @click="toLink('/Cart')">
                 <span class="icon"><i></i></span>购物
@@ -51,14 +51,14 @@
             <mt-popup v-model="popupVisible" position="bottom" class="pop">
               <div class="share_box">
               <div class="box_header">
-                <p class="box_text">分享</p>
+                <p class="box_text">{{$t('message.share')}}</p>
               </div>
               <div class="share_logo">
                 <div class="up">
                           <img @click="copyLink" src="../../assets/copy.png">
-                          <p class="up_text">夏制链接</p>
+                          <p class="up_text">{{$t('message.Summertime')}}</p>
                           <img @click="qrLink" src="../../assets/QR-code.png">
-                          <p class="up_text" style="padding-left:0.19rem">二维码</p>
+                          <p class="up_text" style="padding-left:0.19rem">{{$t('message.QRcode')}}</p>
                       </div>
                       <div class="dn"> 
                           <!-- <div class="account" @click="wxpage0">
@@ -73,19 +73,19 @@
                           </div>  --> 
                           <div class="account" @click="wxpage">
                               <img src="../../assets/share_wx_@1.png">
-                              <div class="txt">微信好友</div>
+                              <div class="txt">{{$t('message.WeChat')}}</div>
                           </div>
                           <div class="account" @click="initUrl">
                               <img src="../../assets/share_pyq_@1.png">
-                              <div class="txt">朋友圈</div>
+                              <div class="txt">{{$t('message.Circle')}}</div>
                           </div>
                           <div class="account" @click="qqpage">
                           <img src="../../assets/share_qq_@1.png">
-                          <div class="txt">QQ好友</div>
+                          <div class="txt">{{$t('message.QQ')}}</div>
                           </div>
                           <div class="account" @click="wbpage">
                           <img src="../../assets/share_wb_@1.png">
-                          <div class="txt">新浪微博</div>
+                          <div class="txt">{{$t('message.Weibo')}}</div>
                           </div>
                       </div>
                 </div>
@@ -95,11 +95,11 @@
             <mt-popup v-model="popup" position="bottom" class="pop">
               <div class="copy">
               <div class="copy_header">
-                <p class="copy_text">复制</p>
+                <p class="copy_text">{{$t('message.copy')}}</p>
               </div>
               <div class="link">
                 <input class="copy_link" type="text" :value="location" id="myInput">
-                <button class="copy_button" @click="myFunction">Copy</button>
+                <button class="copy_button" @click="myFunction">{{$t('message.copy')}}</button>
               </div>
               </div>
             </mt-popup>
@@ -107,7 +107,7 @@
             <mt-popup v-model="popupV" position="center" class="qrDiv">
               <div class="qr">
               <div class="qr_header">
-                <p class="qr_text">QR扫描</p>
+                <p class="qr_text">{{$t('message.QRscan')}}</p>
               </div>
               <div class="qr_code">
                 <qr-code text="Text to encode" :value="code"></qr-code>
@@ -161,11 +161,11 @@
                         {{productData.price_member}}
                         </span>
                         <span class="new">
-                        原价 ：￥
+                        {{$t('message.originalPrice')}} ：￥
                         <s>{{productData.price_market}}</s>
                         </span>
                         <!--        <span class="report" @click="Report">举报</span>-->
-                        <span class="report" @click="handleNotice(productData, images)">举报</span>
+                        <span class="report" @click="handleNotice(productData, images)">{{$t('message.report')}}</span>
                       </p>
                       <p class="price" v-else>
                         <span style="color:red;font-size:.36rem">
@@ -173,11 +173,11 @@
                         {{$store.state.commodity_data.goods.price_member}}
                         </span>
                         <span class="new">
-                        原价 ：￥
+                        {{$t('message.originalPrice')}} ：￥
                         <s>{{$store.state.commodity_data.goods.price_market}}</s>
                         </span>
                         <!--        <span class="report" @click="Report">举报</span>-->
-                        <span class="report" @click="handleNotice(productData, images)">举报</span>
+                        <span class="report" @click="handleNotice(productData, images)">{{$t('message.report')}}</span>
                       </p>
                     </div>
                     <!-- <div :class="popupHeader == true ? 'down-tip1' : 'down-tip'">
@@ -220,7 +220,7 @@
                       </transition> -->
                     <!-- 已选 -->
                     <div class="selected" @click="theSon">
-                        <span class="title">规格</span>
+                        <span class="title">{{$t('message.p_specification')}}</span>
                         <!-- <div v-if="opt">
                           <span style="float:right; padding-right: .2rem; font-size: .26rem; margin-top: -.8rem;" v-if="opt" @click="theSon">{{detail}}</span>
                           <span style="float:right; padding-right: .2rem; font-size: .26rem; margin-top: -.8rem;" v-else>{{detail}}</span>
@@ -245,12 +245,12 @@
                     <div class="fenge"></div>
 
                     <div class="for-discount" @click="showCoupon" v-if="couponList.length != 0">
-                      <span class="discount_text">优惠</span>
+                      <span class="discount_text">{{$t('message.p_discount')}}</span>
                       <span
                         class="coupon_img"
                         v-for="(item,index) in couponList.slice(0,2)"
                                 :key="index.id">
-                              满{{parseInt(item.condition)}}减{{parseInt(item.money)}}元
+                              {{$t('message.p_full')}}{{parseInt(item.condition)}}{{$t('message.p_reduce')}}{{parseInt(item.money)}}元
                       </span>
                       <span class="btn-right"></span>
                    
@@ -261,11 +261,11 @@
                           <div class="promotion-title" v-if="gift.name">{{gift.name}}</div>
                           <img :src="URL + giftItem.pic_url" class="promotion-img">
                           <div class="promotion-num" v-if="giftItem.give_num != 0 && giftItem.give_num != null">x{{giftItem.give_num}}</div>
-                          <div class="promotion-detail">购满￥{{ giftItem.full }}送赠品，数量{{giftItem.give_count}}赠完即止</div>
+                          <div class="promotion-detail">{{$t('message.product_full')}}￥{{ giftItem.full }}{{$t('message.give_gifts')}}，{{$t('message.p_quantity')}}{{giftItem.give_count}}{{$t('message.stocks_last')}}</div>
                         </div>
                         <div class="promotion-card"  v-if="reduction">
                           <div class="promotion-title" v-if="reduction.promotion_name">{{reduction.promotion_name}}</div>
-                          <div class="promotion-detail">单笔订单满￥{{ reduction.expense }}，立减￥{{reduction.cut}}</div>
+                          <div class="promotion-detail">{{$t('message.order_full')}}￥{{ reduction.expense }}，{{$t('message.immediate_reduction')}}￥{{reduction.cut}}</div>
                         </div>
                       </div>
                     </div>
@@ -315,16 +315,16 @@
                       </el-tabs> -->
 
                     <div class="delivery_method">
-                      <div @click="callingArea" v-if="defStatus_address == 1">
-                      <div class="delivery_title">送至</div>
-                      <input v-if="addressAll1 == ''" placeholder="请选择地区" type="tel" class="delivery_input" disabled v-model="defApi_address">
-                      <input v-else placeholder="请选择地区" type="tel" class="delivery_input" disabled v-model="addressAll1">
+                      <div @click="callingArea" v-if="defStatus_address == 1" class="flex-div">
+                      <div class="delivery_title">{{$t('message.send_to')}}</div>
+                      <input v-if="addressAll1 == ''" :placeholder="$t('message.select_region')" type="tel" class="delivery_input" disabled v-model="defApi_address">
+                      <input v-else :placeholder="$t('message.select_region')" type="tel" class="delivery_input" disabled v-model="addressAll1">
                         <span class="delivery_right"></span>
                       </div>
-                      <div @click="callingArea" v-else>
-                      <div class="delivery_title">送至</div>
-                      <input v-if="addressAll1 == ''" placeholder="请选择地区" type="tel" class="delivery_input" disabled v-model="addressAllData">
-                        <input v-else placeholder="请选择地区" type="tel" class="delivery_input" disabled v-model="addressAll1">
+                      <div @click="callingArea" v-else class="flex-div">
+                      <div class="delivery_title">{{$t('message.send_to')}}</div>
+                      <input v-if="addressAll1 == ''" :placeholder="$t('message.select_region')" type="tel" class="delivery_input" disabled v-model="addressAllData">
+                        <input v-else :placeholder="$t('message.select_region')" type="tel" class="delivery_input" disabled v-model="addressAll1">
                         <span class="delivery_right"></span>
                       </div>
                       <!-- <div>
@@ -333,47 +333,47 @@
                         <div v-else class="delivery_busi">￥{{deliveryMoney}}</div>
                       </div> -->
                       <div class="transport-delivery" v-if="merchantDelivery">
-                          服务&nbsp;&nbsp;
-                          <span class="transport-pass"> 由
-                            <span class="transport-name" @click="toShop(shopData.id)">{{shopData.shop_name}}</span>&nbsp;负责供货,&nbsp;{{merchantDelivery}}
+                          {{$t('message.serve')}}&nbsp;&nbsp;
+                          <span class="transport-pass"> {{$t('message.Depend_on')}}
+                            <span class="transport-name" @click="toShop(shopData.id)">{{shopData.shop_name}}</span>&nbsp;{{$t('message.Responsible_supply')}},&nbsp;{{merchantDelivery}}
                           </span>
                       </div>
                       <div class="transport-delivery" v-if="expressDelivery">
-                          服务&nbsp;&nbsp;
-                          <span class="transport-pass"> 由
-                            <span class="transport-name" @click="toShop(shopData.id)">{{shopData.shop_name}}</span>&nbsp;在&nbsp;{{expressDelivery.stock_name}}&nbsp;负责发货,&nbsp;{{expressDelivery.send_time}}小时内发货
+                          {{$t('message.serve')}}&nbsp;&nbsp;
+                          <span class="transport-pass"> {{$t('message.Depend_on')}}
+                            <span class="transport-name" @click="toShop(shopData.id)">{{shopData.shop_name}}</span>&nbsp;{{$t('message.exist')}}&nbsp;{{expressDelivery.stock_name}}&nbsp;{{$t('message.responsible_delivery')}},&nbsp;{{expressDelivery.send_time}}{{$t('message.Ships_hours')}}
                           </span>
                       </div>
                       <div v-if="productData.freight_type == 2">
-                        <div>
-                          <div class="delivery_title">运费</div>
-                          <div class="delivery_busi">卖家包邮</div>
+                        <div class="sec-flex">
+                          <div class="delivery_title">{{$t('message.shipping_freight')}}</div>
+                          <div class="delivery_busi">{{$t('message.shipping_seller')}}</div>
                         </div>
                       </div>
                       <div v-else>
-                        <div v-if="deliveryCal == -1">
-                          <div class="delivery_title">配送</div>
-                          <div class="delivery_busi">免配送费</div>
+                        <div v-if="deliveryCal == -1" class="sec-flex">
+                          <div class="delivery_title">{{$t('message.shipping_delivery')}}</div>
+                          <div class="delivery_busi">{{$t('message.shipping_free')}}</div>
                         </div>
-                        <div v-else-if="deliveryCal">
-                          <div class="delivery_title">配送</div>
+                        <div v-else-if="deliveryCal" class="sec-flex">
+                          <div class="delivery_title">{{$t('message.shipping_delivery')}}</div>
                           <div class="delivery_busi">{{deliveryCal}} 元</div>
                         </div>
-                        <div v-else>
-                          <div class="delivery_title">运费</div>
-                          <div v-if="freightCal == 0" class="delivery_busi">卖家包邮</div>
+                        <div v-else class="sec-flex">
+                          <div class="delivery_title">{{$t('message.shipping_freight')}}</div>
+                          <div v-if="freightCal == 0" class="delivery_busi">{{$t('message.shipping_seller')}}</div>
                           <div v-else-if="callFreStatus == 0" class="delivery_busi">{{callFreMess}}</div>
                           <div v-else class="delivery_busi">{{freightCal}} 元</div>
                         </div>
                       </div>
 
-                      <div>
-                        <div class="delivery_pay">发货时间</div>
-                        <div class="deliverydate">付款后&nbsp;
-                          <span class="spanDate">{{productData.presell_date}}</span>&nbsp;天内发货
-                          <span class="presale" v-if="productData.is_presell == 0">有现货</span>
-                          <span class="presale" v-if="productData.is_presell == 1">预售商品</span>
+                      <div class="third-flex">
+                        <div class="delivery_pay">{{$t('message.delivery_time')}}</div>
+                        <div class="deliverydate">{{$t('message.after_payment')}}&nbsp;
+                          <span class="spanDate">{{productData.presell_date}}</span>&nbsp;{{$t('message.ships_days')}}
                         </div>
+                          <span class="presale" v-if="productData.is_presell == 0">{{$t('message.in_stock')}}</span>
+                          <span class="presale" v-if="productData.is_presell == 1">{{$t('message.presale')}}</span>
                       </div>
                       <!-- <div v-else>
                         <div class="delivery_title">运费</div>
@@ -391,8 +391,8 @@
                     <div class="fenge"></div>
                     <div class="comment-display">
                         <div class="for_comment" @click="goToComment">
-                            <span class="coupon_title">商品评论&nbsp;({{allCount}})</span>
-                            <span class="coupon_number"> 查看更多</span>
+                            <span class="coupon_title">{{$t('message.product_reviews')}}&nbsp;({{allCount}})</span>
+                            <span class="coupon_number"> {{$t('message.see_more')}}</span>
                             <span class="btn-right"></span>
                         </div>
                         <!-- 暂无评论 -->
@@ -419,8 +419,8 @@
                     <div class="fenge"></div>
                     <div class="ans_display">
                       <div class="for_ans" @click="goToQue">
-                      <span class="ans_title">商口咨询({{countTotal}})</span>
-                      <span class="ans_number"> 查看更多 </span>
+                      <span class="ans_title">{{$t('message.business_consultation')}}({{countTotal}})</span>
+                      <span class="ans_number"> {{$t('message.see_more')}} </span>
                       <span class="btn-right"></span>
                       </div>
                       <li v-for ="item in product.slice(0,2)" :key="item.id" class="product_li">
@@ -428,11 +428,11 @@
                         <!-- <em>用户g***8的提问：</em> -->
                         <!-- <span class="fr g_ask_time">{{formatTime(item.create_time)}}</span> -->
                       </div>
-                      <p class="pro text1-hidden"><span class="g_icon">问</span> {{item.content}}</p>
-                        <p class="text1-hidden" v-if="item.answer"><span class="g_icon">答</span>{{item.answer}}</p>
-                      <div class="yigong" v-if="item.answer === null">暂无回复</div>
-                      <div class="yigong" v-else>已回复</div>
-                      <p class="text1-hidden color_grey" v-else><span class="g_icon">答</span> 暂无回答</p>
+                      <p class="pro text1-hidden"><span class="g_icon">{{$t('message.ask')}}</span> {{item.content}}</p>
+                        <p class="text1-hidden" v-if="item.answer"><span class="g_icon">{{$t('message.answer')}}</span>{{item.answer}}</p>
+                      <div class="yigong" v-if="item.answer === null">{{$t('message.no_reply')}}</div>
+                      <div class="yigong" v-else>{{$t('message.replied')}}</div>
+                      <p class="text1-hidden color_grey" v-else><span class="g_icon">{{$t('message.answer')}}</span> {{$t('message.no_answer')}}</p>
                       <!-- <div class="g_look_more" v-if="item.answer" @click="lookMore(item.id)">查看全部1个回答</div> -->
                       </li>
                     </div>
@@ -444,18 +444,18 @@
                       <div class="coupon_box" v-if="sta">
                       <div class="box_main">
                         <div class="box_header">
-                        <p class="box_text">领券</p>
+                        <p class="box_text">{{$t('message.coupon')}}</p>
                         <span class="box_cross" @click="showCoupon">×</span>
                         </div>
                         <div class="promotion-all">
-                            <div class="pro_title" v-if="gift && Array.isArray(gift) == false">促销</div>
+                            <div class="pro_title" v-if="gift && Array.isArray(gift) == false">{{$t('message.promotion')}}</div>
                                 <div v-for="(item,index) in gift.goods" :key="index" v-if="gift.length != 0">
                                     <div class="promotion-card">
                                         <div class="promotion-title" >{{gift.name}}</div>
                                         <div class="promotion-detail">
                                             <img :src="URL + item.pic_url" style= "width: 0.42rem" v-if="item.pic_url !=null" @click="entryGoods(item.id)"> 
                                             <div class="promotion-num" style="display:inline-flex" v-if="item.give_num != 0 && item.give_num != null">x{{item.give_num}}</div>
-                                            购满￥{{ item.full }}送赠品，数量{{item.give_count}}赠完即止
+                                           {{$t('message.product_full')}}￥{{ item.full }}{{$t('message.give_gifts')}}，{{$t('message.p_quantity')}}{{item.give_count}}{{$t('message.stocks_last')}}
                                         </div>
                                     </div>
                                     <div style="margin: 0rem .2rem .1rem .3rem;">
@@ -472,24 +472,24 @@
                                 </div> -->
                                 <div class="promotion-card" v-if="reduction">
                                     <div class="promotion-title">{{reduction.promotion_name}}</div>
-                                    <div class="promotion-detail">单笔订单满￥{{ reduction.expense }}，立减￥{{reduction.cut}}</div>
+                                    <div class="promotion-detail">{{$t('message.order_full')}}￥{{ reduction.expense }}，{{$t('message.immediate_reduction')}}￥{{reduction.cut}}</div>
                                 </div>
                             </div>
                             <div class="box_box">
-                                <div class="cou_title">领券</div>
+                                <div class="cou_title">{{$t('message.coupon')}}</div>
                                 <div class="box_body" v-for="(item,index) in couponList" :key="index.id" @click="couponReceive(index)">
                                     <div class="body_left">
                                         <span class="left_money">￥{{parseInt(item.money)}}</span>
                                         <span class="left_name">{{item.name}}</span>
 
-                                        <p class="condition">满{{parseInt(item.condition)}}元可以使用</p>
+                                        <p class="condition">{{$t('message.p_full')}}{{parseInt(item.condition)}}{{$t('message.meta_used')}}</p>
 
-                                        <p class="left_time">有效期 {{new Date(item.use_start_time * 1000).getFullYear()+'.'+(new Date(Number(item.use_start_time * 1000)).getMonth()+1)+'.'+new Date(Number(item.use_start_time * 1000)).getDate()}} - {{new Date(item.use_end_time * 1000).getFullYear()+'.'+(new Date(Number(item.use_end_time * 1000)).getMonth()+1)+'.'+new Date(Number(item.use_end_time * 1000)).getDate()}}</p>
+                                        <p class="left_time">{{$t('message.validity')}} {{new Date(item.use_start_time * 1000).getFullYear()+'.'+(new Date(Number(item.use_start_time * 1000)).getMonth()+1)+'.'+new Date(Number(item.use_start_time * 1000)).getDate()}} - {{new Date(item.use_end_time * 1000).getFullYear()+'.'+(new Date(Number(item.use_end_time * 1000)).getMonth()+1)+'.'+new Date(Number(item.use_end_time * 1000)).getDate()}}</p>
                                         <span class="body_circle"></span>
                                         <span class="body_circle1"></span>
                                     </div>
-                                    <div class="body_right" v-if="item.status == 0">立即领取</div>
-                                    <div class="body_right" v-else-if="item.status == 1">已领取</div>
+                                    <div class="body_right" v-if="item.status == 0">{{$t('message.right_now')}}</div>
+                                    <div class="body_right" v-else-if="item.status == 1">{{$t('message.received')}}</div>
                                 </div>
                             </div>
                         </div>
@@ -555,8 +555,8 @@
         
         <mt-popup v-model="popupVisible1" position="bottom" class="mint-popup-4">
           <div class="picker-toolbar">
-          <span class="mint-datetime-action mint-datetime-cancel" style="color:#ff8000;" @click="cancleaddress">取消</span>  
-                <span class="mint-datetime-action mint-datetime-confirm" style="color:#ff8000;" @click="selectaddress">确定</span>  
+          <span class="mint-datetime-action mint-datetime-cancel" style="color:#ff8000;" @click="cancleaddress">{{$t('message.cancel')}}</span>  
+                <span class="mint-datetime-action mint-datetime-confirm" style="color:#ff8000;" @click="selectaddress">{{$t('message.sure')}}</span>  
           </div>
           <div class="select">
           <ul class="address-area-tit">
@@ -739,10 +739,10 @@ export default {
       choiceCity: false, // 市按钮的显示隐藏
       choiceArea: false, // 区按钮的显示隐藏
       choiceStreet:false,
-      province: '请选择',    // 选中的省
-      city: '请选择', // 选中的市
-      area: '请选择', // 选中的区
-      street:'请选择',//选中的街道
+      province: this.$t('message.please_choose'),    // 选中的省
+      city: this.$t('message.please_choose'), // 选中的市
+      area: this.$t('message.please_choose'), // 选中的区
+      street:this.$t('message.please_choose'),//选中的街道
       showProvince: true, // 省选择的显示隐藏
       showCity: false, // 市选择的显示隐藏
       showArea: false, // 区选择的显示隐藏
@@ -784,10 +784,10 @@ export default {
       continuous: true,
       number: 1,
       conItem: {
-        title: "猜你喜欢"
+        title: this.$t('message.youlike')
       },
       conItemRe: {
-        title: "优惠套餐" //搭配套餐推荐
+        title: this.$t('message.discount_package') //搭配套餐推荐
       },
       scrollWatch: true,
       topStatus: "",
@@ -873,7 +873,7 @@ export default {
       lengthSpeci: 0,
       comboList: [],
       comList: {
-        title: "最佳组合" //搭配套餐推荐
+        title: this.$t('message.combination') //搭配套餐推荐
       },
     };
   },
@@ -2324,7 +2324,7 @@ export default {
           height: 0.9rem;
           height: 0.65rem;
           display: flex;
-          justify-content: center;
+          // justify-content: center;
           align-items: center;
           padding: 2%;
           z-index: 1;
@@ -2366,12 +2366,13 @@ export default {
           .tab {
               display: flex;
               height: 0.5rem;
+              margin-left: .62rem;
               // width: 2.67rem;
               // border-radius: 0.1rem;
               // opacity: 1;
 
               > div {
-                  width: 1rem;
+                  width: 1.33rem;
                   text-align: center;
                   line-height: 0.5rem;
                   box-sizing: border-box;
@@ -2431,7 +2432,7 @@ export default {
     
       .sharebtn-ng {
         position: absolute;
-        right: 12%;
+        right: 10.7%;
         width: .53rem;
         height: .53rem;
       }
@@ -2494,7 +2495,7 @@ export default {
                   height: .4rem;
                   position:absolute;
                   top:0;
-                  left:.8rem;
+                  right:.1rem;
                   transform: rotate(45deg);
                   background:#535353;
               }
@@ -2543,7 +2544,7 @@ export default {
                 }
               }
               .btn{
-                  width: 1.1rem;
+                  // width: 1.1rem;
                   height: .56rem;
                   box-sizing: border-box;
                   text-align:center;
@@ -2851,7 +2852,7 @@ export default {
           font-size: .21rem;
           color: #ffffff;
           text-align: center;
-          padding: .08rem .3rem;
+          padding: .08rem .13rem;
           line-height: 1.91;
           margin-left: .2rem;
         }
@@ -2993,7 +2994,7 @@ export default {
           top:3rem;
           left: 0;
           bottom: 0;
-          width: 100%;
+          width: 99%;
           background: #fff;
           border-top-left-radius: .3rem;
           border-top-right-radius: .3rem;
@@ -3107,7 +3108,7 @@ export default {
                 margin-top: -0.3rem;
               }
               .left_time {
-                font-size: .26rem;
+                font-size: .24rem;
                 margin-left: .26rem;
               }
               .body_circle {
@@ -3387,9 +3388,13 @@ export default {
         position: relative;
         background: #fff;
         border-top: 1px solid #f1f1f1;
+        .flex-div{
+          display: flex;
+        }
         .transport-delivery{
           font-size: 0.26rem;
           color: #777;
+          line-height: .5rem;
         }
         .transport-pass{
           font-size: 0.26rem;
@@ -3400,8 +3405,11 @@ export default {
           cursor : pointer;
           color: #d02629;
         }
+        .sec-flex{
+          display: flex;
+        }
         .delivery_title {
-          width: 2rem;
+          // width: 2rem;
           font-size: .26rem;
           color: #777;
         }
@@ -3410,32 +3418,37 @@ export default {
           color: #333;
           // float: right;
           // margin-right: .2rem;
-          margin-left: .8rem;
-          margin-top: -.82rem;
+          margin-left: .3rem;
+          // margin-top: -.82rem;
+        }
+        .third-flex{
+          display: flex;
+          line-height: .5rem;
         }
         .delivery_pay{
-          width: 2rem;
+          // width: 2rem;
           font-size: .26rem;
         }
         .deliverydate {
             font-size: 0.26rem;
             color: #333;
-            margin-left: 1.3rem;
-            margin-top: -.82rem;
+            margin-left: .3rem;
+            // margin-top: -.82rem;
+            width: 2.8rem;
               .spanDate {
                 font-size: .26rem;
                 color: #d02629;
               }
-            .presale{
-              font-size: 0.26rem;
-              color: #d02629;
-              border: .01rem solid #d02629;
-              padding: 0 .1rem;
-              margin: .13rem 0 0 0;
-              float: right;
-              height: .5rem;
-              line-height: .5rem;
-            }
+        }
+        .presale{
+          font-size: 0.26rem;
+          color: #d02629;
+          border: .01rem solid #d02629;
+          padding: 0 .1rem;
+          margin: .13rem 0 0 0;
+          float: right;
+          height: .5rem;
+          line-height: .5rem;
         }
         .delivery_right {
           position: absolute;
@@ -3451,9 +3464,9 @@ export default {
           background: #fff;
           font-size: 0.28rem;
           color: #333;
-          margin-left: .8rem;
+          margin-left: .3rem;
           border: none;
-          margin-top: -.62rem;
+          // margin-top: -.62rem;
         }
       }
       .comment-display{
