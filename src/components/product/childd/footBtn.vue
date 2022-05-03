@@ -20,7 +20,7 @@
       <!-- <div class="select-guige fr" @click="hide">选择规格</div> -->
       <div>
           <div class="join fr" @click="toOrder">
-              <span>立即购买</span>
+              <span>{{$t('message.buy_now')}}</span>
           </div>
           <!-- <div class="imm fr" @click="join">
               <span>加入购物车</span>

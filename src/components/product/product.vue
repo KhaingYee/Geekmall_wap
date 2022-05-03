@@ -3435,6 +3435,7 @@ export default {
             margin-left: .3rem;
             // margin-top: -.82rem;
             width: 2.8rem;
+            padding: 0 0 .1rem 0;
               .spanDate {
                 font-size: .26rem;
                 color: #d02629;
