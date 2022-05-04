@@ -27,13 +27,13 @@
 					<div class="bomb-box">
 						<div class="polygon"></div>
 						<div class="btn" @click="toLink('/home')">
-							<span class="icon"><i></i></span>首页
+							<span class="icon"><i></i></span>{{$t('message.frontpage')}}
 						</div>
-						<div class="btn">
-							<span class="icon" @click="toLink('/myNews')"><i></i></span>消息
+						<div class="btn" @click="toLink('/myNews')">
+							<span class="icon"><i></i></span>{{$t('message.information')}}
 						</div>
-						<div class="btn">
-							<span class="icon" @click="popupVisible=true"><i></i></span>分享
+						<div class="btn" @click="popupVisible=true">
+							<span class="icon"><i></i></span>{{$t('message.share')}}
 						</div>
 					</div>
 				</div>
@@ -43,32 +43,32 @@
                 <div class="share_box">
 
                         <div class="box_header">
-                            <p class="box_text">分享</p>
+                            <p class="box_text">{{$t('message.share')}}</p>
                             <!--<span class="box_cross" @click="goshare">×</span>-->
                         </div>
                         <div class="share_logo">
                             <div class="up">
                                 <img @click="copyLink" src="../../../assets/copy.png">
-                                <p class="up_text">夏制链接</p>
+                                <p class="up_text">{{$t('message.Summertime')}}</p>
                                 <img @click="qrLink" src="../../../assets/QR-code.png">
-                                <p class="up_text" style="padding-left:0.19rem">二维码</p>
+                                <p class="up_text" style="padding-left:0.19rem">{{$t('message.QRcode')}}</p>
                             </div>
                             <div class="dn">
                                 <div class="account" @click="wxpage">
                                 <img src="../../../assets/share_wx_@1.png">
-                                <div class="txt">微信好友</div>
+                                <div class="txt">{{$t('message.WeChat')}}</div>
                                 </div>
                                 <div class="account" @click="initUrl">
                                 <img src="../../../assets/share_pyq_@1.png">
-                                <div class="txt">朋友圈</div>
+                                <div class="txt">{{$t('message.Circle')}}</div>
                                 </div>
                                 <div class="account" @click="qqpage">
                                 <img src="../../../assets/share_qq_@1.png">
-                                <div class="txt">QQ好友</div>
+                                <div class="txt">{{$t('message.QQ')}}</div>
                                 </div>
                                 <div class="account" @click="wbpage">
                                 <img src="../../../assets/share_wb_@1.png">
-                                <div class="txt">新浪微博</div>
+                                <div class="txt">{{$t('message.Weibo')}}</div>
                                 </div>
                             </div>
                     </div>
@@ -79,11 +79,11 @@
             <mt-popup v-model="popup" position="bottom" class="pop">
                 <div class="copy">
                     <div class="copy_header">
-                        <p class="copy_text">复制</p>
+                        <p class="copy_text">{{$t('message.copy')}}</p>
                     </div>
                     <div class="link">
                         <input class="copy_link" type="text" :value="location" id="myInput">
-                        <button class="copy_button" @click="myFunction">Copy</button>
+                        <button class="copy_button" @click="myFunction">{{$t('message.copy')}}</button>
                     </div>
                 </div>
             </mt-popup>
@@ -91,7 +91,7 @@
             <mt-popup v-model="popupV" position="center" class="qrDiv">
                 <div class="qr">
                     <div class="qr_header">
-                        <p class="qr_text">QR扫描</p>
+                        <p class="qr_text">{{$t('message.QRscan')}}</p>
                     </div>
                     <div class="qr_code">
                         <qr-code text="Text to encode" :value="code"></qr-code>
@@ -485,7 +485,7 @@
 					height: .4rem;
 					position: absolute;
 					top: 0;
-					left: .8rem;
+					right: .1rem;
 					transform: rotate(45deg);
 					background: #535353;
 				}
@@ -523,7 +523,7 @@
 					}
 				}
 				.btn {
-					width: 1.1rem;
+					// width: 1.1rem;
 					height: .56rem;
 					box-sizing: border-box;
 					text-align: center;

@@ -2,14 +2,14 @@
 	<transition name="fade">
 		<div class="detail-wrap" v-show="$store.state.const_coupon">
 			<div class="content-main">
-				<div class="title">优惠券列表<i @click="cancel"></i></div>
+				<div class="title">{{$t('message.List_coupons')}}<i @click="cancel"></i></div>
 				<div class="padd">
 					<div class="order_tab_item">
 						<div :class="showAble?'cur':''" @click="showAbleFun(true)">
-							<span>可用</span>
+							<span>{{$t('message.available')}}</span>
 						</div>
 						<div :class="showAble?'':'cur'" @click="showAbleFun(false)">
-							<span>不可用</span>
+							<span>{{$t('message.unavailable')}}</span>
 						</div>
 					</div>
 					<ul v-if="showAble" class="contet-item-box content-scroll">
@@ -21,7 +21,7 @@
 										<span class="big">{{item.money.substring(item.money.indexOf('.'),0)}}</span>
 										<span>{{item.money.substring(item.money.indexOf('.'))}}</span>
 									</p>
-									<p class="price-limit">满{{item.condition}}元可用</p>
+									<p class="price-limit">{{$t('message.p_full')}}{{item.condition}}{{$t('message.meta_available')}}</p>
 								</div>
 								<div class="info">
 									<p class="info_text">
@@ -41,7 +41,7 @@
 							<div class="coupon-main">
 								<div class="price-box">
 									<p class="price"><i>￥</i>{{item.money}}</p>
-									<p class="price-limit">满{{item.condition}}元可用</p>
+									<p class="price-limit">{{$t('message.p_full')}}{{item.condition}}{{$t('message.meta_available')}}</p>
 								</div>
 								<div class="info">
 									<p class="info_text">
@@ -54,8 +54,8 @@
 					</ul>
 				</div>
 				<div class="btn-join clearfix">
-					<button class="join fl" @click="confirm">确认</button>
-					<button class="fl imm" @click="cancel">取消</button>
+					<button class="join fl" @click="confirm">{{$t('message.ok_confirm')}}</button>
+					<button class="fl imm" @click="cancel">{{$t('message.cancel')}}</button>
 				</div>
 			</div>
 		</div>
