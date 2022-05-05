@@ -223,6 +223,18 @@ const messages = {
         address_empty:'The delivery address is empty, add it now!',
         New_shipping:'New shipping address',
         address_managemen:'Shipping address management',
+        // new address
+        Receiver:'Receiver',
+        consignee_name:'Please enter consignee name',
+        phone_number:'phone number',
+        enter_phone:'Please enter phone number',
+        your_area:'your area',
+        Address_label:'Address',
+        enter_address:'Please enter detailed address',
+        default_address:'set as the default address',
+        address_save:'save', 
+        // edit address
+        Edit_address:'Edit shipping address',
       }
     },
     Chinese: {
@@ -446,6 +458,18 @@ const messages = {
         address_empty:'收货地址为空,赶快添加吧!',
         New_shipping:'新增收货地址',
         address_managemen:'收货地址管理',
+        // new address
+        Receiver:'收货人',
+        consignee_name:'请输入收货人姓名',
+        phone_number:'手机号',
+        enter_phone:'请输入手机号',
+        your_area:'所在地区',
+        Address_label:'详细地址',
+        enter_address:'请输入详细地址',
+        default_address:'设为默认地址',
+        address_save:'保存',
+        // edit address
+        Edit_address:'编辑收货地址',
       }
     },
     Myanmar: {
@@ -669,6 +693,18 @@ const messages = {
           address_empty:'ပေးပို့ရမည့်လိပ်စာမှာ ဗလာဖြစ်ပြီး၊ ယခုထည့်ပါ။',
           New_shipping:'ပို့ဆောင်ရေးလိပ်စာအသစ်',
           address_managemen:'သင်္ဘောလိပ်စာစီမံခန့်ခွဲမှု',
+          // new address
+          Receiver:'လက်ခံသူ',
+          consignee_name:'ကျေးဇူးပြု၍ ကုန်စည်ပို့ဆောင်သူအမည်ကို ထည့်သွင်းပါ',
+          phone_number:'ဖုန်းနံပါတ်',
+          enter_phone:'ကျေးဇူးပြု၍ ဖုန်းနံပါတ်ထည့်ပါ',
+          your_area:'သင်၏လိပ်စာ',
+          Address_label:'လိပ်စာ',
+          enter_address:'လိပ်စာအသေးစိတ်ထည့်ပါ',
+          default_address:'မူရင်းလိပ်စာအဖြစ် သတ်မှတ်ပါ',
+          address_save:'သိမ်းဆည်းပါ',
+          // edit address
+          Edit_address:'ပို့ဆောင်ရေးလိပ်စာကို တည်းဖြတ်ပါ',
           }
     }
   };

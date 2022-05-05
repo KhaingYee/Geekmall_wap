@@ -3,31 +3,31 @@
         <div v-title :data-title="title">{{title}}</div>
         <edit-header :text="title" :btn="btn" :btnDel="btnDel" :id="data.id"></edit-header>
         <div class="form-wrap">
-            <mt-field label="收货人：" placeholder="请输入收货人姓名" v-model="data.realname"></mt-field>
+            <mt-field :label="$t('message.Receiver')" :placeholder="$t('message.consignee_name')" v-model="data.realname"></mt-field>
             <!-- <div class="fenge"></div> -->
-            <mt-field label="手机号：" placeholder="请输入手机号" type="number" v-model="data.mobile"></mt-field>
+            <mt-field :label="$t('message.phone_number')" :placeholder="$t('message.enter_phone')" type="number" v-model="data.mobile"></mt-field>
             <div class="mint-cell mint-field">
-                <span class="mint-cell-title mint-cell-text">所在地区：</span>
+                <span class="mint-cell-title mint-cell-text">{{$t('message.your_area')}}：</span>
                 <div class="mint-cell-value" @click="callingArea">
-                    <input placeholder="请选择地区" type="tel" class="mint-field-core" disabled v-model="addressAll">
+                    <input :placeholder="$t('message.select_region')" type="tel" class="mint-field-core" disabled v-model="addressAll">
                     <span class="mint-field-state is-default"><i class="mintui mintui-field-default"></i></span>
                     <div class="mint-field-other"></div>
                 </div>
             </div>
              <!-- <div class="fenge"></div> -->
               <!-- <div class="fenge"></div> -->
-            <mt-field label="详细地址：" placeholder="请输入详细地址" v-model="data.address"></mt-field>
+            <mt-field :label="$t('message.Address_label')" :placeholder="$t('message.enter_address')" v-model="data.address"></mt-field>
              <div class="fenge"></div>
               <div class="fenge"></div>
 
             <div class="defaultAdd" @click="defaultChange">
-               <span>设为默认地址</span><img :src="imgok" v-if="data.status ==1" alt="">
+               <span>{{$t('message.default_address')}}</span><img :src="imgok" v-if="data.status ==1" alt="">
                <div v-if="data.status ==0"></div>
            </div>
             <mt-popup v-model="popupVisible" position="bottom" class="mint-popup-4">  
                 <div class="picker-toolbar">  
-                    <span class="mint-datetime-action mint-datetime-cancel" style="color:#ff8000;" @click="cancleaddress">取消</span>  
-                    <span class="mint-datetime-action mint-datetime-confirm" style="color:#ff8000;" @click="selectaddress">确定</span>  
+                    <span class="mint-datetime-action mint-datetime-cancel" style="color:#ff8000;" @click="cancleaddress">{{$t('message.cancel')}}</span>  
+                    <span class="mint-datetime-action mint-datetime-confirm" style="color:#ff8000;" @click="selectaddress">{{$t('message.sure')}}</span>  
                 </div>   
                 <div class="select">
                     <ul class="address-area-tit">
@@ -85,10 +85,10 @@
         name : 'EditDelAddress',
         data(){
             return {
-                title : '编辑收货地址',
+                title : this.$t('message.Edit_address'),
                 btn:' ',
                 btnDel:true,
-                footBnt:'保存',
+                footBnt:this.$t('message.address_save'),
                 popupVisible:false,
                 popup:false,
                 addressPlace:'',
@@ -103,10 +103,10 @@
                 choiceCity: false, // 市按钮的显示隐藏
                 choiceArea: false, // 区按钮的显示隐藏
                 choiceStreet:false,
-                province: '请选择',    // 选中的省
-                city: '请选择', // 选中的市
-                area: '请选择', // 选中的区
-                street:'请选择',//选中的街道
+                province: this.$t('message.please_choose'),    // 选中的省
+                city: this.$t('message.please_choose'), // 选中的市
+                area: this.$t('message.please_choose'), // 选中的区
+                street: this.$t('message.please_choose'),//选中的街道
                 showProvince: true, // 省选择的显示隐藏
                 showCity: false, // 市选择的显示隐藏
                 showArea: false, // 区选择的显示隐藏
@@ -120,7 +120,7 @@
                 cityIndex: -1,
                 areaIndex: -1,
                 streetIndex:-1,
-                choiceAreaCon:'请选择地区'
+                choiceAreaCon:this.$t('message.select_region')
             }
         },
         methods:{
