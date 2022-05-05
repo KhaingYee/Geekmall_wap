@@ -4,13 +4,13 @@
 		<cashier-header :text="title" :btn="btn"></cashier-header>
 		<div class="payment-wrap">
 			<div class="status">
-				<div class="pull-left fl">订单金额</div>
+				<div class="pull-left fl">{{$t('message.order_amount')}}</div>
 				<div class="pull-right fr">
 					<span>{{$route.params.number}}</span>元</div>
 			</div>
 		</div>
 		<div class="choice" >
-			<span class="span-main">当前余额：<span> {{balance}} </span>元</span>
+			<span class="span-main">{{$t('message.current_balance')}}：<span> {{balance}} </span>元</span>
 		</div>
 		<div class="default-pay">
 			<el-button class="pay-btn" v-for="item in paymentType" v-if="item.is_default == 1" :key="item.id" type="success" @click="paymentMethod(item.id)">
@@ -19,7 +19,7 @@
 			<span v-else></span>
 		</div>
 		<dl class="other" v-if="$route.params.id != 3">
-			<dt>其他支付方式</dt>
+			<dt>{{$t('message.Other_payment')}}</dt>
 			<dd v-if="item.is_default!= 1" v-for="item in paymentType" :key="item.id" class="clearfix" @click="payment(item.id)">
 				<img :src="URL+item.logo" class="fl">
 				<div class="fl pull-right">
@@ -33,7 +33,7 @@
 			<div class="popup_box">
 				<span class="box_cross" @click="cancelArea">×</span>
 				<div class="password_div">
-				<p class="password_text">支付密码：</p>
+				<p class="password_text">{{$t('message.payment_password')}}：</p>
 				<div class="input_box">
 				<v-otp-input
 					ref="otpForm"
@@ -51,7 +51,7 @@
 				<p class="time_message">{{this.verifyMessage}}</p>
 				<button
 					class="next_button"
-					@click="confirmVerifyBtn">确认支付
+					@click="confirmVerifyBtn">{{$t('message.confirm_payment')}}
 				</button>
 			</div>
 		</div>
@@ -74,8 +74,8 @@
 				title: this.$constant.mainTitle+'收银台',
 				img1: require('@/assets/yuan.png'),
 				img2: require('@/assets/duihao.png'),
-				text: '立即支付',
-				btn: '订单中心',
+				text: this.$t('message.pay_immediately'),
+				btn: this.$t('message.Order_Center'),
 				scrollWatch: true,
 				load: false,
 				data: '',

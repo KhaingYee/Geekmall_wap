@@ -760,7 +760,7 @@
 						// color: #777;
 					}
 					.delivery_price {
-						font-size: .3rem;
+						font-size: .26rem;
 						color: #dd2727;
 						// width: 50%;
 						height: 55px;

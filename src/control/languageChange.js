@@ -202,6 +202,14 @@ const messages = {
         unavailable:'unavailable',
         meta_available:'meta available',
         ok_confirm:'confirm',
+        //Cashier
+        order_amount:'order amount',
+        current_balance:'current balance',
+        Other_payment:'Other payment methods',
+        payment_password:'payment password',
+        confirm_payment:'confirm payment',
+        pay_immediately:'pay immediately',
+        Order_Center:'Order Center',
       }
     },
     Chinese: {
@@ -404,6 +412,14 @@ const messages = {
         unavailable:'不可用',
         meta_available:'元可用',
         ok_confirm:'确认',
+        //Cashier
+        order_amount:'订单金额',
+        current_balance:'当前余额',
+        Other_payment:'其他支付方式',
+        payment_password:'支付密码',
+        confirm_payment:'确认支付',
+        pay_immediately:'立即支付',
+        Order_Center:'订单中心',
       }
     },
     Myanmar: {
@@ -606,6 +622,14 @@ const messages = {
           unavailable:'မရရှိနိုင်ပါ။',
           meta_available:'meta ရရှိနိုင်သည်။',
           ok_confirm:'အတည်ပြုပါ',
+          //Cashier
+          order_amount:'မှာယူမှုပမာဏ',
+          current_balance:'လက်ကျန်ငွေ',
+          Other_payment:'အခြားငွေပေးချေမှုနည်းလမ်းများ',
+          payment_password:'ငွေပေးချေမှု စကားဝှက်',
+          confirm_payment:'ငွေပေးချေမှုကိုအတည်ပြုပါ',
+          pay_immediately:'ချက်ချင်းပေးဆောင်ပါ',
+          Order_Center:'အော်ဒါစင်တာ',
           }
     }
   };
