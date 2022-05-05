@@ -3,29 +3,29 @@
         <div v-title :ata-title="title">{{title}}</div>
         <in-header :text="title"></in-header>
         <div class="data-hd clearfix">
-            <span class="text">是否开具发票</span>
+            <span class="text">{{$t('message.issue_invoice')}}</span>
             <mt-switch v-model="$store.state.invoice" class="fr"></mt-switch>
         </div>
         <dl class="content-wrap">
-            <dt>发票类型</dt>
+            <dt>{{$t('message.invoice_type')}}</dt>
             <dd class="clearfix">
                 <span class="fl" :class="{active:$store.state.type == index}" @click="add('type',index)" v-for="(item,index) in $store.state.type_data" :key="item.id"><em></em>{{item.name}}</span>
             </dd>
         </dl>
         <dl class="content-wrap">
-            <dt>发票抬头</dt>
+            <dt>{{$t('message.Invoice')}}</dt>
             <dd class="clearfix">
                 <span class="fl" :class="{active:$store.state.rise == index}"  v-for="(item,index) in $store.state.res_data" :key="item.id" ><em @click="add('rise',index)"></em>{{item.name}}   
                 	<i  class="r el-icon-remove-outline" @click="deletes(index,item)"></i>
                 </span>
             </dd>
             <dd class="input-wrap">
-                <input placeholder="请输入发票抬头" v-model="val">
-                <span class="btn" v-show="val" @click="append">确定</span>
+                <input :placeholder="$t('message.invoice_header')" v-model="val">
+                <span class="btn" v-show="val" @click="append">{{$t('message.sure')}}</span>
             </dd>
         </dl>
         <dl class="content-wrap">
-            <dt>发票内容</dt>
+            <dt>{{$t('message.invoice_content')}}</dt>
             <dd class="clearfix">
                 <span class="fl" :class="{active:$store.state.content == index}" @click="add('content',index)" v-for="(item,index) in $store.state.content_data" :key="item.id"><em></em>{{item.name}}</span>
             </dd>
@@ -43,8 +43,8 @@
         name : 'invoice',
         data(){
             return {
-                title:'发票信息',
-                text:'确定',
+                title:this.$t('message.Invoice_Information'),
+                text:this.$t('message.sure'),
                 val:'',
                 deleted:false
             }

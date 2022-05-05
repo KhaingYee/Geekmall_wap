@@ -210,6 +210,19 @@ const messages = {
         confirm_payment:'confirm payment',
         pay_immediately:'pay immediately',
         Order_Center:'Order Center',
+        // invoice
+        issue_invoice:'Whether to issue an invoice',
+        invoice_type:'invoice type',
+        Invoice:'Invoice',
+        invoice_header:'Please enter the invoice header',
+        invoice_content:'invoice content',
+        Invoice_Information:'Invoice Information',
+        // address
+        address_modify:'Please do not modify the address where you have placed the order. If you want to change the address, please add an entry',
+        default:'default',
+        address_empty:'The delivery address is empty, add it now!',
+        New_shipping:'New shipping address',
+        address_managemen:'Shipping address management',
       }
     },
     Chinese: {
@@ -420,6 +433,19 @@ const messages = {
         confirm_payment:'确认支付',
         pay_immediately:'立即支付',
         Order_Center:'订单中心',
+        // invoice
+        issue_invoice:'是否开具发票',
+        invoice_type:'发票类型',
+        Invoice:'发票抬头',
+        invoice_header:'请输入发票抬头',
+        invoice_content:'发票内容',
+        Invoice_Information:'发票信息',
+        // address
+        address_modify:'下过订单的地址请不要修改，如想更换地址请添加一条',
+        default:'默认',
+        address_empty:'收货地址为空,赶快添加吧!',
+        New_shipping:'新增收货地址',
+        address_managemen:'收货地址管理',
       }
     },
     Myanmar: {
@@ -630,6 +656,19 @@ const messages = {
           confirm_payment:'ငွေပေးချေမှုကိုအတည်ပြုပါ',
           pay_immediately:'ချက်ချင်းပေးဆောင်ပါ',
           Order_Center:'အော်ဒါစင်တာ',
+          // invoice
+          issue_invoice:'ပြေစာထုတ်ပေးမှာလား',
+          invoice_type:'ငွေတောင်းခံလွှာအမျိုးအစား',
+          Invoice:'ပြေ',
+          invoice_header:'ကျေးဇူးပြု၍ ငွေတောင်းခံလွှာခေါင်းစီးကို ထည့်ပါ',
+          invoice_content:'ပြေစာ အကြောင်းအရာ',
+          Invoice_Information:'ပြေစာအချက်အလက်',
+          // address
+          address_modify:'ကျေးဇူးပြု၍ သင်အော်ဒါတင်ထားသည့်လိပ်စာကို မပြုပြင်ပါနှင့်။ လိပ်စာပြောင်းလိုပါက ကျေးဇူးပြု၍ ထည့်သွင်းပါ',
+          default:'ပုံသေ',
+          address_empty:'ပေးပို့ရမည့်လိပ်စာမှာ ဗလာဖြစ်ပြီး၊ ယခုထည့်ပါ။',
+          New_shipping:'ပို့ဆောင်ရေးလိပ်စာအသစ်',
+          address_managemen:'သင်္ဘောလိပ်စာစီမံခန့်ခွဲမှု',
           }
     }
   };

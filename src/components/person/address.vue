@@ -3,7 +3,7 @@
 		<div v-title :data-title="title">{{title}}</div>
 		<address-header :text="title"></address-header>
 		<div class="content-wrap" v-if="!data.length ==0">
-			<p class="prompt"><span>*</span>下过订单的地址请不要修改，如想更换地址请添加一条</p>
+			<p class="prompt"><span>*</span>{{$t('message.address_modify')}}</p>
 			<div class="item-wrap" v-for="item in data" :key="item.id" @click="edit(item)">
 				<div class="hd clearfix">
 					<span class="name fl"><i class="icon"></i>{{item.realname}}</span>
@@ -11,12 +11,12 @@
 				</div>
 				<div class="con-text text2-hidden">{{item.prov_name+'-'+item.city_name +'-' + item.dist_name +'-' + item.address}}</div>
 				<div class="icon-link"></div>
-				<span class="moren" v-if="item.status==num">默认</span>
+				<span class="moren" v-if="item.status==num">{{$t('message.default')}}</span>
 			</div>
 		</div>
-		<div v-if="data.length == 0" class="text-center status">收货地址为空,赶快添加吧！</div>
+		<div v-if="data.length == 0" class="text-center status">{{$t('message.address_empty')}}</div>
 		<div class="btn-wrap">
-			<div class="btn-main"><button @click="tolink()"><i class="icon fl clearfix"></i><span class="fl">新增收货地址</span></button></div>
+			<div class="btn-main"><button @click="tolink()"><i class="icon fl clearfix"></i><span class="fl">{{$t('message.New_shipping')}}</span></button></div>
 		</div>
 	</div>
 </template>
@@ -28,7 +28,7 @@
 		name: 'address-manager',
 		data() {
 			return {
-				title: '收货地址管理',
+				title: this.$t('message.address_managemen'),
 				data: [],
 				address: [],
 				set_address: [],
