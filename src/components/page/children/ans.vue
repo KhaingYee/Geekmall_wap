@@ -1,22 +1,22 @@
 <template>
     <div class="pr-tab-wrap">
-        <div v-title data-title="商品咨询">商品咨询</div>
+        <div v-title data-title="商品咨询">{{$t('message.commodity_consultation')}}</div>
         <pr-header v-if="!productData" :text="title" :number="number"></pr-header>
             <ul class="product">
                 <li v-for ="item in product" :key="item.id" class="product_li">
                     <div class="use_area_head">
-                    <em>用户{{item.user_name}}的提问：</em>
+                    <em>{{$t('message.user')}}{{item.user_name}}{{$t('message.question')}}：</em>
                     <span class="fr g_ask_time">{{item.create_time}}</span>
                     </div>
-                    <p class="pro text1-hidden"><span class="g_icon">问</span> {{item.content}}</p>
-                    <p class="text1-hidden" v-if="item.answer"><span class="g_icon">答</span>{{item.answer}}</p>
-                    <p class="text1-hidden color_grey" v-else><span class="g_icon">答</span> 暂无回答</p>
-                    <div class="g_look_more" v-if="item.answer" @click="lookMore(item.id)">查看全部1个回答</div>
+                    <p class="pro text1-hidden"><span class="g_icon">{{$t('message.ask')}}</span> {{item.content}}</p>
+                    <p class="text1-hidden" v-if="item.answer"><span class="g_icon">{{$t('message.answer')}}</span>{{item.answer}}</p>
+                    <p class="text1-hidden color_grey" v-else><span class="g_icon">{{$t('message.answer')}}</span> {{$t('message.no_answer')}}</p>
+                    <div class="g_look_more" v-if="item.answer" @click="lookMore(item.id)">{{$t('message.all_answer')}}</div>
                 </li>
             </ul>
             <div class="btm">
                 <input type="text" v-model.trim="problem">
-                <h6 @click="proSubmit">提问</h6>
+                <h6 @click="proSubmit">{{$t('message.ask_questions')}}</h6>
             </div>
         <div class="load" v-show="load" @touchmove.prevent><mt-spinner type="triple-bounce" color="rgb(38, 162, 255)"></mt-spinner></div>
 
@@ -36,7 +36,7 @@
                 imgNo:require('@/assets/images/xinxin.png'),
                 imgYes:require('@/assets/images/xu_xinxin.png'),
                 selected:"1",
-                title:'商品咨询',
+                title:this.$t('message.commodity_consultation'),
                 number:'0',
                 data:'',
                 commenData:'',

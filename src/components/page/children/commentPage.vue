@@ -1,33 +1,33 @@
 <template>
     <div class="pr-tab-wrap">
-        <div v-title data-title="商品评论">商品评论</div>
+        <div v-title data-title="商品评论">{{$t('message.ProductReviews')}}</div>
         <pr-header v-if="!productData" :text="title" :number="number"></pr-header>
             <div>
                 <div class="comment-wrap">
                     <ul>
                         <li :class="comIndex == 0? 'conActive': ''" @click="comContent(0)">
-                            <span>全部评价</span>
+                            <span>{{$t('message.All_reviews')}}</span>
                             <p>{{ allCount || 0 }}</p>
                         </li>
                         <li :class="comIndex == 1? 'conActive': ''" @click="comContent(1)">
-                            <span>好评</span>
+                            <span>{{$t('message.Praise')}}</span>
                             <p>{{ allNice || 0 }}</p>
                         </li>
                         <li :class="comIndex == 2? 'conActive': ''" @click="comContent(2)">
-                            <span>中评</span>
+                            <span>{{$t('message.Average')}}</span>
                             <p>{{ allHeight || 0 }}</p>
                         </li>
                         <li :class="comIndex == 3 ? 'conActive': ''" @click="comContent(3)">
-                            <span>差评</span>
+                            <span>{{$t('message.Negative_Ratings')}}</span>
                             <p>{{ allBad || 0 }}</p>
                         </li>
                         <li :class="comIndex == 4? 'conActive': ''" @click="comContent(4)">
-                            <span>有图</span>
+                            <span>{{$t('message.are_pictures')}}</span>
                             <p>{{ allImg || 0 }}</p>
                         </li>
 
                     </ul>
-                    <div v-if="dataItem == null" class="center">暂无评论</div>
+                    <div v-if="dataItem == null" class="center">{{$t('message.no_comment')}}</div>
                     <div v-else class="list-wrap" v-for="item in dataItem" :key="item.id + 'i'">
                         <div class="list-hd clearfix">
                             <div class="pull-left fl">
@@ -63,7 +63,7 @@
             return {
                 imgNo:require('@/assets/images/xinxin.png'),
                 imgYes:require('@/assets/images/xu_xinxin.png'),
-                title:'商品评论',
+                title:this.$t('message.ProductReviews'),
                 number:'0',
                 data:'',
                 commenData:'',

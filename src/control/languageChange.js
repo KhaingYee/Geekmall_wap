@@ -235,6 +235,20 @@ const messages = {
         address_save:'save', 
         // edit address
         Edit_address:'Edit shipping address',
+        // commentPage
+        ProductReviews:'Product Reviews',
+        All_reviews:'All reviews',
+        Praise:'Praise',
+        Average:'Average',
+        Negative_Ratings:'Negative Ratings',
+        are_pictures:'There are pictures',
+        no_comment:'no comment yet',
+        // ans
+        commodity_consultation:'Commodity consultation',
+        user:'user',
+        question:'question',
+        all_answer:'See all 1 answer',
+        ask_questions:'ask questions',
       }
     },
     Chinese: {
@@ -470,6 +484,20 @@ const messages = {
         address_save:'保存',
         // edit address
         Edit_address:'编辑收货地址',
+        // commentPage
+        ProductReviews:'商品评论',
+        All_reviews:'全部评价',
+        Praise:'好评',
+        Average:'中评',
+        Negative_Ratings:'差评',
+        are_pictures:'有图',
+        no_comment:'暂无评论',
+        // ans
+        commodity_consultation:'商品咨询',
+        user:'用户',
+        question:'的提问',
+        all_answer:'查看全部1个回答',
+        ask_questions:'提问',
       }
     },
     Myanmar: {
@@ -705,6 +733,20 @@ const messages = {
           address_save:'သိမ်းဆည်းပါ',
           // edit address
           Edit_address:'ပို့ဆောင်ရေးလိပ်စာကို တည်းဖြတ်ပါ',
+          // commentPage
+          ProductReviews:'ထုတ်ကုန်သုံးသပ်ချက်များ',
+          All_reviews:'အားလုံးသုံးသပ်ချက်',
+          Praise:'ချီးမွမ်းပါ',
+          Average:'ပျမ်းမျှ',
+          Negative_Ratings:'အနုတ်လက္ခဏာအဆင့်သတ်မှတ်ချက်များ',
+          are_pictures:'ပုံတွေရှိတယ်',
+          no_comment:'comment မရှိသေးပါ',
+          // ans
+          commodity_consultation:'ကုန်စည်ညှိနှိုင်းမှု',
+          user:'အသုံးပြုသူကို',
+          question:'မေးခွန်း',
+          all_answer:'အဖြေ 1 ခုလုံးကို ကြည့်ပါ',
+          ask_questions:'မေးခွန်းများမေးပါ',
           }
     }
   };
