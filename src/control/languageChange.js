@@ -249,6 +249,11 @@ const messages = {
         question:'question',
         all_answer:'See all 1 answer',
         ask_questions:'ask questions',
+        // shoplist
+        Product_list:'Product list',
+        No_data:'No more data',
+        Loading:'Loading..',
+        Store_Category:'Store Category',
       }
     },
     Chinese: {
@@ -498,6 +503,11 @@ const messages = {
         question:'的提问',
         all_answer:'查看全部1个回答',
         ask_questions:'提问',
+        // shoplist
+        Product_list:'商品列表',
+        No_data:'暂无更多数据',
+        Loading:'加载中..',
+        Store_Category:'店铺分类',
       }
     },
     Myanmar: {
@@ -747,6 +757,11 @@ const messages = {
           question:'မေးခွန်း',
           all_answer:'အဖြေ 1 ခုလုံးကို ကြည့်ပါ',
           ask_questions:'မေးခွန်းများမေးပါ',
+          // shoplist
+          Product_list:'ထုတ်ကုန်စာရင်း',
+          No_data:'ဒေတာမရှိတော့ပါ',
+          Loading:'အဝိုင်းလည်နေသည်',
+          Store_Category:'ဆိုင်အမျိုးအစား',
           }
     }
   };

@@ -1,11 +1,11 @@
 <template>
     <div ref="shop_class">
-        <div v-title data-title="商品列表">商品列表</div>
+        <div v-title data-title="商品列表">{{$t('message.Product_list')}}</div>
         <list-header :text="text"></list-header>
         <ul>
             <li class="header">
                 <a href="javascript:;">
-                    <span>全部宝贝</span>
+                    <span>{{$t('message.all_baby')}}</span>
                     <img :src="imgs" alt="">
                 </a>
             </li>
@@ -18,14 +18,14 @@
             <div class="comm-null" v-if="no_data">
                 <div class="con-wrap text-center">
                     <img src="../../assets/null_com.png">
-                    <p>暂无更多数据</p>
+                    <p>{{$t('message.No_data')}}</p>
                 </div>
             </div>
             <div class="up-warp" v-show="load_show">
                 <p class="rotate"></p>
-                <p class="load-title">加载中..</p>
+                <p class="load-title">{{$t('message.Loading')}}..</p>
             </div>
-            <div class="no-data" v-show="sliding_no_data">暂无更多数据~</div>
+            <div class="no-data" v-show="sliding_no_data">{{$t('message.No_data')}}~</div>
         </ul>
     </div>
 </template>
@@ -34,7 +34,7 @@
     export default {
         data () {
             return {
-                text:'店铺分类',
+                text:this.$t('message.Store_Category'),
                 imgs:require('@/assets/btn-right.png'),
                 dataList:[],
                 page:1,
