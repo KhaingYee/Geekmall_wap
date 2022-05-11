@@ -1,6 +1,6 @@
 <template>
   <div class="box" v-loading="loading">
-    <div v-title data-title="店铺主页">店铺主页</div>
+    <div v-title data-title="店铺主页">{{$t('message.store_homepage')}}</div>
     <div class="headMain">
       <!-- <img :src="URL+storeInfo.store_cover" v-if="storeInfo.store_cover != ''" /> -->
       <img :src="URL+storeInfo.store_cover" v-if="storeInfo.store_cover" />
@@ -23,10 +23,10 @@
           <p>
             {{shophomedata.storeFans}}
             <br />
-            <span>粉丝数</span>
+            <span>{{$t('message.Number_fans')}}</span>
           </p>
-          <div @click="attenStoreAjax(0)" class="btn" v-show="atten == 1">已关注</div>
-          <div @click="attenStoreAjax(1)" class="btn" v-show="atten == 0">关注</div>
+          <div @click="attenStoreAjax(0)" class="btn" v-show="atten == 1">{{$t('message.Followed')}}</div>
+          <div @click="attenStoreAjax(1)" class="btn" v-show="atten == 0">{{$t('message.focus_on')}}</div>
         </div>
       </div>
       <!-- tab切换 -->
@@ -84,7 +84,7 @@
         </div>
 
         <div class="recommend">
-          <img :src="recommendImg" /> 新品上架
+          <img :src="recommendImg" /> {{$t('message.Newarrivals')}}
         </div>
 
         <div class="newgood">
@@ -100,7 +100,7 @@
         </div>
         <!-- 推荐商品部分 -->
         <div class="recommend">
-          <img :src="recommendImg" />推荐商品
+          <img :src="recommendImg" />{{$t('message.recommended_products')}}
         </div>
 
         <!-- 店铺首页的热门商品 -->
@@ -115,9 +115,9 @@
     </div>
     <!-- 底部内容 -->
     <ul class="btm">
-      <li @click="details">店铺详情</li>
+      <li @click="details">{{$t('message.store_details')}}</li>
       <li @click="alertHotList">
-        <img :src="hotlist" alt />热门分类
+        <img :src="hotlist" alt />{{$t('message.top_categories')}}
         <div class="alert" ref="boxMessage" v-show="$store.state.shop_class_show">
           <p class="rotate" v-show="rotate_show"></p>
           <p
@@ -133,7 +133,7 @@
         />
       </li>
       <li @click="goToCustomerService">
-        <img :src="Smiley" alt />联系卖家
+        <img :src="Smiley" alt />{{$t('message.contact_seller')}}
       </li>
     </ul>
     <!-- tan框 -->
@@ -152,8 +152,8 @@ export default {
       recommendImg: require("@/assets/images/tj.png"),
       Smiley: require("@/assets/images/lxmj.png"),
       hotlist: require("@/assets/images/hotlist.png"),
-      sortData: ["店铺首页", "全部宝贝", "店铺动态"],
-      babyList: ["按销量", "价格", "按人气"],
+      sortData: [this.$t('message.Shop_Home'), this.$t('message.all_baby'), this.$t('message.Store_dynamics')],
+      babyList: [this.$t('message.by_sales'), this.$t('message.price'), this.$t('message.by_popularity')],
       titleData: 0,
       proSortindex: -1,
       prosortUpDown: false,

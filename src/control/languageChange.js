@@ -254,6 +254,24 @@ const messages = {
         No_data:'No more data',
         Loading:'Loading..',
         Store_Category:'Store Category',
+        // shopHome
+        store_homepage:'Store homepage',
+        classification:'Classification',
+        Number_fans:'Number of fans',
+        Followed:'Followed',
+        focus_on:'focus on',
+        recommended_products:'Recommended products',
+        store_details:'Store details',
+        top_categories:'Top Categories',
+        contact_seller:'contact seller',
+        by_sales:'By sales',
+        price:'price',
+        by_popularity:'By popularity',
+        // shopHeader
+        search_shop:'search goods in the shop...',
+        // tabHeader
+        Shop_Home:'Shop Home',
+        Store_dynamics:'Store dynamics',
       }
     },
     Chinese: {
@@ -508,6 +526,24 @@ const messages = {
         No_data:'暂无更多数据',
         Loading:'加载中..',
         Store_Category:'店铺分类',
+        // shopHome
+        store_homepage:'店铺主页',
+        classification:'分类',
+        Number_fans:'粉丝数',
+        Followed:'已关注',
+        focus_on:'关注',
+        recommended_products:'推荐商品',
+        store_details:'店铺详情',
+        top_categories:'热门分类',
+        contact_seller:'联系卖家',
+        by_sales:'按销量',
+        price:'价格',
+        by_popularity:'按人气',
+        // shopHeader
+        search_shop:'搜索店内宝贝...',
+        // tabHeader
+        Shop_Home:'店铺首页',
+        Store_dynamics:'店铺动态',
       }
     },
     Myanmar: {
@@ -762,6 +798,24 @@ const messages = {
           No_data:'ဒေတာမရှိတော့ပါ',
           Loading:'အဝိုင်းလည်နေသည်',
           Store_Category:'ဆိုင်အမျိုးအစား',
+          // shopHome
+          store_homepage:'စတိုးဆိုင်',
+          classification:'အမျိုးအစားခွဲခြားခြင်း',
+          Number_fans:'ပရိသတ်အရေအတွက်',
+          Followed:'ခွင့်ပြုသည်',
+          focus_on:'အာရုံစိုက်သည်',
+          recommended_products:'အကြံပြုထားသော ထုတ်ကုန်များ',
+          store_details:'စတိုးဆိုင်အသေးစိတ်',
+          top_categories:'ထိပ်တန်း အမျိုးအစားများ',
+          contact_seller:'ရောင်းချသူကိုဆက်သွယ်ပါ',
+          by_sales:'အရောင်းအားဖြင့်',
+          price:'စျေးနှုန်း',
+          by_popularity:'ကျော်ကြားမှုအားဖြင့်',
+          // shopHeader
+          search_shop:'ဆိုင်တွင် ကုန်ပစ္စည်းများ ရှာဖွေပါ...',
+          // tabHeader
+          Shop_Home:'အိမ်ဆိုင်',
+          Store_dynamics:'ဒိုင်နမစ်များကို သိမ်းဆည်းပါ',
           }
     }
   };
