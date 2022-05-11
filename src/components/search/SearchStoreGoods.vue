@@ -1,11 +1,11 @@
 <template>
   <div class="Search-header">
-    <div v-title data-title="主页">商品搜索</div>
+    <div v-title data-title="主页">{{$t('message.product_search')}}</div>
     <div class="Search-wap clearfix">
       <div class="Search-input-main fl">
-        <input type="search" v-model="value" placeholder="搜索该店铺宝贝" @keyup.enter="submit(value)" />
+        <input type="search" v-model="value" :placeholder="$t('message.search_baby')" @keyup.enter="submit(value)" />
       </div>
-      <span @click="remove" class="return-btn fl">取消</span>
+      <span @click="remove" class="return-btn fl">{{$t('message.cancel')}}</span>
     </div>
   </div>
 </template>

@@ -279,6 +279,9 @@ const messages = {
         September:'September 9',
         spike:'spike',
         event_over:'The event is over! !',
+        // SearchStoreGoods
+        product_search:'product search',
+        search_baby:'Search this shop baby',
       }
     },
     Chinese: {
@@ -558,6 +561,9 @@ const messages = {
         September:'9月9日',
         spike:'秒杀',
         event_over:'活动已结束！！',
+        // SearchStoreGoods
+        product_search:'商品搜索',
+        search_baby:'搜索该店铺宝贝',
       }
     },
     Myanmar: {
@@ -837,6 +843,9 @@ const messages = {
           September:'စက်တင်ဘာ ၉',
           spike:'ဆူး',
           event_over:'ပွဲပြီးပါပြီ။ !',
+          // SearchStoreGoods
+          product_search:'ထုတ်ကုန်ရှာဖွေရေး',
+          search_baby:'ဒီဆိုင်ကလေးကိုရှာပါ။',
           }
     }
   };
