@@ -16,7 +16,7 @@
 				<p>{{item.title}}</p>
 				<div class="more">
 					<span>￥{{item.goods_price}}</span>
-					<span class="r">销量:{{item.sales_sum}}</span>
+					<span class="r">{{$t('message.article_sales')}}:{{item.sales_sum}}</span>
 				</div>
 			</li>
 			<el-pagination class='bttom' 
@@ -31,8 +31,8 @@
 			<div class="bigBox">
 				<div class="times"><img :src="timeImg" alt=""><span>{{newOne.create_time}}</span></div>
 				<div class="newtitle">
-					<div class="title">上新</div>
-					<p>上新1件商品</p>
+					<div class="title">{{$t('message.newest')}}</div>
+					<p>{{$t('message.item_added')}}</p>
 				</div>
 
 				<li class="newCon">
@@ -49,7 +49,7 @@
 			<li class="newCon" v-for="items in allNewsGoods">
 				<div class="times"><img :src="timeImg" alt=""><span>{{items.create_time}}</span></div>
 				<div class="newtitle">
-					<div class="title">上新</div><span>上新{{items.goods.length}}件商品</span></div>
+					<div class="title">{{$t('message.newest')}}</div><span>{{$t('message.newest')}}{{items.goods.length}}{{$t('message.Items')}}</span></div>
 					<div class="content2">
 						<div @click="enterInto(item.id)" v-for="item in items.goods" :key="item.id">
 							<img :src="URL+item.pic_url" alt="">
@@ -58,12 +58,12 @@
 					</div>
 			</li>
 			<li class="newCon" v-show="acticityGoods.length!=0">
-				<div class="times"><img :src="timeImg" alt=""><span>9月9日</span></div>
+				<div class="times"><img :src="timeImg" alt=""><span>{{$t('message.September')}}</span></div>
 				<div class="newtitle">
-					<div class="title miaosha">秒杀</div>
+					<div class="title miaosha">{{$t('message.spike')}}</div>
 					<p class="timer">
 						<count-down v-on:end_callback="countDown()" :currentTime="1526354100" :startTime="1526354100" :endTime="1557890100" :dayTxt="'天'" :hourTxt="'小时'" :minutesTxt="'分钟'" :secondsTxt="'秒'"></count-down>
-						<span class="newPos" v-show='finish'>活动已结束！！</span>
+						<span class="newPos" v-show='finish'>{{$t('message.event_over')}}</span>
 					</p>
 				</div>
 				<div class="content1" v-for="items in acticityGoods" :key="items.id">

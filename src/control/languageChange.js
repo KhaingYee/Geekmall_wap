@@ -272,6 +272,13 @@ const messages = {
         // tabHeader
         Shop_Home:'Shop Home',
         Store_dynamics:'Store dynamics',
+        // article
+        article_sales:'sales',
+        newest:'newest',
+        item_added:'1 new item added',
+        September:'September 9',
+        spike:'spike',
+        event_over:'The event is over! !',
       }
     },
     Chinese: {
@@ -544,6 +551,13 @@ const messages = {
         // tabHeader
         Shop_Home:'店铺首页',
         Store_dynamics:'店铺动态',
+        // article
+        article_sales:'销量',
+        newest:'上新',
+        item_added:'上新1件商品',
+        September:'9月9日',
+        spike:'秒杀',
+        event_over:'活动已结束！！',
       }
     },
     Myanmar: {
@@ -816,6 +830,13 @@ const messages = {
           // tabHeader
           Shop_Home:'အိမ်ဆိုင်',
           Store_dynamics:'ဒိုင်နမစ်များကို သိမ်းဆည်းပါ',
+          // article
+          article_sales:'အရောင်း',
+          newest:'နောက်ဆုံးပေါ်',
+          item_added:'ပစ္စည်းအသစ် 1 ခု ထပ်ထည့်ထားသည်',
+          September:'စက်တင်ဘာ ၉',
+          spike:'ဆူး',
+          event_over:'ပွဲပြီးပါပြီ။ !',
           }
     }
   };
