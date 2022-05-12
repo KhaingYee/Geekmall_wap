@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-title data-title="商品列表">商品列表</div>
+        <div v-title data-title="商品列表">{{$t('message.Product_list')}}</div>
         <shop-header :text="text"></shop-header>
         <!-- 店铺信息 -->
         <div class="shopTitle">
@@ -15,9 +15,9 @@
                 </el-dropdown>
             </div>
             <div>
-                <p>{{data.storeFans}}<br><span>粉丝数</span></p>
-                <div @click="attenAjax(0)" class="btn" v-show="atten == 1">已关注</div>
-                <div @click="attenAjax(1)" class="btn" v-show="atten == 0">关注</div>
+                <p>{{data.storeFans}}<br><span>{{$t('message.Number_fans')}}</span></p>
+                <div @click="attenAjax(0)" class="btn" v-show="atten == 1">{{$t('message.Followed')}}</div>
+                <div @click="attenAjax(1)" class="btn" v-show="atten == 0">{{$t('message.focus_on')}}</div>
             </div>
         </div>
         <!-- tab切换 -->
@@ -26,41 +26,41 @@
         <div class="description">
             <!-- <p><span>店铺简介</span> <span>{{data.description}}</span><span></span></p> -->
              <!-- <p><span>店铺简介</span> <span>{{data.desccredit}}分</span><span>{{data.desccredit_discraption}}</span></p> -->
-             <p><span>商品描述</span> <span>{{data.desccredit}}分</span><span>{{data.desccredit_discraption}}</span></p>
-            <p><span>服务态度</span> <span>{{data.servicecredit}}分</span><span>{{data.servicecredit_discraption}}</span></p>
-            <p><span>发货速度</span> <span>{{data.deliverycredit}}分</span><span>{{data.deliverycredit_discraption}}</span></p>
+             <p><span>{{$t('message.product_description')}}</span> <span>{{data.desccredit}}{{$t('message.Minute')}}</span><span>{{data.desccredit_discraption}}</span></p>
+            <p><span>{{$t('message.service_attitude')}}</span> <span>{{data.servicecredit}}{{$t('message.Minute')}}</span><span>{{data.servicecredit_discraption}}</span></p>
+            <p><span>{{$t('message.delivery_speed')}}</span> <span>{{data.deliverycredit}}{{$t('message.Minute')}}</span><span>{{data.deliverycredit_discraption}}</span></p>
         </div>
         <ul class="aboutShop">
             <li>
-                <p>联系卖家</p>
+                <p>{{$t('message.contact_seller')}}</p>
                 <img :src="aboutShopImg" alt="">
             </li>
             <li @click="phoneMsg">
-                <p>商家电话<span>{{data.mobile}}</span></p>
+                <p>{{$t('message.business_phone')}}<span>{{data.mobile}}</span></p>
                 <img :src="phoneimg" alt="">
             </li>
             <li @click="codeMsg">
-                <p>店铺二维码</p>
+                <p>{{$t('message.shop_code')}}</p>
                 <img :src="codeImg" alt="">
             </li>
             <li @click="paperwork">
-                <p>证照信息</p>
+                <p>{{$t('message.license_information')}}</p>
                 <img :src="paperworkImg" alt="">
             </li>
         </ul>
         <ul class="aboutShop">
             <li>
 
-                <p>店铺简介<span>{{data.shop_long}}</span></p>
+                <p>{{$t('message.store_introduction')}}<span>{{data.shop_long}}</span></p>
 
            </li>
 
             <li>
-                <p>所在地区<span>{{data.address}}</span></p>
+                <p>{{$t('message.your_area')}}<span>{{data.address}}</span></p>
             </li>
     
             <li>
-                <p>开店时间<span>{{data.update_time}}</span></p>
+                <p>{{$t('message.store_opening')}}<span>{{data.store_opening}}</span></p>
             </li>
         </ul>
     </div>
@@ -80,8 +80,8 @@
                 codeImg: require("@/assets/images/code_icon.png"),
                 phoneimg: require("@/assets/images/phone_icon.png"),
                 paperworkImg: require("@/assets/images/paperwork_icon.png"),
-                text: '店铺详情',
-                sortData: ['店铺首页', '全部宝贝', '店铺动态'],
+                text: this.$t('message.store_details'),
+                sortData: [this.$t('message.Shop_Home'), this.$t('message.all_baby'), this.$t('message.Store_dynamics')],
                 atten: 0,
                 data: [],
             }

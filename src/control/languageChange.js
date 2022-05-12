@@ -282,6 +282,14 @@ const messages = {
         // SearchStoreGoods
         product_search:'product search',
         search_baby:'Search this shop baby',
+        // shopDetails
+        product_description:'product description',
+        Minute:'Minute',
+        business_phone:'business phone',
+        shop_code:'Shop QR code',
+        license_information:'License information',
+        store_introduction:'Store introduction',
+        store_opening:'Store opening time',
       }
     },
     Chinese: {
@@ -564,6 +572,14 @@ const messages = {
         // SearchStoreGoods
         product_search:'商品搜索',
         search_baby:'搜索该店铺宝贝',
+        // shopDetails
+        product_description:'商品描述',
+        Minute:'分',
+        business_phone:'商家电话',
+        shop_code:'店铺二维码',
+        license_information:'证照信息',
+        store_introduction:'店铺简介',
+        store_opening:'开店时间',
       }
     },
     Myanmar: {
@@ -846,6 +862,14 @@ const messages = {
           // SearchStoreGoods
           product_search:'ထုတ်ကုန်ရှာဖွေရေး',
           search_baby:'ဒီဆိုင်ကလေးကိုရှာပါ။',
+          // shopDetails
+          product_description:'ကုန်ပစ္စည်းအကြောင်းအရာ',
+          Minute:'မိနစ်',
+          business_phone:'လုပ်ငန်းသုံးဖုန်း',
+          shop_code:'စတိုးဆိုင်QRကုဒ်',
+          license_information:'လိုင်စင်အချက်အလက်',
+          store_introduction:'စတိုးဆိုင်မိတ်ဆက်',
+          store_opening:'ဆိုင်ဖွင့်ချိန်',
           }
     }
   };
