@@ -326,7 +326,7 @@
                 color:#999;
             }
             .mint-cell-value{
-                font-size:.32rem;
+                font-size:.26rem;
                 color:#333;
                 input{
                     background:#fff;

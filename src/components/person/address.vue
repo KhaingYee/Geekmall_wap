@@ -16,7 +16,7 @@
 		</div>
 		<div v-if="data.length == 0" class="text-center status">{{$t('message.address_empty')}}</div>
 		<div class="btn-wrap">
-			<div class="btn-main"><button @click="tolink()"><i class="icon fl clearfix"></i><span class="fl">{{$t('message.New_shipping')}}</span></button></div>
+			<div class="btn-main"><button @click="tolink()"><i class="icon clearfix"></i><span>{{$t('message.New_shipping')}}</span></button></div>
 		</div>
 	</div>
 </template>
@@ -260,7 +260,7 @@
 				border: none;
 				background: #d02629;
 				outline: none;
-				padding-left: 2.3rem;
+				// padding-left: 2.3rem;
 				box-sizing: border-box;
 				span {
 					font-size: .32rem;

@@ -225,7 +225,7 @@ const messages = {
         address_managemen:'Shipping address management',
         // new address
         Receiver:'Receiver',
-        consignee_name:'Please enter consignee name',
+        consignee_name:'Please enter receiver name',
         phone_number:'phone number',
         enter_phone:'Please enter phone number',
         your_area:'your area',
@@ -820,14 +820,14 @@ const messages = {
           invoice_content:'ပြေစာ အကြောင်းအရာ',
           Invoice_Information:'ပြေစာအချက်အလက်',
           // address
-          address_modify:'ကျေးဇူးပြု၍ သင်အော်ဒါတင်ထားသည့်လိပ်စာကို မပြုပြင်ပါနှင့်။ လိပ်စာပြောင်းလိုပါက ကျေးဇူးပြု၍ ထည့်သွင်းပါ',
+          address_modify:'ကျေးဇူးပြု၍ သင်အော်ဒါတင်ထားသည့်လိပ်စာကို မပြုပြင်ပါနှင့်။ လိပ်စာပြောင်းလိုပါက ကျေးဇူးပြု၍ အသစ်ထည့်သွင်းပါ',
           default:'ပုံသေ',
-          address_empty:'ပေးပို့ရမည့်လိပ်စာမှာ ဗလာဖြစ်ပြီး၊ ယခုထည့်ပါ။',
+          address_empty:'ပေးပို့ရမည့်လိပ်စာမှာဗလာဖြစ်ပြီး ယခုထည့်ပါ',
           New_shipping:'ပို့ဆောင်ရေးလိပ်စာအသစ်',
-          address_managemen:'သင်္ဘောလိပ်စာစီမံခန့်ခွဲမှု',
+          address_managemen:'ပစ္စည်းလက်ခံလိပ်စာစီမံခန့်ခွဲမှု',
           // new address
           Receiver:'လက်ခံသူ',
-          consignee_name:'ကျေးဇူးပြု၍ ကုန်စည်ပို့ဆောင်သူအမည်ကို ထည့်သွင်းပါ',
+          consignee_name:'ကျေးဇူးပြု၍ကုန်စည်လက်ခံသူအမည်ထည့်သွင်းပါ',
           phone_number:'ဖုန်းနံပါတ်',
           enter_phone:'ကျေးဇူးပြု၍ ဖုန်းနံပါတ်ထည့်ပါ',
           your_area:'သင်၏လိပ်စာ',
