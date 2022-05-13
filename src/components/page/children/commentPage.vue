@@ -209,11 +209,11 @@
         }
         .comment-wrap{
             ul{
-                height: 105/100rem;
+                height: 1.3rem;
                 display: flex;
                 li{
                     width: 20%;
-                    height: 100/100rem;
+                    height: 1.3rem;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -222,6 +222,7 @@
                         color:#B9B9B9;
                         font-size: 32/100rem;
                         margin-bottom:10/100rem;
+                        height: 1rem;
                     }
                     p{
                         font-size: 28/100rem;

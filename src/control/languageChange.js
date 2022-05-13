@@ -839,16 +839,16 @@ const messages = {
           Edit_address:'ပို့ဆောင်ရေးလိပ်စာကို တည်းဖြတ်ပါ',
           // commentPage
           ProductReviews:'ထုတ်ကုန်သုံးသပ်ချက်များ',
-          All_reviews:'အားလုံးသုံးသပ်ချက်',
-          Praise:'ချီးမွမ်းပါ',
-          Average:'ပျမ်းမျှ',
-          Negative_Ratings:'အနုတ်လက္ခဏာအဆင့်သတ်မှတ်ချက်များ',
-          are_pictures:'ပုံတွေရှိတယ်',
+          All_reviews:'အားလုံး',
+          Praise:'ကောင်းသော',
+          Average:'ပုံမှန်',
+          Negative_Ratings:'မကောင်းသော',
+          are_pictures:'ပုံများ',
           no_comment:'comment မရှိသေးပါ',
           // ans
           commodity_consultation:'ကုန်စည်ညှိနှိုင်းမှု',
-          user:'အသုံးပြုသူကို',
-          question:'မေးခွန်း',
+          user:'အသုံးပြုသူ',
+          question:'၏မေးခွန်း',
           all_answer:'အဖြေ 1 ခုလုံးကို ကြည့်ပါ',
           ask_questions:'မေးခွန်းများမေးပါ',
           // shoplist

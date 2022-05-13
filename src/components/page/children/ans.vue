@@ -438,7 +438,7 @@
         bottom:0;
         input{
             border-radius: 15/100rem;
-            width: 615/100rem;
+            width: 4.6rem;
             height: 70/100rem;
             background-color:#F1F1F1;
             order: 0;
