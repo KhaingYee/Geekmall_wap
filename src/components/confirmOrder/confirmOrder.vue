@@ -80,7 +80,7 @@
 						<div class="busi fr">{{$store.state.select_coupon.name}}</div>
 					</div>
 					<div class="hd clearfix" @click="tolink('/invoice',goods_data.store_id)" >
-						<div class="title fl">{{$t('message.Invoice')}}</div>
+						<div class="title fl">{{$t('message.com_invoice')}}</div>
 						<div class="busi fr" v-if="show[0] == 1">{{$t('message.Invoiced')}}</div>
 						<div class="busi fr" v-else>{{$t('message.invoice_required')}}</div>
 					</div>
@@ -882,7 +882,7 @@
 					color: #fff;
 					border: none;
 					background: #d02629;
-					font-size: .36rem;
+					font-size: .34rem;
 				}
 				.btn-gray {
 					background: #ccc;
