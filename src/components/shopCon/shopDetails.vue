@@ -131,7 +131,7 @@
             //   店铺二维码
             codeMsg() {
                 MessageBox({
-                    title: '和田余元分店',
+                    title: this.$t('message.Hetian_Yuyuan'),
                     showConfirmButton: false,
                     cancelButtonClass: false,
                     message: `<p><img style="width:5.6rem; height:5.6rem; margin-bottom:.3rem;"  src="http://a.hiphotos.baidu.com/image/pic/item/500fd9f9d72a6059f550a1832334349b023bbae3.jpg"></img></p><p>邀请好友来扫一扫分享店铺给TA</p>`,

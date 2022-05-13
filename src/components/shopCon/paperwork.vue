@@ -1,15 +1,15 @@
 <template>
   <div>
       <shop-header :text="text"></shop-header>
-      <h4>{{$constant.mainTitle}}商城网点经营者营业执照信息</h4>
-      <p>企业名称：<span>{{shopInfo.company_name}}</span></p>
-      <p>营业执照注册号：<span>{{shopInfo.license_number}}</span></p>
-      <p>法定代表人电话：<span>{{shopInfo.mobile}}</span></p>
-      <p>营业执照所在地：<span>{{shopInfo.address}}</span></p>
-      <p>企业注册资金：<span>{{shopInfo.registered_capital}}</span></p>
-      <p>营业执照有效期：<span>{{shopInfo.validity_start}}-{{shopInfo.validity_end}}</span></p>
-      <p>公司地址：<span>{{shopInfo.address}}</span></p>
-      <p>营业执照经营范围：<span>{{shopInfo.scope_of_operation}}</span></p>
+      <h4>{{$constant.mainTitle}}{{$t('message.network_operator')}}</h4>
+      <p>{{$t('message.Company')}}：<span>{{shopInfo.company_name}}</span></p>
+      <p>{{$t('message.Business')}}：<span>{{shopInfo.license_number}}</span></p>
+      <p>{{$t('message.Legal')}}：<span>{{shopInfo.mobile}}</span></p>
+      <p>{{$t('message.Location')}}：<span>{{shopInfo.address}}</span></p>
+      <p>{{$t('message.Enterprise')}}：<span>{{shopInfo.registered_capital}}</span></p>
+      <p>{{$t('message.Validity_license')}}：<span>{{shopInfo.validity_start}}-{{shopInfo.validity_end}}</span></p>
+      <p>{{$t('message.company_address')}}：<span>{{shopInfo.address}}</span></p>
+      <p>{{$t('message.business_scope')}}：<span>{{shopInfo.scope_of_operation}}</span></p>
       <h6>{{$constant.licence_remark}}</h6>
   </div>
 </template>
@@ -19,7 +19,7 @@ import shopHeader from '@/components/page/children/header.vue';
 export default {
   data () {
     return {
-        text:'证照信息',
+        text:this.$t('message.license_information'),
         shopInfo:''
     }
   },

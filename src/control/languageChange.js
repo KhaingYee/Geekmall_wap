@@ -290,6 +290,17 @@ const messages = {
         license_information:'License information',
         store_introduction:'Store introduction',
         store_opening:'Store opening time',
+        Hetian_Yuyuan:'Hetian Yuyuan Branch',
+        // paperwork
+        network_operator:'Business license information of the mall network operator',
+        Company:'Company Name',
+        Business:'Business license registration number',
+        Legal:'Legal representative phone number',
+        Location:'Location of business license',
+        Enterprise:'Enterprise registered capital',
+        Validity_license:'Validity of business license',
+        company_address:'company address',
+        business_scope:'Business license business scope',
       }
     },
     Chinese: {
@@ -580,6 +591,17 @@ const messages = {
         license_information:'证照信息',
         store_introduction:'店铺简介',
         store_opening:'开店时间',
+        Hetian_Yuyuan:'和田余元分店',
+        // paperwork
+        network_operator:'商城网点经营者营业执照信息',
+        Company:'企业名称',
+        Business:'营业执照注册号',
+        Legal:'法定代表人电话',
+        Location:'营业执照所在地',
+        Enterprise:'企业注册资金',
+        Validity_license:'营业执照有效期',
+        company_address:'公司地址',
+        business_scope:'营业执照经营范围',
       }
     },
     Myanmar: {
@@ -841,9 +863,9 @@ const messages = {
           Followed:'ခွင့်ပြုသည်',
           focus_on:'အာရုံစိုက်သည်',
           recommended_products:'အကြံပြုထားသော ထုတ်ကုန်များ',
-          store_details:'စတိုးဆိုင်အသေးစိတ်',
+          store_details:'စတိုးဆိုင် အသေးစိတ်',
           top_categories:'ထိပ်တန်း အမျိုးအစားများ',
-          contact_seller:'ရောင်းချသူကိုဆက်သွယ်ပါ',
+          contact_seller:'ရောင်းချသူ ကိုဆက်သွယ်ပါ',
           by_sales:'အရောင်းအားဖြင့်',
           price:'စျေးနှုန်း',
           by_popularity:'ကျော်ကြားမှုအားဖြင့်',
@@ -870,6 +892,17 @@ const messages = {
           license_information:'လိုင်စင်အချက်အလက်',
           store_introduction:'စတိုးဆိုင်မိတ်ဆက်',
           store_opening:'ဆိုင်ဖွင့်ချိန်',
+          Hetian_Yuyuan:'Hetian Yuyuan ဘဏ်ခွဲ',
+          // paperwork
+          network_operator:'ကုန်တိုက်ကွန်ရက်အော်ပရေတာ၏ လုပ်ငန်းလိုင်စင်အချက်အလက်',
+          Company:'ကုမ္ပဏီအမည်',
+          Business:'လုပ်ငန်းလိုင်စင် မှတ်ပုံတင်အမှတ်',
+          Legal:'တရားဝင်ကိုယ်စားလှယ်ဖုန်းနံပါတ်',
+          Location:'လုပ်ငန်းလိုင်စင်တည်နေရာ',
+          Enterprise:'လုပ်ငန်းမှတ်ပုံတင် အရင်းအနှီး',
+          Validity_license:'လုပ်ငန်းလိုင်စင်သက်တမ်း',
+          company_address:'ကုမ္ပဏီလိပ်စာ',
+          business_scope:'လုပ်ငန်းလိုင်စင် လုပ်ငန်းနယ်ပယ်',
           }
     }
   };
