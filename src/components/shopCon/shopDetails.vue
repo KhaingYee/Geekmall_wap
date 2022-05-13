@@ -284,7 +284,7 @@
             span {
                 font-size: 28/100rem;
                 &:nth-child(1) {
-                    margin-right: .7rem;
+                    margin-right: .4rem;
                 }
                 &:nth-child(2) {
                     color: #CF7171;
