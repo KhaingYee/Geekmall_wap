@@ -261,13 +261,15 @@ export default {
     .title {
       margin-right: 20/100rem;
       display: flex;
-      width: 90/100rem;
+      // width: 90/100rem;
       height: 40/100rem;
+      line-height: 40/100rem;
       border: 3/100rem solid #46e26e;
       color: #46e26e;
       border-radius: 40/100rem;
       justify-content: center;
       align-items: center;
+      padding: 0 .1rem;
     }
     p {
       font-size: 28/100rem;

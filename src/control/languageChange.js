@@ -282,6 +282,7 @@ const messages = {
         // SearchStoreGoods
         product_search:'product search',
         search_baby:'Search this shop baby',
+        search_cancel:'Cancel',
         // shopDetails
         product_description:'product description',
         Minute:'Minute',
@@ -583,6 +584,7 @@ const messages = {
         // SearchStoreGoods
         product_search:'商品搜索',
         search_baby:'搜索该店铺宝贝',
+        search_cancel:'取消',
         // shopDetails
         product_description:'商品描述',
         Minute:'分',
@@ -860,10 +862,10 @@ const messages = {
           store_homepage:'စတိုးဆိုင်',
           classification:'အမျိုးအစားခွဲခြားခြင်း',
           Number_fans:'ပရိသတ်အရေအတွက်',
-          Followed:'ခွင့်ပြုသည်',
-          focus_on:'အာရုံစိုက်သည်',
+          Followed:'Followed',
+          focus_on:'အာရုံစိုက်',
           recommended_products:'အကြံပြုထားသော ထုတ်ကုန်များ',
-          store_details:'စတိုးဆိုင် အသေးစိတ်',
+          store_details:'စတိုးဆိုင်အသေးစိတ်',
           top_categories:'ထိပ်တန်း အမျိုးအစားများ',
           contact_seller:'ရောင်းချသူ ကိုဆက်သွယ်ပါ',
           by_sales:'အရောင်းအားဖြင့်',
@@ -872,18 +874,19 @@ const messages = {
           // shopHeader
           search_shop:'ဆိုင်တွင် ကုန်ပစ္စည်းများ ရှာဖွေပါ...',
           // tabHeader
-          Shop_Home:'အိမ်ဆိုင်',
-          Store_dynamics:'ဒိုင်နမစ်များကို သိမ်းဆည်းပါ',
+          Shop_Home:'ဆိုင်၏ပင်မစာမျက်နှာ',
+          Store_dynamics:'ဆိုင်၏လှုပ်ရှားမှုများ',
           // article
           article_sales:'အရောင်း',
           newest:'နောက်ဆုံးပေါ်',
           item_added:'ပစ္စည်းအသစ် 1 ခု ထပ်ထည့်ထားသည်',
           September:'စက်တင်ဘာ ၉',
-          spike:'ဆူး',
+          spike:'spike',
           event_over:'ပွဲပြီးပါပြီ။ !',
           // SearchStoreGoods
           product_search:'ထုတ်ကုန်ရှာဖွေရေး',
-          search_baby:'ဒီဆိုင်ကလေးကိုရှာပါ။',
+          search_baby:'ဒီဆိုင်မှပစ္စည်းကိုရှာပါ။',
+          search_cancel:'မလုပ်ပါ',
           // shopDetails
           product_description:'ကုန်ပစ္စည်းအကြောင်းအရာ',
           Minute:'မိနစ်',
@@ -892,7 +895,7 @@ const messages = {
           license_information:'လိုင်စင်အချက်အလက်',
           store_introduction:'စတိုးဆိုင်မိတ်ဆက်',
           store_opening:'ဆိုင်ဖွင့်ချိန်',
-          Hetian_Yuyuan:'Hetian Yuyuan ဘဏ်ခွဲ',
+          Hetian_Yuyuan:'Hetian Yuyuan ဆိုင်ခွဲ',
           // paperwork
           network_operator:'ကုန်တိုက်ကွန်ရက်အော်ပရေတာ၏ လုပ်ငန်းလိုင်စင်အချက်အလက်',
           Company:'ကုမ္ပဏီအမည်',

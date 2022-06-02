@@ -5,7 +5,7 @@
       <div class="Search-input-main fl">
         <input type="search" v-model="value" :placeholder="$t('message.search_baby')" @keyup.enter="submit(value)" />
       </div>
-      <span @click="remove" class="return-btn fl">{{$t('message.cancel')}}</span>
+      <span @click="remove" class="return-btn fl">{{$t('message.search_cancel')}}</span>
     </div>
   </div>
 </template>

@@ -773,6 +773,7 @@ export default {
 /*// 主体*/
 .content {
   margin-top: 348/100rem;
+  margin-bottom: 1.5rem;
 }
 
 .contentBabyList {
@@ -903,13 +904,13 @@ export default {
   position: fixed;
   bottom: 0;
   background-color: #fff;
-  height: 90/100rem;
+  height: auto;
   width: 7.5rem;
   border-top: 0.01rem solid #e6e6e8;
   li {
     float: left;
     width: 33%;
-    height: 50/100rem;
+    height: auto;
     border-right: 0.01rem solid #e7e7e7;
     text-align: center;
     line-height: 0.5rem;

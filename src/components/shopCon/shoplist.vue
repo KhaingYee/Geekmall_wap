@@ -9,7 +9,7 @@
                     <img :src="imgs" alt="">
                 </a>
             </li>
-            <li v-for ="(item,index) in store" :key = 'item.id'>
+            <li v-for ="(item,index) in store" :key = "index">
                 <router-link :to="{name: 'comList', params:{status:item.id}}" href="javascript:;">
                     <span>{{item.class_name}}</span>
                     <img :src="imgs" alt="">
