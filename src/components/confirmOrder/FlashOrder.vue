@@ -16,7 +16,7 @@
 					{{rec_address.prov_name+"-"+rec_address.city_name+"-"+rec_address.dist_name+"-"+rec_address.address}}
 				</div>
 			</div>
-			<div class="status text-center" v-if="!rec_address">您还没有填写收货地址，请填写！</div>
+			<div class="status text-center" v-if="!rec_address">{{$t('message.noAddress')}}</div>
 			<span class="btn-right"></span>
 		</div>
 		<div class="bottom-bg"><img src="../../assets/bottom-bj.jpg"></div>
@@ -40,31 +40,31 @@
 					<div class="promotion-title" v-if="item.name">{{item.name}}</div>
 					<img :src="URL + item.pic_url" class="promotion-img">
 					<div class="promotion-num" v-if="item.give_num != 0 && item.give_num != null">x{{item.give_num}}</div>
-					<div class="promotion-detail">购满￥{{ item.full }}送赠品，数量{{item.give_count}}赠完即止</div>
+					<div class="promotion-detail">{{$t('message.product_full')}}￥{{ item.full }}{{$t('message.give_gifts')}}，{{$t('message.p_quantity')}}{{item.give_count}}{{$t('message.stocks_last')}}</div>
 				</div>
 				<div class="promotion-card"  v-if="reduce.length != 0">
 					<div class="promotion-title" v-if="reduce.promotion_name">{{reduce.promotion_name}}</div>
-					<div class="promotion-detail">单笔订单满￥{{ expense }}，立减￥{{cut}}</div>
+					<div class="promotion-detail">{{$t('message.order_full')}}￥{{ expense }}，{{$t('message.immediate_reduction')}}￥{{cut}}</div>
 				</div>
 			</div>
 			<div class="delivery_div" v-if="goods_data.freight_type==2">
 				<div class="delivery_money">
-					<div class="delivery_type fl">运费：</div>
-					<p class="delivery_price fr">卖家包邮</p>
+					<div class="delivery_type fl">{{$t('message.shipping_freight')}}：</div>
+					<p class="delivery_price fr">{{$t('message.shipping_seller')}}</p>
 				</div>
 			</div>
 			<div class="delivery_div" v-else>
 				<div v-if="money == -1" class="delivery_money">
-					<div class="delivery_type fl">配送费 ：</div>
-					<div class="delivery_price fr">免配送费</div>
+					<div class="delivery_type fl">{{$t('message.confirm_delivery')}} ：</div>
+					<div class="delivery_price fr">{{$t('message.shipping_free')}}</div>
 				</div>
 				<div v-else-if="money" class="delivery_money">
-					<div class="delivery_type fl">配送费 ：</div>
+					<div class="delivery_type fl">{{$t('message.confirm_delivery')}} ：</div>
 					<div class="delivery_price fr">￥{{money}}</div>
 				</div>
 				<div v-else class="delivery_money">
-					<div class="delivery_type fl">运费：</div>
-					<p v-if="freight == 0" class="delivery_price fr">卖家包邮</p>
+					<div class="delivery_type fl">{{$t('message.shipping_freight')}}：</div>
+					<p v-if="freight == 0" class="delivery_price fr">{{$t('message.shipping_seller')}}</p>
 					<p v-else class="delivery_price fr">￥{{freight}}</p>
 				</div>
 			</div>
@@ -85,42 +85,42 @@
 						<div class="busi fr" v-else>无需发票</div>
 					</div> -->
 					<div class="dd">
-						<div class="title">给商家留言：</div>
-						<textarea placeholder="选填：备注限字在45个字以内" oninput="if(value.length>45)value = value.slice(0,45)" v-model="message"></textarea>
-						<p class="ind">共 <span>{{goods_data.goods_num}}</span> 件商品</p>
+						<div class="title">{{$t('message.leave_message')}}：</div>
+						<textarea :placeholder="$t('message.limited_characters')" oninput="if(value.length>45)value = value.slice(0,45)" v-model="message"></textarea>
+						<p class="ind">{{$t('message.common')}} <span>{{goods_data.goods_num}}</span> {{$t('message.Items')}}</p>
 					</div>
 				</div>
 			</li>
 		</ul>
 		<div class="price-set-wrap">
 			<div class="total price clearfix">
-				<span class="fl">税前商品总额</span>
+				<span class="fl">{{$t('message.before_tax')}}</span>
 				<!-- <span class="fr" v-if="status !=1">￥{{goods_data.price_member * goods_data.goods_num}}</span> -->
 				<span class="fr">￥{{(goods_data.activity_price * goods_data.goods_num).toFixed(2)}}</span>
 				<!-- <span class="fr" v-else="status ==1">￥{{parseFloat(goods_data.price_member * goods_data.goods_num)+parseFloat(money)}}</span> -->
 			</div>
 			<div class="freight price clearfix">
 				<span class="fl">{{cartDis.memberLevel}}:</span>
-				<span class="fr">&nbsp;&nbsp;{{Number(cartDis.discount)/10}} 折优惠</span>
+				<span class="fr">&nbsp;&nbsp;{{Number(cartDis.discount)/10}} {{$t('message.con_discount')}}</span>
 			</div>
 			<div v-if="goods_data.freight_type == 2">
 				<div class="freight price clearfix">
-					<span class="fl">运费共计</span>
-					<span class="fr">&nbsp;&nbsp;<i>卖家包邮</i></span>
+					<span class="fl">{{$t('message.Shipping_total')}}</span>
+					<span class="fr">&nbsp;&nbsp;<i>{{$t('message.shipping_seller')}}</i></span>
 				</div>
 			</div>
 			<div v-else>
 				<div class="freight price clearfix" v-if="money == -1">
-					<span class="fl">配送共计</span>
-					<span class="fr">+&nbsp;&nbsp;免配送费</span>
+					<span class="fl">{{$t('message.total_delivery')}}</span>
+					<span class="fr">+&nbsp;&nbsp;{{$t('message.shipping_free')}}</span>
 				</div>
 				<div class="freight price clearfix" v-else-if="status == 1"><!-- v-else-if="money" -->
-					<span class="fl">配送共计</span>
+					<span class="fl">{{$t('message.total_delivery')}}</span>
 					<span class="fr">+&nbsp;&nbsp;￥{{money}}</span>
 				</div>
 				<div class="freight price clearfix" v-else-if="status == 0">
-					<span class="fl">运费共计</span>
-					<span v-if="freight == 0" class="fr">&nbsp;&nbsp;<i>卖家包邮</i></span>
+					<span class="fl">{{$t('message.Shipping_total')}}</span>
+					<span v-if="freight == 0" class="fr">&nbsp;&nbsp;<i>{{$t('message.shipping_seller')}}</i></span>
 					<span v-else class="fr">+&nbsp;&nbsp;￥{{freight}}</span>
 				</div>
 			</div>
@@ -129,7 +129,7 @@
 				<span class="fr">-&nbsp;&nbsp;￥{{$store.state.const_coupon_price}}</span>
 			</div> -->
 			<div class="freight price clearfix">
-				<span class="fl">满立减</span>
+				<span class="fl">{{$t('message.Full_reduction')}}</span>
 				<span class="fr" v-if="(goods_data.activity_price * goods_data.goods_num) >= expense">-&nbsp;&nbsp;￥{{cut}}</span>
 				<span class="fr" v-else>-&nbsp;&nbsp;￥0</span>
 			</div>
@@ -147,9 +147,9 @@
 			<div class="foot-seat"></div>
 			<div class="footer clearfix" >
 				
-				<button class="fr btn" @click="toCashierAll">提交订单</button>
+				<button class="fr btn" @click="toCashierAll">{{$t('message.Submit_orders')}}</button>
 				<div class="fr money">
-					实付款&nbsp;:&nbsp; 
+					{{$t('message.real_payment')}}&nbsp;:&nbsp; 
 					<span class="price">￥
 						<span v-if="(money == -1) && ((goods_data.activity_price * goods_data.goods_num) >= expense)">{{parseFloat((Number(goods_data.activity_price) * Number(goods_data.goods_num) * (Number(cartDis.discount)/100) - Number(cut)))}}</span>
 						<span v-else-if="(money == -1)">{{parseFloat((Number(goods_data.activity_price) * Number(goods_data.goods_num) * (Number(cartDis.discount)/100)))}}</span>
@@ -185,12 +185,12 @@
 			return {
 				show_addres:true,
 				rec_address:'',
-				title: '确认订单',
+				title: this.$t('message.confirmOrder'),
 				btn: '', //头部客服按钮开关
 				goods_data: {},
 				newdata: '',
 				scrollWatch: true,
-				coupon: '请选择优惠券',
+				coupon: this.$t('message.select_coupon'),
 				coupon_id:'',
 				realname: '',
 				load_wrap: true,
@@ -258,7 +258,7 @@
 			this.getData();
 			this.$store.state.const_coupon = false;
 			this.$store.state.const_coupon_num = 0;
-			this.$store.state.select_coupon.name = '请选择优惠券';
+			this.$store.state.select_coupon.name = this.$t('message.select_coupon');
 			this.$store.state.const_coupon_price = 0;
 		},
 		mounted(){
@@ -757,9 +757,9 @@
 						// color: #777;
 					}
 					.delivery_price {
-						font-size: .3rem;
+						font-size: .26rem;
 						color: #dd2727;
-						width: 50%;
+						// width: 50%;
 						height: 55px;
 						text-align: right;
 						text-overflow: ellipsis;
