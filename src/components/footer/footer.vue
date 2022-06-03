@@ -40,7 +40,7 @@ export default {
           require("@/assets/images/cart_icon.png"),
           require("@/assets/images/per_icon.png")
         ],
-        font: ["首页", "分类", "活动", "购物车", "我的"]
+        font: [this.$t('message.front_page'), this.$t('message.classification_footer'), this.$t('message.activity_footer'), this.$t('message.shopping_cart'), this.$t('message.mine')]
       }
     };
   },

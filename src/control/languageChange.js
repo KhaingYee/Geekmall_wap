@@ -311,6 +311,12 @@ const messages = {
         history_search:'History search',
         browsed_any:'You have n၀t browsed any products yet, go shopping!',
         clear_history:'clear history',
+        // home=>footer
+        front_page:'Front Page',
+        classification_footer:'Classification',
+        activity_footer:'Activity',
+        shopping_cart:'Shopping Cart',
+        mine:'Mine',
       }
     },
     Chinese: {
@@ -622,6 +628,12 @@ const messages = {
         history_search:'历史搜索',
         browsed_any:'你还没浏览过任何商品哦，快去逛逛吧！',
         clear_history:'清空历史记录',
+        // home=>footer
+        front_page:'首页',
+        classification_footer:'分类',
+        activity_footer:'活动',
+        shopping_cart:'购物车',
+        mine:'我的',
       }
     },
     Myanmar: {
@@ -933,6 +945,12 @@ const messages = {
           history_search:'ပြန်လည်ရှာဖွေမှု',
           browsed_any:'သင်သည် မည်သည့်ထုတ်ကုန်ကိုမျှ မကြည့်ရသေးပါ၊ စျေးဝယ်သွားပါ။',
           clear_history:'ရှင်းလင်းသောမှတ်တမ်း',
+          // home=>footer
+          front_page:'ရှေ့စာမျက်နှာ',
+          classification_footer:'အမျိုးအစားခွဲခြားခြင်း',
+          activity_footer:'လှုပ်ရှားမှု',
+          shopping_cart:'ဈေးဝယ်လှည်း',
+          mine:'ကျွန်ုပ်ဟာ',
           }
     }
   };
