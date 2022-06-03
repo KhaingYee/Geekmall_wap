@@ -14,7 +14,7 @@
         </ul>
         <div class="default text-center" v-else>
             <img src="../../../assets/news_active.png">
-            <p class="text">还没有消息哦，继续逛逛吧！</p>
+            <p class="text">{{$t('message.keep_shopping')}}</p>
         </div>
     </div>
 </template>

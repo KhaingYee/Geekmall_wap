@@ -302,6 +302,9 @@ const messages = {
         Validity_license:'Validity of business license',
         company_address:'company address',
         business_scope:'Business license business scope',
+        // myNews
+        my_message:'My Message',
+        keep_shopping:'No news yet, keep shopping!',
       }
     },
     Chinese: {
@@ -604,6 +607,9 @@ const messages = {
         Validity_license:'营业执照有效期',
         company_address:'公司地址',
         business_scope:'营业执照经营范围',
+        // myNews
+        my_message:'我的消息',
+        keep_shopping:'还没有消息哦，继续逛逛吧！',
       }
     },
     Myanmar: {
@@ -906,6 +912,9 @@ const messages = {
           Validity_license:'လုပ်ငန်းလိုင်စင်သက်တမ်း',
           company_address:'ကုမ္ပဏီလိပ်စာ',
           business_scope:'လုပ်ငန်းလိုင်စင် လုပ်ငန်းနယ်ပယ်',
+          // myNews
+          my_message:'ငါ့မက်ဆေ့',
+          keep_shopping:'သတင်းမရသေးပါ၊ စျေးဝယ်ပါ။',
           }
     }
   };

@@ -15,7 +15,7 @@
         name : 'news_list',
         data(){
             return {
-                title:'我的消息',
+                title:this.$t('message.my_message'),
                 load_wrap:true
             }
         },
