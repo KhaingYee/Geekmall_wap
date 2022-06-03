@@ -305,6 +305,12 @@ const messages = {
         // myNews
         my_message:'My Message',
         keep_shopping:'No news yet, keep shopping!',
+        // Search
+        popular_searches:'Popular searches',
+        top_searches:'Top searches are empty!',
+        history_search:'History search',
+        browsed_any:'You have n၀t browsed any products yet, go shopping!',
+        clear_history:'clear history',
       }
     },
     Chinese: {
@@ -610,6 +616,12 @@ const messages = {
         // myNews
         my_message:'我的消息',
         keep_shopping:'还没有消息哦，继续逛逛吧！',
+        // Search
+        popular_searches:'热门搜索',
+        top_searches:'热门搜索为空!',
+        history_search:'历史搜索',
+        browsed_any:'你还没浏览过任何商品哦，快去逛逛吧！',
+        clear_history:'清空历史记录',
       }
     },
     Myanmar: {
@@ -915,6 +927,12 @@ const messages = {
           // myNews
           my_message:'ငါ့မက်ဆေ့',
           keep_shopping:'သတင်းမရသေးပါ၊ စျေးဝယ်ပါ။',
+          // Search
+          popular_searches:'လူကြိုက်များသောရှာဖွေမှုများ',
+          top_searches:'ထိပ်တန်းရှာဖွေမှုများမရှိသေးပါ။',
+          history_search:'ပြန်လည်ရှာဖွေမှု',
+          browsed_any:'သင်သည် မည်သည့်ထုတ်ကုန်ကိုမျှ မကြည့်ရသေးပါ၊ စျေးဝယ်သွားပါ။',
+          clear_history:'ရှင်းလင်းသောမှတ်တမ်း',
           }
     }
   };

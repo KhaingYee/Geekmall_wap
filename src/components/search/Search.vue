@@ -1,23 +1,23 @@
 <template>
   <div class="Search-header">
-    <div v-title data-title="主页">商品搜索</div>
+    <div v-title data-title="主页">{{$t('message.product_search')}}</div>
     <div class="Search-wap clearfix">
       <div class="Search-input-main fl">
         <form action="javascript:void(0);">
           <input
             type="search"
             v-model="value"
-            placeholder="搜索宝贝、店铺..."
+            :placeholder="$t('message.searchShop')"
             @keyup.enter.stop="submit(value)"
           />
         </form>
       </div>
-      <span @click="remove" class="return-btn fl">取消</span>
+      <span @click="remove" class="return-btn fl">{{$t('message.search_cancel')}}</span>
     </div>
     <div class="Search-content" v-show="!flag">
       <div class="hot">
         <div class="title">
-          <span></span>热门搜索
+          <span></span>{{$t('message.popular_searches')}}
         </div>
         <ul class="clearfix">
           <li
@@ -27,10 +27,10 @@
             @click="tolist('/list',index,item)"
           >{{item.hot_words}}</li>
         </ul>
-        <div class="def" v-if="hot_data == null || hot_data.legnth <= 0">热门搜索为空!</div>
+        <div class="def" v-if="hot_data == null || hot_data.legnth <= 0">{{$t('message.top_searches')}}</div>
       </div>
       <div class="hit">
-        <div class="title">历史搜索</div>
+        <div class="title">{{$t('message.history_search')}}</div>
         <ul class="clearfix">
           <li
             class="fl"
@@ -39,9 +39,9 @@
             @click="toHit('/list',index)"
           >{{item}}</li>
         </ul>
-        <div class="def" v-show="hit.length <= 0">你还没浏览过任何商品哦，快去逛逛吧！</div>
+        <div class="def" v-show="hit.length <= 0">{{$t('message.browsed_any')}}</div>
       </div>
-      <button class="btn" @click="clear" v-show="hit.length > 0">清空历史记录</button>
+      <button class="btn" @click="clear" v-show="hit.length > 0">{{$t('message.clear_history')}}</button>
     </div>
     <ul class="list-item-wrap" v-show="flag">
       <li
