@@ -317,6 +317,20 @@ const messages = {
         activity_footer:'Activity',
         shopping_cart:'Shopping Cart',
         mine:'Mine',
+        // integralDetail
+        point_product:'point product',
+        still_need:'still need to pay',
+        reference_price:'market reference price',
+        points_details:'Points product details',
+        // integralDetail=>footbtn
+        want_exchange:'Exchange',
+        // integralDetail=>DropDownRefresn
+        drop_down:'drop down back to top',
+        release_back:'release back to top',
+        refreshing:'Refreshing...',
+        // integralDetail=>PullUpReload
+        pull_up:'Pull up for more details',
+        release_see:'release see more details',
       }
     },
     Chinese: {
@@ -634,6 +648,20 @@ const messages = {
         activity_footer:'活动',
         shopping_cart:'购物车',
         mine:'我的',
+        // integralDetail
+        point_product:'积分商品',
+        still_need:'还需支付',
+        reference_price:'市场参考价',
+        points_details:'积分商品详情',
+        // integralDetail=>footbtn
+        want_exchange:'我要兑换',
+        // integralDetail=>DropDownRefresn
+        drop_down:'下拉返回顶部',
+        release_back:'释放返回顶部',
+        refreshing:'刷新中...',
+        // integralDetail=>PullUpReload
+        pull_up:'上拉查看更多详情',
+        release_see:'释放查看更多详情',
       }
     },
     Myanmar: {
@@ -951,6 +979,20 @@ const messages = {
           activity_footer:'လှုပ်ရှားမှု',
           shopping_cart:'ဈေးဝယ်လှည်း',
           mine:'ကျွန်ုပ်ဟာ',
+          // integralDetail
+          point_product:'ပွိုင့်ထုတ်ကုန်',
+          still_need:'ပေးဆပ်ရန် လိုအပ်နေသေးသည်',
+          reference_price:'စျေးကွက်ရည်ညွှန်းစျေးနှုန်း',
+          points_details:'ထုတ်ကုန်အသေးစိတ်အချက်များ',
+          // integralDetail=>footbtn
+          want_exchange:'လဲလှယ်ချင်ပါတယ်',
+          // integralDetail=>DropDownRefresn
+          drop_down:'အပေါ်မှပြန်ဆင်းပါ',
+          release_back:'အပေါ်မှပြန်လွှတ်ပါ',
+          refreshing:'လန်းဆန်းနေသည်',
+          // integralDetail=>PullUpReload
+          pull_up:'အသေးစိတ်အချက်အလက်များအတွက် ဆွဲထုတ်ပါ',
+          release_see:'ထုတ်ပြန်ချက်တွင် အသေးစိတ်အချက်အလက်များကို ကြည့်ရှုပါ',
           }
     }
   };

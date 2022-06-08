@@ -33,9 +33,9 @@ export default {
       isDropDown: true, // 是否下拉
       dropDownState: 1, // 显示1:下拉刷新, 2:松开刷新, 3:刷新中……
       dropDownStateText: {
-        downTxt: "下拉返回顶部",
-        upTxt: "释放返回顶部",
-        refreshTxt: "刷新中..."
+        downTxt: this.$t('message.drop_down'),
+        upTxt: this.$t('message.release_back'),
+        refreshTxt: this.$t('message.refreshing')
       }
     };
   },

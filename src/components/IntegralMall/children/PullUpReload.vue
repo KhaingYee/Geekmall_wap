@@ -34,9 +34,9 @@ export default {
       pullUpState: 1, // 1:上拉加载更多, 2:加载中……, 3:我是有底线的
       isLoading: false, // 是否正在加载
       pullUpStateText: {
-        downTxt: "上拉查看更多详情",
-        upTxt: "释放查看更多详情",
-        refreshTxt: "刷新中..."
+        downTxt: this.$t('message.pull_up'),
+        upTxt: this.$t('message.release_see'),
+        refreshTxt: this.$t('message.refreshing')
       }
     };
   },

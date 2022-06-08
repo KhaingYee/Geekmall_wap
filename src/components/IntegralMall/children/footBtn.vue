@@ -4,10 +4,10 @@
 		<div class="btn-main clearfix">
 			<div class="but">
                 <p class="foot-but">
-                    我的积分:
-                    <span>{{myIntegralData}}</span>积分
+                    {{$t('message.scores')}}:
+                    <span>{{myIntegralData}}</span>{{$t('message.integral')}}
                 </p>
-                <div class="imm fr" @click="exchange">我要兑换</div>
+                <div class="imm fr" @click="exchange">{{$t('message.want_exchange')}}</div>
                 <!-- <div class="imm fr" v-else @click="exchange" :class="{'immActive':imstart}">我要兑换</div> -->
             </div>
 		</div>

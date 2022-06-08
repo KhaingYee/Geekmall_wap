@@ -3467,7 +3467,7 @@ export default {
           color: #333;
           margin-left: .3rem;
           border: none;
-          // margin-top: -.62rem;
+		      width:75%;
         }
       }
       .comment-display{
