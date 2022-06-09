@@ -16,7 +16,7 @@
 					{{rec_address.prov_name+"-"+rec_address.city_name+"-"+rec_address.dist_name+"-"+rec_address.address}}
 				</div>
 			</div>
-			<div class="status text-center" v-if="!rec_address">您还没有填写收货地址，请填写！</div>
+			<div class="status text-center" v-if="!rec_address">{{$t('message.noAddress')}}</div>
 			<span class="btn-right"></span>
 		</div>
 		<div class="bottom-bg"><img src="../../assets/bottom-bj.jpg"></div>
@@ -28,7 +28,7 @@
 				<div class="pull-right fl">
 					<p class="text">{{goods_data.title}}</p>
 					<p class="price-wrap clearfix">
-						<span class="fl price"><span>{{goods_data.integral}}</span></span>&nbsp;&nbsp;积分
+						<span class="fl price"><span>{{goods_data.integral}}</span></span>&nbsp;&nbsp;{{$t('message.integral')}}
 						<span class="number fr">X{{goods_data.goods_num}}</span>
 					</p>
 				</div>
@@ -37,77 +37,77 @@
 			<li>
 				<div class="dist-wrap">
 					<div class="hd clearfix" @click="selectCoupon(goods_data.store_id, 0)" >
-						<div class="title fl">选择优惠券</div>
+						<div class="title fl">{{$t('message.confirm_coupon')}}</div>
 						<div class="busi fr">{{$store.state.select_coupon.name}}</div>
 					</div>
 					<div class="dd">
-						<div class="title">给商家留言：</div>
-						<textarea placeholder="选填：备注限字在45个字以内" oninput="if(value.length>45)value = value.slice(0,45)" v-model="message"></textarea>
-						<p class="ind">共 <span>{{goods_data.goods_num}}</span> 件商品</p>
+						<div class="title">{{$t('message.leave_message')}}：</div>
+						<textarea :placeholder="$t('message.limited_characters')" oninput="if(value.length>45)value = value.slice(0,45)" v-model="message"></textarea>
+						<p class="ind">{{$t('message.common')}} <span>{{goods_data.goods_num}}</span> {{$t('message.Items')}}</p>
 					</div>
 				</div>
 			</li>
 		</ul>
 		<div class="price-set-wrap">
 			<div class="total price clearfix">
-				<span class="fl">积分</span>
+				<span class="fl">{{$t('message.integral')}}</span>
 				<span class="fr">{{goods_data.integral * goods_data.goods_num}}</span>
 			</div>
 			<div class="total price clearfix">
-				<span class="fl">额外支付金额</span>
+				<span class="fl">{{$t('message.additional_amount')}}</span>
 				<span class="fr">￥{{goods_data.money * goods_data.goods_num}}</span>
 			</div>
 			
 			<div class="freight price clearfix">
 				<span class="fl">{{cartDis.memberLevel}}:</span>
-				<span class="fr">&nbsp;&nbsp;{{Number(cartDis.discount)/10}} 折优惠</span>
+				<span class="fr">&nbsp;&nbsp;{{Number(cartDis.discount)/10}} {{$t('message.con_discount')}}</span>
 			</div>
 			<div v-if="goods_data.freight_type == 2">
 				<div class="freight price clearfix">
-					<span class="fl">运费</span>
-					<span class="fr">卖家包邮</span>
+					<span class="fl">{{$t('message.shipping_freight')}}</span>
+					<span class="fr">{{$t('message.shipping_seller')}}</span>
 				</div>
 			</div>
 			<div v-else>
 				<div class="freight price clearfix" v-if="money == -1">
-					<span class="fl">配送共计</span>
-					<span class="fr">免配送费</span>
+					<span class="fl">{{$t('message.total_delivery')}}</span>
+					<span class="fr">{{$t('message.shipping_free')}}</span>
 				</div>
 				<div class="freight price clearfix" v-else-if="money">
 					<span class="fl">{{transport}}</span>
 					<span class="fr">+&nbsp;&nbsp;￥{{money}}</span>
 				</div>
 				<div class="freight price clearfix" v-else>
-					<span class="fl">运费</span>
-					<span class="fr" v-if="freight == 0">卖家包邮</span>
+					<span class="fl">{{$t('message.shipping_freight')}}</span>
+					<span class="fr" v-if="freight == 0">{{$t('message.shipping_seller')}}</span>
 					<span class="fr" v-else>+&nbsp;&nbsp;￥{{freight}}</span>
 				</div>
 			</div>
 			<div class="freight price clearfix">
-				<span class="fl">优惠券</span>
+				<span class="fl">{{$t('message.con_coupon')}}</span>
 				<span class="fr">-&nbsp;&nbsp;￥{{$store.state.const_coupon_price}}</span>
 			</div>
 		</div>
 		<div class="footer-wrap">
 			<div class="foot-seat"></div>
 			<div class="footer clearfix" >
-				<button class="fr btn" @click="toCashierAll">提交订单</button>
+				<button class="fr btn" @click="toCashierAll">{{$t('message.Submit_orders')}}</button>
 				<div class="fr money" v-if="money == -1">
-					实付款&nbsp;:&nbsp;<span class="price">￥
+					{{$t('message.real_payment')}}&nbsp;:&nbsp;<span class="price">￥
 						<span>{{(Number(goods_data.money) * Number(goods_data.goods_num) * (Number(cartDis.discount)/100)) - Number($store.state.const_coupon_price)|keepTwoNum}}</span>
-					所需积分:<span class="price">{{goods_data.integral * goods_data.goods_num}}</span>
+					{{$t('message.required_points')}}:<span class="price">{{goods_data.integral * goods_data.goods_num}}</span>
 					</span>
 				</div>
 				<div class="fr money" v-else-if="money">
-					实付款&nbsp;:&nbsp;<span class="price">￥
+					{{$t('message.real_payment')}}&nbsp;:&nbsp;<span class="price">￥
 						<span>{{(Number(goods_data.money) * Number(goods_data.goods_num) * (Number(cartDis.discount)/100) + Number(money))- Number($store.state.const_coupon_price)|keepTwoNum}}</span>
-					所需积分:<span class="price">{{goods_data.integral * goods_data.goods_num}}</span>
+					{{$t('message.required_points')}}:<span class="price">{{goods_data.integral * goods_data.goods_num}}</span>
 					</span>
 				</div>
 				<div class="fr money" v-else>
-					实付款&nbsp;:&nbsp;<span class="price">￥
+					{{$t('message.real_payment')}}&nbsp;:&nbsp;<span class="price">￥
 						<span>{{(Number(goods_data.money) * Number(goods_data.goods_num) * (Number(cartDis.discount)/100) + Number(freight))- Number($store.state.const_coupon_price)|keepTwoNum}}</span>
-					所需积分:<span class="price">{{goods_data.integral * goods_data.goods_num}}</span>
+					{{$t('message.required_points')}}:<span class="price">{{goods_data.integral * goods_data.goods_num}}</span>
 					</span>
 				</div>
 			</div>
@@ -131,12 +131,12 @@
 			return {
 				show_addres:true,
 				rec_address:'',
-				title: '积分商品确认订单',
+				title: this.$t('message.integral_order'),
 				btn: '', //头部客服按钮开关
 				goods_data: '',
 				newdata: '',
 				scrollWatch: true,
-				invoice_type: '无需发票', //发票选择
+				invoice_type: this.$t('message.invoice_required'), //发票选择
 				realname: '',
 				load_wrap: true,
 				message: '', //留言
@@ -186,7 +186,7 @@
         },
 
 		mounted(){
-			this.invoice_type = this.$store.state.invoice == true ? '已开发票' : '无需发票' ;
+			this.invoice_type = this.$store.state.invoice == true ? this.$t('message.Invoiced') : this.$t('message.invoice_required') ;
 			this.getInfo();
 			$("html,body").animate({scrollTop:'0px'},100);
 		},
@@ -195,7 +195,7 @@
             this.showScroll.scrollTitle(title);
 			this.$store.state.const_coupon = false;
 			this.$store.state.const_coupon_num = 0;
-			this.$store.state.select_coupon.name = '请选择优惠券';
+			this.$store.state.select_coupon.name = this.$t('message.select_coupon');
 			this.$store.state.const_coupon_price = 0;
 		},
 		methods: {

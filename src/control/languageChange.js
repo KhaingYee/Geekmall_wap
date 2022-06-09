@@ -331,6 +331,10 @@ const messages = {
         // integralDetail=>PullUpReload
         pull_up:'Pull up for more details',
         release_see:'release see more details',
+        // confirmOrderIntegral
+        integral_order:'Integral product confirmation order',
+        additional_amount:'Additional payment amount',
+        required_points:'required points',
       }
     },
     Chinese: {
@@ -662,6 +666,10 @@ const messages = {
         // integralDetail=>PullUpReload
         pull_up:'上拉查看更多详情',
         release_see:'释放查看更多详情',
+        // confirmOrderIntegral
+        integral_order:'积分商品确认订单',
+        additional_amount:'额外支付金额',
+        required_points:'所需积分',
       }
     },
     Myanmar: {
@@ -993,6 +1001,10 @@ const messages = {
           // integralDetail=>PullUpReload
           pull_up:'အသေးစိတ်အချက်အလက်များအတွက် ဆွဲထုတ်ပါ',
           release_see:'ထုတ်ပြန်ချက်တွင် အသေးစိတ်အချက်အလက်များကို ကြည့်ရှုပါ',
+          // confirmOrderIntegral
+          integral_order:'တစ်သားတည်းထုတ်ကုန်အတည်ပြုအမိန့်',
+          additional_amount:'အပိုပေးချေမှုပမာဏ',
+          required_points:'လိုအပ်သောပွိုင့်များ',
           }
     }
   };
