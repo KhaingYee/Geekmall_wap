@@ -335,6 +335,10 @@ const messages = {
         integral_order:'Integral product confirmation order',
         additional_amount:'Additional payment amount',
         required_points:'required points',
+        // CashierIntegral
+        points_paid:'Points to be paid',
+        account_points:'Deduct account points',
+        current_points:'current points',
       }
     },
     Chinese: {
@@ -670,6 +674,10 @@ const messages = {
         integral_order:'积分商品确认订单',
         additional_amount:'额外支付金额',
         required_points:'所需积分',
+        // CashierIntegral
+        points_paid:'需付积分',
+        account_points:'扣除账户积分',
+        current_points:'当前积分',
       }
     },
     Myanmar: {
@@ -1005,6 +1013,10 @@ const messages = {
           integral_order:'တစ်သားတည်းထုတ်ကုန်အတည်ပြုအမိန့်',
           additional_amount:'အပိုပေးချေမှုပမာဏ',
           required_points:'လိုအပ်သောပွိုင့်များ',
+          // CashierIntegral
+          points_paid:'ပေးဆောင်ရမည့်အချက်များ',
+          account_points:'အကောင့်အမှတ်များကို နုတ်ယူပါ',
+          current_points:'လက်ရှိအမှတ်များ',
           }
     }
   };
