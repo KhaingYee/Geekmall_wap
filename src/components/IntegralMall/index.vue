@@ -1,14 +1,14 @@
 <template>
     <div class="integral-wrap" ref="integral_list">
-        <div v-title data-title="积分兑换">积分兑换</div>
+        <div v-title data-title="积分兑换">{{$t('message.redme')}}</div>
         <integral-header :title="title" :popupVisible1="popupVisible1" @screen="screen"></integral-header>
         <list-lop :data="data" :integral="integral" :load="load"></list-lop>
         <mt-popup
             v-model="popupVisible1"
             position="bottom">
             <div class="picker-toolbar">  
-                <span class="mint-datetime-action mint-datetime-cancel" @click="cancel">取消</span>  
-                <span class="mint-datetime-action mint-datetime-confirm" @click="determine">确定</span>  
+                <span class="mint-datetime-action mint-datetime-cancel" @click="cancel">{{$t('message.cancel')}}</span>  
+                <span class="mint-datetime-action mint-datetime-confirm" @click="determine">{{$t('message.sure')}}</span>  
               </div> 
             <mt-picker :slots="slots" @change="onValuesChange"></mt-picker>
         </mt-popup>
@@ -30,7 +30,7 @@
         name : 'IntegralMall',
         data(){
             return {
-                title:'积分筛选',
+                title:this.$t('message.point_filter'),
                 num:'',
                 data:[],
                 integral:'',

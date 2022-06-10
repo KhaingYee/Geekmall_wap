@@ -339,6 +339,8 @@ const messages = {
         points_paid:'Points to be paid',
         account_points:'Deduct account points',
         current_points:'current points',
+        // IntegralMall
+        point_filter:'Point filter',
       }
     },
     Chinese: {
@@ -678,6 +680,8 @@ const messages = {
         points_paid:'需付积分',
         account_points:'扣除账户积分',
         current_points:'当前积分',
+        // IntegralMall
+        point_filter:'积分筛选',
       }
     },
     Myanmar: {
@@ -1017,6 +1021,8 @@ const messages = {
           points_paid:'ပေးဆောင်ရမည့်အချက်များ',
           account_points:'အကောင့်အမှတ်များကို နုတ်ယူပါ',
           current_points:'လက်ရှိအမှတ်များ',
+          // IntegralMall
+          point_filter:'ပွိုင့်စစ်ထုတ်ခြင်',
           }
     }
   };
