@@ -507,7 +507,7 @@
         .next_button {
 			cursor: pointer;
 			border-radius: .1rem;
-			width: 2.3rem;
+			// width: 2.3rem;
 			height: .8rem;
 			background: #67C23A;
 			text-align: center;
@@ -516,6 +516,7 @@
 			font-size: .3rem;
 			margin: .3rem 0 0 1.94rem;
 			border: none;
+			padding: 0 .1rem;
 		}
 	  }
 	}

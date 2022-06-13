@@ -427,6 +427,7 @@
 				// color: #fff;
 				color: #000;
 				outline: none;
+				text-align: left !important;
 			}
 			input::-webkit-input-placeholder,
 			textarea::-webkit-input-placeholder {

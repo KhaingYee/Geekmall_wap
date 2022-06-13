@@ -227,6 +227,7 @@ export default {
         outline: none;
         text-indent: 0.6rem;
         font-size: 0.25rem;
+        text-align: left !important;
       }
       input::-webkit-input-placeholder {
         color: #fff;

@@ -93,19 +93,19 @@
 			<div class="footer clearfix" >
 				<button class="fr btn" @click="toCashierAll">{{$t('message.Submit_orders')}}</button>
 				<div class="fr money" v-if="money == -1">
-					{{$t('message.real_payment')}}&nbsp;:&nbsp;<span class="price">￥
+					{{$t('message.real_payment')}}:<span class="price">￥
 						<span>{{(Number(goods_data.money) * Number(goods_data.goods_num) * (Number(cartDis.discount)/100)) - Number($store.state.const_coupon_price)|keepTwoNum}}</span>
 					{{$t('message.required_points')}}:<span class="price">{{goods_data.integral * goods_data.goods_num}}</span>
 					</span>
 				</div>
 				<div class="fr money" v-else-if="money">
-					{{$t('message.real_payment')}}&nbsp;:&nbsp;<span class="price">￥
+					{{$t('message.real_payment')}}:<span class="price">￥
 						<span>{{(Number(goods_data.money) * Number(goods_data.goods_num) * (Number(cartDis.discount)/100) + Number(money))- Number($store.state.const_coupon_price)|keepTwoNum}}</span>
 					{{$t('message.required_points')}}:<span class="price">{{goods_data.integral * goods_data.goods_num}}</span>
 					</span>
 				</div>
 				<div class="fr money" v-else>
-					{{$t('message.real_payment')}}&nbsp;:&nbsp;<span class="price">￥
+					{{$t('message.real_payment')}}:<span class="price">￥
 						<span>{{(Number(goods_data.money) * Number(goods_data.goods_num) * (Number(cartDis.discount)/100) + Number(freight))- Number($store.state.const_coupon_price)|keepTwoNum}}</span>
 					{{$t('message.required_points')}}:<span class="price">{{goods_data.integral * goods_data.goods_num}}</span>
 					</span>
@@ -607,20 +607,20 @@
 					color: #fff;
 					border: none;
 					background: #d02629;
-					font-size: .36rem;
+					font-size: .34rem;
 				}
 				.btn-gray {
 					background: #ccc;
 				}
 				.money {
 					line-height: 1rem;
-					font-size: .3rem;
+					font-size: .24rem;
 					color: #757575;
-					padding-right: .3rem;
+					padding-right: .1rem;
 					.price {
-						font-size: .3rem;
+						font-size: .24rem;
 						span {
-							font-size: .36rem;
+							font-size: .28rem;
 							font-weight: bold;
 						}
 					}
