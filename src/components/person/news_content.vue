@@ -7,7 +7,7 @@
 				<li v-for="(lists,index) in list" @click="enterDetail(lists,index)" :key="lists.id">{{lists.title}}</li>
 			</ul>
 		</div>
-		<div v-show="no_data" class="no-data">暂无更多数据</div>
+		<div v-show="no_data" class="no-data">{{$t('message.No_data')}}</div>
 	</div>
 </template>
 <script>
@@ -17,7 +17,7 @@
 		name: 'news_content',
 		data() {
 			return {
-				title: '问题列表',
+				title: this.$t('message.list_questions'),
 				load_wrap: true,
 				list: '',
 				no_data:false,

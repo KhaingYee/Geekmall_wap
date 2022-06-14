@@ -8,14 +8,14 @@
         		<span class="l texts">A:</span>
         		<span class="l text">{{detail.info}}</span>
         	</p>
-        	<p class="other"><span>.</span>还有其它问题？</p>
+        	<p class="other"><span>.</span>{{$t('message.other_questions')}}</p>
         </div>
         <ul>
 	        <li v-for="lists in detail.list" :key="lists.id" @click="toInfoPage(lists)">{{lists.title}}<span class="el-icon-arrow-right r"></span></li>
 	    </ul>
 	    <div class="link">
-	    	<p class="r find" @click="connect">联系客服<span class="el-icon-arrow-right"></span></p>
-	    	<p class="r find">没找到相关问题？</p>
+	    	<p class="r find" @click="connect">{{$t('message.contact_customer')}}<span class="el-icon-arrow-right"></span></p>
+	    	<p class="r find">{{$t('message.related_questions')}}</p>
 	    </div>
         <!--<div class="load-wrap" v-show="load_wrap" @touchmove.prevent><mt-spinner type="triple-bounce" color="rgb(38, 162, 255)"></mt-spinner></div>-->
     </div>
@@ -28,7 +28,7 @@
         name : 'news_content',
         data(){
             return {
-                ways:'查看解决方案',
+                ways:this.$t('message.view_solutions'),
                 load_wrap:true,
                 detail:''
             }

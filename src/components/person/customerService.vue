@@ -3,31 +3,31 @@
 		<div v-title :data-title="title">{{title}}</div>
 		<customer-header :text="title" :search="search"></customer-header>
 		<div class="notice-wrap clearfix">
-			<span class="title fl text-center">公告</span>
+			<span class="title fl text-center">{{$t('message.announcement')}}</span>
 			<transition name="fade">
 				<p class="text fl text-single-hidden"><span class="icon"><i></i></span>{{con}}</p>
 			</transition>
-			<router-link to="/Notice" class="fl text-center link">更多</router-link>
+			<router-link to="/Notice" class="fl text-center link">{{$t('message.more')}}</router-link>
 		</div>
 		<dl class="service clearfix">
-			<dt class="fl">在线客服</dt>
+			<dt class="fl">{{$t('message.online_service')}}</dt>
 			<dd class="fl  text-center">
 				<div class="img-wrap"><img src="../../assets/qq.png"></div>
 				<p>
-					<a href="tencent://message/?uin=1239300678&Site=sc.chinaz.com&Menu=yes">qq咨询</a>
+					<a href="tencent://message/?uin=1239300678&Site=sc.chinaz.com&Menu=yes">{{$t('message.qq_consulting')}}</a>
 				</p>
 			</dd>
 			<dd class="fl  text-center" @click="phoneMsg">
 				<div class="img-wrap"><img src="../../assets/telephone.png"></div>
-				<p>电话咨询</p>
+				<p>{{$t('message.telephone_consultation')}}</p>
 			</dd>
 			<dd @click="message" class="fl  text-center">
 				<div class="img-wrap"><img src="../../assets/mes.png"></div>
-				<p>在线留言</p>
+				<p>{{$t('message.online_message')}}</p>
 			</dd>
 		</dl>
 		<div class="problem">
-			<h2 class="title">问题查询</h2>
+			<h2 class="title">{{$t('message.question_query')}}</h2>
 			<div class="item-wrap">
 				<dl class="item-main clearfix" v-for="item in data_con" :key="item.id">
 					<dt class="fl">{{item.name}}</dt>
@@ -52,7 +52,7 @@
 		name: 'customerService',
 		data() {
 			return {
-				title: '客户服务',
+				title: this.$t('message.customer_service'),
 				search: false,
 				data: '',
 				load:true,
@@ -136,20 +136,21 @@
 	
 	.notice-wrap {
 		height: .6rem;
-		padding: .1rem 0;
+		padding: .1rem .2rem;
 		background: #fff;
 		line-height: .6rem;
 		.title {
-			width: 1.5rem;
+			// width: 1.5rem;
 			height: 100%;
 			font-size: .32rem;
 			color: #111;
 			border-right: 1px dotted #ccc;
 			box-sizing: border-box;
+			padding-right: .2rem;
 		}
 		.text {
 			height: 100%;
-			width: 4rem;
+			// width: 4rem;
 			padding-left: .8rem;
 			position: relative;
 			line-height: .6rem;
@@ -176,11 +177,13 @@
 			}
 		}
 		.link {
-			width: .95rem;
+			// width: .95rem;
 			border-left: 1px dotted #ccc;
 			box-sizing: border-box;
 			font-size: .28rem;
 			color: #333;
+			float: right;
+			padding-left: .2rem;
 		}
 	}
 	

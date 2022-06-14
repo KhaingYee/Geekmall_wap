@@ -341,6 +341,21 @@ const messages = {
         current_points:'current points',
         // IntegralMall
         point_filter:'Point filter',
+        // news_content
+        list_questions:'List of Questions',
+        // news_detail
+        view_solutions:'View Solutions',
+        other_questions:'Have other questions?',
+        contact_customer:'Contact Customer Service',
+        related_questions:'No related questions found?',
+        // customerService
+        customer_service:'Customer Service',
+        announcement:'Announcement',
+        online_service:'Online service',
+        qq_consulting:'QQ consulting',
+        telephone_consultation:'Telephone consultation',
+        online_message:'Online message',
+        question_query:'Question query',
       }
     },
     Chinese: {
@@ -682,6 +697,21 @@ const messages = {
         current_points:'当前积分',
         // IntegralMall
         point_filter:'积分筛选',
+        // news_content
+        list_questions:'问题列表',
+        // news_detail
+        view_solutions:'查看解决方案',
+        other_questions:'还有其它问题？',
+        contact_customer:'联系客服',
+        related_questions:'没找到相关问题？',
+        // customerService
+        customer_service:'客户服务',
+        announcement:'公告',
+        online_service:'在线客服',
+        qq_consulting:'qq咨询',
+        telephone_consultation:'电话咨询',
+        online_message:'在线留言',
+        question_query:'问题查询',
       }
     },
     Myanmar: {
@@ -1023,6 +1053,21 @@ const messages = {
           current_points:'လက်ရှိအမှတ်များ',
           // IntegralMall
           point_filter:'ပွိုင့်စစ်ထုတ်ခြင်',
+          // news_content
+          list_questions:'မေးခွန်းများစာရင်း',
+          // news_detail
+          view_solutions:'ဖြေရှင်းချက်များအား ကြည့်ရှုပါ',
+          other_questions:'အခြားမေးခွန်းများ ရှိပါသလား',
+          contact_customer:'အကူအညီရယူရန်ဆက်သွယ်ပါ',
+          related_questions:'ဆက်စပ်မေးခွန်းများမတွေ့ဘူးလား။',
+          // customerService
+          customer_service:'ဧည့်ဝန်ဆောင်မှု',
+          announcement:'ကြေငြာချက်',
+          online_service:'အွန်လိုင်းဝန်ဆောင်မှု',
+          qq_consulting:'qq အကြံပေးခြင်း',
+          telephone_consultation:'တယ်လီဖုန်း တိုင်ပင်ဆွေးနွေးခြင်း',
+          online_message:'အွန်လိုင်းသတင်းစကား',
+          question_query:'မေးခွန်းမေးမြန်းမှု',
           }
     }
   };

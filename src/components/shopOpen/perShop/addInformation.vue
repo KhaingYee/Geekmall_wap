@@ -224,20 +224,20 @@ export default {
 				});
 				return;
 			}
-			if (!this.bank_name) {
-				Toast({
-					message: '请输入开户行',
-					duration: 1000
-				});
-				return;
-			}
-			if (!/(^[1-9]([0-9]*)$|^[0-9]$)/.test(this.bankNum) || this.bankNum.length<12){
-				Toast({
-					message: '请输入正确的银行卡号',
-					duration: 1000
-				});
-				return;
-			}
+			// if (!this.bank_name) {
+			// 	Toast({
+			// 		message: '请输入开户行',
+			// 		duration: 1000
+			// 	});
+			// 	return;
+			// }
+			// if (!/(^[1-9]([0-9]*)$|^[0-9]$)/.test(this.bankNum) || this.bankNum.length<12){
+			// 	Toast({
+			// 		message: '请输入正确的银行卡号',
+			// 		duration: 1000
+			// 	});
+			// 	return;
+			// }
 				this.shopInfo.prov_id = this.provinceId;
 				this.shopInfo.city = this.cityId;
 				this.shopInfo.dist = this.areaId;
