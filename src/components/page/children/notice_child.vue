@@ -18,7 +18,7 @@ export default {
     name: 'notice_child',
     data() {
         return {
-            text: this.$constant.mainName + '公告详情',
+            text: this.$constant.mainName + this.$t('message.announcement_details'),
             content: ''
         }
     },

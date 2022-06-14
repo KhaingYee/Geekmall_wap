@@ -24,7 +24,7 @@ export default {
   name: "notice",
   data() {
     return {
-      text: this.$constant.mainName + "公告",
+      text: this.$constant.mainName + this.$t('message.announcement'),
       items: "",
       scrollWatch: true,
       load_wrap: true

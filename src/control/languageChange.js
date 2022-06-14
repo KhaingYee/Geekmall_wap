@@ -356,6 +356,8 @@ const messages = {
         telephone_consultation:'Telephone consultation',
         online_message:'Online message',
         question_query:'Question query',
+        // notice_child
+        announcement_details:'Announcement Details',
       }
     },
     Chinese: {
@@ -712,6 +714,8 @@ const messages = {
         telephone_consultation:'电话咨询',
         online_message:'在线留言',
         question_query:'问题查询',
+        // notice_child
+        announcement_details:'公告详情',
       }
     },
     Myanmar: {
@@ -1068,6 +1072,8 @@ const messages = {
           telephone_consultation:'တယ်လီဖုန်း တိုင်ပင်ဆွေးနွေးခြင်း',
           online_message:'အွန်လိုင်းသတင်းစကား',
           question_query:'မေးခွန်းမေးမြန်းမှု',
+          // notice_child
+          announcement_details:'ကြေငြာချက်အသေးစိတ်',
           }
     }
   };
