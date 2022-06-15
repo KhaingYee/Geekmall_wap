@@ -358,6 +358,9 @@ const messages = {
         question_query:'Question query',
         // notice_child
         announcement_details:'Announcement Details',
+        // message
+        confirm_submission:'confirm submission',
+        message_content:'Please enter the message content...',
       }
     },
     Chinese: {
@@ -716,6 +719,9 @@ const messages = {
         question_query:'问题查询',
         // notice_child
         announcement_details:'公告详情',
+        // message
+        confirm_submission:'确认提交',
+        message_content:'请输入留言内容...',
       }
     },
     Myanmar: {
@@ -1074,6 +1080,9 @@ const messages = {
           question_query:'မေးခွန်းမေးမြန်းမှု',
           // notice_child
           announcement_details:'ကြေငြာချက်အသေးစိတ်',
+          // message
+          confirm_submission:'တင်ပြချက်ကို အတည်ပြုပါ',
+          message_content:'ကျေးဇူးပြု၍ မက်ဆေ့ချ်ပါ အကြောင်းအရာကို ထည့်သွင်းပါ...',
           }
     }
   };

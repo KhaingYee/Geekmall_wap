@@ -4,14 +4,14 @@
         <feedb-header :text="title" :set="true"></feedb-header>
         <div class="from-wrap"> 
             <div class="input-main clearfix">
-                <span class="fl name">在线留言：</span>
+                <span class="fl name">{{$t('message.online_message')}}：</span>
             </div>
-            <textarea placeholder="请输入留言内容..." v-model="con"></textarea>
+            <textarea :placeholder="$t('message.message_content')" v-model="con"></textarea>
             <p class="Logo">{{text}}/500</p>
         </div>
 
         <div class="btn-wrap">
-            <button @click="submit">确认提交</button>
+            <button @click="submit">{{$t('message.confirm_submission')}}</button>
         </div>
     </div>
 </template>
@@ -24,7 +24,7 @@
         name : 'Feedback',
         data(){
             return {
-                title:'在线留言',
+                title:this.$t('message.online_message'),
                 con:'',
                 btmValue:'',
                 text:0
