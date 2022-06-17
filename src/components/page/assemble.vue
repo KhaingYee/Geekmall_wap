@@ -4,7 +4,7 @@
         <img class="assemble-banner" src="../../assets/activity/active1.png" alt="">
         <div class="nav" :class="navBarFixed == true ? 'navBarWrap' :''">
             <ul>
-                <li :class="{'active':tabIndex == -1}" @click="shopmessage(-1)" >全部</li>
+                <li :class="{'active':tabIndex == -1}" @click="shopmessage(-1)" >{{$t('message.all')}}</li>
                 <li v-for="(item,index) in vavArrList" :class="{'active':tabIndex == index}" :key="index" @click="shopmessage(index,item.id)">{{item.class_name}} </li>
             </ul>
         </div>
@@ -19,23 +19,23 @@
                     <!--<div class="subtitle">{{item.description}}</div>-->
                     <div class="price" >
                         <div class="price-activity">
-                            <span>拼团价</span><span>￥{{item.activity_price}}</span>
+                            <span>{{$t('message.group_price')}}</span><span>￥{{item.activity_price}}</span>
                         </div>
                         <div class="original-price">
                             ￥{{item.price_member}}
                         </div>
                     </div>
                     <div class="bottom">
-                        <div>已拼{{item.buy_num}}件</div>
-                        <div class="btn"  @click="goodsorder(item.id,item.goods_id)" v-if="item.status==0">去开团</div>
+                        <div>{{$t('message.spelled')}}{{item.buy_num}}{{$t('message.piece')}}</div>
+                        <div class="btn"  @click="goodsorder(item.id,item.goods_id)" v-if="item.status==0">{{$t('message.startGroup')}}</div>
                         <!-- <div class="btn"  @click="GoOrder(item.order_id)" v-else>拼团中</div> -->
-                        <div class="btn"  @click="GoOrder" v-else>拼团中</div>
+                        <div class="btn"  @click="GoOrder" v-else>{{$t('message.inGroup')}}</div>
                     </div>
                 </div>
             </div>
             
             <div  v-if="plazzgoodList.length==0" class="no-data">
-                暂无数据
+                {{$t('message.nodata')}}
                 <i class="far fa-frown"></i>
             </div>
 
@@ -76,7 +76,7 @@
         mounted(){
             this. getplazzList()
             this.getplazzGoodsList();
-            this.$store.state.order_title = '拼团';
+            this.$store.state.order_title = this.$t('message.group');
             let title = this.$store.state.order_title + '-' + sessionStorage.getItem('titleKey') + '-' + sessionStorage.getItem('updateDescription');
             this.showScroll.scrollTitle(title);
             $('html,body').animate({scrollTop: '0px'}, 0);
@@ -286,14 +286,14 @@
                         }
 
                         .btn{
-                            width: 1.3rem;
+                            // width: 1.3rem;
                             height: .5rem;
                             background: #ff7900;
                             color: #ffffff;
                             text-align: center;
                             line-height: .5rem;
                             border-radius: .07rem;
-
+                            padding: 0 .1rem;
                         }
 
                     }

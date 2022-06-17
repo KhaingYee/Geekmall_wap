@@ -361,6 +361,11 @@ const messages = {
         // message
         confirm_submission:'confirm submission',
         message_content:'Please enter the message content...',
+        // assemble
+        group:'group',
+        all:'all',
+        group_price:'Group price',
+        spelled:'spelled',
       }
     },
     Chinese: {
@@ -722,6 +727,11 @@ const messages = {
         // message
         confirm_submission:'确认提交',
         message_content:'请输入留言内容...',
+        // assemble
+        group:'拼团',
+        all:'全部',
+        group_price:'拼团价',
+        spelled:'已拼',
       }
     },
     Myanmar: {
@@ -1083,6 +1093,11 @@ const messages = {
           // message
           confirm_submission:'တင်ပြချက်ကို အတည်ပြုပါ',
           message_content:'ကျေးဇူးပြု၍ မက်ဆေ့ချ်ပါ အကြောင်းအရာကို ထည့်သွင်းပါ...',
+          // assemble
+          group:'အဖွဲ့',
+          all:'အားလုံး',
+          group_price:'အုပ်စုစျေးနှုန်း',
+          spelled:'စာလုံးပေါင်း',
           }
     }
   };
