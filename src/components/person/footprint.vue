@@ -15,7 +15,7 @@
                 </div>
             </dd>
         </dl>
-        <div v-if="footprint =='' " class="status text-center">您还没有浏览过任何商品，快去逛逛吧！</div>
+        <div v-if="footprint =='' " class="status text-center">{{$t('message.browsed_products')}}</div>
         <Shopsn></Shopsn>
         <to-top></to-top>
         <div class="load-wrap" v-show="load" @touchmove.prevent><mt-spinner type="triple-bounce" color="rgb(38, 162, 255)"></mt-spinner></div>
@@ -30,7 +30,7 @@
         name:'footprint',
         data(){
             return {
-                title:'我的足迹',
+                title:this.$t('message.my_footprint'),
                 del:true,
                 load:true,
                 checklist:false,

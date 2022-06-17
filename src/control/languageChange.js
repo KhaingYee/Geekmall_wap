@@ -366,6 +366,15 @@ const messages = {
         all:'all',
         group_price:'Group price',
         spelled:'spelled',
+        // Collection
+        mycollection:'Collection',
+        favorites_last:'Favorites in the last month',
+        no_favorites:'No favorites yet',
+        unfavorite:'unfavorite',
+        unsubscribe:'unsubscribe',
+        // footprint
+        my_footprint:'my footprint',
+        browsed_products:'You have not browsed any products yet, go shopping!',
       }
     },
     Chinese: {
@@ -732,6 +741,15 @@ const messages = {
         all:'全部',
         group_price:'拼团价',
         spelled:'已拼',
+        // Collection
+        mycollection:'我的收藏',
+        favorites_last:'最近1个月收藏',
+        no_favorites:'暂时没有收藏',
+        unfavorite:'取消收藏',
+        unsubscribe:'取消关注',
+        // footprint
+        my_footprint:'我的足迹',
+        browsed_products:'您还没有浏览过任何商品，快去逛逛吧！',
       }
     },
     Myanmar: {
@@ -1098,6 +1116,15 @@ const messages = {
           all:'အားလုံး',
           group_price:'အုပ်စုစျေးနှုန်း',
           spelled:'ဝယ်ပြီး',
+          // Collection
+          mycollection:'စုဆောင်းမှု',
+          favorites_last:'ပြီးခဲ့သည့်လက အကြိုက်ဆုံးများ',
+          no_favorites:'အကြိုက်ဆုံးများ မရှိသေးပါ',
+          unfavorite:'အကြိုက်ဆုံး',
+          unsubscribe:'စာရင်းမှဖြုတ်ပါ',
+          // footprint
+          my_footprint:'ငါ့ခြေရာ',
+          browsed_products:'သင်သည် မည်သည့်ထုတ်ကုန်ကိုမျှ မကြည့်ရသေးပါ၊ စျေးဝယ်သွားပါ။',
           }
     }
   };

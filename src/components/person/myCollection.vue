@@ -9,10 +9,10 @@
 			</div>
 		</nav>-->
 		<div class="content-wrap">
-			<h2 class="title">最近1个月收藏</h2>
+			<h2 class="title">{{$t('message.favorites_last')}}</h2>
 			<div class="con" v-show="goods">
 				<div class="item-list-wrap">
-					<div class="clearfix" v-if="data.data == ''">暂时没有收藏</div>
+					<div class="clearfix" v-if="data.data == ''">{{$t('message.no_favorites')}}</div>
 					<div v-else v-for="(item,index) in data" :key="index" class="clearfix" @click="enterDetail(item.goods_id)">
 						<transition name="move">
 							<div class="item-list" @touchmove="move($event,index)" @touchstart="moveEv($event)" :class="{active:status == index}">
@@ -21,7 +21,7 @@
 									<div class="text text2-hidden">{{item.title}}</div>
 									<div class="price">￥{{item.price_member}}</div>
 								</div>
-								<div class="btn text-center" @click="cancel(item,index)">取消收藏</div>
+								<div class="btn text-center" @click="cancel(item,index)">{{$t('message.unfavorite')}}</div>
 							</div>
 						</transition>
 					</div>
@@ -37,7 +37,7 @@
 								<div class="item fl" @click="collectEnterProduct(index,item)">
 									<div class="text text2-hidden">{{item.shop_name}}</div>
 								</div>
-								<div class="btn text-center" @click="del(item,index)">取消关注</div>
+								<div class="btn text-center" @click="del(item,index)">{{$t('message.unsubscribe')}}</div>
 							</div>
 						</transition>
 					</div>
@@ -64,7 +64,7 @@
 		name: 'myCollection',
 		data() {
 			return {
-				title: '我的收藏',
+				title: this.$t('message.collection'),
 				search: false,
 				loading: false,
 				data: [],
