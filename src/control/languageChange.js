@@ -309,7 +309,7 @@ const messages = {
         popular_searches:'Popular searches',
         top_searches:'Top searches are empty!',
         history_search:'History search',
-        browsed_any:'You have n၀t browsed any products yet, go shopping!',
+        browsed_any:'You have not browsed any products yet, go shopping!',
         clear_history:'clear history',
         // home=>footer
         front_page:'Front Page',
@@ -1036,13 +1036,13 @@ const messages = {
           business_scope:'လုပ်ငန်းလိုင်စင် လုပ်ငန်းနယ်ပယ်',
           // myNews
           my_message:'ငါ့မက်ဆေ့',
-          keep_shopping:'သတင်းမရသေးပါ၊ စျေးဝယ်ပါ။',
+          keep_shopping:'သတင်းမရသေးပါ၊ စျေးဆက်ဝယ်မည်။',
           // Search
           popular_searches:'လူကြိုက်များသောရှာဖွေမှုများ',
           top_searches:'ထိပ်တန်းရှာဖွေမှုများမရှိသေးပါ။',
           history_search:'ပြန်လည်ရှာဖွေမှု',
           browsed_any:'သင်သည် မည်သည့်ထုတ်ကုန်ကိုမျှ မကြည့်ရသေးပါ၊ စျေးဝယ်သွားပါ။',
-          clear_history:'ရှင်းလင်းသောမှတ်တမ်း',
+          clear_history:'မှတ်တမ်းများရှင်းလင်းပါ',
           // home=>footer
           front_page:'ရှေ့စာမျက်နှာ',
           classification_footer:'အမျိုးအစားခွဲခြားခြင်း',
@@ -1051,7 +1051,7 @@ const messages = {
           mine:'ကျွန်ုပ်ဟာ',
           // integralDetail
           point_product:'ပွိုင့်ထုတ်ကုန်',
-          still_need:'ပေးဆပ်ရန် လိုအပ်နေသေးသည်',
+          still_need:'ပေး​ချေရန် လိုအပ်နေသေးသည်',
           reference_price:'စျေးကွက်ရည်ညွှန်းစျေးနှုန်း',
           points_details:'ထုတ်ကုန်အသေးစိတ်အချက်များ',
           // integralDetail=>footbtn
@@ -1059,18 +1059,18 @@ const messages = {
           // integralDetail=>DropDownRefresn
           drop_down:'အပေါ်မှပြန်ဆင်းပါ',
           release_back:'အပေါ်မှပြန်လွှတ်ပါ',
-          refreshing:'လန်းဆန်းနေသည်',
+          refreshing:'ပြန်လည်ဆန်းသစ်သည်',
           // integralDetail=>PullUpReload
           pull_up:'အသေးစိတ်အချက်အလက်များအတွက် ဆွဲထုတ်ပါ',
           release_see:'ထုတ်ပြန်ချက်တွင် အသေးစိတ်အချက်အလက်များကို ကြည့်ရှုပါ',
           // confirmOrderIntegral
-          integral_order:'တစ်သားတည်းထုတ်ကုန်အတည်ပြုအမိန့်',
+          integral_order:'ပွိုင့်ထုတ်ကုန်ဝယ်ယူခြင်းအတည်ပြုအမိန့်',
           additional_amount:'အပိုပေးချေမှုပမာဏ',
           required_points:'လိုအပ်သောပွိုင့်များ',
           // CashierIntegral
-          points_paid:'ပေးဆောင်ရမည့်အချက်များ',
-          account_points:'အကောင့်အမှတ်များကို နုတ်ယူပါ',
-          current_points:'လက်ရှိအမှတ်များ',
+          points_paid:'ပေးဆောင်ရမည့်ပွိုင့်များ',
+          account_points:'အကောင့်ပွိုင့်များကိုနုတ်ယူပါ',
+          current_points:'လက်ရှိပွိုင့်များ',
           // IntegralMall
           point_filter:'ပွိုင့်စစ်ထုတ်ခြင်',
           // news_content
@@ -1092,12 +1092,12 @@ const messages = {
           announcement_details:'ကြေငြာချက်အသေးစိတ်',
           // message
           confirm_submission:'တင်ပြချက်ကို အတည်ပြုပါ',
-          message_content:'ကျေးဇူးပြု၍ မက်ဆေ့ချ်ပါ အကြောင်းအရာကို ထည့်သွင်းပါ...',
+          message_content:'ကျေးဇူးပြု၍ မက်ဆေ့ချ်အကြောင်းအရာကို ထည့်သွင်းပါ...',
           // assemble
-          group:'အဖွဲ့',
+          group:'အုပ်စု',
           all:'အားလုံး',
           group_price:'အုပ်စုစျေးနှုန်း',
-          spelled:'စာလုံးပေါင်း',
+          spelled:'ဝယ်ပြီး',
           }
     }
   };
