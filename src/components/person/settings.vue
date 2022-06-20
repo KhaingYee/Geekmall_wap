@@ -15,16 +15,16 @@
                 </div>
                 <div class="user fl">
                     <h2 class="userId">{{data.nick_name}}</h2>
-                    <p class="userName">用户名：{{data.user_name}}</p>
+                    <p class="userName">{{$t('message.username')}}：{{data.user_name}}</p>
                 </div>
                 <div class="icon-btn"></div>
             </dt>
              <dd @click="address">
-               		 我的收货地址
+               		 {{$t('message.my_address')}}
                 <div class="icon-btn"></div>
             </dd>
             <dd @click="toRouter('phone')">
-               		 绑定手机号码
+               		 {{$t('message.mobile_number')}}
                 <div class="icon-btn"></div>
             </dd>
             <!-- <dd>
@@ -37,11 +37,11 @@
             </dd> -->
             <dd  class="toPass"></dd>
             <dd @click="changePassword">
-                	修改密码
+                	{{$t('message.change_Password')}}
                 <div class="icon-btn"></div>
             </dd>
             <dd>
-                系统语言
+                {{$t('message.system_language')}}
                 <div class="languagebtn">
                     <el-select v-model="$i18n.locale">
                         <el-option
@@ -55,11 +55,11 @@
                 </div>
             </dd>
         </dl>
-        <div class="footer" @click="signOut">退出当前账户</div>
+        <div class="footer" @click="signOut">{{$t('message.current_account')}}</div>
         <mt-popup v-model="popupVisible" position="bottom">
 			<ul class="password-wrap">
 				<li v-for="(item,index) in type" :key="item.id" @click="toChange(item.r)">{{item.t}}</li>
-				<li @click="cancel">取消</li>
+				<li @click="cancel">{{$t('message.cancel')}}</li>
 			</ul>
 		</mt-popup>
     </div>
@@ -72,11 +72,11 @@
         name : 'settings',
         data(){
             return {
-                title:'账户设置',
+                title:this.$t('message.account_settings'),
                 data:'',
                 popupVisible:false,
                 langs: ['English', 'Chinese','Myanmar'],
-                type:[{t:'通过旧密码方式',r:'reset'},{t:'通过手机验证方式',r:'phoneVerify'}]
+                type:[{t:this.$t('message.old_password'),r:'reset'},{t:this.$t('message.verification_phone'),r:'phoneVerify'}]
             }
         },
         methods:{

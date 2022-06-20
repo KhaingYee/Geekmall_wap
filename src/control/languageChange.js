@@ -375,6 +375,19 @@ const messages = {
         // footprint
         my_footprint:'my footprint',
         browsed_products:'You have not browsed any products yet, go shopping!',
+        // settings
+        account_settings:'Account Settings',
+        username:'user name',
+        my_address:'My shipping address',
+        mobile_number:'Bind mobile number',
+        change_Password:'Change Password',
+        system_language:'System language',
+        current_account:'Log out of current account',
+        old_password:'Via old password',
+        verification_phone:'Verification by mobile phone',
+        txt_english:'English',
+        txt_chinese:'Chinese',
+        txt_myanmar:'Myanmar',
       }
     },
     Chinese: {
@@ -750,6 +763,19 @@ const messages = {
         // footprint
         my_footprint:'我的足迹',
         browsed_products:'您还没有浏览过任何商品，快去逛逛吧！',
+        // settings
+        account_settings:'账户设置',
+        username:'用户名',
+        my_address:'我的收货地址',
+        mobile_number:'绑定手机号码',
+        change_Password:'修改密码',
+        system_language:'系统语言',
+        current_account:'退出当前账户',
+        old_password:'通过旧密码方式',
+        verification_phone:'通过手机验证方式',
+        txt_english:'英语',
+        txt_chinese:'中国',
+        txt_myanmar:'缅甸',
       }
     },
     Myanmar: {
@@ -1125,6 +1151,19 @@ const messages = {
           // footprint
           my_footprint:'ငါ့ခြေရာ',
           browsed_products:'သင်သည် မည်သည့်ထုတ်ကုန်ကိုမျှ မကြည့်ရသေးပါ၊ စျေးဝယ်သွားပါ။',
+          // settings
+          account_settings:'အကောင့်ဆက်တင်များ',
+          username:'အသုံးပြုသူအမည်',
+          my_address:'ကျွန်ုပ်၏ပို့ဆောင်ရေးလိပ်စာ',
+          mobile_number:'မိုဘိုင်းနံပါတ်ကို ချိတ်ပါ',
+          change_Password:'စကားဝှက်ကိုပြောင်းရန်',
+          system_language:'စနစ်ဘာသာစကား',
+          current_account:'လက်ရှိအကောင့်မှထွက်ပါ',
+          old_password:'စကားဝှက်ဟောင်းမှတဆင့်',
+          verification_phone:'မိုဘိုင်းဖုန်းဖြင့် အတည်ပြုခြင်း',
+          txt_english:'အင်္ဂလိပ်စာ',
+          txt_chinese:'တရုတ်',
+          txt_myanmar:'မြန်မာ',
           }
     }
   };
