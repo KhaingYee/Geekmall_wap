@@ -388,6 +388,16 @@ const messages = {
         txt_english:'English',
         txt_chinese:'Chinese',
         txt_myanmar:'Myanmar',
+        // personal=>personalData
+        personal_information:'Personal Information',
+        my_icon:'My icon',
+        nick_name:'Nick name',
+        fill_out:'Please fill out',
+        mail:'Mail',
+        gender:'gender',
+        birthday:'Birthday',
+        confirm_changes:'Confirm the changes',
+        is_required:'Is required',
       }
     },
     Chinese: {
@@ -776,6 +786,16 @@ const messages = {
         txt_english:'英语',
         txt_chinese:'中国',
         txt_myanmar:'缅甸',
+        // personal=>personalData
+        personal_information:'个人资料',
+        my_icon:'我的头像',
+        nick_name:'昵称',
+        fill_out:'请填写',
+        mail:'邮箱',
+        gender:'性别',
+        birthday:'生日',
+        confirm_changes:'确认修改',
+        is_required:'为必填项',
       }
     },
     Myanmar: {
@@ -1164,6 +1184,16 @@ const messages = {
           txt_english:'အင်္ဂလိပ်စာ',
           txt_chinese:'တရုတ်',
           txt_myanmar:'မြန်မာ',
+          // personal=>personalData
+          personal_information:'ကိုယ်ပိုင်သတင်းအချက်အလက်များ',
+          my_icon:'ငါ့ပုံလေး',
+          nick_name:'အမည်ပြောင်',
+          fill_out:'ဖြည့်စွက်ပါ',
+          mail:'မေးလ်',
+          gender:'ကျား/မ',
+          birthday:'မွေးနေ့',
+          confirm_changes:'အပြောင်းအလဲများကို အတည်ပြုပါ',
+          is_required:'လိုအပ်ပါသည်',
           }
     }
   };

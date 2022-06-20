@@ -4,7 +4,7 @@
 		<personal-header :text="title"></personal-header>
 		<div class="person-wrap">
 			<div class="hd">
-				<div class="status fl">我的头像</div>
+				<div class="status fl">{{$t('message.my_icon')}}</div>
 				<!-- <img v-if="data.user_header" :src="URL+data.user_header" class="fr" v-show="!hdimg">
 				<img v-else src="../../assets/my_user_pic.png" class="fr" v-show="!hdimg">
 				<img :src="URL+hdimg" class="fr" v-show="hdimg" v-model="user_header"> -->
@@ -23,41 +23,41 @@
 			</div>
 			<ul class="dd">
 				<li class="clearfix">
-					<span class="userStatus fl">用户名<span>*</span></span>
+					<span class="userStatus fl">{{$t('message.username')}}<span>*</span></span>
 					<span class="userName fr">{{data.user_name}}</span>
 					<div class="icon-btn"></div>
 				</li>
 				<li class="clearfix" @click="modify('nickname')">
-					<span class="userStatus fl">昵称<span>*</span></span>
-					<span class="userName fr">{{data.nick_name|| '请填写'}}</span>
+					<span class="userStatus fl">{{$t('message.nick_name')}}<span>*</span></span>
+					<span class="userName fr">{{data.nick_name|| $t('message.fill_out')}}</span>
 					<div class="icon-btn"></div>
 				</li>
 				<li class="clearfix" @click="modify('email')">
-					<span class="userStatus fl">邮箱</span>
-					<span class="userName fr">{{data.email || '请填写'}}</span>
+					<span class="userStatus fl">{{$t('message.mail')}}</span>
+					<span class="userName fr">{{data.email || $t('message.fill_out')}}</span>
 					<div class="icon-btn"></div>
 				</li>
 				<li class="clearfix" @click="modify('sex')">
-					<span class="userStatus fl">性别</span>
-					<span class="userName fr">{{data.sex || '请填写'}}</span>
+					<span class="userStatus fl">{{$t('message.gender')}}</span>
+					<span class="userName fr">{{data.sex || $t('message.fill_out')}}</span>
 					<div class="icon-btn"></div>
 				</li>
 				<li class="clearfix" @click="bir">
-					<span class="userStatus fl">生日</span>
+					<span class="userStatus fl">{{$t('message.birthday')}}</span>
 					<!-- <span class="userName fr">{{data.birthday|formatDate}}</span> -->
           <span class="userName fr">{{data.birthday}}</span>
 					<div class="icon-btn"></div>
 				</li>
 			</ul>
 		</div>
-		<div class="from-btn" @click="preservation">确认修改</div>
-		<div class="prompt"><span>*</span>为必填项</div>
+		<div class="from-btn" @click="preservation">{{$t('message.confirm_changes')}}</div>
+		<div class="prompt"><span>*</span>{{$t('message.is_required')}}</div>
 		<mt-datetime-picker ref="picker" type="date" v-model="pickerVisible" year-format="{value} 年" month-format="{value} 月" date-format="{value} 日" @confirm="dataChange" :start-date="startDate" :end-date="endDate">
 		</mt-datetime-picker>
 		<mt-popup v-model="popupVisible" position="bottom">
 			<ul class="sex-wrap">
 				<li v-for="(item,index) in sex" :key="item.id" @click="setSex(index)">{{item}}</li>
-				<li @click="setSex('del')">取消</li>
+				<li @click="setSex('del')">{{$t('message.cancel')}}</li>
 			</ul>
 		</mt-popup>
 		<div class="load" v-show="load" @touchmove.prevent>
@@ -81,7 +81,7 @@ export default {
   name: "personalData",
   data() {
     return {
-      title: "个人资料",
+      title: this.$t('message.personal_information'),
       data: [],
       pickerVisible: false,
       popupVisible: false,
