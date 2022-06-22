@@ -5,14 +5,14 @@
         <div class="from">
             <div class="input-main phone-number">
                 <span class="icon"></span>
-                <input type="text" maxlength="11"  placeholder="请输入验证手机号码" v-model="mobile">
+                <input type="text" maxlength="11" :placeholder="$t('message.enter_mobile')" v-model="mobile">
             </div>
             <div class="input-main message">
                 <span class="icon"></span>
-                <input type="text" maxlength="4" placeholder="请输入短信验证码" v-model="message">
+                <input type="text" maxlength="4" :placeholder="$t('message.enter_code')" v-model="message">
                 <button class="btn-ver" :class="{active:isActive}" @click="obtain">{{btnText}}</button>
             </div>
-            <button class="btn-in" @click="changes">确认修改</button>
+            <button class="btn-in" @click="changes">{{$t('message.confirm_changes')}}</button>
         </div>
     </div>
 </template>
@@ -24,7 +24,7 @@ import QS from 'qs';
         name : 'phone',
         data(){
             return {
-                title:'修改手机号绑定',
+                title:this.$t('message.modify_mobile'),
                 username : '',
                 mobile:'',
                 //短信验证

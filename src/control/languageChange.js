@@ -398,6 +398,10 @@ const messages = {
         birthday:'Birthday',
         confirm_changes:'Confirm the changes',
         is_required:'Is required',
+        // ModifyPhone
+        modify_mobile:'Modify mobile phone number binding',
+        enter_mobile:'Please enter a verification mobile number',
+        enter_code:'Enter SMS verification code',
       }
     },
     Chinese: {
@@ -796,6 +800,10 @@ const messages = {
         birthday:'生日',
         confirm_changes:'确认修改',
         is_required:'为必填项',
+        // ModifyPhone
+        modify_mobile:'修改手机号绑定',
+        enter_mobile:'请输入验证手机号码',
+        enter_code:'请输入短信验证码',
       }
     },
     Myanmar: {
@@ -1194,6 +1202,10 @@ const messages = {
           birthday:'မွေးနေ့',
           confirm_changes:'အပြောင်းအလဲများကို အတည်ပြုပါ',
           is_required:'လိုအပ်ပါသည်',
+          // ModifyPhone
+          modify_mobile:'မိုဘိုင်းလ်ဖုန်းနံပါတ်ပြင်ဆင်ပါ',
+          enter_mobile:'အတည်ပြုခြင်း မိုဘိုင်းနံပါတ်ကို ထည့်သွင်းပါ',
+          enter_code:'SMS အတည်ပြုကုဒ်ကို ထည့်ပါ',
           }
     }
   };
