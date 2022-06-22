@@ -10,18 +10,18 @@
     <div class="wrap">
         <div class="input-main passWord">
             <span class="icon"></span>
-            <input type="password" placeholder="请输入原密码...." v-model="pass">
+            <input type="password" :placeholder="$t('message.original_password')" v-model="pass">
         </div>
          <div class="input-main passWord">
             <span class="icon"></span>
-            <input type="password" placeholder="请输入新密码...." v-model="password">
+            <input type="password" :placeholder="$t('message.new_password')" v-model="password">
         </div>
         <div class="input-main passWord">
             <span class="icon"></span>
-            <input type="password" placeholder="请再次输入新密码...." v-model="re_password">
+            <input type="password" :placeholder="$t('message.password_again')" v-model="re_password">
         </div>
         
-        <button class="btn-in" @click="register">确定</button>
+        <button class="btn-in" @click="register">{{$t('message.sure')}}</button>
     </div>
 </div>
     
@@ -32,7 +32,7 @@
     export default {
         data(){
             return {
-                title:'修改密码',
+                title:this.$t('message.change_Password'),
                 password:'',
                 re_password:'',
                 pass:''

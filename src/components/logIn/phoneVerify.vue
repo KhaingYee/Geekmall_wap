@@ -11,22 +11,22 @@
         <div class="from">
             <div class="input-main phone-number">
                 <span class="icon"></span>
-                <input type="tel" maxlength="11" placeholder="请输入验证手机号码" v-model="mobile">
+                <input type="tel" maxlength="11" :placeholder="$t('message.enter_mobile')" v-model="mobile">
             </div>
             <div class="input-main message">
                 <span class="icon"></span>
-                <input type="text" placeholder="请输入短信验证码" v-model="message">
+                <input type="text" :placeholder="$t('message.enter_code')" v-model="message">
                 <button class="btn-ver" :class="{active:isActive}" @click="obtain">{{btnText}}</button>
             </div>
             <div class="input-main passWord">
                 <span class="icon"></span>
-                <input type="password" placeholder="请输入密码...." v-model="password">
+                <input type="password" :placeholder="$t('message.enter_password')" v-model="password">
             </div>
             <div class="input-main passWord">
                 <span class="icon"></span>
-                <input type="password" placeholder="请再次输入密码...." v-model="re_password">
+                <input type="password" :placeholder="$t('message.enter_again')" v-model="re_password">
             </div>
-            <button class="btn-in" @click="logoIn">确定</button>
+            <button class="btn-in" @click="logoIn">{{$t('message.sure')}}</button>
         </div>
     </div>
 </div>
@@ -39,7 +39,7 @@
         name : 'logoIn',
         data(){
             return {
-                title:'修改密码',
+                title:this.$t('message.change_Password'),
                 password:'',
                 re_password:'',
                 isActive:false,
@@ -176,7 +176,7 @@
     }
 }
     .logoin-main{
-        padding:0 .6rem;
+        padding:0 .3rem;
         background:#fff;
         .from{
             .input-main{
