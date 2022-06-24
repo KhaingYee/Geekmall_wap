@@ -154,7 +154,7 @@ const config = {
     couponReceiveBehavior: request + 'Coupon/couponReceiveBehavior',
 
     // 意见
-    feedback: userModuleIndex + 'Feedback/feedback', // 意见反馈
+    feedback: userModuleIndex + 'FeedBack/feedback', // 意见反馈
     onlineMessage: request + 'Problem/onlineMessage', // 在线留言
 
     // 足迹

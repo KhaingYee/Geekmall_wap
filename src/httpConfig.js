@@ -161,7 +161,7 @@ const config = {
     couponReceiveBehavior: request + 'Coupon/couponReceiveBehavior',
 
     // 意见
-    feedback: request + 'Feedback/feedback', // 意见反馈
+    feedback: request + 'FeedBack/feedback', // 意见反馈
     feedbacktype: request + 'FeedBack/feedBackType', // 意见反馈類型
     onlineMessage: request + 'Problem/onlineMessage', // 在线留言
 
