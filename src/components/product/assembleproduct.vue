@@ -337,7 +337,7 @@
 
                 <div class="ans_display">
                     <div class="for_ans" @click="goToQue">
-                        <span class="ans_title">商口咨询({{countTotal}})</span>
+                        <span class="ans_title">商品咨询({{countTotal}})</span>
                         <span class="ans_number"> 查看更多 </span>
                         <span class="btn-right"></span>
                     </div>

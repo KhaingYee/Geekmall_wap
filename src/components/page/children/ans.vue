@@ -116,6 +116,7 @@
                     if(res.data.status == 1){
                         this.problem=''
                     }
+                    this.productAjax();
                 }).catch((err) => {
                     console.log(err);
                 });
