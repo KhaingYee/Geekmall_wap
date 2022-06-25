@@ -90,7 +90,7 @@ export default {
             });
             return;
           }
-        this.axios.post(this.$httpConfig.isCheckIn, qs.stringify({
+        this.axios.post(this.$httpConfig.isCheckIn, QS.stringify({
             token: sessionStorage.getItem("data_token")
         })).then((res) => {
             if(res.data.status == 10001){

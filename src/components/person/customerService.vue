@@ -12,21 +12,23 @@
 		<dl class="service clearfix">
 			<dt class="fl">{{$t('message.online_service')}}</dt>
 			<dd class="fl  text-center">
-				<div class="img-wrap"><img src="../../assets/qq.png"></div>
-				<p>
-					<a href="tencent://message/?uin=1239300678&Site=sc.chinaz.com&Menu=yes">{{$t('message.qq_consulting')}}</a>
-				</p>
+				<a href="tencent://message/?uin=1239300678&Site=sc.chinaz.com&Menu=yes">
+					<div class="img-wrap"><img src="../../assets/qq.png"></div>
+					<p>
+						{{$t('message.qq_consulting')}}
+					</p>
+				</a>
 			</dd>
 			<dd class="fl  text-center" @click="phoneMsg">
 				<div class="img-wrap"><img src="../../assets/telephone.png"></div>
 				<p>{{$t('message.telephone_consultation')}}</p>
 			</dd>
-			<dd @click="message" class="fl  text-center">
+			<!-- <dd @click="message" class="fl  text-center">
 				<div class="img-wrap"><img src="../../assets/mes.png"></div>
 				<p>{{$t('message.online_message')}}</p>
-			</dd>
+			</dd> -->
 		</dl>
-		<div class="problem">
+		<div class="problem" v-if="data_con">
 			<h2 class="title">{{$t('message.question_query')}}</h2>
 			<div class="item-wrap">
 				<dl class="item-main clearfix" v-for="item in data_con" :key="item.id">
@@ -199,7 +201,7 @@
 		dd {
 			background: #fff;
 			height: 2.3rem;
-			width: 33.3333333333%;
+			width: 50%;
 			box-sizing: border-box;
 			border-right: 1px solid #dfdfdf;
 			border-bottom: 1px solid #dfdfdf;
