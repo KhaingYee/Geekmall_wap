@@ -24,7 +24,7 @@
                     <img class='open'  @click="open" v-show="!eye" src="../../assets/openeye.png"/>
                     <img class='close' @click="close" v-show="eye" src="../../assets/closeeye.png"/>
                 </div>
-                <button class="btn-in" @click="logoIn">登&nbsp;&nbsp;录</button>
+                <button class="btn-in" @click="logoIn">{{$t('message.log_in')}}</button>
             </div>
             <ul class="fail-link clearfix">
                 <li class="fl" @click="other">{{$t('message.not_login')}}?</li>

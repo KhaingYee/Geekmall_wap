@@ -410,7 +410,7 @@ const messages = {
         enter_password:'Please enter your password....',
         enter_again:'Please enter your password again....',
         // LogIn
-        log_in:'Log in',
+        log_in:'Log In',
         login_phone:'Email / Username / Verified phone number',
         login_user:'Email/Username',
         not_login:'Can not login',
@@ -831,7 +831,7 @@ const messages = {
         enter_password:'请输入密码....',
         enter_again:'请再次输入密码....',
         // LogIn
-        log_in:'登录',
+        log_in:'登 录',
         login_phone:'邮箱/用户名/已验证手机',
         login_user:'邮箱/用户名',
         not_login:'无法登录',
