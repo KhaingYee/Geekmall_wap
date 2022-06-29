@@ -409,6 +409,18 @@ const messages = {
         // phoneVerify
         enter_password:'Please enter your password....',
         enter_again:'Please enter your password again....',
+        // LogIn
+        log_in:'Log in',
+        login_phone:'Email / Username / Verified phone number',
+        login_user:'Email/Username',
+        not_login:'Can not login',
+        register_now:'Register now',
+        click_login:'Social account one-click login',
+        bind_email:'Please bind your email',
+        emailaddress:'Please input the email address',
+        verification_code:'please enter verification code',
+        forgot_password:'Forgot password',
+        SMS_verification:'SMS verification login',
       }
     },
     Chinese: {
@@ -818,6 +830,18 @@ const messages = {
         // phoneVerify
         enter_password:'请输入密码....',
         enter_again:'请再次输入密码....',
+        // LogIn
+        log_in:'登录',
+        login_phone:'邮箱/用户名/已验证手机',
+        login_user:'邮箱/用户名',
+        not_login:'无法登录',
+        register_now:'现在注册',
+        click_login:'社交账号一键登录',
+        bind_email:'请绑定邮箱',
+        emailaddress:'请输入邮箱地址',
+        verification_code:'请输入验证码',
+        forgot_password:'忘记密码',
+        SMS_verification:'短信验证登录',
       }
     },
     Myanmar: {
@@ -1227,6 +1251,18 @@ const messages = {
           // phoneVerify
           enter_password:'ကျေးဇူးပြု၍ သင့်စကားဝှက်ကို ထည့်ပါ',
           enter_again:'ကျေးဇူးပြု၍ သင့်စကားဝှက်ကို ထပ်ဖြည့်ပါ',
+          // LogIn
+          log_in:'လော့ဂ်အင်',
+          login_phone:'အီးမေးလ် / အသုံးပြုသူအမည် / အတည်ပြုပြီးသောဖုန်းနံပါတ်',
+          login_user:'အီးမေးလ်/အသုံးပြုသူအမည်',
+          not_login:'လော့ဂ်အင်မရပါ',
+          register_now:'ယခု စာရင်းသွင်းပါ',
+          click_login:'အကောင့်ဖွင့်ပါ',
+          bind_email:'သင့်အီးမေးလ်ကို ချိတ်ပါ',
+          emailaddress:'ကျေးဇူးပြု၍ အီးမေးလ်လိပ်စာကို ထည့်သွင်းပါ',
+          verification_code:'ကျေးဇူးပြု၍ အတည်ပြုကုဒ်ကို ထည့်ပါ',
+          forgot_password:'စကားဝှက်ကိုမေ့နေပါသလား',
+          SMS_verification:'SMS အတည်ပြုခြင်း အကောင့်ဝင်ပါ',
           }
     }
   };

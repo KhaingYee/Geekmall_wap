@@ -109,18 +109,18 @@
 					that.ipadImg = this.result;
 				}  
 				let param = new FormData() // 创建form对象
-				    param.append('adv_content', file, file.name) // 通过append向form对象添加数据
+				    param.append('voucher', file, file.name) // 通过append向form对象添加数据
 				    param.append('chunk', '0') // 添加form表单中其他数据  
 				let config = {    
 					headers: {
 						'Content-Type': 'multipart/form-data'
 					}   
 				}
-				this.axios.post(this.$httpConfig.uploadImage, param, config)
+				this.axios.post(this.$httpConfig.uploadVoucher, param, config)
 					.then((res) => {
 						this.loading = false;
 						if (res.data.status === 1) {
-							this.organization_electronic = res.data.data;
+							this.organization_electronic = res.data.pic;
 							Toast({
 								message: res.data.message,
 								duration: 1000
@@ -162,18 +162,18 @@
 					that.ipadImgs = this.result;
 				}  
 				let param = new FormData() // 创建form对象
-				    param.append('adv_content', file, file.name) // 通过append向form对象添加数据
+				    param.append('voucher', file, file.name) // 通过append向form对象添加数据
 				    param.append('chunk', '0') // 添加form表单中其他数据
 				let config = {    
 					headers: {
 						'Content-Type': 'multipart/form-data'
 					}   
 				}
-				this.axios.post(this.$httpConfig.uploadImage, param, config)
+				this.axios.post(this.$httpConfig.uploadVoucher, param, config)
 					.then((res) => {
 						this.loading = false;
 						if (res.data.status === 1) {
-							this.taxpayer_certificate = res.data.data;
+							this.taxpayer_certificate = res.data.pic;
 							Toast({
 								message: res.data.message,
 								duration: 1000

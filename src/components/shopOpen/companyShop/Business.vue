@@ -153,6 +153,7 @@
 				toke: "",
 				toke_id:'',
 				divide: '',
+				divideId: '',
 				year: '',
 				years: ["1年", "2年", "3年", "4年", "5年", "6年", '7年', '8年', '9年'],
 				goods_class:[],
@@ -441,7 +442,7 @@
 					shop_account: this.shop_account,
 					level_id: this.toke_id,
 					shop_long: this.shop_long,
-					shop_class: this.divide,
+					shop_class: this.divideId,
 					sc_bail: this.sc_bail,
 					class : class_id,
 					token: sessionStorage.getItem("data_token")
@@ -485,6 +486,7 @@
 			},
 			chose(index) {
 				this.divide = this.data[index].sc_name;
+				this.divideId = this.data[index].id;
 				this.sc_bail = this.data[index].sc_bail;
 				this.popupVisible2 = false;
 			},

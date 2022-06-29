@@ -100,18 +100,18 @@ export default {
 	        	that.hide = this.result;
 	      }  
 				let param = new FormData() // 创建form对象
-				    param.append('adv_content', file, file.name) // 通过append向form对象添加数据
+				    param.append('voucher', file, file.name) // 通过append向form对象添加数据
 				    param.append('chunk', '0') // 添加form表单中其他数据
 				let config = {    
 					headers: {
 						'Content-Type': 'multipart/form-data'
 					}   
 				}
-				this.axios.post(this.$httpConfig.uploadImage, param, config)
+				this.axios.post(this.$httpConfig.uploadVoucher, param, config)
 					.then((res) => {
                         this.loading = false;
                         if(res.data.status === 1) {
-                            that.ImgUrl = res.data.data;
+                            that.ImgUrl = res.data.pic;
                             Toast({
                                 message: res.data.message,
                                 duration: 1000

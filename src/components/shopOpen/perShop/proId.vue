@@ -122,21 +122,21 @@ export default {
 				return
 			}
 			let param = new FormData() // 创建form对象
-			param.append('adv_content', file, file.name) // 通过append向form对象添加数据
+			param.append('voucher', file, file.name) // 通过append向form对象添加数据
 			param.append('chunk', '0') // 添加form表单中其他数据
 			let config = {
 				headers: {
 					'Content-Type': 'multipart/form-data'
 				}
 			}
-			this.axios.post(this.$httpConfig.uploadImage, param, config)
+			this.axios.post(this.$httpConfig.uploadVoucher, param, config)
 				.then((res) => {
 					this.loading = false;
 					if (res.data.status == 10001) {
 						this.$router.push('/LogIn');
 					} else {
 						if (res.data.status === 1) {
-							this.idcard_positive = res.data.data;
+							this.idcard_positive = res.data.pic;
 							Toast({
 										message: res.data.message,
 										duration: 1000
@@ -172,21 +172,21 @@ export default {
 				return
 			}
 			let param = new FormData() // 创建form对象
-			param.append('adv_content', file, file.name) // 通过append向form对象添加数据
+			param.append('voucher', file, file.name) // 通过append向form对象添加数据
 			param.append('chunk', '0') // 添加form表单中其他数据
 			let config = {
 				headers: {
 					'Content-Type': 'multipart/form-data'
 				}
 			}
-			this.axios.post(this.$httpConfig.uploadImage, param, config)
+			this.axios.post(this.$httpConfig.uploadVoucher, param, config)
 				.then((res) => {
 					this.loading = false;
 					if (res.data.status == 10001) {
 						this.$router.push('/LogIn');
 					} else {
 						if (res.data.status === 1) {
-							this.other_side = res.data.data
+							this.other_side = res.data.pic;
 							Toast({
 									message: res.data.message,
 									duration: 1000

@@ -1,24 +1,24 @@
 <template>
     <div class="logoin-main" ref="content">
-        <div v-title data-title="登录">登录</div>
+        <div v-title data-title="登录">{{$t('message.log_in')}}</div>
         <div>
             <header class="logoIn-header">
-                <span @click="remove" class="btn-back">取消</span>{{title}}
+                <span @click="remove" class="btn-back">{{$t('message.cancel')}}</span>{{title}}
             </header>
             <div class="from">
                 <div class="input-main userName" v-if="$store.state.loginMethod == 0">
                     <span class="icon"></span>
-                    <input type="text" placeholder="邮箱/用户名/已验证手机" v-model="userName" >
+                    <input type="text" :placeholder="$t('message.login_phone')" v-model="userName" >
                     <!-- <input type="text" oninput="if(value.length > 11)value=value.slice(0, 11)" placeholder="邮箱/用户名/已验证手机" v-model="userName" > -->
                 </div>
                 <div class="input-main userName" v-if="$store.state.loginMethod == 1">
                     <span class="icon"></span>
-                    <input type="text" placeholder="邮箱/用户名" v-model="userName" >
+                    <input type="text" :placeholder="$t('message.login_user')" v-model="userName" >
                 </div>
                 <div class="input-main passWord">
                     <span class="icon"></span>
-                    <input type="text" placeholder="请输入密码...." v-model="passWord" v-if="checked">
-                    <input type="password" placeholder="请输入密码...." v-model="passWord" v-else>
+                    <input type="text" :placeholder="$t('message.enter_password')" v-model="passWord" v-if="checked">
+                    <input type="password" :placeholder="$t('message.enter_password')" v-model="passWord" v-else>
                     <!--@focus="focu" @blur="blu"-->
                     <!--<span class='open'></span>-->
                     <img class='open'  @click="open" v-show="!eye" src="../../assets/openeye.png"/>
@@ -27,13 +27,13 @@
                 <button class="btn-in" @click="logoIn">登&nbsp;&nbsp;录</button>
             </div>
             <ul class="fail-link clearfix">
-                <li class="fl" @click="other">无法登录?</li>
-                <li class="fl" @click="goNow">现在注册 ></li>
+                <li class="fl" @click="other">{{$t('message.not_login')}}?</li>
+                <li class="fl" @click="goNow">{{$t('message.register_now')}} ></li>
             </ul>
         </div>
         <dl class="tplogin" v-show="show">
             <dt>
-                社交账号一键登录
+                {{$t('message.click_login')}}
                 <span></span><span></span>
             </dt>
             <dd @click="qqLogin" v-if="$store.state.loginMethod == 0" class="Ch-qq"></dd>
@@ -54,32 +54,32 @@
         </dl>
         <mt-popup v-model="popupVisibleBind">         
             <div class="Bindfrom">
-                <div class="TitlePage">请绑定邮箱</div>
+                <div class="TitlePage">{{$t('message.bind_email')}}</div>
                 <div class="input-main userName">
                     <span class="icon"></span>
-                    <input type="text" placeholder="用户名" v-model="BindUserName" disabled>
+                    <input type="text" :placeholder="$t('message.username')" v-model="BindUserName" disabled>
                 </div>
                 <div class="input-main message">
                     <span class="icon"></span>
-                    <input type="text" placeholder="请输入邮箱地址" v-model="mailAcc">
+                    <input type="text" :placeholder="$t('message.emailaddress')" v-model="mailAcc">
                 </div>
                 <div class="input-main message">
                     <span class="icon"></span>
-                    <input type="number" placeholder="请输入验证码" v-model="message">
+                    <input type="number" :placeholder="$t('message.verification_code')" v-model="message">
                     <button class="btn-ver" :class="{active:BindActive}" @click="obtain">{{btnText}}</button>
                 </div>
-                <button class="btncomfir" @click="BindEmailLogin">确认</button>
+                <button class="btncomfir" @click="BindEmailLogin"></button>
             </div>
         </mt-popup>
         <div class="actionsheet" v-show="isActive">
             <div class="box" @click="increment"></div>
             <div class="acti-box" :class="{active:isActive}">
                 <ul v-if="$store.state.loginMethod == 0">
-                    <li @click="toback">忘记密码</li>
-                    <li @click="toSms">短信验证登录</li>
+                    <li @click="toback">{{$t('message.forgot_password')}}</li>
+                    <li @click="toSms">{{$t('message.SMS_verification')}}</li>
                 </ul>
                 <ul v-if="$store.state.loginMethod == 1">
-                    <li @click="toback">忘记密码</li>
+                    <li @click="toback">{{$t('message.forgot_password')}}</li>
                 </ul>
                 <div class="btn" @click="increment">{{cancelText}}</div>
             </div>
@@ -97,11 +97,11 @@
         name : 'logIn',
         data(){
             return {
-                title:this.$constant.mainTitle+'登录',
+                title:this.$constant.mainTitle+this.$t('message.log_in'),
                 show:true,
                 userName:'',
                 passWord:'',
-                cancelText:'取消',
+                cancelText:this.$t('message.cancel'),
                 isActive:false,
                 popupVisible:false,
                 popupVisibleBind:false,
@@ -300,9 +300,9 @@
                 console.log('facebookout'+JSON.stringify(data))
             },
             onSuccess(googleUser) {
-                console.log('newgoogle'+googleUser.wc.access_token);
+                console.log('newgoogle'+googleUser.Cc.access_token);
                 this.axios.post(this.$httpConfig.GoogleLogin,QS.stringify({
-                    access_token:googleUser.wc.access_token,
+                    access_token:googleUser.Cc.access_token,
                 })).then((res) => {
                     Toast(res.data.message);
                     if(res.data.status == 1){
