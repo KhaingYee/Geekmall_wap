@@ -423,6 +423,12 @@ const messages = {
         SMS_verification:'SMS verification login',
         // retrievePassword
         enter_ver:'Enter verification code',
+        // register
+        register:'register',
+        enter_user:'please enter user name',
+        phoneNum:'Please enter your phone number',
+        referral_code:'Optional referral code',
+        have_account:'have an account',
       }
     },
     Chinese: {
@@ -846,6 +852,12 @@ const messages = {
         SMS_verification:'短信验证登录',
         // retrievePassword
         enter_ver:'请输入验证码',
+        // register
+        register:'注册',
+        enter_user:'请输入用户名',
+        phoneNum:'请输入电话号码',
+        referral_code:'选填推荐码',
+        have_account:'已有账号',
       }
     },
     Myanmar: {
@@ -1269,6 +1281,12 @@ const messages = {
           SMS_verification:'SMS အတည်ပြုခြင်း အကောင့်ဝင်ပါ',
           // retrievePassword
           enter_ver:'အတည်ပြုကုဒ်ကို ထည့်ပါ',
+          // register
+          register:'မှတ်ပုံတင်ပါ',
+          enter_user:'ကျေးဇူးပြု၍ အသုံးပြုသူအမည်ကို ထည့်သွင်းပါ',
+          phoneNum:'ဖုန်းနံပါတ် ထည့်ပါ',
+          referral_code:'ရွေးချယ်နိုင်သော ရည်ညွှန်းကုဒ်',
+          have_account:'အကောင့်တစ်ခုရှိသည်',
           }
     }
   };

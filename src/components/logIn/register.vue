@@ -1,51 +1,51 @@
 <template>
     <div class="register-wrap">
-        <div v-title data-title="注册">注册</div>
+        <div v-title data-title="注册">{{$t('message.register')}}</div>
         <header class="logoIn-header">
-           <span @click="remove" class="btn-back">取消</span>{{title}}
+           <span @click="remove" class="btn-back">{{$t('message.cancel')}}</span>{{title}}
         </header>
         <div class="from">
             <div class="input-main userName">
                 <span class="icon"></span>
-                <input type="text" placeholder="请输入用户名" v-model="username">
+                <input type="text" :placeholder="$t('message.enter_user')" v-model="username">
             </div>
             <div class="input-main phone-number" v-if="$store.state.loginMethod == 0">
                 <span class="icon"></span>
-                <input type="number" oninput="if(value.length > 11)value=value.slice(0, 11)"  placeholder="请输入验证手机号码" v-model="mobile">
+                <input type="number" oninput="if(value.length > 11)value=value.slice(0, 11)" :placeholder="$t('message.enter_mobile')" v-model="mobile">
             </div>
             <div class="input-main message" v-if="$store.state.loginMethod == 1">
                 <span class="icon"></span>
-                <input type="text" placeholder="请输入邮箱地址" v-model="mailAcc">
+                <input type="text" :placeholder="$t('message.emailaddress')" v-model="mailAcc">
             </div>
             <div class="input-main message">
                 <span class="icon"></span>
-                <input type="text"  placeholder="请输入验证码" v-model="message">
+                <input type="text" :placeholder="$t('message.enter_ver')" v-model="message">
                 <button class="btn-ver" :class="{active:isActive}" @click="obtain">{{btnText}}</button>
             </div>
             <div class="input-main passWord">
                 <span class="icon"></span>
-                <input type="password" placeholder="请输入密码...." v-model="password">
+                <input type="password" :placeholder="$t('message.enter_password')" v-model="password">
             </div>
             <div class="input-main passWord">
                 <span class="icon"></span>
-                <input type="password" placeholder="请再次输入密码...." v-model="re_password">
+                <input type="password" :placeholder="$t('message.enter_again')" v-model="re_password">
             </div>
             <div class="input-main message" v-if="$store.state.loginMethod == 0">
                 <span class="icon"></span>
-                <input type="text" placeholder="请输入邮箱地址" v-model="email">
+                <input type="text" :placeholder="$t('message.emailaddress')" v-model="email">
             </div>
             <div class="input-main phone-number" v-if="$store.state.loginMethod == 1">
                 <span class="icon"></span>
-                <input type="number" placeholder="请输入电话号码" v-model="phoneNumber">
+                <input type="number" :placeholder="$t('message.phoneNum')" v-model="phoneNumber">
             </div>
             <div class="input-main rec">
                 <span class="icon"></span>
-                <input type="text" placeholder="选填推荐码">
+                <input type="text" :placeholder="$t('message.referral_code')">
             </div>
-            <button class="btn-in" @click="register">注&nbsp;&nbsp;册</button>
+            <button class="btn-in" @click="register">{{$t('message.register')}}</button>
         </div>
         <div class="return-btn">
-            <router-link to="LogIn" class="btn">已有账号 ></router-link>
+            <router-link to="LogIn" class="btn">{{$t('message.have_account')}} ></router-link>
         </div>
     </div>
 </template>
@@ -56,7 +56,7 @@
         name : 'register',
         data(){
             return {
-                title:this.$constant.mainTitle+'注册',
+                title:this.$constant.mainTitle+this.$t('message.register'),
                 username : '',
                 mobile:'',
                 message:'',
