@@ -2,32 +2,32 @@
     <div class="logoin-main" ref="box">
         <div v-title data-title="忘记密码">{{title}}</div>
         <header class="logoIn-header">
-           <span @click="remove" class="btn-back">取消</span>{{title}}
+           <span @click="remove" class="btn-back">{{$t('message.cancel')}}</span>{{title}}
         </header>
         <div class="from">
             <div class="input-main phone-number" v-if="$store.state.loginMethod == 0">
                 <span class="icon"></span>
-                <input type="text" oninput="if(value.length > 11)value=value.slice(0, 11)" placeholder="请输入验证手机号码" v-model="mobile">
+                <input type="text" oninput="if(value.length > 11)value=value.slice(0, 11)" :placeholder="$t('message.enter_mobile')" v-model="mobile">
             </div>
             <div class="input-main message" v-if="$store.state.loginMethod == 1">
                 <span class="icon"></span>
-                <input type="text" placeholder="请输入邮箱地址" v-model="mailAcc">
+                <input type="text" :placeholder="$t('message.emailaddress')" v-model="mailAcc">
             </div>
             <div class="input-main message">
                 <span class="icon"></span>
-                <input type="number" placeholder="请输入验证码" v-model="message">
+                <input type="number" :placeholder="$t('message.enter_ver')" v-model="message">
                 <button class="btn-ver" :class="{active:isActive}" @click="obtain">{{btnText}}</button>
             </div>
            <div class="input-main passWord">
             <span class="icon"></span>
-            <input type="password" placeholder="请输入密码...." v-model="password">
+            <input type="password" :placeholder="$t('message.enter_password')" v-model="password">
         </div>
         <div class="input-main passWord">
             <span class="icon"></span>
-            <input type="password" placeholder="请再次输入密码...." v-model="re_password">
+            <input type="password" :placeholder="$t('message.enter_again')" v-model="re_password">
         </div>
 
-            <button class="btn-in" @click="logoIn">确认</button>
+            <button class="btn-in" @click="logoIn">{{$t('message.ok_confirm')}}</button>
 
         </div>
     </div>
@@ -39,7 +39,7 @@
         name : 'logIn',
         data(){
             return {
-                title:'忘记密码',
+                title:this.$t('message.forgot_password'),
                 userName:'',
                 password:'',
                 re_password:'',

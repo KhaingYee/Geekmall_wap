@@ -421,6 +421,8 @@ const messages = {
         verification_code:'please enter verification code',
         forgot_password:'Forgot password',
         SMS_verification:'SMS verification login',
+        // retrievePassword
+        enter_ver:'Enter verification code',
       }
     },
     Chinese: {
@@ -842,6 +844,8 @@ const messages = {
         verification_code:'请输入验证码',
         forgot_password:'忘记密码',
         SMS_verification:'短信验证登录',
+        // retrievePassword
+        enter_ver:'请输入验证码',
       }
     },
     Myanmar: {
@@ -1263,6 +1267,8 @@ const messages = {
           verification_code:'ကျေးဇူးပြု၍ အတည်ပြုကုဒ်ကို ထည့်ပါ',
           forgot_password:'စကားဝှက်ကိုမေ့နေပါသလား',
           SMS_verification:'SMS အတည်ပြုခြင်း အကောင့်ဝင်ပါ',
+          // retrievePassword
+          enter_ver:'အတည်ပြုကုဒ်ကို ထည့်ပါ',
           }
     }
   };
