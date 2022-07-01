@@ -378,21 +378,22 @@
 						width: 1.38rem;
 						height: 100%;
 						position: absolute;
-						right: -1.38rem;
+						// right: -1.38rem;
+						right: .2rem;
 						top: 0;
 						background: url(../../assets/bg2.png) no-repeat #d02629 center .5rem;
 						background-size: .58rem .57rem;
 						color: #fff;
 						font-size: .24rem;
 						box-sizing: border-box;
-						padding-top: 1.3rem;
+						padding-top: 1.15rem;
 					}
 					img {
 						width: 1.5rem;
 						height: 1.5rem;
 					}
 					.item {
-						width: 4.7rem;
+						width: 4rem;
 						height: 2rem;
 						box-sizing: border-box;
 						margin-left: .13rem;

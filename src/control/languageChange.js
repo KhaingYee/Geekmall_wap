@@ -1228,15 +1228,15 @@ const messages = {
           mycollection:'စုဆောင်းမှု',
           favorites_last:'ပြီးခဲ့သည့်လက အကြိုက်ဆုံးများ',
           no_favorites:'အကြိုက်ဆုံးများ မရှိသေးပါ',
-          unfavorite:'အကြိုက်ဆုံး',
+          unfavorite:'အကြိုက်ဆုံးမှ ဖြုတ်ပါ',
           unsubscribe:'စာရင်းမှဖြုတ်ပါ',
           // footprint
           my_footprint:'ငါ့ခြေရာ',
-          browsed_products:'သင်သည် မည်သည့်ထုတ်ကုန်ကိုမျှ မကြည့်ရသေးပါ၊ စျေးဝယ်သွားပါ။',
+          browsed_products:'သင်သည် မည်သည့်ထုတ်ကုန်ကိုမျှ မကြည့်ရသေးပါ၊ စျေးသွားဝယ်ပါ။',
           // settings
           account_settings:'အကောင့်ဆက်တင်များ',
           username:'အသုံးပြုသူအမည်',
-          my_address:'ကျွန်ုပ်၏ပို့ဆောင်ရေးလိပ်စာ',
+          my_address:'ကျွန်ုပ်၏ကုန်ပစ္စည်းလက်ခံလိပ်စာ',
           mobile_number:'မိုဘိုင်းနံပါတ်ကို ချိတ်ပါ',
           change_Password:'စကားဝှက်ကိုပြောင်းရန်',
           system_language:'စနစ်ဘာသာစကား',
@@ -1258,7 +1258,7 @@ const messages = {
           is_required:'လိုအပ်ပါသည်',
           // phone=>ModifyPhone
           modify_mobile:'မိုဘိုင်းလ်ဖုန်းနံပါတ်ပြင်ဆင်ပါ',
-          enter_mobile:'အတည်ပြုခြင်း မိုဘိုင်းနံပါတ်ကို ထည့်သွင်းပါ',
+          enter_mobile:'အတည်ပြုခြင်းပြုလုပ်မည့်မိုဘိုင်းနံပါတ်ကိုထည့်သွင်းပါ',
           enter_code:'SMS အတည်ပြုကုဒ်ကို ထည့်ပါ',
           // reset=>resetPassword
           original_password:'မူရင်း စကားဝှက်ကို ထည့်ပါ...',
