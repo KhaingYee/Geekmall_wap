@@ -1,12 +1,12 @@
 <template>
   <div class="box">
-      <div v-title data-title="我要开店">我要开店</div>
+      <div v-title data-title="我要开店">{{$t('message.openshop')}}</div>
       <top-header :text = "title"></top-header>
       <div class="icon">
           <img :src="shopImg" alt="">
       </div>
-      <button class="btn" @click="initAgreement">填写资料，马上开店</button>
-      <button @click="must">开店须知/入驻进度查询</button>
+      <button class="btn" @click="initAgreement">{{$t('message.open_store')}}</button>
+      <button @click="must">{{$t('message.checking_progress')}}</button>
   </div>
 </template>
 <script>
@@ -14,7 +14,7 @@ import topHeader from '@/components/page/children/header.vue';
 export default {
   data () {
       return {
-          title:'我要开店',
+          title:this.$t('message.openshop'),
           shopImg:require("@/assets/images/zy.png")
       }
   },

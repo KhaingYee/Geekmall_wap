@@ -1,27 +1,27 @@
 <template>
   <div class="box">
-      <div v-title data-title="我要开店">我要开店</div>
+      <div v-title data-title="我要开店">{{$t('message.openshop')}}</div>
       <top-header :text = "title"></top-header>
       <div class="boxChild">
-            <h4>《诚信经营承诺书》</h4>
+            <h4>《{{$t('message.integrity_commitment')}}》</h4>
             <p>{{agreementContent1}}</p>
       </div> 
       <header>
             <img v-if="promise" class="okPng" @click="promiseClick" :src="xuanzhong" alt="">
             <div v-if="!promise"  class="noPng" @click="promiseClick"></div>
-          <div @click="detailFun('诚信经营承诺书')">查看详情<img class="rightImg" :src="rightImgs" alt=""></div>
+          <div @click="detailFun('诚信经营承诺书')">{{$t('message.check_etails')}}<img class="rightImg" :src="rightImgs" alt=""></div>
       </header>
        <div class="boxChild">
-            <h4>《入驻协议》</h4>
+            <h4>《{{$t('message.qccupancy')}}》</h4>
             <p>{{agreementContent2}}</p>
       </div>
        <header>
             <img v-if="settled" class="okPng" @click="settledClick" :src="xuanzhong" alt="">
             <div v-if="!settled" @click="settledClick"  class="noPng"></div>
-            <div @click="detailFun('入驻协议')">查看详情<img class="rightImg" :src="rightImgs" alt=""></div>
+            <div @click="detailFun('入驻协议')">{{$t('message.check_etails')}}<img class="rightImg" :src="rightImgs" alt=""></div>
       </header>
-      <button class="btnOk button1"  @click="admission('q')">企业入驻</button>
-      <button class="btnNo button2" @click="admission('g')">个人入驻</button>
+      <button class="btnOk button1"  @click="admission('q')">{{$t('message.enterprise_settled')}}</button>
+      <button class="btnNo button2" @click="admission('g')">{{$t('message.settlein')}}</button>
   </div>
 </template>
 <script>
@@ -31,7 +31,7 @@ import topHeader from '@/components/page/children/header.vue';
 export default {
   data () {
       return {
-          title:'入驻协议',
+          title:this.$t('message.qccupancy'),
           rightImgs:require('@/assets/images/right-icon.png'),
           xuanzhong:require('@/assets/images/XIEYI.png'),
           promise:false,

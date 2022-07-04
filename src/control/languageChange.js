@@ -429,6 +429,15 @@ const messages = {
         phoneNum:'Please enter your phone number',
         referral_code:'Optional referral code',
         have_account:'have an account',
+        // shopOpen
+        open_store:'Fill in the information and open the store immediately',
+        checking_progress:'Instructions for opening a store / Checking in progress',
+        // settledAgreement
+        integrity_commitment:'Integrity Management Commitment',
+        check_etails:'check the details',
+        qccupancy:'Occupancy agreement',
+        enterprise_settled:'Enterprise settled',
+        settlein:'Individual settle in',
       }
     },
     Chinese: {
@@ -858,6 +867,15 @@ const messages = {
         phoneNum:'请输入电话号码',
         referral_code:'选填推荐码',
         have_account:'已有账号',
+        // shopOpen
+        open_store:'填写资料，马上开店',
+        checking_progress:'开店须知/入驻进度查询',
+        // settledAgreement
+        integrity_commitment:'诚信经营承诺书',
+        check_etails:'查看详情',
+        qccupancy:'入驻协议',
+        enterprise_settled:'企业入驻',
+        settlein:'个人入驻',
       }
     },
     Myanmar: {
@@ -1287,6 +1305,15 @@ const messages = {
           phoneNum:'ဖုန်းနံပါတ် ထည့်ပါ',
           referral_code:'ရွေးချယ်နိုင်သော ရည်ညွှန်းကုဒ်',
           have_account:'အကောင့်တစ်ခုရှိသည်',
+          // shopOpen
+          open_store:'အချက်အလက်ဖြည့်ပြီး ဆိုင်ကို ချက်ချင်းဖွင့်ပါ',
+          checking_progress:'စတိုးဆိုင်ဖွင့်ရန် ညွှန်ကြားချက်များ / စစ်ဆေးနေဆဲဖြစ်သည်',
+          // settledAgreement
+          integrity_commitment:'Integrity Management ကတိကဝတ်',
+          check_etails:'အသေးစိတ်ကိုစစ်ဆေးပါ',
+          qccupancy:'နေထိုင်မှုသဘောတူညီချက်',
+          enterprise_settled:'လုပ်ငန်းအခြေချခဲ့သည်',
+          settlein:'တစ်ဦးချင်း အခြေချနေထိုင်ပါ',
           }
     }
   };
