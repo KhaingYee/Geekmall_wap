@@ -438,6 +438,22 @@ const messages = {
         qccupancy:'Occupancy agreement',
         enterprise_settled:'Enterprise settled',
         settlein:'Individual settle in',
+        // company/addinformation
+        shop_name:'shop name',
+        enter_store:'Please enter store name...',
+        company_name:'Company Name',
+        enter_company:'Please enter company name...',
+        select_address:'Please select your address...',
+        company_phone:'company phone',
+        enter_mobilephone:'Please enter company phone number...',
+        registered_capital:'registered capital',
+        enter_capital:'Please enter registered capital...',
+        contact_name:'Contact name',
+        enter_real:'please enter your real name...',
+        contact_phone:'contact phone',
+        enter_number:'Please enter contact phone number...',
+        next_submit:'Submit the above information and fill out the next page',
+        fill_information:'Fill in the entry information',
       }
     },
     Chinese: {
@@ -876,6 +892,22 @@ const messages = {
         qccupancy:'入驻协议',
         enterprise_settled:'企业入驻',
         settlein:'个人入驻',
+        // company/addinformation
+        shop_name:'店铺名称',
+        enter_store:'请输入店铺名称...',
+        company_name:'公司名称',
+        enter_company:'请输入公司名称...',
+        select_address:'请选择所在地址...',
+        company_phone:'公司电话',
+        enter_mobilephone:'请输入公司电话...',
+        registered_capital:'注册资金',
+        enter_capital:'请输入注册资金...',
+        contact_name:'联系人姓名',
+        enter_real:'请输入真实姓名...',
+        contact_phone:'联系人手机',
+        enter_number:'请输入联系人电话...',
+        next_submit:'提交以上信息，并填写下一页',
+        fill_information:'填写入驻资料',
       }
     },
     Myanmar: {
@@ -1314,6 +1346,22 @@ const messages = {
           qccupancy:'နေထိုင်မှုသဘောတူညီချက်',
           enterprise_settled:'လုပ်ငန်းအခြေချခဲ့သည်',
           settlein:'တစ်ဦးချင်း အခြေချနေထိုင်ပါ',
+          // company/addinformation
+          shop_name:'ဆိုင်နာမည်',
+          enter_store:'ဆိုင်နာမည်ထည့်ပါ...',
+          company_name:'ကုမ္ပဏီအမည်',
+          enter_company:'ကုမ္ပဏီအမည်ကို ထည့်ပါ...',
+          select_address:'သင့်လိပ်စာကို ရွေးချယ်ပါ...',
+          company_phone:'ကုမ္ပဏီဖုန်း',
+          enter_mobilephone:'ကုမ္ပဏီဖုန်းနံပါတ်ထည့်ပါ...',
+          registered_capital:'မှတ်ပုံတင်မြို့တော်',
+          enter_capital:'မှတ်ပုံတင်ထားသော အရင်းအနှီးထည့်ပါ...',
+          contact_name:'ဆက်သွယ်ရန်အမည်',
+          enter_real:'ကျေးဇူးပြု၍ သင့်အမည်ရင်းကို ထည့်ပါ...',
+          contact_phone:'ဆက်သွယ်ရန်ဖုန်း',
+          enter_number:'ဆက်​သွယ်​ရန်​ဖုန်းနံပါတ်​ထည့်​ပါ...',
+          next_submit:'အထက်ဖော်ပြပါ အချက်အလက်များကို တင်ပြပြီး နောက်စာမျက်နှာတွင် ဖြည့်စွက်ပါ',
+          fill_information:'ဝင်ခွင့်အချက်အလက်ကို ဖြည့်ပါ',
           }
     }
   };

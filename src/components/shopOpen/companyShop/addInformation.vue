@@ -1,42 +1,42 @@
 <template>
 	<div>
-		<div v-title data-title="我要开店">我要开店</div>
+		<div v-title data-title="我要开店">{{$t('message.openshop')}}</div>
 		<top-header :text="title"></top-header>
 		<con-header :text="text[0]"></con-header>
 		<ul class="per-center">
 			<li>
-				<span class="span"> 店铺名称</span><input type="text" placeholder="请输入店铺名称..." v-model="store_name">
+				<span class="span"> {{$t('message.shop_name')}}</span><input type="text" :placeholder="$t('message.enter_store')" v-model="store_name">
 			</li>
 			<li>
-				<span class="span"> 公司名称</span><input type="text" placeholder="请输入公司名称..." v-model="company_name">
+				<span class="span"> {{$t('message.company_name')}}</span><input type="text" :placeholder="$t('message.enter_company')" v-model="company_name">
 			</li>
 			<li @click="callingArea">
 				<!-- <a href="javascript:;">-->
-				<span class="span"> 所在地区:</span>
-				<input type="text" v-model="data.addressAll" disabled placeholder="请选择所在地址...">
+				<span class="span"> {{$t('message.your_area')}}:</span>
+				<input type="text" v-model="data.addressAll" disabled :placeholder="$t('message.select_address')">
 				<img class="rightImg" src="../../../assets/images/right-icon.png" alt="">
 				<!--</a>-->
 			</li>
 			<li>
-				<span class="span"> 详细地址:</span><input type="text" placeholder="请输入详细地址..." v-model="address">
+				<span class="span"> {{$t('message.Address_label')}}:</span><input type="text" :placeholder="$t('message.enter_address')" v-model="address">  
 			</li>
 			<li>
-				<span class="span"> 公司电话:</span><input type="tel" placeholder="请输入公司电话..." v-model="company_mobile">
+				<span class="span"> {{$t('message.company_phone')}}:</span><input type="tel" :placeholder="$t('message.enter_mobilephone')" v-model="company_mobile">
 			</li>
 			<li>
-				<span class="span"> 注册资金:</span><input type="tel" placeholder="请输入注册资金..." v-model="registered_capital">
+				<span class="span"> {{$t('message.registered_capital')}}:</span><input type="tel" :placeholder="$t('message.enter_capital')" v-model="registered_capital">
 			</li>
 			<li>
-				<span class="span"> 联系人姓名:</span><input type="text" placeholder="请输入真实姓名" v-model="name">
+				<span class="span"> {{$t('message.contact_name')}}:</span><input type="text" :placeholder="$t('message.enter_real')" v-model="name">
 			</li>
 			<li>
-				<span class="span"> 联系人手机:</span><input type="tel" placeholder="请输入联系人电话..." v-model="mobile"  oninput="if(value.length > 11)value=value.slice(0, 11)">
+				<span class="span"> {{$t('message.contact_phone')}}:</span><input type="tel" :placeholder="$t('message.enter_number')" v-model="mobile"  oninput="if(value.length > 11)value=value.slice(0, 11)">
 			</li>
 		</ul>
 		<mt-popup v-model="popupVisible" position="bottom" class="mint-popup-4">
 			<div class="picker-toolbar">
-				<span class="mint-datetime-action mint-datetime-cancel" @click="cancleaddress">取消</span>
-				<span class="mint-datetime-action mint-datetime-confirm" @click="selectaddress">确定</span>
+				<span class="mint-datetime-action mint-datetime-cancel" @click="cancleaddress">{{$t('message.cancel')}}</span>
+				<span class="mint-datetime-action mint-datetime-confirm" @click="selectaddress">{{$t('message.sure')}}</span>
 			</div>
 			<div class="select">
 				<ul class="address-area-tit">
@@ -65,7 +65,7 @@
 				</ul>
 			</div>
 		</mt-popup>
-		<button @click="nextinfor">提交以上信息，并填写下一页</button>
+		<button @click="nextinfor">{{$t('message.next_submit')}}</button>
 	</div>
 </template>
 <script>
@@ -76,7 +76,7 @@
 	export default {
 		data() {
 			return {
-				title: '填写入驻资料',
+				title: this.$t('message.fill_information'),
 				text: ['开户银行信息'],
 				store_name:'',
 				company_name: "",
@@ -109,10 +109,10 @@
 				choiceCity: false, // 市按钮的显示隐藏
 				choiceArea: false, // 区按钮的显示隐藏
 				choiceStreet: false,
-				province: '请选择', // 选中的省
-				city: '请选择', // 选中的市
-				area: '请选择', // 选中的区
-				street: '请选择', //选中的街道
+				province: this.$t('message.please_choose'), // 选中的省  
+				city: this.$t('message.please_choose'), // 选中的市
+				area: this.$t('message.please_choose'), // 选中的区
+				street: this.$t('message.please_choose'), //选中的街道
 				showProvince: true, // 省选择的显示隐藏
 				showCity: false, // 市选择的显示隐藏
 				showArea: false, // 区选择的显示隐藏
@@ -125,7 +125,7 @@
 				cityIndex: -1,
 				areaIndex: -1,
 				streetIndex: -1,
-				choiceAreaCon: '请选择地区',
+				choiceAreaCon: this.$t('message.select_region'),
 				shopInfo:{}
 			}
 		},
