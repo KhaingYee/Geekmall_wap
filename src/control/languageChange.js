@@ -467,6 +467,13 @@ const messages = {
         submit_next:'Submit the above information and fill in the next page',
         business_license:'business license',
         verbatim_certificate:'Fill in verbatim according to the content on the certificate',
+        // organizationPhotos
+        organization_code: 'Organization Code',
+        Organization_certificate: 'Organization code certificate electronic version',
+        more_than: 'It is recommended to use 4:3 images in jpg, gif, and png format, and the size of the image should not exceed 1M. more than 2M',
+        taxpayer_certificate: 'General taxpayer certificate',
+        upload_organization: 'Enterprise three-in-one business license upload without organization code',
+        enterprise: 'This item is required when the affiliated enterprise has a general taxpayer certificate',
       }
     },
     Chinese: {
@@ -934,6 +941,13 @@ const messages = {
         submit_next:'提交以上信息,并填写下一页',
         business_license:'企业营业执照',
         verbatim_certificate:'按照证书上的内容逐字填写',
+        // organizationPhotos
+        organization_code: '组织机构代码',
+        Organization_certificate: '组织机构代码证电子版',
+        more_than: '图片建议使用4：3的jpg、gif、png格式的图片，并且图片大小不得超过1M营业执照、住址机构代码证、税务登记证三证合一jpg、gif、png格式的图片， 并且图片大小不得超过2M',
+        taxpayer_certificate: '一般纳税人证明',
+        upload_organization: '企业三证合一没有组织机构代码的上传营业执照',
+        enterprise: '所属企业具有一般纳税人证明时，此项必填',
       }
     },
     Myanmar: {
@@ -1401,6 +1415,13 @@ const messages = {
           submit_next:'အထက်ဖော်ပြပါအချက်အလက်များကို တင်ပြပြီး နောက်စာမျက်နှာတွင် ဖြည့်စွက်ပါ',
           business_license:'လုပ်ငန်းလိုင်စင်',
           verbatim_certificate:'လက်မှတ်ပေါ်ရှိ အကြောင်းအရာအလိုက် စကားအပြောအဆိုကို ဖြည့်ပါ',
+          // organizationPhotos
+          organization_code: 'အဖွဲ့အစည်းကုဒ်',
+          Organization_certificate: 'အဖွဲ့အစည်းကုဒ်လက်မှတ် အီလက်ထရွန်းနစ်ဗားရှင်း',
+          more_than: '4:3 ပုံများကို jpg၊ gif နှင့် png ဖော်မတ်ဖြင့် အသုံးပြုရန် အကြံပြုထားပြီး၊ ပုံ၏အရွယ်အစားသည် 1M ထက်မပိုသင့်ပါ။ 2M ထက်မပိုသင့်ပါ',
+          taxpayer_certificate: 'အထွေထွေအခွန်ထမ်းလက်မှတ်',
+          upload_organization: 'အဖွဲ့အစည်းကုဒ်မပါဘဲ လုပ်ငန်းသုံးမျိုးတွင် လုပ်ငန်းလိုင်စင်ကို အပ်လုဒ်လုပ်ပါ',
+          enterprise: 'တွဲဖက်လုပ်ငန်းတွင် အထွေထွေအခွန်ထမ်းသက်သေခံလက်မှတ်ရှိသည့်အခါ ဤအရာကို လိုအပ်ပါသည်',
           }
     }
   };

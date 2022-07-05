@@ -1,15 +1,15 @@
 <template>
 	<div v-loading="loading" element-loading-text="上传中……" element-loading-background="hsla(0,0%,100%,.9)">
-		<div v-title data-title="我要开店">我要开店</div>
+		<div v-title data-title="我要开店">{{$t('message.openshop')}}</div>
 		<top-header :text="title"></top-header>
 		<con-header :text="text[0]" :prompt="prompt"></con-header>
 		<ul class="per-center">
 			<li>
-				<span> 组织机构代码:</span><input type="text" placeholder="请输入营业执照号..." v-model="organization_code">
+				<span> {{$t('message.organization_code')}}:</span><input type="text" :placeholder="$t('message.license_number')" v-model="organization_code">
 			</li>
 		</ul>
 		<div class="idPhotos">
-			<h4>组织机构代码证电子版：</h4>
+			<h4>{{$t('message.Organization_certificate')}}：</h4>
 			<div>
 				<div>
 					<input type="file" @change="orange($event)" v-if="!organization_electronic" class="file" />
@@ -19,7 +19,7 @@
 				<div></div> -->
 			</div>
 			<p>
-				图片建议使用4：3的jpg、gif、png格式的图片，并且图片大小不得超过1M营业执照、住址机构代码证、税务登记证三证合一jpg、gif、png格式的图片， 并且图片大小不得超过2M
+				{{$t('message.more_than')}}
 			</p>
 		</div>
 		<con-header :text="text[1]" :prompt="prompt2"></con-header>
@@ -34,10 +34,10 @@
 				<div></div> -->
 			</div>
 			<p>
-				图片建议使用4：3的jpg、gif、png格式的图片，并且图片大小不得超过1M营业执照、住址机构代码证、税务登记证三证合一jpg、gif、png格式的图片， 并且图片大小不得超过2M
+				{{$t('message.more_than')}}
 			</p>
 		</div>
-		<button @click="nextinfor">提交以上信息，并填写下一页</button>
+		<button @click="nextinfor">{{$t('message.next_submit')}}</button>
 	</div>
 </template>
 
@@ -54,10 +54,10 @@
 	export default {
 		data() {
 			return {
-				title: '填写入驻资料',
-				text: ['组织机构代码', '一般纳税人证明'],
-				prompt: "(企业三证合一没有组织机构代码的上传营业执照)",
-				prompt2: "(所属企业具有一般纳税人证明时，此项必填)",
+				title: this.$t('message.fill_information'),
+				text: [this.$t('message.organization_code'), this.$t('message.taxpayer_certificate')],
+				prompt: "("+this.$t('message.upload_organization')+")",
+				prompt2: "("+this.$t('message.enterprise')+")",
 				organization_code: '',
 				organization_electronic: '',
 				taxpayer_certificate: '',
@@ -369,7 +369,9 @@
 		border: 0;
 		width: 710/100rem;
 		outline: none;
-		font-size: 32/100rem
+		font-size: 32/100rem;
+		line-height: .4rem;
+		padding: 0 .1rem;
 	}
 	
 	p {
