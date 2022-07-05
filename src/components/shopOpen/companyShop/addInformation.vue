@@ -77,7 +77,7 @@
 		data() {
 			return {
 				title: this.$t('message.fill_information'),
-				text: ['开户银行信息'],
+				text: [this.$t('message.account_opening')],
 				store_name:'',
 				company_name: "",
 				company_mobile: "",
@@ -391,7 +391,9 @@
 		border: 0;
 		width: 710/100rem;
 		outline: none;
-		font-size: 32/100rem
+		font-size: 28/100rem;
+		padding: 0 .1rem;
+		line-height: .4rem;
 	}
 	
 	.mint-popup-bottom {

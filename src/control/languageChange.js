@@ -454,6 +454,7 @@ const messages = {
         enter_number:'Please enter contact phone number...',
         next_submit:'Submit the above information and fill out the next page',
         fill_information:'Fill in the entry information',
+        account_opening:'Account opening bank information',
       }
     },
     Chinese: {
@@ -908,6 +909,7 @@ const messages = {
         enter_number:'请输入联系人电话...',
         next_submit:'提交以上信息，并填写下一页',
         fill_information:'填写入驻资料',
+        account_opening:'开户银行信息',
       }
     },
     Myanmar: {
@@ -1362,6 +1364,7 @@ const messages = {
           enter_number:'ဆက်​သွယ်​ရန်​ဖုန်းနံပါတ်​ထည့်​ပါ...',
           next_submit:'အထက်ဖော်ပြပါ အချက်အလက်များကို တင်ပြပြီး နောက်စာမျက်နှာတွင် ဖြည့်စွက်ပါ',
           fill_information:'ဝင်ခွင့်အချက်အလက်ကို ဖြည့်ပါ',
+          account_opening:'အကောင့်ဖွင့်ဘဏ်အချက်အလက်',
           }
     }
   };
