@@ -350,6 +350,7 @@
 			align-items: center;
 			font-size: 28/100rem;
 			padding: 0 20/100rem;
+			line-height: .4rem;
 			.span {
 				width: 100px;
 				font-size: 32/100rem;

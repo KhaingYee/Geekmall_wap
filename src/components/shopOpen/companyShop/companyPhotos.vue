@@ -1,24 +1,24 @@
 <template>
   <div  v-loading="loading" element-loading-text="上传中……" element-loading-background="hsla(0,0%,100%,.9)">
-    <div v-title data-title="我要开店">我要开店</div>
+    <div v-title data-title="我要开店">{{$t('message.openshop')}}</div> 
     <top-header :text="title"></top-header>
     <con-header :text ="text[0]" :prompt = "prompt"></con-header>
      <ul class="per-center">
          <li>
-            <span> 营业执照号:</span><input class="singo" type="text" placeholder="请输入营业执照号..." v-model="license_number"/>
+            <span> {{$t('message.license_no')}}:</span><input class="singo" type="text" :placeholder="$t('message.license_number')" v-model="license_number"/>
         </li>
         <li>
-            <span> 执照有效期:</span>
-            <input type="date" placeholder="请输入起始日期" v-model="validity_start"/>—
-            <input type="date" placeholder="请输入起始日期" v-model="validity_end"/>
+            <span> {{$t('message.license_validity')}}:</span>
+            <input type="date" :placeholder="$t('message.start_date')" v-model="validity_start"/>—
+            <input type="date" :placeholder="$t('message.start_date')" v-model="validity_end"/>
         </li>
          <li class="businessScope">
-            <span> 法定经营范围:</span>
-            <textarea type="text" placeholder="请输入法定经营范围..." v-model="scope_of_operation"></textarea>
+            <span> {{$t('message.legal_business')}}:</span>
+            <textarea type="text" :placeholder="$t('message.legal_scope')" v-model="scope_of_operation"></textarea>
         </li>
     </ul>
     <div class="idPhotos">
-        <h4>营业执照电子版</h4>
+        <h4>{{$t('message.electronic_license')}}</h4>
         <div>
             <div>
             	<input type="file"  @change="getFile($event)"  v-if="!ImgUrl" class="file"/>
@@ -29,10 +29,10 @@
             <div></div> -->
         </div>
         <p>
-	      	  图片建议使用4：3的jpg、gif、png格式的图片，并且图片大小不得超过1M
+	      	  {{$t('message.recommended_git')}}
         </p>
     </div>
-    <button @click="nextinfor">提交以上信息,并填写下一页</button>
+    <button @click="nextinfor">{{$t('message.submit_next')}}</button>
   </div>
 </template>
 <script>
@@ -43,9 +43,9 @@ import conHeader from '@/com/conHeader'; // 内容头
 export default {
   data () {
       return {
-          title:'填写入驻资料',
-          text:['企业营业执照'],
-          prompt:"(按照证书上的内容逐字填写)",
+          title:this.$t('message.fill_information'),
+          text:[this.$t('message.business_license')],
+          prompt:"("+this.$t('message.verbatim_certificate')+")",
           license_number:'',
           validity_start:'',
           validity_end:"",
@@ -252,6 +252,7 @@ export default {
         align-items: center;
         font-size: 28/100rem;
         padding: 0 20/100rem;
+        line-height: .4rem;
         span{
           width: 100px;
           font-size: 32/100rem;
@@ -325,7 +326,9 @@ export default {
     border:0;
     width:710/100rem;
     outline:none;
-    font-size: 32/100rem
+    font-size: 28/100rem;
+    padding: 0 .1rem;
+	line-height: .4rem;
 }
 p{
     text-align: center;

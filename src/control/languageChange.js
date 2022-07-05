@@ -455,6 +455,18 @@ const messages = {
         next_submit:'Submit the above information and fill out the next page',
         fill_information:'Fill in the entry information',
         account_opening:'Account opening bank information',
+        // companyPhotos
+        license_no:'Business License No',
+        license_number:'Please enter the business license number...',
+        license_validity:'license validity',
+        start_date:'Please enter a start date',
+        legal_business:'Legal business scope',
+        legal_scope:'Please enter legal business scope...',
+        electronic_license:'Electronic version of business license',
+        recommended_git:'It is recommended to use 4:3 jpg, gif, png format pictures, and the picture size should not exceed 1M',
+        submit_next:'Submit the above information and fill in the next page',
+        business_license:'business license',
+        verbatim_certificate:'Fill in verbatim according to the content on the certificate',
       }
     },
     Chinese: {
@@ -910,6 +922,18 @@ const messages = {
         next_submit:'提交以上信息，并填写下一页',
         fill_information:'填写入驻资料',
         account_opening:'开户银行信息',
+        // companyPhotos
+        license_no:'营业执照号',
+        license_number:'请输入营业执照号...',
+        license_validity:'执照有效期',
+        start_date:'请输入起始日期',
+        legal_business:'法定经营范围',
+        legal_scope:'请输入法定经营范围...',
+        electronic_license:'营业执照电子版',
+        recommended_git:'图片建议使用4：3的jpg、gif、png格式的图片，并且图片大小不得超过1M',
+        submit_next:'提交以上信息,并填写下一页',
+        business_license:'企业营业执照',
+        verbatim_certificate:'按照证书上的内容逐字填写',
       }
     },
     Myanmar: {
@@ -1356,15 +1380,27 @@ const messages = {
           select_address:'သင့်လိပ်စာကို ရွေးချယ်ပါ...',
           company_phone:'ကုမ္ပဏီဖုန်း',
           enter_mobilephone:'ကုမ္ပဏီဖုန်းနံပါတ်ထည့်ပါ...',
-          registered_capital:'မှတ်ပုံတင်မြို့တော်',
+          registered_capital:'မှတ်ပုံတင်',
           enter_capital:'မှတ်ပုံတင်ထားသော အရင်းအနှီးထည့်ပါ...',
-          contact_name:'ဆက်သွယ်ရန်အမည်',
+          contact_name:'ဆက်သွယ်ရန် အမည်',
           enter_real:'ကျေးဇူးပြု၍ သင့်အမည်ရင်းကို ထည့်ပါ...',
-          contact_phone:'ဆက်သွယ်ရန်ဖုန်း',
+          contact_phone:'ဆက်သွယ်ရန် ဖုန်း',
           enter_number:'ဆက်​သွယ်​ရန်​ဖုန်းနံပါတ်​ထည့်​ပါ...',
           next_submit:'အထက်ဖော်ပြပါ အချက်အလက်များကို တင်ပြပြီး နောက်စာမျက်နှာတွင် ဖြည့်စွက်ပါ',
           fill_information:'ဝင်ခွင့်အချက်အလက်ကို ဖြည့်ပါ',
           account_opening:'အကောင့်ဖွင့်ဘဏ်အချက်အလက်',
+          // companyPhotos
+          license_no:'လုပ်ငန်းလိုင်စင် အမှတ်',
+          license_number:'လုပ်ငန်းလိုင်စင်နံပါတ်ကို ထည့်ပါ...',
+          license_validity:'လိုင်စင် သက်တမ်း',
+          start_date:'ကျေးဇူးပြု၍ စတင်မည့်ရက်စွဲကို ထည့်ပါ',
+          legal_business:'တရားဝင်စီးပွားရေးနယ်ပယ်',
+          legal_scope:'ကျေးဇူးပြု၍ တရားဝင်လုပ်ငန်းနယ်ပယ်ကို ထည့်သွင်းပါ...',
+          electronic_license:'လုပ်ငန်းလိုင်စင်၏ အီလက်ထရွန်းနစ်ဗားရှင်း',
+          recommended_git:'4:3 jpg၊ gif၊ png ဖော်မတ်ပုံများကို အသုံးပြုရန် အကြံပြုထားပြီး ပုံအရွယ်အစားသည် 1M ထက်မပိုသင့်ပါ',
+          submit_next:'အထက်ဖော်ပြပါအချက်အလက်များကို တင်ပြပြီး နောက်စာမျက်နှာတွင် ဖြည့်စွက်ပါ',
+          business_license:'လုပ်ငန်းလိုင်စင်',
+          verbatim_certificate:'လက်မှတ်ပေါ်ရှိ အကြောင်းအရာအလိုက် စကားအပြောအဆိုကို ဖြည့်ပါ',
           }
     }
   };
