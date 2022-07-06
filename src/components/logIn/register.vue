@@ -2,7 +2,7 @@
     <div class="register-wrap">
         <div v-title data-title="注册">{{$t('message.register')}}</div>
         <header class="logoIn-header">
-           <span @click="remove" class="btn-back">{{$t('message.cancel')}}</span>{{title}}
+           <span @click="remove" class="btn-back">{{$t('message.search_cancel')}}</span>{{title}}
         </header>
         <div class="from">
             <div class="input-main userName">
@@ -274,7 +274,7 @@
                 font-size:.28rem;
                 color:#999;
                 position:absolute;
-                left:-.6rem;
+                left:-.7rem;
                 top:0;
             }
         }

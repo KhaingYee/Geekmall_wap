@@ -57,7 +57,7 @@
 				title: this.$t('message.fill_information'),
 				text: [this.$t('message.organization_code'), this.$t('message.taxpayer_certificate')],
 				prompt: "("+this.$t('message.upload_organization')+")",
-				prompt2: "("+this.$t('message.enterprise')+")",
+				prompt2: "("+this.$t('message.enterprise_certificate')+")",
 				organization_code: '',
 				organization_electronic: '',
 				taxpayer_certificate: '',

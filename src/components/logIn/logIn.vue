@@ -3,7 +3,7 @@
         <div v-title data-title="登录">{{$t('message.log_in')}}</div>
         <div>
             <header class="logoIn-header">
-                <span @click="remove" class="btn-back">{{$t('message.cancel')}}</span>{{title}}
+                <span @click="remove" class="btn-back">{{$t('message.search_cancel')}}</span>{{title}}
             </header>
             <div class="from">
                 <div class="input-main userName" v-if="$store.state.loginMethod == 0">
@@ -575,7 +575,7 @@
                 font-size:.28rem;
                 color:#999;
                 position:absolute;
-                left:-.6rem;
+                left:-.7rem;
                 top:0;
             }
         }

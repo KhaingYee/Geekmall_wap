@@ -473,7 +473,7 @@ const messages = {
         more_than: 'It is recommended to use 4:3 images in jpg, gif, and png format, and the size of the image should not exceed 1M. more than 2M',
         taxpayer_certificate: 'General taxpayer certificate',
         upload_organization: 'Enterprise three-in-one business license upload without organization code',
-        enterprise: 'This item is required when the affiliated enterprise has a general taxpayer certificate',
+        enterprise_certificate: 'This item is required when the affiliated enterprise has a general taxpayer certificate',
       }
     },
     Chinese: {
@@ -947,7 +947,7 @@ const messages = {
         more_than: '图片建议使用4：3的jpg、gif、png格式的图片，并且图片大小不得超过1M营业执照、住址机构代码证、税务登记证三证合一jpg、gif、png格式的图片， 并且图片大小不得超过2M',
         taxpayer_certificate: '一般纳税人证明',
         upload_organization: '企业三证合一没有组织机构代码的上传营业执照',
-        enterprise: '所属企业具有一般纳税人证明时，此项必填',
+        enterprise_certificate: '所属企业具有一般纳税人证明时，此项必填',
       }
     },
     Myanmar: {
@@ -1368,7 +1368,7 @@ const messages = {
           emailaddress:'ကျေးဇူးပြု၍ အီးမေးလ်လိပ်စာကို ထည့်သွင်းပါ',
           verification_code:'ကျေးဇူးပြု၍ အတည်ပြုကုဒ်ကို ထည့်ပါ',
           forgot_password:'စကားဝှက်ကိုမေ့နေပါသလား',
-          SMS_verification:'SMS အတည်ပြုခြင်း အကောင့်ဝင်ပါ',
+          SMS_verification:'SMSဖြင့် အတည်ပြုပြီး အကောင့်ဝင်ပါ',
           // retrievePassword
           enter_ver:'အတည်ပြုကုဒ်ကို ထည့်ပါ',
           // register
@@ -1383,9 +1383,9 @@ const messages = {
           // settledAgreement
           integrity_commitment:'Integrity Management ကတိကဝတ်',
           check_etails:'အသေးစိတ်ကိုစစ်ဆေးပါ',
-          qccupancy:'နေထိုင်မှုသဘောတူညီချက်',
-          enterprise_settled:'လုပ်ငန်းအခြေချခဲ့သည်',
-          settlein:'တစ်ဦးချင်း အခြေချနေထိုင်ပါ',
+          qccupancy:'ဆိုင်ဖွင့်ရန်သဘောတူညီချက်',
+          enterprise_settled:'လုပ်ငန်းစတင်ရန်',
+          settlein:'တစ်ဦးချင်း စတင်ရန်',
           // company/addinformation
           shop_name:'ဆိုင်နာမည်',
           enter_store:'ဆိုင်နာမည်ထည့်ပါ...',
@@ -1394,7 +1394,7 @@ const messages = {
           select_address:'သင့်လိပ်စာကို ရွေးချယ်ပါ...',
           company_phone:'ကုမ္ပဏီဖုန်း',
           enter_mobilephone:'ကုမ္ပဏီဖုန်းနံပါတ်ထည့်ပါ...',
-          registered_capital:'မှတ်ပုံတင်',
+          registered_capital:'အရင်းအနှီး မှတ်ပုံတင်ရန်',
           enter_capital:'မှတ်ပုံတင်ထားသော အရင်းအနှီးထည့်ပါ...',
           contact_name:'ဆက်သွယ်ရန် အမည်',
           enter_real:'ကျေးဇူးပြု၍ သင့်အမည်ရင်းကို ထည့်ပါ...',
@@ -1421,7 +1421,7 @@ const messages = {
           more_than: '4:3 ပုံများကို jpg၊ gif နှင့် png ဖော်မတ်ဖြင့် အသုံးပြုရန် အကြံပြုထားပြီး၊ ပုံ၏အရွယ်အစားသည် 1M ထက်မပိုသင့်ပါ။ 2M ထက်မပိုသင့်ပါ',
           taxpayer_certificate: 'အထွေထွေအခွန်ထမ်းလက်မှတ်',
           upload_organization: 'အဖွဲ့အစည်းကုဒ်မပါဘဲ လုပ်ငန်းသုံးမျိုးတွင် လုပ်ငန်းလိုင်စင်ကို အပ်လုဒ်လုပ်ပါ',
-          enterprise: 'တွဲဖက်လုပ်ငန်းတွင် အထွေထွေအခွန်ထမ်းသက်သေခံလက်မှတ်ရှိသည့်အခါ ဤအရာကို လိုအပ်ပါသည်',
+          enterprise_certificate: 'တွဲဖက်လုပ်ငန်းတွင် အထွေထွေအခွန်ထမ်းသက်သေခံလက်မှတ်ရှိသည့်အခါ ဤအရာကို လိုအပ်ပါသည်',
           }
     }
   };
