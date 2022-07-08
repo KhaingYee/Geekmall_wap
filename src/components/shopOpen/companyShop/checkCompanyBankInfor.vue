@@ -1,48 +1,48 @@
 <template>
 	<div v-loading="loading" element-loading-text="上传中……" element-loading-background="hsla(0,0%,100%,.9)">
-		<div v-title data-title="我要开店">我要开店</div>
+		<div v-title data-title="我要开店">{{$t('message.openshop')}}</div>
 		<top-header :text="title"></top-header>
 		<con-header :text="text[0]"></con-header>
 		<ul class="per-center">
 			<li>
-				<span> 账户开户名:</span><input type="text" placeholder="请输入银行开户名..." v-model="account_name">
+				<span> {{$t('message.opening_name')}}:</span><input type="text" :placeholder="$t('message.account_name')" v-model="account_name">
 			</li>
 			<li>
-				<span> 公司银行账户:</span><input type="text" placeholder="请输入公司银行账户..." v-model="company_account">
+				<span> {{$t('message.bank_account')}}:</span><input type="text" :placeholder="$t('message.enter_bank')" v-model="company_account">
 			</li>
 			<li>
-				<span> 开户支行:</span><input type="text" placeholder="请输入开户支行..." v-model="branch_bank">
+				<span> {{$t('message.opening_branch')}}:</span><input type="text" :placeholder="$t('message.enter_branch')" v-model="branch_bank">
 			</li>
 		</ul>
 		<con-header :text="text[1]"></con-header>
 		<ul class="per-center">
 			<li>
-				<span> 账户开户名:</span><input type="text" placeholder="请输入银行开户名..." v-model="settle_name">
+				<span> {{$t('message.opening_name')}}:</span><input type="text" :placeholder="$t('message.account_name')" v-model="settle_name">
 			</li>
 			<li>
-				<span> 公司银行账户:</span><input type="text" placeholder="请输入公司银行账户..." v-model="settle_account">
+				<span> {{$t('message.bank_account')}}:</span><input type="text" :placeholder="$t('message.enter_bank')" v-model="settle_account">
 			</li>
 			<li>
-				<span> 开户支行:</span><input type="text" placeholder="请输入开户支行..." v-model="settle_number">
+				<span> {{$t('message.opening_branch')}}:</span><input type="text" :placeholder="$t('message.enter_branch')" v-model="settle_number">
 			</li>
 		</ul>
 		<con-header :text="text[2]"></con-header>
 		<ul class="per-center">
 			<li>
-				<span>微信:</span><input type="text" placeholder="请输入微信号码" v-model="wechatNum">
+				<span>{{$t('message.company_weChat')}}:</span><input type="text" :placeholder="$t('message.weChat_ID')" v-model="wechatNum">
 			</li>
 			<li>
-				<span> 支付宝:</span><input type="text" placeholder="请输入支付宝号码" v-model="alipayNum">
+				<span> {{$t('message.Alipay')}}:</span><input type="text" :placeholder="$t('message.Alipay_number')" v-model="alipayNum">
 			</li>
 		</ul>
 		<con-header :text="text[3]"></con-header>
 		<ul class="per-center">
 			<li>
-				<span> 税务登记证号:</span><input type="text" placeholder="请输入税务登记证号..." v-model="certificate_number">
+				<span> {{$t('message.registration_code')}}:</span><input type="text" :placeholder="$t('message.registration_number')" v-model="certificate_number">
 			</li>
 		</ul>
 		<div class="idPhotos">
-			<h4>税务登记证号电子版：</h4>
+			<h4>{{$t('message.certificate_number')}}：</h4>
 			<div>
 				<div>
 					<input type="file" @change="iphoneS($event)" v-if="!registration_electronic" class="file" />
@@ -50,7 +50,7 @@
 				</div>
 			</div>
 		</div>
-		<button @click="nextinfor">提交以上信息，并填写下一页</button>
+		<button @click="nextinfor">{{$t('message.next_submit')}}</button>
 	</div>
 </template>
 
@@ -67,10 +67,10 @@
 	export default {
 		data() {
 			return {
-				title: '填写入驻资料',
-				text: ['结算（银行卡）账户信息', '结算账户信息', '打款帐号', '税务登记证'],
-				prompt: "(企业三证合一没有组织机构代码的上传营业执照)",
-				prompt2: "(所属企业具有一般纳税人证明时，此项必填)",
+				title: this.$t('message.fill_information'),
+				text: [this.$t('message.settlement_account'), this.$t('message.billing_account'), this.$t('message.payment_account'), this.$t('message.tax_registration')],
+				prompt: this.$t('message.upload_organization'),
+				prompt2: this.$t('message.enterprise_certificate'),
 				account_name: '',
 				company_account: '',
 				branch_bank: "",
@@ -311,9 +311,10 @@
 			align-items: center;
 			font-size: 28/100rem;
 			padding: 0 20/100rem;
+			line-height: .4rem;
 			span {
 				width: 130px;
-				font-size: 32/100rem;
+				font-size: 28/100rem;
 				color: #BDBDBD
 			}
 			input {
@@ -321,7 +322,7 @@
 				height: 90/100rem;
 				border: 0;
 				font-size: 28/100rem;
-				padding-left: 30/100rem;
+				padding-left: 25/100rem;
 				box-sizing: border-box
 			}
 			div {
@@ -375,7 +376,9 @@
 		border: 0;
 		width: 710/100rem;
 		outline: none;
-		font-size: 32/100rem
+		font-size: 32/100rem;
+		line-height: .4rem;
+		padding: 0 .1rem;
 	}
 	
 	p {
