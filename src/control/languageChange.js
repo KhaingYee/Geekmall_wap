@@ -470,7 +470,7 @@ const messages = {
         // organizationPhotos
         organization_code: 'Organization Code',
         Organization_certificate: 'Organization code certificate electronic version',
-        more_than: 'It is recommended to use 4:3 images in jpg, gif, and png format, and the size of the image should not exceed 1M. more than 2M',
+        more_than: 'It is recommended to use 4:3 images in jpg, gif, and png format, and the size of the image should not exceed 1M. It is recommended to use 4:3 images in jpg, gif, and png images of the address agency code certificate and tax registration certificate, and the size of the image must not exceed 2M',
         taxpayer_certificate: 'General taxpayer certificate',
         upload_organization: 'Enterprise three-in-one business license upload without organization code',
         enterprise_certificate: 'This item is required when the affiliated enterprise has a general taxpayer certificate',
@@ -1508,7 +1508,7 @@ const messages = {
           // organizationPhotos
           organization_code: 'အဖွဲ့အစည်းကုဒ်',
           Organization_certificate: 'အဖွဲ့အစည်းကုဒ်လက်မှတ် အီလက်ထရွန်းနစ်ဗားရှင်း',
-          more_than: '4:3 ပုံများကို jpg၊ gif နှင့် png ဖော်မတ်ဖြင့် အသုံးပြုရန်အကြံပြုထားပြီး၊ ပုံ၏အရွယ်အစားသည် 1M ထက်မပိုသင့်ပါ။ 2M ထက်မပိုသင့်ပါ',
+          more_than: '4:3 ပုံများကို jpg၊ gif နှင့် png ဖော်မတ်ဖြင့် အသုံးပြုရန်အကြံပြုထားပြီး၊ ပုံ၏အရွယ်အစားသည် 1M ထက်မပိုသင့်ပါ။ လိပ်စာအေဂျင်စီကုဒ်လက်မှတ်နှင့် အခွန်မှတ်ပုံတင်လက်မှတ်ပုံများကို jpg၊ gif နှင့် png ဖော်မတ်ဖြင့် အသုံးပြုရန်အကြံပြုထားပြီး၊ 2M ထက်မပိုသင့်ပါ',
           taxpayer_certificate: 'အထွေထွေအခွန်ထမ်းလက်မှတ်',
           upload_organization: 'အဖွဲ့အစည်းကုဒ်မပါဘဲ လုပ်ငန်းသုံးမျိုးတွင် လုပ်ငန်းလိုင်စင်ကို အပ်လုဒ်လုပ်ပါ',
           enterprise_certificate: 'တွဲဖက်လုပ်ငန်းတွင် အထွေထွေအခွန်ထမ်းသက်သေခံလက်မှတ်ရှိသည့်အခါ ဤအရာကို လိုအပ်ပါသည်',
@@ -1526,7 +1526,7 @@ const messages = {
           registration_code: 'အခွန်မှတ်ပုံတင်ကုဒ်',
           registration_number: 'အခွန်မှတ်ပုံတင်နံပါတ် ထည့်ပါ',
           certificate_number: 'အခွန်မှတ်ပုံတင်လက်မှတ်နံပါတ်၏ အီလက်ထရွန်းနစ်ဗားရှင်း',
-          settlement_account: 'အခြေချခြင်း (ဘဏ်ကတ်) အကောင့်အချက်အလက်',
+          settlement_account: '​​ငွေ​တောင်းခံခြင်း (ဘဏ်ကတ်) အကောင့်အချက်အလက်',
           billing_account: 'ငွေတောင်းခံခြင်း အကောင့်အချက်အလက်',
           payment_account: 'ငွေပေးချေမှုအကောင့်',
           tax_registration: 'အခွန်မှတ်ပုံတင်လက်မှတ်',
@@ -1542,7 +1542,7 @@ const messages = {
           submit_application: 'လျှောက်လွှာတင်ပါ',
           category_mall: 'စတိုးဆိုင်၏ လုပ်ငန်းအမျိုးအစားသည် ကုန်တိုက်၏ ထုတ်ကုန်အမျိုးအစားဖြစ်သည်။ ကျေးဇူးပြု၍ လုပ်ငန်းလည်ပတ်မှုအခြေအနေအရ တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော လုပ်ငန်းအမျိုးအစားများကို ထည့်ပါ',
           information_enterprise: 'entry information-enterprise ကိုဖြည့်ပါ',
-          operation_information: 'လည်ပတ်မှုအချက်အလက်ကို သိမ်းဆည်းပါ',
+          operation_information: 'လုပ်ငန်းလည်ပတ်မှုအချက်အလက်',
           // settledAgreementSuc
           opening_successfully: 'စတိုးဆိုင်ဖွင့်ရန် လျှောက်လွှာတင်ပြီးပါပြီ',
           application_successfully: 'သင့်စတိုးဆိုင်လျှောက်လွှာကို အောင်မြင်စွာ တင်သွင်းပြီးပါပြီ',
