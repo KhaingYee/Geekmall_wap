@@ -505,6 +505,20 @@ const messages = {
         category_mall: 'The business category of the store is the product category of the mall. Please add one or more business categories according to the actual operation situation.',
         information_enterprise: 'Fill in the entry information-enterprise',
         operation_information: 'Store operation information',
+        // settledAgreementSuc
+        opening_successfully: 'Opening a store has been submitted successfully',
+        application_successfully: 'Your store application has been successfully submitted',
+        working_days: 'We will complete the review within 3 working days (excluding national statutory holidays) and notify you by SMS or email',
+        also_log: 'You can also log in',
+        entry_center: 'Merchant entry center',
+        timehant: 'Check the audit status in time',
+        paid_offline: 'Store usage fee and security deposit need to be paid offline',
+        confirmation: 'Please contact 400-168-1698 for confirmation.',
+        website_customer: 'If you have any questions, please contact the website customer service.',
+        application_canceled: 'Application canceled',
+        view_progress: 'View progress',
+        // agreement_detail
+        agreement_details: 'Agreement Details',
       }
     },
     Chinese: {
@@ -1010,6 +1024,20 @@ const messages = {
         category_mall: '店铺经营类目为商城产品分类，请根据实际运营情况添加一个或多个经营类目',
         information_enterprise: '填写入驻资料-企业',
         operation_information: '店铺经营信息',
+        // settledAgreementSuc
+        opening_successfully: '开店申请提交成功',
+        application_successfully: '您的开店申请已成功提交',
+        working_days: '我们将在3个工作日内（不包括国家法定假期）,完成审核并短信或邮件的方式通知您 ',
+        also_log: '您也可以登录',
+        entry_center: '商家入驻中心',
+        timehant: '及时查看审核状态',
+        paid_offline: '店铺使用费及保证金需线下缴费',
+        confirmation: '请您联系400-168-1698进行确认打垮事宜。',
+        website_customer: '如有疑问请联系网站客服。',
+        application_canceled: '撤销申请',
+        view_progress: '查看进度',
+        // agreement_detail
+        agreement_details: '协议详情',
       }
     },
     Myanmar: {
@@ -1515,6 +1543,20 @@ const messages = {
           category_mall: 'စတိုးဆိုင်၏ လုပ်ငန်းအမျိုးအစားသည် ကုန်တိုက်၏ ထုတ်ကုန်အမျိုးအစားဖြစ်သည်။ ကျေးဇူးပြု၍ လုပ်ငန်းလည်ပတ်မှုအခြေအနေအရ တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော လုပ်ငန်းအမျိုးအစားများကို ထည့်ပါ',
           information_enterprise: 'entry information-enterprise ကိုဖြည့်ပါ',
           operation_information: 'လည်ပတ်မှုအချက်အလက်ကို သိမ်းဆည်းပါ',
+          // settledAgreementSuc
+          opening_successfully: 'စတိုးဆိုင်ဖွင့်ရန် လျှောက်လွှာတင်ပြီးပါပြီ',
+          application_successfully: 'သင့်စတိုးဆိုင်လျှောက်လွှာကို အောင်မြင်စွာ တင်သွင်းပြီးပါပြီ',
+          working_days: 'ကျွန်ုပ်တို့သည် အလုပ်ချိန် 3 ရက်အတွင်း (နိုင်ငံတော်တရားဝင်ရုံးပိတ်ရက်များအပါအဝင်) ပြန်လည်သုံးသပ်မှုကို အပြီးသတ်ပြီး SMS သို့မဟုတ် အီးမေးလ်ဖြင့် သင့်အား အကြောင်းကြားပါမည်',
+          also_log: 'သင်သည်လည်းဝင်ရောက်နိုင်သည်',
+          entry_center: 'ကုန်သည်အဝင်အထွက်စင်တာ',
+          timehant: 'စာရင်းစစ်အခြေအနေကို အချိန်မီစစ်ဆေးပါ',
+          paid_offline: 'စတိုးဆိုင်အသုံးပြုခနှင့် လုံခြုံရေးအပ်ငွေကို အော့ဖ်လိုင်းပေးဆောင်ရန် လိုအပ်သည်',
+          confirmation: 'အတည်ပြုချက်အတွက် 400-168-1698 သို့ ဆက်သွယ်ပါ',
+          website_customer: 'သင့်တွင်မေးခွန်းများရှိပါက၊ ကျေးဇူးပြု၍ ဝဘ်ဆိုက်ဖောက်သည်ဝန်ဆောင်မှုကို ဆက်သွယ်ပါ',
+          application_canceled: 'လျှောက်လွှာကို ပယ်ဖျက်လိုက်ပါပြီ',
+          view_progress: 'တိုးတက်မှုကိုကြည့်ပါ',
+          // agreement_detail
+          agreement_details: 'သဘောတူညီချက်အသေးစိတ်',
           }
     }
   };

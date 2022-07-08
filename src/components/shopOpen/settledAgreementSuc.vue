@@ -1,20 +1,20 @@
 <template>
   <div>
-       <div v-title data-title="开店申请提交成功">开店申请提交成功</div>
+       <div v-title data-title="开店申请提交成功">{{$t('message.opening_successfully')}}</div>
       <top-header :text = "title"></top-header>
       <div class="box">
         <img class="agreementSuc" :src="img" alt="">
-        <h4>您的开店申请已成功提交</h4>
+        <h4>{{$t('message.application_successfully')}}</h4>
         <p>
           
           
-          我们将在3个工作日内（不包括国家法定假期）,完成审核并短信或邮件的方式通知您 <br/> 
-          您也可以登录<span class="shopIn">商家入驻中心</span> 及时查看审核状态；<br/>
-          店铺使用费及保证金需线下缴费，     请您联系400-168-1698进行确认打垮事宜。 <br/>
-          如有疑问请联系网站客服。
+          {{$t('message.working_days')}} <br/> 
+          {{$t('message.also_log')}}<span class="shopIn">{{$t('message.entry_center')}}</span> {{$t('message.timehant')}}；<br/>
+          {{$t('message.paid_offline')}}，     {{$t('message.confirmation')}} <br/>
+          {{$t('message.website_customer')}}
         </p>
-        <button class="btnOk btn1" @click="reback">撤销申请</button>
-        <button class="btnNo btn2" @click="toProgress">查看进度</button>
+        <button class="btnOk btn1" @click="reback">{{$t('message.application_canceled')}}</button>
+        <button class="btnNo btn2" @click="toProgress">{{$t('message.view_progress')}}</button>
       </div>
   </div>
 </template>
@@ -23,7 +23,7 @@ import topHeader from '@/components/page/children/header.vue';
 export default {
   data () {
       return {
-          title:'开店申请提交成功',
+          title:this.$t('message.opening_successfully'),
           img:require('@/assets/images/agreementSuc.jpg')
       }
   },
@@ -56,6 +56,7 @@ export default {
       font-size: 36/100rem;
       margin: 25/100rem 0 40/100rem;
       font-weight: 600;
+      text-align: center;
   }
   p{
       color:#989898;

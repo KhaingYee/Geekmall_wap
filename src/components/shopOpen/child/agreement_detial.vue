@@ -16,7 +16,7 @@
         name : 'notice_child',
         data(){
             return {
-                text:'协议详情',
+                text:this.$t('message.agreement_details'),
                 content:''
             }
         },
