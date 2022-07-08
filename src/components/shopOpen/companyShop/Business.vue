@@ -5,40 +5,40 @@
 		<con-header :text="text[0]"></con-header>
 		<ul class="per-center">
 			<li>
-				<span> 商家账号：</span><input type="text" placeholder="请输入商家账号" v-model="shop_account">
+				<span> {{$t('message.merchant_account')}}：</span><input type="text" :placeholder="$t('message.enter_merchant')" v-model="shop_account">
 			</li>
 			<li>
 				<a href="javascript:;" @click="levChoose">
-					<span> 店铺等级:</span>
+					<span> {{$t('message.store_level')}}:</span>
 					<span v-model="level_id">{{toke}}</span>
 					<img class="rightImg" src="../../../assets/images/right-icon.png" alt="">
 				</a>
 				<mt-popup v-model="popupVisible1" position="bottom" class="tol">
 					<div class="picker-toolbar">
-						<span class="mint-datetime-action mint-datetime-cancel" @click="cancleaddress">取消</span>
-						<span class="mint-datetime-action mint-datetime-confirm" @click="selectaddress">确定</span>
+						<span class="mint-datetime-action mint-datetime-cancel" @click="cancleaddress">{{$t('message.cancel')}}</span>
+						<span class="mint-datetime-action mint-datetime-confirm" @click="selectaddress">{{$t('message.sure')}}</span>
 					</div>
 					<ul>
 						<li class="l" v-for="(levels,index) in level" @click="choose(index)" :key="index">
-							商家等级：{{levels.level_name}}
+							{{$t('message.merchant_level')}}：{{levels.level_name}}
 						</li>
 					</ul>
 				</mt-popup>
 			</li>
 			<li>
 				<a href="javascript:;" @click="chokes">
-					<span> 开店时长:</span>
+					<span> {{$t('message.store_time')}}:</span>
 					<span v-model="shop_long">{{year}}</span>
 					<img class="rightImg" src="../../../assets/images/right-icon.png" alt="">
 				</a>
 				<mt-popup v-model="popupVisible3" position="bottom" class="tol">
 					<div class="picker-toolbar">
-						<span class="mint-datetime-action mint-datetime-cancel" @click="can">取消</span>
-						<span class="mint-datetime-action mint-datetime-confirm" @click="sel">确定</span>
+						<span class="mint-datetime-action mint-datetime-cancel" @click="can">{{$t('message.cancel')}}</span>
+						<span class="mint-datetime-action mint-datetime-confirm" @click="sel">{{$t('message.sure')}}</span>
 					</div>
 					<ul class="time-length">
 						<li class="l" v-for="(n,index) in years" @click="choke(index)" :key="index">
-							开店时长：{{n}}
+							{{$t('message.store_time')}}：{{n}}
 						</li>
 					</ul>
 				</mt-popup>
@@ -48,15 +48,15 @@
 		<ul class="per-center">
 			<li class="listHead">
 				<a href="javascript:;" @click="divides">
-					<span> 店铺分类:</span>
+					<span> {{$t('message.Store_Category')}}:</span>
 					<span v-model="shop_class">{{divide}}</span>
 					<img class="rightImg" src="../../../assets/images/right-icon.png" alt="">
 				</a>
 			</li>
 			<mt-popup v-model="popupVisible2" position="bottom" class="tol">
 				<div class="picker-toolbar">
-					<span class="mint-datetime-action mint-datetime-cancel" @click="cancl">取消</span>
-					<span class="mint-datetime-action mint-datetime-confirm" @click="select">确定</span>
+					<span class="mint-datetime-action mint-datetime-cancel" @click="cancl">{{$t('message.cancel')}}</span>
+					<span class="mint-datetime-action mint-datetime-confirm" @click="select">{{$t('message.sure')}}</span>
 				</div>
 				<ul>
 					<li class="l" v-for="(datas,index) in data" @click="chose(index)" :key="index">
@@ -67,18 +67,18 @@
 		</ul>
 		<con-header :text="text[2]"></con-header>
 		<ul class="per-center">
-			<p class="little-hint"><i>*</i> 绑定分类后才有对应的分类规格</p>
+			<p class="little-hint"><i>*</i> {{$t('message.classification_bound')}}</p>
 			<li class="listHead" v-for="(item,index) in goods_class" :key="item.id">
 				<i class="delete" v-if="goods_class.length !=1" @click="del(index)"></i>
 				<a href="javascript:;" @click="management(index)">
-					<span> 经营分类:</span>
+					<span> {{$t('message.business_classification')}}:</span>
 					<span class="content">{{item.content}}</span>
 					<img class="rightImg" src="../../../assets/images/right-icon.png" alt="">
 				</a>
 				<mt-popup v-model="item.popupVisible" position="bottom" class="tol">
 					<div class="picker-toolbar">
-						<span class="mint-datetime-action mint-datetime-cancel" @click="manageCancl(index)">取消</span>
-						<span class="mint-datetime-action mint-datetime-confirm" @click="manageSelect(index)">确定</span>
+						<span class="mint-datetime-action mint-datetime-cancel" @click="manageCancl(index)">{{$t('message.cancel')}}</span>
+						<span class="mint-datetime-action mint-datetime-confirm" @click="manageSelect(index)">{{$t('message.sure')}}</span>
 					</div>
 					<div class="select">
 						<ul class="address-area-tit">
@@ -124,9 +124,9 @@
 				</mt-popup>
 			</li>
 		</ul>
-		<div class="add-category" @click="addCategory">选择增加类目</div>
-		<button @click="nextinfor">提交申请</button>
-		<p>店铺经营类目为商城产品分类，请根据实际运营情况添加一个或多个经营类目</p>
+		<div class="add-category" @click="addCategory">{{$t('message.choose_category')}}</div>
+		<button @click="nextinfor">{{$t('message.submit_application')}}</button>
+		<p>{{$t('message.category_mall')}}</p>
 	</div>
 </template>
 <script>
@@ -137,8 +137,8 @@
 	export default {
 		data() {
 			return {
-				title: '填写入驻资料-企业',
-				text: ['店铺经营信息', '店铺分类','经营分类'],
+				title: this.$t('message.information_enterprise'),
+				text: [this.$t('message.operation_information'), this.$t('message.Store_Category'),this.$t('message.business_classification')],  
 				shop_account: "",
 				level_id: "",
 				shop_long: "",
@@ -160,10 +160,10 @@
 				choiceProvince: false, // 省按钮的显示隐藏
                 choiceCity: false, // 市按钮的显示隐藏
                 choiceArea: false, // 区按钮的显示隐藏
-				province: '请选择',    // 选中的省
-                city: '请选择', // 选中的市
-                area: '请选择', // 选中的区
-                street:'请选择',//选中的街道
+				province: this.$t('message.please_choose'),    // 选中的省   
+                city: this.$t('message.please_choose'), // 选中的市
+                area: this.$t('message.please_choose'), // 选中的区
+                street:this.$t('message.please_choose'),//选中的街道
                 showProvince: true, // 省选择的显示隐藏
                 showCity: false, // 市选择的显示隐藏
                 showArea: false, // 区选择的显示隐藏
@@ -528,9 +528,10 @@
 			align-items: center;
 			font-size: 28/100rem;
 			padding: 0 20/100rem;
+			line-height: .4rem;
 			span {
 				width: 100px;
-				font-size: 32/100rem;
+				font-size: 30/100rem;
 				color: #BDBDBD
 			}
 			.mint-datetime-action{

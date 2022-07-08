@@ -492,6 +492,19 @@ const messages = {
         billing_account: 'Billing Account Information',
         payment_account: 'Payment account',
         tax_registration: 'tax registration certificate',
+        // companyShop/business
+        merchant_account: 'Merchant account',
+        enter_merchant: 'Please enter a merchant account',
+        store_level: 'Store level',
+        merchant_level: 'Merchant level',
+        store_time: 'Store opening time',
+        classification_bound: 'After the classification is bound, there is a corresponding classification specification',
+        business_classification: 'Business classification',
+        choose_category: 'Choose to add a category',
+        submit_application: 'submit application',
+        category_mall: 'The business category of the store is the product category of the mall. Please add one or more business categories according to the actual operation situation.',
+        information_enterprise: 'Fill in the entry information-enterprise',
+        operation_information: 'Store operation information',
       }
     },
     Chinese: {
@@ -984,6 +997,19 @@ const messages = {
         billing_account: '结算账户信息',
         payment_account: '打款帐号',
         tax_registration: '税务登记证',
+        // companyShop/business
+        merchant_account: '商家账号',
+        enter_merchant: '请输入商家账号',
+        store_level: '店铺等级',
+        merchant_level: '商家等级',
+        store_time: '开店时长',
+        classification_bound: '绑定分类后才有对应的分类规格',
+        business_classification: '经营分类',
+        choose_category: '选择增加类目',
+        submit_application: '提交申请',
+        category_mall: '店铺经营类目为商城产品分类，请根据实际运营情况添加一个或多个经营类目',
+        information_enterprise: '填写入驻资料-企业',
+        operation_information: '店铺经营信息',
       }
     },
     Myanmar: {
@@ -1476,6 +1502,19 @@ const messages = {
           billing_account: 'ငွေတောင်းခံခြင်း အကောင့်အချက်အလက်',
           payment_account: 'ငွေပေးချေမှုအကောင့်',
           tax_registration: 'အခွန်မှတ်ပုံတင်လက်မှတ်',
+          // companyShop/business
+          merchant_account: 'ကုန်သည် အကောင့်',
+          enter_merchant: 'ကျေးဇူးပြု၍ကုန်သည်အကောင့်ကိုထည့်ပါ',
+          store_level: 'စတိုးဆိုင်အဆင့်',
+          merchant_level: 'ကုန်သည်အဆင့်',
+          store_time: 'ဆိုင်ဖွင့်ချိန်',
+          classification_bound: 'အမျိုးအစားခွဲခြားသတ်မှတ်ပြီးနောက်၊ သက်ဆိုင်ရာအမျိုးအစားခွဲခြားသတ်မှတ်မှုတစ်ခုရှိသည်',
+          business_classification: 'လုပ်ငန်းအမျိုးအစားခွဲခြားခြင်',
+          choose_category: 'အမျိုးအစားတစ်ခုထည့်ရန် ရွေးချယ်ပါ',
+          submit_application: 'လျှောက်လွှာတင်ပါ',
+          category_mall: 'စတိုးဆိုင်၏ လုပ်ငန်းအမျိုးအစားသည် ကုန်တိုက်၏ ထုတ်ကုန်အမျိုးအစားဖြစ်သည်။ ကျေးဇူးပြု၍ လုပ်ငန်းလည်ပတ်မှုအခြေအနေအရ တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော လုပ်ငန်းအမျိုးအစားများကို ထည့်ပါ',
+          information_enterprise: 'entry information-enterprise ကိုဖြည့်ပါ',
+          operation_information: 'လည်ပတ်မှုအချက်အလက်ကို သိမ်းဆည်းပါ',
           }
     }
   };
